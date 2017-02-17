@@ -4,7 +4,7 @@ close all
 % %Space state model
 d = 0.5;    %dumping 
 m = 0.1;    %mass
-
+%a
 %Declare the matrices
 A = [ 0 1; 0 -d/m];
 B = [0 ; 1/m];
