@@ -38,7 +38,7 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
     [complexVec,gainsVec] = rlocus(G);
     %Compute the distance to every possible value of the poles of G to see
     %if the calculated pole is part of the rlocus
-    minDist = abs(min(min(dist(double(poleD),complexVec))));
+    minDist = abs(min(min(dist(double(poleD(1)),complexVec(1)))));
     
     if minDist <= Thres
         %We dont need derivative action
@@ -60,7 +60,7 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
                 modZeros(i) = sqrt(double((-Zeros_vec(i,2) + pdVec(2))^2 + (-Zeros_vec(i,1) + pdVec(1))^2));
             end
         end
-        modZeros(size(Zeros_vec,1) + 1) = sqrt(double((pdVec(2))^2 + (-Dzero + pdVec(1))^2))
+        modZeros(size(Zeros_vec,1) + 1) = sqrt(double((pdVec(2))^2 + (-Dzero + pdVec(1))^2));
         %The gain is then 
         Pnum = 1;
         for i = 1:size(modPoles,2)
@@ -91,9 +91,14 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
         %Lets calculate the position of the zero of the derivative part
         %We need to study the angles regarded to the dominant pole
         anglesPoles(1) = 0;
+        Poles_vec
+        pdVec
         for i = 1:size(Poles_vec,1)
             if Poles_vec(i,2) >= 0
                 anglesPoles(i) = rad2deg(double(atan((-Poles_vec(i,2) + pdVec(2))/(-Poles_vec(i,1) + pdVec(1)))));
+                if anglesPoles(i) < 0
+                    anglesPoles(i) = 180 + anglesPoles(i);
+                end
             end
         end
         %We need to study the angles regarded to the dominant pole
@@ -101,6 +106,9 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
         for i = 1:size(Zeros_vec,1)
             if Zeros_vec(i,2) >= 0
                 anglesZeros(i) = rad2deg(double(atan((-Zeros_vec(i,2) + pdVec(2))/(-Zeros_vec(i,1) + pdVec(1)))));
+                if anglesZeros(i) < 0
+                    anglesZeros(i) = 180 + anglesZeros(i);
+                end
             end
         end
         anglePD = 180;
@@ -111,7 +119,6 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
             anglePD = anglePD + anglesZeros(i);
         end
         Dzero = -pdVec(1) + pdVec(2)/tan(anglePD);
-        
         %Now that we have the needed zero, we calculate the Gain using the
         %module theorem.
         %We need the modules now
@@ -128,7 +135,7 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
                 modZeros(i) = sqrt(double((-Zeros_vec(i,2) + pdVec(2))^2 + (-Zeros_vec(i,1) + pdVec(1))^2));
             end
         end
-        modZeros(size(Zeros_vec,1) + 1) = sqrt(double((pdVec(2))^2 + (-Dzero + pdVec(1))^2))
+        modZeros(size(Zeros_vec,1) + 1) = sqrt(double((pdVec(2))^2 + (-Dzero + pdVec(1))^2));
         %The gain is then 
         Pnum = 1;
         for i = 1:size(modPoles,2)

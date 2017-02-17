@@ -1,3 +1,5 @@
+syms s;
+
 R = 112;
 L = 0;
 Kemf = 1/(137*2*pi/60);
@@ -36,6 +38,10 @@ B = [0; Km/(R*Jeq)];
 C = [1/n 0; 0 1/n];
 D = [0; 0];
 
+Ain = s*(s + dm/Jeq + Km*Kemf/(R*Jeq));
+Bin = Km/(R*Jeq);
+Bin0 = Km/(R*Jeq);
+sysOrd = 2;
 % State space model
 Sys = ss(A,B,C,D);
 G = tf(Sys);
@@ -52,17 +58,21 @@ Gspos = G(1);
 tr_max = 0.3 + 0.05;
 tr_min = 0.3 - 0.05;
 %Overshoot = 2%;
-Mp = 0.02
+Mp = 0.02;
 %Error = 0.5%
 ess = 0.005;
 %Change the format of the transfer function
 [Zeros,Poles,Gain] = zpkdata(Gspos);
-Gzpk = zpk(Zeros,Poles,Gain);
+Gzpk = zpk([],[0 -4.5],36);
 %Calculate the PID
-[PID_R, pd] = PID_cont_calc(Mp,tr_max,-1,ess,Gzpk);
+[PID_T, PID_R, pd, P, D, I, N, t0] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin,Bin0, sysOrd);
+% %Slides model
+ggt = tf([double((D*N+P)) double(N*P)],[1 double(N)])
+ggt = tf([t0 wn*t0],[1 double(N)
 %Final system
-RG = feedback(PID_R*Gzpk,1);
-
+rlocus(ggt*Gzpk)
+RG = PID_T*feedback(Gzpk,ggt);
+step(4*RG)
 %The error is going to be always zero as the Kp = inf;
 %We need a PD.
 % 

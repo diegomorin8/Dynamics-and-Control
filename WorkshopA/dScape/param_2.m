@@ -67,14 +67,11 @@ Mp = 0.02;
 ess = 0.005;
 %Change the format of the transfer function
 [Zeros,Poles,Gain] = zpkdata(Gspos);
-Gzpk = zpk(Zeros, Poles, Gain);
+Gzpk = zpk(Zeros,Poles,Gain);
 %Calculate the PID
-[PID_T, PID_R, pd, P, D, I, N, t0, wn] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin,Bin0, sysOrd);
-% %Slides model
-% ggr = tf([double((D*N+P)) double(N*P)],[1 double(N)])
-% ggt = tf([t0 wn*t0],[1 double(N)])
+[PID_R, pd] = PID_cont_calc(Mp,tr_max,-1,ess,Gzpk);
 %Final system
-rlocus(PID_R*Gzpk);
+rlocus(Gzpk*PID_R);
 RG = feedback(Gzpk*PID_R,1);
 step(RG)
 %The error is going to be always zero as the Kp = inf;
