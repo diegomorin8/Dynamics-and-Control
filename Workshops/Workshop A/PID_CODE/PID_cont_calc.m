@@ -33,14 +33,39 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
         return;
     end
     
+    [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
-    %We calculate the rlocus
-    [complexVec,gainsVec] = rlocus(G);
-    %Compute the distance to every possible value of the poles of G to see
-    %if the calculated pole is part of the rlocus
-    minDist = abs(min(min(dist(double(poleD(1)),complexVec(1)))));
-    
-    if minDist <= Thres
+    Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
+    Zeros_vec = [real(Zeros{1,1}) imag(Zeros{1,1})];
+    %Lets calculate the position of the zero of the derivative part
+    %We need to study the angles regarded to the dominant pole
+    anglesPoles(1) = 0;
+    for i = 1:size(Poles_vec,1)
+        if Poles_vec(i,2) >= 0
+            anglesPoles(i) = rad2deg(double(atan((-Poles_vec(i,2) + pdVec(2))/(-Poles_vec(i,1) + pdVec(1)))));
+            if anglesPoles(i) < 0
+                anglesPoles(i) = 180 + anglesPoles(i);
+            end
+        end
+    end
+    %We need to study the angles regarded to the dominant pole
+    anglesZeros(1) = 0;
+    for i = 1:size(Zeros_vec,1)
+        if Zeros_vec(i,2) >= 0
+            anglesZeros(i) = rad2deg(double(atan((-Zeros_vec(i,2) + pdVec(2))/(-Zeros_vec(i,1) + pdVec(1)))));
+            if anglesZeros(i) < 0
+                anglesZeros(i) = 180 + anglesZeros(i);
+            end
+        end
+    end
+    anglePD = 0;
+    for i = 1:size(anglesPoles,2)
+        anglePD = anglePD - anglesPoles(i);
+    end
+    for i = 1:size(anglesZeros,2)
+        anglePD = anglePD + anglesZeros(i);
+    end
+    if anglePD <= Thres && anglePD >= -Thres
         %We dont need derivative action
         %we need derivative action
         [Zeros,Poles,Gain] = zpkdata(G);
@@ -91,8 +116,6 @@ function [R_PID, poleD] = PID_cont_calc( Mp, tr, ts, ess, G )
         %Lets calculate the position of the zero of the derivative part
         %We need to study the angles regarded to the dominant pole
         anglesPoles(1) = 0;
-        Poles_vec
-        pdVec
         for i = 1:size(Poles_vec,1)
             if Poles_vec(i,2) >= 0
                 anglesPoles(i) = rad2deg(double(atan((-Poles_vec(i,2) + pdVec(2))/(-Poles_vec(i,1) + pdVec(1)))));

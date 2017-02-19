@@ -1,3 +1,5 @@
+close all;
+
 R = 112;
 L = 0;
 Kemf = 1/(137*2*pi/60);
@@ -36,46 +38,67 @@ Bin0 = Km/(R*Jeq);
 % Bin = 36;
 % Bin0 = 36;
 
-sysOrd = 2;
-
 % State space model
 Sys = ss(A,B,C,D);
 G = tf(Sys);
 Gspeed = G(2);
 Gspos = G(1);
 
+%Specifications PID controllers
+PID_specs;
+
 %Discrete
-% Gspeed_z = c2d(Gspeed,Ts,'zoh');
-% [B,A] = tfdata(Gspeed_z);
-% syms z;
-% Az = A{1,1}(1)*z + A{1,1}(2);
-% Bz = B{1,1}(1)*z + B{1,1}(2);
 
-%Specifications PID continuous case
+%Discretization
+Gspeed_z = c2d(Gspeed,Ts,'zoh');
+Gpos_z = c2d(Gspos,Ts,'zoh');
 
-%tr = 0.03 +- 0.05
-tr_max = 0.3 + 0.05;
-tr_min = 0.3 - 0.05;
+%Get the num and den
+[B,A] = tfdata(Gspeed_z);
+syms z;
+Azspeed = A{1,1}(1)*z + A{1,1}(2);
+Bzspeed = B{1,1}(1)*z + B{1,1}(2);
+Bz0 = Bzspeed; 
 
-%Overshoot = 2%;
-Mp = 0.02;
+%Set the order
+sysOrdZ = size(A{1,1},2) - 1;
+%PID discrete speed tuning
+%Calculate the PID
+[PID_Rsd, pdsd, Psd, Dsd, Isd, Nsd] = PID_calc_disc(Mpz,trz,tsz,essz,Gspeed_z, Azspeed, Bzspeed,Bz0, sysOrdZ, Ts);
 
-%Error = 0.5%
-ess = 0.005;
+%Final system
+figure;
+RG = feedback(Gspeed_z*PID_Rsd,1);
+subplot(1,2,1); rlocus(Gspeed_z*PID_Rsd);
+subplot(1,2,2); step(RG);
+
+%Get the num and den of the pos
+[B,A] = tfdata(Gpos_z);
+Azpos = A{1,1}(1)*z*z + A{1,1}(2)*z + A{1,1}(3);
+Bzpos = B{1,1}(1)*z*z + B{1,1}(2)*z + B{1,1}(3);
+%Set the order
+sysOrdZ = size(A{1,1},2) - 1;
+%PID discrete speed tuning
+%Calculate the PID
+[PID_Rpd, pdpd, Ppd, Dpd, Ipd, Npd] = PID_calc_disc(Mppz,trpz,tspz,esspz,Gpos_z, Azpos, Bzpos ,Bz0, sysOrdZ, Ts);
+
+%Final system
+figure;
+RG = feedback(Gpos_z*PID_Rpd,1);
+subplot(1,2,1); rlocus(Gpos_z*PID_Rpd);
+subplot(1,2,2); step(RG);
 
 %Change the format of the transfer function
 [Zeros,Poles,Gain] = zpkdata(Gspos);
 Gzpk = zpk(Zeros, Poles, Gain);
+sysOrd = size(Poles{1,1},1);
 
 %Calculate the PID
-[PID_T, PID_R, pd, P, D, I, N, t0, wn] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin,Bin0, sysOrd);
+[PID_R, pd, P, D, I, N] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin,Bin0, sysOrd);
 
-% %Slides model
-% ggr = tf([double((D*N+P)) double(N*P)],[1 double(N)])
-% ggt = tf([t0 wn*t0],[1 double(N)])
-
-%Final system
-rlocus(PID_R*Gzpk);
+% %Final system
+figure;
 RG = feedback(Gzpk*PID_R,1);
-step(RG)
+subplot(1,2,1); rlocus(Gzpk*PID_R);
+subplot(1,2,2); step(RG);
 
