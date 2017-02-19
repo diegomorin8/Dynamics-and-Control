@@ -1,0 +1,14 @@
+[System]
+Version=2.2
+SystemType=SingleProcessorSystem
+DAQService=HostService
+Status=Start
+RTP=Master
+
+[Master]
+Type=DS1104
+State=Enabled
+ServiceID=1
+BoardName=unknown
+File=mio.ppc
+ID=986BDA7D-7924-4C85-BCA5-9CDABDC925A2
