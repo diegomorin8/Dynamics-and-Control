@@ -1,8 +1,11 @@
-function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
+function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, ts, ess, G, A, B, Bin0, order )
     %Param
     syms s z D N P I;
-    Thres = 0.1
-    
+    Thres = 0.1;
+    Pn = 0; 
+    Dn = 0;
+    In = 0;
+    Nn = 0;
     
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
@@ -33,13 +36,14 @@ function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
         disp('Error no good parameters')
         return;
     end
-    
+%     wn = 10; 
+%     z_sol = 0.9;
     %Let see if need a derivative action
     %We calculate the rlocus
     [complexVec,gainsVec] = rlocus(G);
     %Compute the distance to every possible value of the poles of G to see
     %if the calculated pole is part of the rlocus
-    minDist = abs(min(min(dist(double(poleD),complexVec))));
+    minDist = abs(min(min(dist(double(poleD(1)),complexVec(1)))));
     
     if minDist <= Thres
         %We dont need derivative action
@@ -57,13 +61,13 @@ function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
         elseif order == 1
             Ad  = (s + wn);
         elseif order == 2
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn);
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn);
         elseif order == 3
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn)*(s + wn);
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
         elseif order == 4
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn)^2;
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
         end
-        [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s)) 
+        [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
         R_PID = Pn;
         [zR,pR,Kp] = zpkdata(G*P);
         Kp = Kp*prod(zR{1})/prod(pR{1});
@@ -76,14 +80,14 @@ function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
             if order == 0
                 Ad  = (s + wn);
             elseif order == 1
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn);
             elseif order == 2
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn)*(s + wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
             elseif order == 3
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn)^2;
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
             end
-            [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s)) 
-            R_PID = tf([1  double(Nn)],[double(Dn*Nn+Pn) double(Nn*Pn)])
+            [In,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+            R_PID = tf([double(Pn) double(In)],[1 0]);
         else
              R_PID = Pn; 
         end
@@ -95,20 +99,22 @@ function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
         Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
         Zeros_vec = [real(Zeros{1,1}) imag(Zeros{1,1})];
         %Lets calculate the position of the zero of the derivative part
-        S = s*D*N + s*P + P*N;
+        S = s*(D*N + P) + P*N;
         R = s + N;
         Acl =  A*R + B*S;
         if order == 0
             Ad  = (s + wn);
         elseif order == 1
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn);
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn);
         elseif order == 2
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn)*(s + wn);
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
         elseif order == 3
-            Ad  = (s^2 + 2*wn*z_sol + wn*wn)^2;
+            Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
         end
-        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s)) 
-        R_PID = tf([1  double(Nn)],[double(Dn*Nn+Pn) double(Nn*Pn)])
+        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+        R_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)]);
+        t0 = wn*wn/Bin0;
+        T_PID = tf([t0  wn*t0],[1  double(Nn)]);
         [zR,pR,Kp] = zpkdata(G*R_PID);
         Kp = Kp*prod(zR{1})/prod(pR{1});
         error = 1/(1 + Kp);
@@ -118,14 +124,14 @@ function [R_PID, poleD] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
             R = s*s + s*N;
             Acl =  A*R + B*S;
             if order == 0
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn);
             elseif order == 1
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn)*(s + wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
             elseif order == 2
-                Ad  = (s^2 + 2*wn*z_sol + wn*wn)^2;
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
             end
-            [Dn,In,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s)) 
-            R_PID = tf([1  double(Nn) 0],[double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)]);
+            [Dn,In,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+            R_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);
         else
             R_PID = R_PID ; 
         end
