@@ -1,4 +1,5 @@
 %% Init
+
 clear all;
 close all;
 clc;
@@ -24,6 +25,9 @@ B = [0; Km/(R*Jeq)];
 C = [1/n 0; 0 1/n];
 D = [0; 0];
 
+
+%% PID paramters
+
 %PID paramters - speed
 Psp = 1;
 Isp = 0;
@@ -40,64 +44,77 @@ Npos = 0;
 Sys = ss(A,B,C,D);
 G = tf(Sys);
 
+%Rename
 Gspeed = G(2);
 Gpos = G(1);
 
+%Get denominators and numerator os the transfer functions
 [num_pos,den_pos] = tfdata(Gpos);
 [num_s,den_s] = tfdata(Gspeed);
 
+%B/A format for PID tuning
 Ain_pos = s*s*den_pos{1,1}(1) + s*den_pos{1,1}(2) + den_pos{1,1}(3);
 Bin_pos = num_pos{1,1}(1)*s*s + num_pos{1,1}(2)*s + num_pos{1,1}(3);
 
 Ain_speed = s*den_s{1,1}(1) + den_s{1,1}(2);
 Bin_speed = s*num_s{1,1}(1) + num_s{1,1}(2);
 
-
+%% Speed P
 
 %Speed Proportional
+
 %Change the format of the transfer function
 [Zeros,Poles,Gain] = zpkdata(Gspeed);
 Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
-step_size = 20; %rad/s
+%Param choose
+Speed_ref_step = 20; %rad/s
+
+%For the first exercise, choose how much should the speed be decreased
 relative_ts = 0.9;
 
-G_NR_speed = feedback(Gspeed,1);
+%Feedback the model without controller
+G_NR_speed = Speed_ref_step*feedback(Gspeed,1);
 
-S1 = stepinfo(step_size*G_NR_speed);
+%Get main parameters of step response
+S1 = stepinfo(G_NR_speed);
 tr_speed = S1.RiseTime;
 Mp_speed = S1.Overshoot;
 ts_speed = S1.SettlingTime;
 rlocus(Gspeed)
 
+%Calculate the controler
 [P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,100,Gspeed,Ain_speed,Bin_speed,sysOrd);
 
+%Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
 Isp = double(I);
 Nsp = double(N);
 
-GP_speed = double(P_speed)*Gspeed;
-G_P_speed = feedback(double(P_speed)*Gspeed,1);
+%Feedback the system with the controller
+G_P_speed = Speed_ref_step*feedback(double(P_speed)*Gspeed,1);
 
-S2 = stepinfo(step_size*G_P_speed);
+%Get the step response info
+S2 = stepinfo(G_P_speed);
 tr_speed = S2.RiseTime;
 Mp_speed = S2.Overshoot;
 ts_speed = S2.SettlingTime;
 
+%Plot
 figure;
-step(step_size*G_P_speed)
+step(G_P_speed)
 hold on
-step(step_size*G_NR_speed)
+step(G_NR_speed)
 legend('show')
 hold off
 
+%Bode
 figure;
 bode(GP_speed);
 
-Speed_ref_step = 20;
-%Sin wave ref
+%Simulate in simulink
 Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
