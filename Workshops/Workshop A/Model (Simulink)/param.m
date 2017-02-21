@@ -64,7 +64,7 @@ Bz0 = Bzspeed;
 sysOrdZ = size(A{1,1},2) - 1;
 %PID discrete speed tuning
 %Calculate the PID
-[PID_Rsd, pdsd, Psd, Dsd, Isd, Nsd] = PID_calc_disc(Mpz,trz,tsz,essz,Gspeed_z, Azspeed, Bzspeed,Bz0, sysOrdZ, Ts);
+[PID_Rsd, pdsd, Psd, Dsd, Isd, Nsd] = PID_calc_disc(Mpz,trz,tsz,essz,Gspeed_z, Azspeed, Bzspeed, sysOrdZ, Ts);
 
 %Final system
 figure;
@@ -80,7 +80,7 @@ Bzpos = B{1,1}(1)*z*z + B{1,1}(2)*z + B{1,1}(3);
 sysOrdZ = size(A{1,1},2) - 1;
 %PID discrete speed tuning
 %Calculate the PID
-[PID_Rpd, pdpd, Ppd, Dpd, Ipd, Npd] = PID_calc_disc(Mppz,trpz,tspz,esspz,Gpos_z, Azpos, Bzpos ,Bz0, sysOrdZ, Ts);
+[PID_Rpd, pdpd, Ppd, Dpd, Ipd, Npd] = PID_calc_disc(Mppz,trpz,tspz,esspz,Gpos_z, Azpos, Bzpos , sysOrdZ, Ts);
 
 %Final system
 figure;
@@ -94,7 +94,7 @@ Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
 %Calculate the PID
-[PID_R, pd, P, D, I, N] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin,Bin0, sysOrd);
+[PID_R, pd, P, D, I, N] = PID_calc(Mp,tr_max,-1,ess,Gzpk, Ain, Bin, sysOrd);
 
 % %Final system
 figure;
