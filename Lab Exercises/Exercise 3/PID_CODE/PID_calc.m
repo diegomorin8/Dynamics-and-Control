@@ -101,9 +101,8 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
         end
         [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
         R_PID = Pn;
-        
         [zR,pR,Kp] = zpkdata(G*double(Pn));
-        Kp = Kp*prod(zR{1})/prod(pR{1});
+        Kp = Kp*prod((abs(zR{1}))/prod(abs(pR{1})))
         error = 1/(1 + Kp);
         if error > ess
             %We need integral action
