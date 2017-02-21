@@ -1,11 +1,12 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Exercise 1
+%% Init
 clear all;
 close all;
 clc;
 
+%Symbolic expressions
 syms s;
 
+%Parameters
 R = 112;
 L = 0;
 Kemf = 1/(137*2*pi/60);
@@ -22,6 +23,18 @@ A = [0 1; 0 -(dm/Jeq + Km*Kemf/(R*Jeq))];
 B = [0; Km/(R*Jeq)];
 C = [1/n 0; 0 1/n];
 D = [0; 0];
+
+%PID paramters - speed
+Psp = 1;
+Isp = 0;
+Dsp = 0;
+Nsp = 0;
+
+%PID paramters - pos
+Ppos = 1;
+Ipos = 0;
+Dpos = 0;
+Npos = 0;
 
 % State space model
 Sys = ss(A,B,C,D);
@@ -47,29 +60,48 @@ Bin_speed = s*num_s{1,1}(1) + num_s{1,1}(2);
 Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
+step_size = 20; %rad/s
+relative_ts = 0.9;
+
 G_NR_speed = feedback(Gspeed,1);
 
-S1 = stepinfo(G_NR_speed)
+S1 = stepinfo(step_size*G_NR_speed);
 tr_speed = S1.RiseTime;
 Mp_speed = S1.Overshoot;
 ts_speed = S1.SettlingTime;
 rlocus(Gspeed)
 
-[P_speed PD] = PID_calc(Mp_speed,-1,ts_speed,100,Gspeed,Ain_speed,Bin_speed,sysOrd);
+[P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,100,Gspeed,Ain_speed,Bin_speed,sysOrd);
 
+Psp = double(P);
+Dsp = double(D);
+Isp = double(I);
+Nsp = double(N);
+
+GP_speed = double(P_speed)*Gspeed;
 G_P_speed = feedback(double(P_speed)*Gspeed,1);
 
-S2 = stepinfo(G_P_speed);
+S2 = stepinfo(step_size*G_P_speed);
 tr_speed = S2.RiseTime;
 Mp_speed = S2.Overshoot;
 ts_speed = S2.SettlingTime;
 
 figure;
-step(G_P_speed)
+step(step_size*G_P_speed)
 hold on
-step(G_NR_speed)
+step(step_size*G_NR_speed)
 legend('show')
 hold off
+
+figure;
+bode(GP_speed);
+
+Speed_ref_step = 20;
+%Sin wave ref
+Freq = 0.2;
+Amplitude = 20;
+sim('SimLab3')
+
 
 
 

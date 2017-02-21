@@ -32,8 +32,8 @@ C = [1/n 0; 0 1/n];
 D = [0; 0];
 
 Ain = s*(s + dm/Jeq + Km*Kemf/(R*Jeq));
-Bin = Km/(R*Jeq);
-Bin0 = Km/(R*Jeq);
+Bin = Km/(R*Jeq*n);
+Bin0 = Km/(R*Jeq*n);
 % Ain = s*(s + 4.5);
 % Bin = 36;
 % Bin0 = 36;

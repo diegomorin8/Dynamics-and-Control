@@ -5,7 +5,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
     Pn = 0; 
     Dn = 0;
     In = 0;
-    Nn = 0;
+    Nn = 1;
     
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
@@ -15,8 +15,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         else 
             z_sol = 1;
         end
-        z_sol = vpa(solve(eqn,z));
-        wn = 4.6/ts*z_sol;
+        wn = 3.9/ts*z_sol;
         %The discrete dominant pole is then
         P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
         P0 = exp(-2*z_sol*wn*Ts);
@@ -41,7 +40,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         pdVec = [real(poleD(1)) imag(poleD(1))];
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
         wn = 1.8/tr;
-        z_sol = 4.6/ts*wn;
+        z_sol = 3.9/ts*wn;
         %The discrete dominant pole is then
         P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
         P0 = exp(-2*z_sol*wn*Ts);

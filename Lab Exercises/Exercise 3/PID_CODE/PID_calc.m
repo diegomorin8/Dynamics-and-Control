@@ -1,11 +1,11 @@
 function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
     %Param
     syms s z D N P I;
-    Thres = 1;
+    Thres = 0.1;
     Pn = 0; 
     Dn = 0;
     In = 0;
-    Nn = 0;
+    Nn = 1;
     
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
@@ -101,6 +101,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
         end
         [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
         R_PID = Pn;
+        
         [zR,pR,Kp] = zpkdata(G*double(Pn));
         Kp = Kp*prod(zR{1})/prod(pR{1});
         error = 1/(1 + Kp);
