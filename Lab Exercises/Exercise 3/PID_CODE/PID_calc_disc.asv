@@ -1,11 +1,11 @@
-function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, ts, ess, G, A, B, Bin0, order, Ts )
+function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, B, order, Ts )
     %Param
     syms s z D N P I;
     Thres = 0.1;
     Pn = 0; 
     Dn = 0;
     In = 0;
-    Nn = 0;
+    Nn = 1;
     
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
@@ -15,10 +15,12 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
         else 
             z_sol = 1;
         end
-        z_sol = vpa(solve(eqn,z));
-        wn = 4.6/ts*z_sol;
+        wn = 3.9/ts*z_sol;
+        %The discrete dominant pole is then
+        P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
+        P0 = exp(-2*z_sol*wn*Ts);
         %Get the poles
-        eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
+        eqn_p1 = s*s + P1*s + P0 == 0;
         poleD = vpa(solve(eqn_p1,s));
         pdVec = [real(poleD(1)) imag(poleD(1))];
     elseif Mp ~= -1 && tr ~= -1 && ts == -1
@@ -29,15 +31,21 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
             z_sol = 1;
         end
         wn = 1.8/tr;
+        %The discrete dominant pole is then
+        P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
+        P0 = exp(-2*z_sol*wn*Ts);
         %Get the poles
-        eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0
+        eqn_p1 = s*s + P1*s + P0 == 0;
         poleD = vpa(solve(eqn_p1,s));
         pdVec = [real(poleD(1)) imag(poleD(1))];
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
         wn = 1.8/tr;
-        z_sol = 4.6/ts*wn;
+        z_sol = 3.9/ts*wn;
+        %The discrete dominant pole is then
+        P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
+        P0 = exp(-2*z_sol*wn*Ts);
         %Get the poles
-        eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
+        eqn_p1 = s*s + P1*s + P0 == 0;
         poleD = vpa(solve(eqn_p1,s));
         pdVec = [real(poleD(1)) imag(poleD(1))];
     else
@@ -45,11 +53,6 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
         disp('Error no good parameters')
         return;
     end
-    
-    %The discrete dominant pole is then
-    P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
-    P0 = exp(-2*z_sol*wn*Ts);
-    
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
@@ -82,7 +85,6 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
     for i = 1:size(anglesZeros,2)
         anglePD = anglePD + anglesZeros(i);
     end
-    anglePD
     if anglePD <= Thres && anglePD >= -Thres
         %We dont need derivative action
         %we need derivative action
@@ -106,8 +108,17 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
             Ad  = (z^2 + P1*z + P0)^2;
         end
         [Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-        R_PID = Pn;
-        [zR,pR,Kp] = zpkdata(G*P);
+        if isempty(Pn)
+            disp(' Not possible to satisfy the dynamics conditions ')
+            R_PID = 1;
+            Pn = 1;
+            Dn = 0;
+            In = 0; 
+            Nn = 0;
+            return
+        end
+        R_PID = tf(double(Pn),1,Ts);
+        [zR,pR,Kp] = zpkdata(G*R_PID);
         Kp = Kp*prod(zR{1})/prod(pR{1});
         error = 1/(1 + Kp);
         if error > ess
@@ -125,9 +136,7 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
                 Ad  = (z^2 + P1*z + P0)^2;
             end
             [In,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-            R_PID = tf([double(Pn) double(In)],[1 0]);
-        else
-             R_PID = Pn; 
+            R_PID = tf([double(Pn) double(In)],[1 0],Ts);
         end
     else
         %Lets calculate the position of the zero of the derivative part
@@ -144,26 +153,24 @@ function [T_PID, R_PID, poleD, Pn, Dn, In, Nn, t0, wn] = PID_calc_disc( Mp, tr, 
             Ad  = (z^2 + P1*z + P0)^2;
         end
         [Dn,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-        R_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)]);
-        t0 = wn*wn/Bin0;
-        T_PID = tf([t0  wn*t0],[1  double(Nn)]);
+        R_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)],Ts);
         [zR,pR,Kp] = zpkdata(G*R_PID);
         Kp = Kp*prod(zR{1})/prod(pR{1});
         error = 1/(1 + Kp);
         if error > ess
             %We need integral action
-            S = (z-1)*(z_1)*D*N + (z-1)*(z-1)*P + (z-1)*(I*Ts + N*P*Ts) + N*Ts*I*Ts;
-            R = (z-1)*(z_1) + (z-1)*Ts*N;
+            S = (z-1)*(z-1)*D*N + (z-1)*(z-1)*P + (z-1)*(I*Ts + N*P*Ts) + N*Ts*I*Ts;
+            R = (z-1)*(z-1) + (z-1)*Ts*N;
             Acl =  A*R + B*S;
             if order == 0
                 Ad  = (z^2 + P1*z + P0);
             elseif order == 1
-                Ad  = (s^2 + P1*z + P0)*(s + P0);
+                Ad  = (z^2 + P1*z + P0)*(z + P0);
             elseif order == 2
-                Ad  = (^2 + P1*z + P0)^2;
+                Ad  = (z^2 + P1*z + P0)^2;
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-            R_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);
+            R_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0],Ts);
         else
             R_PID = R_PID ; 
         end

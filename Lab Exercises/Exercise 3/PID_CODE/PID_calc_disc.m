@@ -7,6 +7,9 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
     In = 0;
     Nn = 1;
     
+    %Thumb rule
+    max_wn = 2*pi/(10*Ts);
+    min_wn = 2*pi/(30*Ts);
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
         if Mp > 0
@@ -16,6 +19,11 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
             z_sol = 1;
         end
         wn = 3.9/ts*z_sol;
+        if wn >= max_wn
+            wn = max_wn;
+        elseif wn <= min_wn
+            wn = min_wn;
+        end
         %The discrete dominant pole is then
         P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
         P0 = exp(-2*z_sol*wn*Ts);
@@ -31,6 +39,11 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
             z_sol = 1;
         end
         wn = 1.8/tr;
+        if wn >= max_wn
+            wn = max_wn;
+        elseif wn <= min_wn
+            wn = min_wn;
+        end
         %The discrete dominant pole is then
         P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
         P0 = exp(-2*z_sol*wn*Ts);
@@ -40,6 +53,11 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         pdVec = [real(poleD(1)) imag(poleD(1))];
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
         wn = 1.8/tr;
+        if wn >= max_wn
+            wn = max_wn;
+        elseif wn <= min_wn
+            wn = min_wn;
+        end
         z_sol = 3.9/ts*wn;
         %The discrete dominant pole is then
         P1 = -2*exp(-z_sol*wn*Ts)*cos(wn*Ts*sqrt(1 - z_sol^2));
@@ -99,11 +117,11 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         if order == 0
             Ad = 1;
         elseif order == 1
-            Ad  = (z + P0);
+            Ad  = (z - P0);
         elseif order == 2
             Ad  = (z^2 + P1*z + P0);
         elseif order == 3
-            Ad  = (z^2 + P1*z + P0)*(z + P0);
+            Ad  = (z^2 + P1*z + P0)*(z - P0);
         elseif order == 4
             Ad  = (z^2 + P1*z + P0)^2;
         end
@@ -127,16 +145,16 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
             R = (z-1);
             Acl =  A*R + B*S;
             if order == 0
-                Ad  = (z + P0);
+                Ad  = (z - P0);
             elseif order == 1
                 Ad  = (z^2 + P1*z + P0);
             elseif order == 2
-                Ad  = (z^2 + P1*z + P0)*(z + P0);
+                Ad  = (z^2 + P1*z + P0)*(z - P0);
             elseif order == 3
                 Ad  = (z^2 + P1*z + P0)^2;
             end
             [In,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-            R_PID = tf([double(Pn) double(In)],[1 0],Ts);
+            R_PID = tf([double(Pn) (double(In)*Ts -double(Pn))],[1 -1],Ts);
         end
     else
         %Lets calculate the position of the zero of the derivative part
@@ -144,11 +162,11 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         R = (z-1) + N*Ts;
         Acl =  A*R + B*S;
         if order == 0
-            Ad  = (z + P0);
+            Ad  = (z - P0);
         elseif order == 1
             Ad  = (z^2 + P1*z + P0);
         elseif order == 2
-            Ad  = (z^2 + P1*z + P0)*(z + P0);
+            Ad  = (z^2 + P1*z + P0)*(z - P0);
         elseif order == 3
             Ad  = (z^2 + P1*z + P0)^2;
         end
@@ -165,7 +183,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
             if order == 0
                 Ad  = (z^2 + P1*z + P0);
             elseif order == 1
-                Ad  = (z^2 + P1*z + P0)*(z + P0);
+                Ad  = (z^2 + P1*z + P0)*(z - P0);
             elseif order == 2
                 Ad  = (z^2 + P1*z + P0)^2;
             end
