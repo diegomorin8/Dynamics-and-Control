@@ -171,7 +171,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
             Ad  = (z^2 + P1*z + P0)^2;
         end
         [Dn,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-        R_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)],Ts);
+        R_PID = tf([double(Dn*Nn) (double(Nn*Pn)*Ts - double(Dn*Nn - Pn))],[1  (double(Nn)*Ts - 1)],Ts);
         [zR,pR,Kp] = zpkdata(G*R_PID);
         Kp = Kp*prod(zR{1})/prod(pR{1});
         error = 1/(1 + Kp);
@@ -188,7 +188,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
                 Ad  = (z^2 + P1*z + P0)^2;
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-            R_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0],Ts);
+            R_PID = tf([double(Dn*Nn+Pn) (-double(Dn*Nn)*2 - double(Pn)*2 + Ts*double(In+Nn*Pn)) (double(Dn*Nn) + double(Pn) - Ts*double(In + Nn*Pn) + Ts*Ts*double(Nn*In))],[1  Ts*double(Nn) (1 - double(Nn))],Ts);
         else
             R_PID = R_PID ; 
         end
