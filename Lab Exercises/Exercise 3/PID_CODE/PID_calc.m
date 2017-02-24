@@ -44,6 +44,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
         disp('Error no good parameters')
         return;
     end
+    
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];

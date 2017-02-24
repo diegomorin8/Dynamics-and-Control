@@ -138,7 +138,7 @@ Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
 
-%% PI controller
+3%% PI controller
 close all;
 clc;
 
@@ -222,7 +222,6 @@ Pulses = (2*pi)/1000; % Pulses per rad
 Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
-
 
 
 
