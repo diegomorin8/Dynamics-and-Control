@@ -78,19 +78,19 @@ Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
 %Param choose
-Speed_ref_step = 20; %rad/s
+Speed_ref_step = 50; %rad/s
 
 %For the first exercise, choose how much should the speed be decreased
-relative_ts = 0.9;
+relative_ts = 0.99;
 
 %Feedback the model without controller
 G_NR_speed = Speed_ref_step*feedback(Gspeed,1);
 %Get main parameters of step response
 S1 = stepinfo(G_NR_speed);
 tr_speed = S1.RiseTime;
-Mp_speed = S1.Overshoot;
+Mp_speed = 0;
 ts_speed = S1.SettlingTime;
-ess = 100;
+ess = 0.01;
 
 %Calculate the controler
 [P_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd,Ts);
@@ -155,7 +155,7 @@ ts_speed = S1.SettlingTime;
 ess = 0;
 
 %Calculate the controler
-[P_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd,Ts);
+[T_speed, P_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd,Ts)
 
 %Set the parameters that will be used in simulink
 Psp_d = vpa(P);
@@ -169,16 +169,16 @@ rlocus(Gspeed);
 title('Root locus before the controller');
 
 G_NR_speed_disc = feedback(Gspeed,1);
-G_PI_speed_disc = feedback(Gspeed*P_speed,1);
+G_PI_speed_disc = T_speed*feedback(Gspeed,P_speed);
 
 subplot(1,3,2)
 rlocus(Gspeed*P_speed);
 title('Root locus after the controller');
 
 subplot(1,3,3)
-step(G_NR_speed_disc);
+step(20*G_NR_speed_disc);
 hold on;
-step(G_PI_speed_disc);
+step(20*G_PI_speed_disc);
 hold off;
 title('Step responses');
 

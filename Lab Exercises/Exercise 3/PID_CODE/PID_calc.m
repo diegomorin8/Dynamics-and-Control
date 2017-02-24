@@ -1,4 +1,4 @@
-function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
+function [T_PID, R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, order )
     %Param
     syms s z D N P I;
     Thres = 0.1;
@@ -6,7 +6,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
     Dn = 0;
     In = 0;
     Nn = 1;
-    
+    T_PID = 1;
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
         if Mp > 0
@@ -15,7 +15,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
         else 
             z_sol = 1;
         end
-        wn = 3.9/ts*z_sol;
+        wn = 4.6/(ts*z_sol);
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
@@ -34,7 +34,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
         pdVec = [real(poleD(1)) imag(poleD(1))];
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
         wn = 1.8/tr;
-        z_sol = 3.9/ts*wn;
+        z_sol = 4.6/(ts*wn);
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
@@ -112,7 +112,7 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
             if order == 0
                 Ad  = (s + wn);
             elseif order == 1
-                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn);
+                Ad  = (s + abs(pdVec(1)))*(s + 1.5*wn)
             elseif order == 2
                 Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
             elseif order == 3
@@ -120,6 +120,9 @@ function [ R_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G, A, B, o
             end
             [In,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
             R_PID = tf([double(Pn) double(In)],[1 0]);
+            t0 = wn*1.5*wn/B;
+            T_PID = tf(double(t0),[1 0]);
+            
         else
              R_PID = Pn; 
         end

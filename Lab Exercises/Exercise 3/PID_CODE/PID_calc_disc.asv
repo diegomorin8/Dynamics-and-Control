@@ -1,4 +1,4 @@
-function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, B, order, Ts )
+function [T_PID, R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, B, order, Ts )
     %Param
     syms s z D N P I;
     Thres = 0.1;
@@ -18,7 +18,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         else 
             z_sol = 1;
         end
-        wn = 3.9/ts*z_sol;
+        wn = 4.6/(ts*z_sol);
         if wn >= max_wn
             wn = max_wn;
         elseif wn <= min_wn
@@ -71,6 +71,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         disp('Error no good parameters')
         return;
     end
+    distance_origin = norm(pdVec);
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
@@ -141,6 +142,8 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
         error = 1/(1 + Kp);
         if error > ess
             %We need integral action
+            %Cero placement
+%             Cero_p = (1/6)*(1-distance_origin);
             S = (z-1)*P + Ts*I;
             R = (z-1);
             Acl =  A*R + B*S;
@@ -154,7 +157,10 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
                 Ad  = (z^2 + P1*z + P0)^2;
             end
             [In,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
+%              In = Pn*(1 - Cero_p)/Ts;
             R_PID = tf([double(Pn) (double(In)*Ts -double(Pn))],[1 -1],Ts);
+            t0 = (1 + P1 + P0*P0)/B;
+            T_PID = tf(double(t0),[1 -1],Ts);
         end
     else
         %Lets calculate the position of the zero of the derivative part
@@ -188,7 +194,7 @@ function [R_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, ess, G, A, 
                 Ad  = (z^2 + P1*z + P0)^2;
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
-            R_PID = tf([double(Dn*Nn+Pn) (-doubledouble(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0],Ts);
+            R_PID = tf([double(Dn*Nn+Pn) (-double(Dn*Nn)*2 - double(Pn)*2 + Ts*double(In+Nn*Pn)) (double(Dn*Nn) + double(Pn) - Ts*double(In + Nn*Pn) + Ts*Ts*double(Nn*In))],[1  Ts*double(Nn) (1 - double(Nn))],Ts);
         else
             R_PID = R_PID ; 
         end
