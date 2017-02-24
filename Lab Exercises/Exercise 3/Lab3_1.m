@@ -171,7 +171,7 @@ rlocus(Gspeed)
 title('Root locus before  Controller');
 
 %Calculate the controler
-[P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd)
+[P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd);
 
 %Set the parameters that will be used in simulink
 Psp = double(P);
@@ -185,11 +185,11 @@ if Dsp == 0 && Isp == 0
 end
 
 %Feedback the system with the controller
-G_P_speed = Speed_ref_step*feedback(P_speed*Gspeed,1);
+G_PI_speed = Speed_ref_step*feedback(P_speed*Gspeed,1);
 GPI_speed = P_speed*Gspeed;
 
 %We need the poles and zeros
-[Poles_FB Zeros_FB Gain_FB] = zpkdata(G_PI_speed)
+[Poles_FB Zeros_FB Gain_FB] = zpkdata(G_PI_speed);
 %Get the step response info
 S2 = stepinfo(G_PI_speed);
 tr_speed = S2.RiseTime;
@@ -198,7 +198,7 @@ ts_speed = S2.SettlingTime;
 
 %Plot
 subplot(1,3,2)
-rlocus(feedback(P_speed*Gspeed,1));
+rlocus(P_speed*Gspeed);
 title('Root locus after the controller');
 subplot(1,3,3)
 step(G_PI_speed)
