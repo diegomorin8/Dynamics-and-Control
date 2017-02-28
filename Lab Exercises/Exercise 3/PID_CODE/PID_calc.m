@@ -120,7 +120,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 Am0 = 1; 
                 A0 = 1;
             elseif order == 1
-                Ad  = (s + abs(pdVec(1)))
+                Ad  = (s + abs(pdVec(1)));
                 Am0 = abs(pdVec(1));
                 A0 = 1;
             elseif order == 2
