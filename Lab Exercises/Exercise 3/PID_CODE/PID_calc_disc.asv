@@ -71,7 +71,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
         disp('Error no good parameters')
         return;
     end
-    P_f = (1/2)*abs(pdVec(1));
+
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
@@ -123,9 +123,9 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
                 Am0 = 1 - P0;
                 A0 = 1;
             elseif order == 3
-                Ad  = (z^2 + P1*z + P0)*(z - P_f);
+                Ad  = (z^2 + P1*z + P0)*(z - P0);
                 Am0 = 1 - P0;
-                A0 = (z - P_f);
+                A0 = (z - P0);
             end
         else
             if order == 0
@@ -133,16 +133,16 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
                 Am0 = 1;
                 A0 = 1;
             elseif order == 1
-                Ad  = (z - abs(pdVec(1)));
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0);
+                Am0 = 1 - P0;
                 A0 = 1;
             elseif order == 2
-                Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0)*(z - P_f);
+                Am0 = 1 - P0;
                 A0 = (z - P_f);
             elseif order == 3
-                Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0)*(z - P_f)*(z - P_f);
+                Am0 = 1 - P0;
                 A0 = (z - P_f)*(z - P_f);
             end
         end
@@ -179,16 +179,16 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
                 end
             else
                 if order == 0
-                    Ad  = (z - abs(pdVec(1)));
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0);
+                    Am0 = 1 - P0;
                     A0 = 1;
                 elseif order == 1
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0)*(z - P_f);
+                    Am0 = 1 - P0;
                     A0 = (z - P_f);
                 elseif order == 2
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0)*(z - P_f)*(z - P_f);
+                    Am0 = 1 - P0;
                     A0 = (z - P_f)*(z - P_f);
                 end
             end
@@ -197,7 +197,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
             %Feedforward controller
             T = Am0*A0/B0;
             T_coeff = fliplr(double(coeffs(T,z)));
-            FF_PID = tf(T_coeff,[1 -1],Ts);
+            FF_PID = tf(T_coeff,1,Ts);
         end
     else
         %Lets calculate the position of the zero of the derivative part
@@ -220,16 +220,16 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
             end
         else
             if order == 0
-                Ad  = (z - abs(pdVec(1)));
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0);
+                Am0 = 1 - P0;
                 A0 = 1;
             elseif order == 1
-                Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0)*(z - P_f);
+                Am0 = 1 - P0;
                 A0 = (z - P_f);
             elseif order == 2
-                Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
+                Ad  = (z - P0)*(z - P_f)*(z - P_f);
+                Am0 = 1 - P0;
                 A0 = (z - P_f)*(z - P_f);
             end
         end
@@ -238,7 +238,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
         %Feedforward controller
         T = Am0*A0/B0;
         T_coeff = fliplr(double(coeffs(T,z)));
-        FF_PID = tf(T_coeff,[1  (double(Nn)*Ts - 1)],Ts);
+        FF_PID = tf(T_coeff,1,Ts);
         %Check the error
         [y,t] = step(FF_PID*feedback(G,FB_PID));
         error = abs(1 - y(end));
@@ -263,16 +263,16 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
                 end
             else
                 if order == 0
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0)*(z - P_f);
+                    Am0 = 1 - P0;
                     A0 = (z - P_f);
                 elseif order == 1
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0)*(z - P_f)*(z - P_f);
+                    Am0 = 1 - P0;
                     A0 = (z - P_f)*(z - P_f);
                 elseif order == 2
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f)*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
+                    Ad  = (z - P0)*(z - P_f)*(z - P_f)*(z - P_f);
+                    Am0 = 1 - P0;
                     A0 = (z - P_f)*(z - P_f)*(z - P_f);
                 end
             end
@@ -281,7 +281,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
             %Feedforward controller
             T = Am0*A0/B0;
             T_coeff = fliplr(double(coeffs(T,z)));
-            FF_PID = tf(T_coeff,[1  Ts*double(Nn) (1 - double(Nn))],Ts);
+            FF_PID = tf(T_coeff,1,Ts);
             %Check the error
         end
     end

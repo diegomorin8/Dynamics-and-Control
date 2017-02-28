@@ -16,7 +16,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         else 
             z_sol = 1;
         end
-        wn = 4/(ts*z_sol);
+        wn = 3.9/(ts*z_sol);
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
@@ -31,7 +31,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         else 
             z_sol = 1;
         end
-        wn = 1.8/tr;
+        wn = 2.2/tr;
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
@@ -40,8 +40,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             pdVec(2) = 0;
         end
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
-        wn = 1.8/tr;
-        z_sol = 4.6/(ts*wn);
+        wn = 2.2/tr;
+        z_sol = 3.9/(ts*wn);
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
@@ -110,7 +110,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 Am0 = wn^2;
                 A0 = 1;
             elseif order == 3
-                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                 Am0 = wn^2;
                 A0 = (s + wn);
             end
@@ -137,7 +137,6 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         %Feedback controller
         FB_PID = tf(double(Pn),1);
         %Feedforward controller
-        %Feedforward controller
         T = Am0*A0/B0;
         T_coeff = fliplr(double(coeffs(T,s)));
         FF_PID = tf(T_coeff,1);
@@ -161,7 +160,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                     Am0 = wn^2;
                     A0 = 1;
                 elseif order == 2
-                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
+                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                     Am0 = wn^2;
                     A0 = (s + wn);
                 end 
@@ -212,7 +211,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 Am0 = wn^2;
                 A0 = 1;
             elseif order == 2
-                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
+                Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                 Am0 = wn^2;
                 A0 = (s + wn);
             end 
@@ -253,11 +252,11 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                     Am0 = wn^2;
                     A0 = 1;
                 elseif order == 1
-                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
+                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                     Am0 = wn^2;
                     A0 = wn;
                 elseif order == 2
-                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
+                    Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s^2 + 2*w0*z_sol*s + w0*w0);
                     Am0 = wn^2;
                     A0 = wn^2;
                 end 

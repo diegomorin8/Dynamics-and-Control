@@ -10,6 +10,7 @@ syms s z;
 %Parameters
 R = 112;
 L = 0;
+
 Kemf = 1/(137*2*pi/60);
 Km = 69.7E-3;
 dm = 3.8E-6;
@@ -63,9 +64,11 @@ Gpos = G_dis(1);
 %B/A format for PID tuning
 Ain_pos = z*z*den_pos{1,1}(1) + z*den_pos{1,1}(2) + den_pos{1,1}(3);
 Bin_pos = num_pos{1,1}(1)*z*z + num_pos{1,1}(2)*z + num_pos{1,1}(3);
+B0_pos = num_pos{1,1}(1)*1 + num_pos{1,1}(2)*1 + num_pos{1,1}(3);
 
 Ain_speed = z*den_s{1,1}(1) + den_s{1,1}(2);
 Bin_speed = z*num_s{1,1}(1) + num_s{1,1}(2);
+B0_speed = 1*num_s{1,1}(1) + num_s{1,1}(2);
 
 %% Speed P to discrete
  
@@ -90,10 +93,10 @@ S1 = stepinfo(G_NR_speed);
 tr_speed = S1.RiseTime;
 Mp_speed = 0;
 ts_speed = S1.SettlingTime;
-ess = 0.01;
+ess = 100;
 
 %Calculate the controler
-[P_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd,Ts);
+[FF_speed, FB_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd,Ts);
 
 %Set the parameters that will be used in simulink
 Psp_d = vpa(P);
@@ -107,21 +110,18 @@ rlocus(Gspeed);
 title('Root locus before the controller');
 
 G_NR_speed_disc = feedback(Gspeed,1);
-G_P_speed_disc = feedback(Gspeed*P_speed,1);
+G_P_speed_disc = FF_speed*feedback(Gspeed,FB_speed);
 
 subplot(1,3,2)
-rlocus(Gspeed*P_speed);
+rlocus(Gspeed*FB_speed);
 title('Root locus after the controller');
 
 subplot(1,3,3)
-step(G_NR_speed_disc);
+step(20*G_NR_speed_disc);
 hold on;
-step(G_P_speed_disc);
+step(20*G_P_speed_disc);
 hold off;
 title('Step responses');
-
-%Damping values
-[Wn,Z,P] = damp(G_P_speed_disc);
 
 %Simulate in simulink
 %Input reference
@@ -130,7 +130,7 @@ Amplitude = 20;
 % sim('SimLab3')
 
 %% Speed PI to discrete
- 
+  
 clc;
 %Speed Proportional
 
@@ -140,7 +140,7 @@ Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
 %Param choose
-Speed_ref_step = 20; %rad/s
+Speed_ref_step = 50; %rad/s
 
 %For the first exercise, choose how much should the speed be decreased
 relative_ts = 0.9;
@@ -152,10 +152,10 @@ S1 = stepinfo(G_NR_speed);
 tr_speed = S1.RiseTime;
 Mp_speed = S1.Overshoot;
 ts_speed = S1.SettlingTime;
-ess = 0;
+ess = 0.000;
 
 %Calculate the controler
-[T_speed, P_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,sysOrd,Ts)
+[FF_speed, FB_speed, PD, P, D, I, N] = PID_calc_disc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd,Ts);
 
 %Set the parameters that will be used in simulink
 Psp_d = vpa(P);
@@ -169,10 +169,10 @@ rlocus(Gspeed);
 title('Root locus before the controller');
 
 G_NR_speed_disc = feedback(Gspeed,1);
-G_PI_speed_disc = T_speed*feedback(Gspeed,P_speed);
+G_PI_speed_disc = FF_speed*feedback(Gspeed,FB_speed);
 
 subplot(1,3,2)
-rlocus(Gspeed*P_speed);
+rlocus(Gspeed*FB_speed);
 title('Root locus after the controller');
 
 subplot(1,3,3)
@@ -181,9 +181,6 @@ hold on;
 step(20*G_PI_speed_disc);
 hold off;
 title('Step responses');
-
-%Damping values
-[Wn,Z,P] = damp(G_PI_speed_disc);
 
 %Simulate in simulink
 %Input reference
