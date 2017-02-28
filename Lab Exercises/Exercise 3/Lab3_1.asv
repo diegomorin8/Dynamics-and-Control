@@ -180,9 +180,6 @@ end
 
 %Feedback the system with the controller
 G_PI_speed = FF_speed*feedback(Gspeed,FB_speed);
-%Check the error
-[y,t] = step(G_PI_speed);
-error = abs(1 - y(end));
 SPI = stepinfo(G_PI_speed);
 step(20*G_PI_speed);
 % GPI_speed = P_speed*Gspeed;

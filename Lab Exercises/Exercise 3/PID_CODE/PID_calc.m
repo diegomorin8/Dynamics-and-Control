@@ -6,9 +6,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
     Dn = 0;
     In = 0;
     Nn = 1;
-    T_PID = 1;
 
-    
+
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
         if Mp > 0
@@ -56,7 +55,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         disp('Error no good parameters')
         return;
     end
-    w0 = 2*wn;
+    w0 = 2*abs(pdVec(1));
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
@@ -113,7 +112,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             elseif order == 3
                 Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
                 Am0 = wn^2;
-                A0 = wn;
+                A0 = (s + wn);
             end
         else
             if order == 0
@@ -127,32 +126,31 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             elseif order == 2
                 Ad  = (s + abs(pdVec(1)))*(s + w0);
                 Am0 = abs(pdVec(1));
-                A0 = w0;
+                A0 = (s + w0);
             elseif order == 3
                 Ad  = (s + abs(pdVec(1)))*(s + w0)*(s + w0);
                 Am0 = abs(pdVec(1));
-                A0 = w0^2;
+                A0 = (s + w0)*(s + w0);
             end
         end
         [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
         %Feedback controller
-        FB_PID = tf(double(Pn),1)
+        FB_PID = tf(double(Pn),1);
         %Feedforward controller
-        T = Am0*A0/B0; 
-        FF_PID = tf(double(T),1) 
+        %Feedforward controller
+        T = Am0*A0/B0;
+        T_coeff = fliplr(double(coeffs(T,s)));
+        FF_PID = tf(T_coeff,1);
         %Check the error
-        [zR,pR,Kp] = zpkdata(G*double(Pn));
-        Kp = Kp*prod((abs(zR{1}))/prod(abs(pR{1})));
-        error = 1/(1 + Kp);
+        [y,t] = step(FF_PID*feedback(G,FB_PID));
+        error = abs(1 - y(end));
         %If the error is too big we need an integrator
-        error
         if error > ess
             %We need integral action
             S = s*P + I;
             R = s;
             Acl =  A*R + B*S;
             %We again check if the dominant pole is real or imaginary
-            pdVec(2)
             if pdVec(2) ~= 0
                 if order == 0
                     Ad  = (s + wn);
@@ -165,7 +163,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 elseif order == 2
                     Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
                     Am0 = wn^2;
-                    A0 = wn;
+                    A0 = (s + wn);
                 end 
             else
                 if order == 0
@@ -175,19 +173,21 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 elseif order == 1
                     Ad  = (s + abs(pdVec(1)))*(s + w0);
                     Am0 = abs(pdVec(1));
-                    A0 = w0;
+                    A0 = (s + w0);
                 elseif order == 2
                     Ad  = (s + abs(pdVec(1)))*(s + w0)*(s + w0);
                     Am0 = abs(pdVec(1));
-                    A0 = w0^2;
+                    A0 = (s + w0)*(s + w0);
                 end
             end
             [In,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
             %Feedback controller
             FB_PID = tf([double(Pn) double(In)],[1 0]);
             %Feedforward controller
-            T = Am0*A0/B0; 
-            FF_PID = tf(double(T),[1 0]); 
+           %Feedforward controller
+            T = Am0*A0/B0;
+            T_coeff = fliplr(double(coeffs(T,s)));
+            FF_PID = tf(T_coeff,[1 0]); 
         else
              R_PID = Pn; 
         end
@@ -214,7 +214,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             elseif order == 2
                 Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
                 Am0 = wn^2;
-                A0 = wn;
+                A0 = (s + wn);
             end 
         else
             if order == 0
@@ -224,23 +224,23 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             elseif order == 1
                 Ad  = (s + abs(pdVec(1)))*(s + w0);
                 Am0 = abs(pdVec(1));
-                A0 = w0;
+                A0 = (s + w0);
             elseif order == 2
                 Ad  = (s + abs(pdVec(1)))*(s + w0)*(s + w0);
                 Am0 = abs(pdVec(1));
-                A0 = w0^2;
+                A0 = (s + w0)*(s + w0);
             end
         end
-        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s))
         %Feedback controller
         FB_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)]);
         %Feedforward controller
-        T = Am0*A0/B0; 
-        FF_PID = tf(double(T),[1  double(Nn)]); 
+        T = Am0*A0/B0;
+        T_coeff = fliplr(double(coeffs(T,s)));
+        FF_PID = tf(T_coeff,[1  double(Nn)]); 
         %Check the error
-        [zR,pR,Kp] = zpkdata(G*R_PID);
-        Kp = Kp*prod(zR{1})/prod(pR{1});
-        error = 1/(1 + Kp);
+        [y,t] = step(FF_PID*feedback(G,FB_PID));
+        error = abs(1 - y(end));
         %If error is to big we need derivative action
         if error > ess
             %We need integral action
@@ -256,7 +256,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                     Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + wn);
                     Am0 = wn^2;
                     A0 = wn;
-                elseif irder == 2
+                elseif order == 2
                     Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)^2;
                     Am0 = wn^2;
                     A0 = wn^2;
@@ -277,12 +277,12 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 end
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
-            R_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);
             %Feedback controller
-            FB_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);;
+            FB_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);
             %Feedforward controller
-            T = Am0*A0/B0; 
-            FF_PID = tf(double(T),[1  double(Nn) 0]); 
+            T = Am0*A0/B0;
+            T_coeff = fliplr(double(coeffs(T,s)));
+            FF_PID = tf(T_coeff,[1  double(Nn)]); 
         end
     end
 %     %Lets calculate the error of the system
