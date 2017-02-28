@@ -16,7 +16,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         else 
             z_sol = 1;
         end
-        wn = 4.6/(ts*z_sol);
+        wn = 4/(ts*z_sol);
         %Get the poles
         eqn_p1 = s*s + 2*z_sol*wn*s + wn*wn == 0;
         poleD = vpa(solve(eqn_p1,s));
