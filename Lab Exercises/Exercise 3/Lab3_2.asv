@@ -243,7 +243,6 @@ Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
 
-%% PI to discrete
 
 close all;
 clc;
@@ -272,10 +271,10 @@ ts_speed = S1.SettlingTime;
 
 %steady state error allowed. We want a proportional controller so we set a
 %really high value
-ess = 0;
+ess = 100;
 
 %Calculate the controler
-[FF_PI_speed,FB_PI_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd);
+[FF_P_speed,FB_P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd);
 
 %Set the parameters that will be used in simulink
 Psp = double(P);
@@ -284,7 +283,6 @@ Isp = double(I);
 Nsp = double(N);
 
 %% PI Discretization for Ts = 0.02
-
 Ts = 2E-2; % Sampling time
 Pulses = (2*pi)/1000; % Pulses per rad
 
@@ -296,22 +294,22 @@ subplot(2,3,1)
 rlocus(Gspeed_disc);
 title('Root locus before the controller');
 
-FB_PI_speed_disc = c2d(FB_PI_speed,Ts,'Tunstin');
-FF_PI_speed_disc = c2d(FF_PI_speed,Ts,'Tunstin');
+FB_P_speed_disc = c2d(FB_P_speed,Ts,'Tunstin');
+FF_P_speed_disc = c2d(FF_P_speed,Ts,'Tunstin');
 
 G_NR_speed_disc = feedback(Gspeed_disc,1);
-G_PI_speed_disc = FF_PI_speed_disc*feedback(Gspeed_disc,FB_PI_speed_disc);
+G_P_speed_disc = FF_P_speed_disc*feedback(Gspeed_disc,FB_P_speed_disc);
 
 %Root locus after
 subplot(2,3,2)
-rlocus(G_PI_speed_disc);
+rlocus(G_P_speed_disc);
 title('Root locus after the controller');
 
 %Step response
 subplot(2,3,3)
 step(Speed_ref_step*G_NR_speed_disc);
 hold on;
-step(Speed_ref_step*G_PI_speed_disc);
+step(Speed_ref_step*G_P_speed_disc);
 hold off;
 title('Step responses 20 rad/s as reference');
 
@@ -320,7 +318,7 @@ title('Step responses 20 rad/s as reference');
 subplot(2,3,4)
 t = 0:Ts:32;
 u = Speed_ref_step*sin(0.2*t);
-lsim(G_PI_speed_disc,u,t)
+lsim(G_P_speed_disc,u,t)
 hold on
 t = 0:Ts:32;
 u = Speed_ref_step*sin(0.2*t);
@@ -333,7 +331,7 @@ hold off
 subplot(2,3,5)
 t = 0:Ts:1;
 u = Speed_ref_step*10*sin(10*t);
-lsim(G_PI_speed_disc,u,t)
+lsim(G_P_speed_disc,u,t)
 hold on
 t = 0:Ts:1;
 u = Speed_ref_step*10*sin(10*t);
@@ -342,14 +340,16 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
+%Damping values
+[Wn,Z,P] = damp(G_P_speed_disc);
+
 %Simulate in simulink
 %Input reference
 Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
 
-%% PI Discretization for Ts = 0.002
-
+%% P Discretization for Ts = 0.002
 Ts = 2E-3; % Sampling time
 Pulses = (2*pi)/1000; % Pulses per rad
 
@@ -361,22 +361,22 @@ subplot(2,3,1)
 rlocus(Gspeed_disc);
 title('Root locus before the controller');
 
-FB_PI_speed_disc = c2d(FB_PI_speed,Ts,'Tunstin');
-FF_PI_speed_disc = c2d(FF_PI_speed,Ts,'Tunstin');
+FB_P_speed_disc = c2d(FB_P_speed,Ts,'Tunstin');
+FF_P_speed_disc = c2d(FF_P_speed,Ts,'Tunstin');
 
 G_NR_speed_disc = feedback(Gspeed_disc,1);
-G_PI_speed_disc = FF_PI_speed_disc*feedback(Gspeed_disc,FB_PI_speed_disc);
+G_P_speed_disc = FF_P_speed_disc*feedback(Gspeed_disc,FB_P_speed_disc);
 
 %Root locus after
 subplot(2,3,2)
-rlocus(G_PI_speed_disc);
+rlocus(G_P_speed_disc);
 title('Root locus after the controller');
 
 %Step response
 subplot(2,3,3)
 step(Speed_ref_step*G_NR_speed_disc);
 hold on;
-step(Speed_ref_step*G_PI_speed_disc);
+step(Speed_ref_step*G_P_speed_disc);
 hold off;
 title('Step responses 20 rad/s as reference');
 
@@ -385,7 +385,7 @@ title('Step responses 20 rad/s as reference');
 subplot(2,3,4)
 t = 0:Ts:32;
 u = Speed_ref_step*sin(0.2*t);
-lsim(G_PI_speed_disc,u,t)
+lsim(G_P_speed_disc,u,t)
 hold on
 t = 0:Ts:32;
 u = Speed_ref_step*sin(0.2*t);
@@ -398,7 +398,7 @@ hold off
 subplot(2,3,5)
 t = 0:Ts:1;
 u = Speed_ref_step*10*sin(10*t);
-lsim(G_PI_speed_disc,u,t)
+lsim(G_P_speed_disc,u,t)
 hold on
 t = 0:Ts:1;
 u = Speed_ref_step*10*sin(10*t);
@@ -407,9 +407,13 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
+%Damping values
+[Wn,Z,P] = damp(G_P_speed_disc);
+
 %Simulate in simulink
 %Input reference
 Freq = 0.2;
 Amplitude = 20;
 sim('SimLab3')
+
 
