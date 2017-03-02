@@ -1,12 +1,24 @@
-%M SCRIPT
+%%  PART II - EXC6 Hydraulic MODEL 
+%
+%           Determine Linear Model of Hydraulic Piston
+%
+
 %%                              (Loading Parameters)
 %
 % PARAMETERS FOR LINEARIZED MODEL
-param                           %param.m
+ex5LIN_param                          %param.m
+showeq              = false;              % Show only chosen EQ
+% showeq           = true;               % Show all EQ
+% z                =   1;
+z                   =   2;
+% z                =   3;
+% z                =   4;
+
 %%                              (Parameters specific for Linearized Model
 
 %%                              (Equilibrium Points - LINEARIZATION)
 % State Space 
+display('---------------------');display('---------------------');
 display('x = [vq P1 P2]'); display('u = [xvq fe]');
 % x1=vm; x2=P1; x3=P2;
 
@@ -19,70 +31,99 @@ xvq_05_0k   = 0.005;            fe_05_0k    = 0;
 xvq_1_0k    = 0.01;             fe_1_0k     = 0;
 xvqINI      = [xvq_05_10k xvq_1_10k xvq_05_0k xvq_1_0k];
 feINI       = [fe_05_10k fe_1_10k fe_05_0k fe_1_0k];
-    
-%%                              u(1) = f_e = 10000; u(2) = x_vq = 0.005 [_05_10k]
+%%                              (EQUILIBRIUM POINTS)
+%
+%
+eqN = 3;                            % Output precision
+
+
+%                              u(1) = f_e = 10000; u(2) = x_vq = 0.005 [_05_10k]
 xvq=0.005;
 a_05 = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10000; u(2) = x_vq = 0.005
 c_10k=(10000-Ps*A3);
 f_05_10k=a_05*x^2 + b*x +c_10k;
 vq_05_10k=solve(f_05_10k,x);
-display('u1=10k,u2=0.005');
-pretty(vpa(vq_05_10k,3));
-
 vq_05_10k= vq_05_10k(i);
 p1q_05_10k = Ps- (A3*vq_05_10k/(xvq*Rv))^2;
 p2q_05_10k = (A3*vq_05_10k/(xvq*Rv))^2;
 
 
-%%                              u(1) = f_e = 0; u(2) = x_vq = 0.005 [_05_0k]
+%                              u(1) = f_e = 0; u(2) = x_vq = 0.005 [_05_0k]
 xvq=0.005;
 a_05 = ( 2*A3^3/(Rv^2*0.005^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.005
 c_0k=(-Ps*A3);
 f_05_0k=a_05*x^2 + b*x +c_0k;
 vq_05_0k=solve(f_05_0k,x);
-display('u1=0k,u2=0.005');
-pretty(vpa(vq_05_0k,3));
-
 vq_05_0k = vq_05_0k(i);
 p1q_05_0k = Ps- (A3*vq_05_0k/(xvq*Rv))^2;
 p2q_05_0k = (A3*vq_05_0k/(xvq*Rv))^2;
 
 
-%%                              u(1) = f_e = 0; u(2) = x_vq = 0.01 [_1_0k]
+%                              u(1) = f_e = 0; u(2) = x_vq = 0.01 [_1_0k]
 xvq=0.01;
 a_1 = ( 2*A3^3/(Rv^2*0.01^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.01
 c_0k=(-Ps*A3);
 f_1_0k=a_1*x^2 + b*x +c_0k;
 vq_1_0k=solve(f_1_0k,x);
-display('u1=0k,u2=0.01');
-pretty(vpa(vq_1_0k,3));
-
 vq_1_0k = vq_1_0k(i);
 p1q_1_0k = Ps- (A3*vq_1_0k/(xvq*Rv))^2;
 p2q_1_0k = (A3*vq_1_0k/(xvq*Rv))^2;
 
 
-%%                              u(1) = f_e = 10k; u(2) = x_vq = 0.01 [_1_10k]
+%                              u(1) = f_e = 10k; u(2) = x_vq = 0.01 [_1_10k]
 xvq= 0.01;
 a_1 = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10k; u(2) = x_vq = 0.01
 c_10k=(10000-Ps*A3);
 f_1_10k=a_1*x^2 + b*x +c_10k;
 vq_1_10k=solve(f_1_10k,x);
-display('u1=10k,u2=0.01');
-pretty(vpa(vq_1_10k,3));
 vq_1_10k = vq_1_10k(i);
 p1q_1_10k = Ps- (A3*vq_1_10k/(xvq*Rv))^2;
 p2q_1_10k = (A3*vq_1_10k/(xvq*Rv))^2;
 
+EQPs = eye(4,3);
+EQPs(1,:) = [vq_05_10k, p1q_05_10k, p1q_05_10k];
+EQPs(2,:) = [vq_05_0k, p1q_05_0k, p2q_05_0k];
+EQPs(3,:) = [vq_1_0k, p1q_1_0k, p2q_1_0k];
+EQPs(4,:) = [vq_1_10k, p1q_1_10k,p2q_1_10k];
 
+strEQ       = string(ones(4,1));
+strEQ(1,:)  = ['u1=0.005, u2=10k'];
+strEQ(2,:)  = ['u1=0.005, u2=0k'];
+strEQ(3,:)  = ['u1=0.01, u2=0k'];
+strEQ(4,:)  = ['u1=0.01, u2=10k'];
+
+%       ------------------------------  DISPLAY EQ(z) Equilibrium ---------------     
+
+display('---------------------');display('---------------------');
+if showeq
+    display('u1=10k,u2=0.005 | (z=1) ');
+    display('vq | p1q | p2q');
+    display(vpa([vq_05_10k, p1q_05_10k, p1q_05_10k],eqN));
+    display('##########');
+    display('u1=0k,u2=0.005| (z=2) ');
+    display('vq | p1q | p2q');
+    display(vpa([vq_05_0k, p1q_05_0k, p2q_05_0k],eqN));
+    display('##########');
+    display('u1=0k,u2=0.01| (z=3) ');
+    display('vq | p1q | p2q');
+    display(vpa([vq_1_0k, p1q_1_0k, p2q_1_0k],eqN))
+    display('##########');
+    display('u1=10k,u2=0.01| (z=4) ');
+    display('vq | p1q | p2q');
+    display(vpa([vq_1_10k,p1q_1_10k,p2q_1_10k],eqN));
+else
+    display('Equilibrium Point for');
+    display(strEQ(z));
+    display('-');
+    display('vq | p1q | p2q');
+    display(vpa(EQPs(z,:),eqN));
+end
 %%                          Symbolic Definition of State-space
 syms A3 m Cf df Ps Rv p1q0 p2q0 fe0 xvq0
 A=sym(eye(3)); B=sym([ 0 0; 0 0; 0 0]);
 A(1,:) = [ -df/m A3/m -A3/m ];                          B(1,:) = [0 -1/m ];
 A(2,:) = [ -A3/Cf -Rv*xvq0/(2*Cf*sqrt(Ps-p1q0)) 0];     B(2,:) = [Rv*sqrt(Ps-p1q0)/Cf 0];     
 A(3,:) = [ A3/Cf 0 -Rv*xvq0/(2*Cf*sqrt(p2q0))];         B(3,:) = [-Rv*sqrt(p2q0)/Cf 0]; 
-
-
 %%                          Making Initial Conditions accesible
 %
 % DEFINITION OF INITIAL CONDITION BASED ON Shortcuts
@@ -112,9 +153,6 @@ p2qINI(1)       = double(p2q_05_10k);
 p2qINI(2)       = double(p2q_05_0k);
 p2qINI(3)       = double(p2q_1_0k);
 p2qINI(4)       = double(p2q_1_10k);
-
-
-
 %%                          Substitution of Symbolic State-Space     
 %
 xvq0            = xvqINI(z);
@@ -124,10 +162,14 @@ p1q0            = p1qINI(z);
 p2q0            = p2qINI(z);
 
 
-x0      =[vq0 p1q0 p2q0];
-u0      =[xvq0 fe0];
+% x0      =[vq0 p1q0 p2q0];display(strEQ(z));
+display('---------------------');display('---------------------');
+display('u1 | u2');
+display('xvq0  | fe0');
+display(vpa([xvq0, fe0],eqN));
+display('---------------------');display('---------------------');
 
- param; 
+ex5LIN_param; 
 
 A=eye(3); B = [0 0; 0 0 ; 0 0];
 A(1,:) = [-df/m A3/m -A3/m ];                          B(1,:) = [0 -1/m ];
@@ -197,41 +239,9 @@ else
     end
 end
 
-subplot(2,3,1);pzmap(H_11);axis auto;grid;title('H11: xvq -> vq');
-subplot(2,3,2);pzmap(H_12);axis auto;grid;title('H12: xvq -> P1');
-subplot(2,3,3);pzmap(H_13);axis auto;grid;title('H13: xvq -> P2');
-subplot(2,3,4);pzmap(H_21);axis auto;grid;title('H21: fe -> vq');
-subplot(2,3,5);pzmap(H_22);axis auto;grid;title('H22: fe -> P1');
-subplot(2,3,6);pzmap(H_23);axis auto;grid;title('H23: fe -> P2');
-
-display(x0);
-display(u0);
-
-
-
-
-
-
-
-
-
-
-
-%%                  (Plotting H1: xvq -> P2 at (xvq0,p1q0,p2q0) | u(1)_0=10k, u(2)_0=0.005 |
-%
-% if ~exist('ex6l1_h')
-%         ex6l1_h(1)=figure('Name','Exc.5: Matlab - H_11','numbertitle','off');
-% else
-%     if ~isvalid(ex6l1_h)
-%         ex6l1_h(1)=figure('Name','Exc.5: Matlab - H_11','numbertitle','off');
-%     else   
-%         set(groot,'CurrentFigure',ex6l1_h(1));
-%         delete(ex6l1_h)
-%         ex6l1_h(1)=figure('Name','Exc.5: Matlab - H_11','numbertitle','off');
-%     end
-% end
-% display('H_11');
-% display(zpk(H_11));
-% subplot(1,3,1);step(H_11);axis auto;grid;
-% subplot(1,3,2);pzmap(H_11);axis auto;grid;
-% subplot(1,3,3);margin(H_11);axis auto;grid;
+subplot(2,3,1);pzmap(H_11,'r');hold;pzmap(minreal(H_11),'b');axis auto;grid;title('H11: xvq -> vq');
+subplot(2,3,2);pzmap(H_12,'r');hold;pzmap(minreal(H_12));axis auto;grid;title('H12: xvq -> P1');
+subplot(2,3,3);pzmap(H_13,'r');hold;pzmap(minreal(H_13));axis auto;grid;title('H13: xvq -> P2');
+subplot(2,3,4);pzmap(H_21,'r');hold;pzmap(minreal(H_21));axis auto;grid;title('H21: fe -> vq');
+subplot(2,3,5);pzmap(H_22,'r');hold;pzmap(minreal(H_22));axis auto;grid;title('H22: fe -> P1');
+subplot(2,3,6);pzmap(H_23,'r');hold;pzmap(minreal(H_23));axis auto;grid;title('H23: fe -> P2');

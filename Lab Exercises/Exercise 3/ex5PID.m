@@ -1,31 +1,47 @@
-%% EXC5 (CONTROL OF HYDRAULIC VALVE)
+%% EXC5                 (CONTROL OF HYDRAULIC VALVE)
+%
+%           Linearization of nonlinear Hydraulic model
+%
+%
+% ex5LIN;           % Call Linearization function (parameter: z and showeq)
+s       = tf('s');
 
-%%              (Set Controller Parameters EXC 5) (H_C)
-% 
+%%          (Linearized Velocity Transfer Function)
+%
+Bv      = N11;
+Av      = D11;
+
+Gpv      = tf(Bv,Av);                      % Plant TF xvq -> pq (Valve2Vel)
+display(minreal(Gpv));
+
+%%          (Linearized Position Transfer Function)
+%
+
+% Gpp         = Gpv/s;                      % Plant TF xvq -> pq (Valve2Pos)
+% display(minreal(Gppv);
+
 
 %Denominator and Nominator
-N_C     =       2;
-D_C     =       3;
-Ti_C      =       0.5;
-Td_C      =       1;
-K_C       =       2;
+Ti_C        =       0.5;
+Td_C        =       1;
+K_C         =       2;
 
-P_C       =       K;
-I_C       =       K/Ti;
-D_C       =       K*Td;
-K_C       =       1;
+P_C         =       K;
+I_C         =       K/Ti;
+D_C         =       K*Td;
+K_C         =       1;
 
+S         =       2;
+R         =       3;
 % Define Transfer Function
-H_C     =       tf(N_C,D_C);
+H_C         =       tf(S,R);
 % Plot zero poles 
 
 
-%%              (Set Controller Parameters EXC 5) (H_FF)
+%%              (H_FF - PID)
 % 
 
-%Denominator and NOminator
-N_FF     =       2;
-D_FF     =       3;
+%Denominator and Nominator
 Ti_FF      =       0.5;
 Td_FF      =       1;
 K_FF       =       2;
@@ -35,9 +51,16 @@ I_FF       =       K/Ti;
 D_FF       =       K*Td;
 K_FF       =       1;
 
+T     =       [D];
+R     =       3;
 % Define Transfer Function
-H_FF       = tf(N_FF,D_FF);
- %%                 (Closed Loop Response
+H_FF       = tf(T, R);
+
+%%
+%
+
+
+%%                 (Closed Loop Response
 %
 H_cl      =     feedback(H_C*H_FF*H_11,H_C);
 
@@ -47,6 +70,8 @@ H_cl      =     feedback(H_C*H_FF*H_11,H_C);
 
 
 %%                  (Do Root-Locus for Closed Loop System)
+%
+
 
 
 %%                  (PID - Controller)
@@ -63,11 +88,9 @@ H_PID = tf([D P I],[1 0]);
 
 
 %%                      Plot Poles and Zeros of Closed Loop System
+%
+%
 
-
-
-
-%%
 
 %%                      (desired transfer function for velocity control)
 t_str = 'xvq -> vq (piston velocity';
