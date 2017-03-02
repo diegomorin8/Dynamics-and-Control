@@ -134,6 +134,13 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             end
         end
         [Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+        if isempty(Pn)
+            disp('Not possible to calculate using pole placement');
+            FF_PID = 1;
+            FB_PID = 1;
+            return;
+        end
+        Pn = 0.3175;
         %Feedback controller
         FB_PID = tf(double(Pn),1);
         %Feedforward controller
@@ -180,6 +187,10 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 end
             end
             [In,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+            if isempty(Pn)
+                disp('Not possible to calculate using pole placement');
+                return;
+            end
             %Feedback controller
             FB_PID = tf([double(Pn) double(In)],[1 0]);
             %Feedforward controller
@@ -213,7 +224,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             elseif order == 2
                 Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                 Am0 = wn^2;
-                A0 = (s + wn);
+                A0 = (s + w0);
             end 
         else
             if order == 0
@@ -230,7 +241,11 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 A0 = (s + w0)*(s + w0);
             end
         end
-        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s))
+        [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+        if isempty(Pn)
+            disp('Not possible to calculate using pole placement');
+            return;
+        end
         %Feedback controller
         FB_PID = tf([double(Dn*Nn+Pn) double(Nn*Pn)],[1  double(Nn)]);
         %Feedforward controller
@@ -254,34 +269,38 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
                 elseif order == 1
                     Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s + w0);
                     Am0 = wn^2;
-                    A0 = wn;
+                    A0 = s + w0;
                 elseif order == 2
                     Ad  = (s^2 + 2*wn*z_sol*s + wn*wn)*(s^2 + 2*w0*z_sol*s + w0*w0);
                     Am0 = wn^2;
-                    A0 = wn^2;
+                    A0 = (s^2 + 2*w0*z_sol*s + w0*w0);
                 end 
             else
                 if order == 0
                     Ad  = (s + abs(pdVec(1)))*(s + w0);
                     Am0 = abs(pdVec(1));
-                    A0 = w0;
+                    A0 = s + w0;
                 elseif order == 1
                     Ad  = (s + abs(pdVec(1)))*(s + w0)*(s + w0);
                     Am0 = abs(pdVec(1));
-                    A0 = w0^2;
+                    A0 = (s + w0)^2;
                 elseif order == 2
                     Ad  = (s + abs(pdVec(1)))*(s + w0)^3;
                     Am0 = abs(pdVec(1));
-                    A0 = w0^3;
+                    A0 = (s + w0)^3;
                 end
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
+            if isempty(Pn)
+                disp('Not possible to calculate using pole placement');
+                return;
+            end
             %Feedback controller
             FB_PID = tf([double(Dn*Nn+Pn) double(In+Nn*Pn) double(Nn*In)],[1  double(Nn) 0]);
             %Feedforward controller
             T = Am0*A0/B0;
             T_coeff = fliplr(double(coeffs(T,s)));
-            FF_PID = tf(T_coeff,[1  double(Nn)]); 
+            FF_PID = tf(T_coeff,[1  double(Nn) 0]); 
         end
     end
 %     %Lets calculate the error of the system

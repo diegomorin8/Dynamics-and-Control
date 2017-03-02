@@ -104,6 +104,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
     for i = 1:size(anglesZeros,2)
         anglePD = anglePD + anglesZeros(i);
     end
+    anglePD
     if anglePD <= Thres && anglePD >= -Thres
         %We dont need derivative action
         S = P;
@@ -211,11 +212,11 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
                 A0 = 1;
             elseif order == 1
                 Ad  = (z^2 + P1*z + P0);
-                Am0 = 1 - P0;
+                Am0 = 2 - P0;
                 A0 = 1;
             elseif order == 2
                 Ad  = (z^2 + P1*z + P0)*(z - P_f);
-                Am0 = 1 - P0;
+                Am0 = 2 - P0;
                 A0 = (z - P_f);
             end
         else
