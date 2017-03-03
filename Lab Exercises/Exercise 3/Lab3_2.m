@@ -123,6 +123,8 @@ title('Root locus before the controller');
 FB_P_speed_disc = c2d(FB_P_speed,Ts,'Tunstin');
 FF_P_speed_disc = c2d(FF_P_speed,Ts,'Tunstin');
 
+[FB_num, FB_den] = tfdata(FB_P_speed_disc);
+
 G_NR_speed_disc = feedback(Gspeed_disc,1);
 G_P_speed_disc = FF_P_speed_disc*feedback(Gspeed_disc,FB_P_speed_disc);
 
@@ -169,11 +171,8 @@ hold off
 %Damping values
 [Wn,Z,P] = damp(G_P_speed_disc);
 
-%Simulate in simulink
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
+Simulations_2
+Simulations_2_disc
 
 %% P Discretization for Ts = 0.002
 
@@ -191,6 +190,8 @@ title('Root locus before the controller');
 FB_P_speed_disc = c2d(FB_P_speed,Ts,'Tunstin');
 FF_P_speed_disc = c2d(FF_P_speed,Ts,'Tunstin');
 
+[FB_num, FB_den] = tfdata(FB_P_speed_disc);
+
 G_NR_speed_disc = feedback(Gspeed_disc,1);
 G_P_speed_disc = FF_P_speed_disc*feedback(Gspeed_disc,FB_P_speed_disc);
 
@@ -237,12 +238,8 @@ hold off
 %Damping values
 [Wn,Z,P] = damp(G_P_speed_disc);
 
-%Simulate in simulink
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
-
+Simulations_2
+Simulations_2_disc
 %% PI to discrete
 
 close all;
@@ -299,6 +296,8 @@ title('Root locus before the controller');
 FB_PI_speed_disc = c2d(FB_PI_speed,Ts,'Tunstin');
 FF_PI_speed_disc = c2d(FF_PI_speed,Ts,'Tunstin');
 
+[FB_num, FB_den] = tfdata(FB_PI_speed_disc);
+
 G_NR_speed_disc = feedback(Gspeed_disc,1);
 G_PI_speed_disc = FF_PI_speed_disc*feedback(Gspeed_disc,FB_PI_speed_disc);
 
@@ -342,12 +341,8 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
-
+Simulations_2
+Simulations_2_disc
 %% PI Discretization for Ts = 0.002
 
 Ts = 2E-3; % Sampling time
@@ -364,6 +359,8 @@ title('Root locus before the controller');
 FB_PI_speed_disc = c2d(FB_PI_speed,Ts,'Tunstin');
 FF_PI_speed_disc = c2d(FF_PI_speed,Ts,'Tunstin');
 
+[FB_num, FB_den] = tfdata(FB_PI_speed_disc);
+
 G_NR_speed_disc = feedback(Gspeed_disc,1);
 G_PI_speed_disc = FF_PI_speed_disc*feedback(Gspeed_disc,FB_PI_speed_disc);
 
@@ -407,9 +404,5 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
-
+Simulations_2
+Simulations_2_disc

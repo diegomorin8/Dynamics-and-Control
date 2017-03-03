@@ -104,48 +104,19 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
     for i = 1:size(anglesZeros,2)
         anglePD = anglePD + anglesZeros(i);
     end
-    anglePD
     if anglePD <= Thres && anglePD >= -Thres
         %We dont need derivative action
         S = P;
         R = 1;
         Acl =  A*R + B*S;
-        if pdVec(2) ~= 0
-            if order == 0
-                Ad = 1;
-                Am0 = 1;
-                A0 = 1;
-            elseif order == 1
-                Ad  = (z - P0);
-                Am0 = 1 - P0;
-                A0 = 1;
-            elseif order == 2
+        if order == 2
                 Ad  = (z^2 + P1*z + P0);
                 Am0 =1 + P1 + P0;
                 A0 = 1;
-            elseif order == 3
-                Ad  = (z^2 + P1*z + P0)*(z - P_f);
-                Am0 = 1 + P1 + P0;
-                A0 = (z - P_f);
-            end
-        else
-            if order == 0
-                Ad = 1;
-                Am0 = 1;
-                A0 = 1;
-            elseif order == 1
+        elseif order == 1
                 Ad  = (z - abs(pdVec(1)));
                 Am0 = (1 - abs(pdVec(1)));
                 A0 = 1;
-            elseif order == 2
-                Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
-                A0 = (z - P_f);
-            elseif order == 3
-                Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
-                A0 = (z - P_f)*(z - P_f);
-            end
         end
         [Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
         if isempty(Pn)
@@ -170,34 +141,14 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
             S = (z-1)*P + Ts*I;
             R = (z-1);
             Acl =  A*R + B*S;
-            if pdVec(2) ~= 0
-                if order == 0
-                    Ad  = (z - P0);
-                    Am0 = 1 - P0;
-                    A0 = 1;
-                elseif order == 1
-                    Ad  = (z^2 + P1*z + P0);
-                    Am0 = 1 + P1 + P0;
-                    A0 = 1;
-                elseif order == 2
-                    Ad  = (z^2 + P1*z + P0)*(z - P_f);
-                    Am0 = 1 + P1 + P0;
-                    A0 = (z - P_f);
-                end
-            else
-                if order == 0
-                    Ad  = (z - abs(pdVec(1)));
-                    Am0 = (1 - abs(pdVec(1)));
-                    A0 = 1;
-                elseif order == 1
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
-                    A0 = (z - P_f);
-                elseif order == 2
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
-                    A0 = (z - P_f)*(z - P_f);
-                end
+            if order == 2
+                Ad  = (z^2 + P1*z + P0)*(z - P_f);
+                Am0 = 1 + P1 + P0;
+                A0 = (z - P_f);
+            elseif order == 1
+                Ad  = (z - abs(pdVec(1)))*(z - P_f);
+                Am0 = (1 - abs(pdVec(1)));
+                A0 = (z - P_f);
             end
             [In,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
             if isempty(Pn)
@@ -217,34 +168,14 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
         S = (z-1)*(D*N + P) + P*N*Ts;
         R = (z-1) + N*Ts;
         Acl =  A*R + B*S;
-        if pdVec(2) ~= 0
-            if order == 0
-                Ad  = (z - P0);
-                Am0 = 1 - P0;
-                A0 = 1;
-            elseif order == 1
-                Ad  = (z^2 + P1*z + P0);
-                Am0 = 1 + P1 + P0;
-                A0 = 1;
-            elseif order == 2
+        if order == 2
                 Ad  = (z^2 + P1*z + P0)*(z - P_f);
                 Am0 = 1 + P1 + P0;
                 A0 = (z - P_f);
-            end
-        else
-            if order == 0
-                Ad  = (z - abs(pdVec(1)));
-                Am0 = (1 - abs(pdVec(1)));
-                A0 = 1;
-            elseif order == 1
+        elseif order == 1
                 Ad  = (z - abs(pdVec(1)))*(z - P_f);
                 Am0 = (1 - abs(pdVec(1)));
                 A0 = (z - P_f);
-            elseif order == 2
-                Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
-                Am0 = (1 - abs(pdVec(1)));
-                A0 = (z - P_f)*(z - P_f);
-            end
         end
         [Dn,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
         if isempty(Pn)
@@ -266,34 +197,14 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
             S = (z-1)*(z-1)*D*N + (z-1)*(z-1)*P + (z-1)*(I*Ts + N*P*Ts) + N*Ts*I*Ts;
             R = (z-1)*(z-1) + (z-1)*Ts*N;
             Acl =  A*R + B*S;
-            if pdVec(2) ~= 0
-                if order == 0
-                    Ad  = (z^2 + P1*z + P0);
-                    Am0 = 1 + P1 + P0;
-                    A0 = 1;
-                elseif order == 1
-                    Ad  = (z^2 + P1*z + P0)*(z - P_f);
-                    Am0 = 1 + P1 + P0;
-                    A0 = (z - P_f);
-                elseif order == 2
+            if order == 2
                     Ad  = (z^2 + P1*z + P0)*(z - P_f)*(z - P_f);
                     Am0 = 1 + P1 + P0;
                     A0 = (z - P_f)*(z - P_f);
-                end
-            else
-                if order == 0
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
-                    A0 = (z - P_f);
-                elseif order == 1
+            elseif order == 1
                     Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
                     Am0 = (1 - abs(pdVec(1)));
                     A0 = (z - P_f)*(z - P_f);
-                elseif order == 2
-                    Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f)*(z - P_f);
-                    Am0 = (1 - abs(pdVec(1)));
-                    A0 = (z - P_f)*(z - P_f)*(z - P_f);
-                end
             end
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));
             if isempty(Pn)

@@ -9,7 +9,7 @@ time = 2;
 Amplitude = 20;
 Freq = 0.2;
 %Call the simulink model
-sim('SimLab3_2')
+sim('SimLab3_2_discretization')
 
 %Plots
 VoltageL = VoltageOutL.signals.values(:,2); %Controlled control signal
@@ -47,7 +47,7 @@ Amplitude = 20;
 Freq = 0.2;
 time = 32;
 %Call the simulink model
-sim('SimLab3_2')
+sim('SimLab3_2_discretization')
 
 %Plots
 VoltageL = VoltageOutL.signals.values(:,2); %Controlled control signal
@@ -87,7 +87,7 @@ Amplitude = 20;
 Freq = 10;
 time = 1;
 %Call the simulink model
-sim('SimLab3_2')
+sim('SimLab3_2_discretization')
 
 %Plots
 VoltageL = VoltageOutL.signals.values(:,2); %Controlled control signal
