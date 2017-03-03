@@ -9,6 +9,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
 
 
     %Main code
+    %% ################ (Decide Controller Specifications)
+    %    
     if Mp ~= -1 && tr == -1 && ts ~= -1
         if Mp > 0
             eqn = -pi*z/sqrt(1-z*z) == log(Mp);
@@ -55,6 +57,10 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         disp('Error no good parameters')
         return;
     end
+    
+    
+%%          
+    %
     w0 = 2*abs(pdVec(1));
     [Zeros,Poles,Gain] = zpkdata(G);
     %Let see if need a derivative action

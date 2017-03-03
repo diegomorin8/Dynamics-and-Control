@@ -14,13 +14,15 @@ Av      = D11;
 Gpv      = tf(Bv,Av);                      % Plant TF xvq -> pq (Valve2Vel)
 display(minreal(Gpv));
 
-%%          (Linearized Position Transfer Function)
+
+%%    XX      (Linearized Position Transfer Function)
 %
 
 % Gpp         = Gpv/s;                      % Plant TF xvq -> pq (Valve2Pos)
 % display(minreal(Gppv);
 
-
+%%          (H_C - PID Feedback TF)
+%
 %Denominator and Nominator
 Ti_C        =       0.5;
 Td_C        =       1;
@@ -38,7 +40,7 @@ H_C         =       tf(S,R);
 % Plot zero poles 
 
 
-%%              (H_FF - PID)
+%%              (H_FF - PID Feedforward TF)
 % 
 
 %Denominator and Nominator
@@ -56,11 +58,9 @@ R     =       3;
 % Define Transfer Function
 H_FF       = tf(T, R);
 
-%%
-%
 
 
-%%                 (Closed Loop Response
+%%                 (H_CL - Closed Loop TF)
 %
 H_cl      =     feedback(H_C*H_FF*H_11,H_C);
 

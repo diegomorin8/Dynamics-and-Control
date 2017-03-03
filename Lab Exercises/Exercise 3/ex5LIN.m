@@ -14,8 +14,6 @@ z                   =   2;
 % z                =   3;
 % z                =   4;
 
-%%                              (Parameters specific for Linearized Model
-
 %%                              (Equilibrium Points - LINEARIZATION)
 % State Space 
 display('---------------------');display('---------------------');
@@ -198,7 +196,6 @@ H_22=tf(N22,D22);
 [N23,D23] = ss2tf(A,B,C3,D,2);
 H_23=tf(N23,D23);
 
-
 %%                          (ZEROS POLES OF ALL TFS)
 %
 %
@@ -239,7 +236,7 @@ else
     end
 end
 
-subplot(2,3,1);pzmap(H_11,'r');hold;pzmap(minreal(H_11),'b');axis auto;grid;title('H11: xvq -> vq');
+subplot(2,3,1);pzmap(H_11,'r');hold;pzmap(minreal(H_11),'b');axis auto;grid;title('H11: xvq -> vq');;
 subplot(2,3,2);pzmap(H_12,'r');hold;pzmap(minreal(H_12));axis auto;grid;title('H12: xvq -> P1');
 subplot(2,3,3);pzmap(H_13,'r');hold;pzmap(minreal(H_13));axis auto;grid;title('H13: xvq -> P2');
 subplot(2,3,4);pzmap(H_21,'r');hold;pzmap(minreal(H_21));axis auto;grid;title('H21: fe -> vq');
