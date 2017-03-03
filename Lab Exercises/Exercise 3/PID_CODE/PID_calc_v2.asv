@@ -62,7 +62,6 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
     end
     w0          = 2*abs(pdVec(1));
     [Zeros,Poles,Gain] = zpkdata(G);
-    
 %% - Angels
 
     Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];
@@ -97,12 +96,10 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
     for i = 1:size(anglesZeros,2)
         anglePD = anglePD + anglesZeros(i);
     end
-    
 %% - Controller Type
-%------------------------------------------------------------------------
 %
     if anglePD <= Thres && anglePD >= -Thres  
-%% ######           |       P-CONTROLLER      
+%% ######           |       P-CONTROLLER     #############################
         S = P;                                                                  % We dont need derivative action
         R = 1;
         Acl =  A*R + B*S;                                           
@@ -132,7 +129,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
         error = abs(1 - y(end));                                                % If error surpasses design threshold I-PARAM required
         %%
         if error > ess
-%%              ------------> PI-CONTROLLER  
+%%              ------------> PI-CONTROLLER  #############################
             S = s*P + I;
             R = s;
             Acl =  A*R + B*S;
@@ -161,7 +158,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
              R_PID = Pn; 
         end
     else
-%%                   |      PD-CONTROLLER    
+%% #######           |      PD-CONTROLLER     #############################
 % D-PARAMETER REQUIRED:                                                 
         [Zeros,Poles,Gain] = zpkdata(G);
         Poles_vec = [real(Poles{1,1}) imag(Poles{1,1})];                        % Determine Location of D-Parameter's ZERO
@@ -196,7 +193,7 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
         error = abs(1 - y(end));
         %%
         if error > ess
-%%              -------------> PID-CONTROLLER
+%%              -------------> PID-CONTROLLER     ##########################
             S = s*s*D*N + s*s*P + s*(I + N*P) + N*I;
             R = s*s + s*N;
             Acl =  A*R + B*S;
@@ -224,6 +221,10 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_v2( Mp, tr, ts, ess,
         end
     end  
      
-%%
-% ###################################################################
-% #####################      END OF FILE       ######################
+    %%
+    %
+    % ###################################################################
+    % ###################################################################
+    % #####################      END OF FILE       ######################
+    % ###################################################################
+    % ###################################################################
