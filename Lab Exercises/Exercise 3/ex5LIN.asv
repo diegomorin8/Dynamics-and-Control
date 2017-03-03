@@ -13,6 +13,7 @@ showeq              = false;              % Show only chosen EQ
 z                   =   2;
 % z                =   3;
 % z                =   4;
+
 %%                              (Equilibrium Points - LINEARIZATION)
 % State Space 
 display('---------------------');display('---------------------');
@@ -177,22 +178,24 @@ C=eye(3); D0=zeros(3,2);
 C1=[1 0 0];
 C2=[0 1 0];
 C3=[0 0 1];D=[0 0];
+
 %%                          Definition of OUTPUT + Transfer Functions
 % FROM U(1)
-[N11,D11] = ss2tf(A,B,C1,D,1); %xvp to dxp
+[N11,D11] = ss2tf(A,B,C1,D,1); 
 H_11=tf(N11,D11);
-[N12,D12] = ss2tf(A,B,C2,D,1); %p1
+[N12,D12] = ss2tf(A,B,C2,D,1);
 H_12=tf(N12,D12);
-[N13,D13] = ss2tf(A,B,C3,D,1); %p2
+[N13,D13] = ss2tf(A,B,C3,D,1);
 H_13=tf(N13,D13);
 
 % FROM U(2)
-[N21,D21] = ss2tf(A,B,C1,D,2);  %Fe to dxp
+[N21,D21] = ss2tf(A,B,C1,D,2);
 H_21=tf(N21,D21);
-[N22,D22] = ss2tf(A,B,C2,D,2); %fe to p1
+[N22,D22] = ss2tf(A,B,C2,D,2);
 H_22=tf(N22,D22);
-[N23,D23] = ss2tf(A,B,C3,D,2); %fe to p2
+[N23,D23] = ss2tf(A,B,C3,D,2);
 H_23=tf(N23,D23);
+
 %%                          (ZEROS POLES OF ALL TFS)
 %
 %
