@@ -103,6 +103,8 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_P_pos,FB_P_pos, PD, P, D, I, N] = PID_calc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
 
+
+[Num_FF,Den_FF] = tfdata(FF_P_pos);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -163,15 +165,7 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-% Sensor simulation
-Ts = 2E-2; % Sampling time
-Pulses = (2*pi)/1000; % Pulses per rad
-
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
+Simulations_3
 
 %% Pos PD controller
 
@@ -209,6 +203,8 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_PD_pos,FB_PD_pos, PD, P, D, I, N] = PID_calc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
 
+
+[Num_FF,Den_FF] = tfdata(FF_PD_pos);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -264,15 +260,7 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-% Sensor simulation
-Ts = 2E-2; % Sampling time
-Pulses = (2*pi)/1000; % Pulses per rad
-
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
+Simulations_3
 
 %% Pos PID controller
 
@@ -310,6 +298,8 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_PID_pos,FB_PID_pos, PD, P, D, I, N] = PID_calc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
 
+
+[Num_FF,Den_FF] = tfdata(FF_PID_pos);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -365,15 +355,7 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-% Sensor simulation
-Ts = 2E-2; % Sampling time
-Pulses = (2*pi)/1000; % Pulses per rad
-
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
+Simulations_3
 
 
 

@@ -104,6 +104,7 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_P_speed,FB_P_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd);
 
+[Num_FF,Den_FF] = tfdata(FF_P_speed);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -160,16 +161,7 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-% Sensor simulation
-Ts = 2E-2; % Sampling time
-Pulses = (2*pi)/1000; % Pulses per rad
-
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
-
+Simulations_1
 %% Speed PI controller
 
 close all;
@@ -207,6 +199,7 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_PI_speed,FB_PI_speed, PD, P, D, I, N] = PID_calc(Mp_speed,-1,ts_speed*relative_ts,ess,Gspeed,Ain_speed,Bin_speed,B0_speed,sysOrd);
 
+[Num_FF,Den_FF] = tfdata(FF_PI_speed);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -262,111 +255,5 @@ legend('show')
 title('Sin response Amplitude: 200, freq: 10');
 hold off
 
-%Simulate in simulink
-% Sensor simulation
-Ts = 2E-2; % Sampling time
-Pulses = (2*pi)/1000; % Pulses per rad
-
-%Input reference
-Freq = 0.2;
-Amplitude = 20;
-sim('SimLab3')
-
-
-%%
-% %% Quick test
-% close all;
-% clc;
-% 
-% %Speed Proportional
-% 
-% %Change the format of the transfer function
-% [Zeros,Poles,Gain] = zpkdata(Gpos);
-% Gzpk = zpk(Zeros, Poles, Gain);
-% sysOrd = size(Poles{1,1},1);
-% 
-% %Param choose
-% Speed_ref_step = 4; %rad/s
-% 
-% %For the first exercise, choose how much should the speed be decreased
-% relative_ts = 0.9;
-% 
-% %Feedback the model without controller
-% G_NR_speed = feedback(Gpos,1);
-% 
-% %Get main parameters of step response
-% tr_speed = 0.3;
-% Mp_speed = 0.02;
-% 
-% ess = 0.005;
-% 
-% figure;
-% subplot(1,3,1)
-% rlocus(Gpos)
-% title('Root locus before  Controller');
-% 
-% %Calculate the controler
-% [FF_speed, FB_speed, PD, P, D, I, N] = PID_calc(Mp_speed,tr_speed,-1,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
-% 
-% %Set the parameters that will be used in simulink
-% Psp = double(P);
-% Dsp = double(D);
-% Isp = double(I);
-% Nsp = double(N);
-% 
-% %Output format
-% if Dsp == 0 && Isp == 0
-%     FB_speed = double(FB_speed);
-%     FF_speed = double(FF_speed);
-% end
-% 
-% %Feedback the system with the controller
-% G_PI_speed = FF_speed*feedback(Gpos,FB_speed);
-% SPI = stepinfo(G_PI_speed);
-% step(Speed_ref_step*G_PI_speed);
-% 
-% % GPI_speed = P_speed*Gspeed;
-% % 
-% % %We need the poles and zeros
-% % [Poles_FB Zeros_FB Gain_FB] = zpkdata(G_PI_speed);
-% % %Get the step response info
-% % S2 = stepinfo(G_PI_speed);
-% % tr_speed = S2.RiseTime;
-% % Mp_speed = S2.Overshoot;
-% % ts_speed = S2.SettlingTime;
-% % 
-% % %Plot
-% % subplot(1,3,2)
-% % rlocus(P_speed*Gspeed);
-% % title('Root locus after the controller');
-% % subplot(1,3,3)
-% % step(G_PI_speed)
-% % hold on
-% % step(G_NR_speed)
-% % legend('show')
-% % title('Step response');
-% % hold off
-% % 
-% % %Bode
-% % figure;
-% % bode(GP_speed);
-% % 
-% % %Simulate in simulink
-% % 
-% % % Sensor simulation
-% % Ts = 2E-3; % Sampling time
-% % Pulses = (2*pi)/1000; % Pulses per rad
-% % 
-% % %Input reference
-% % Freq = 0.2;
-% % Amplitude = 20;
-% % sim('SimLab3')
-% % 
-% % 
-% % 
-% % 
-% % 
-
-
-
+Simulations_1
 

@@ -140,6 +140,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             [In,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
             if isempty(Pn)
                 disp('Not possible to calculate using pole placement');
+                FF_PID = 1;
+                FB_PID = 1;
                 return;
             end
             %Feedback controller
@@ -175,6 +177,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
         [Dn,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
         if isempty(Pn)
             disp('Not possible to calculate using pole placement');
+            FF_PID = 1;
+            FB_PID = 1;
             return;
         end
         %Feedback controller
@@ -204,6 +208,8 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc( Mp, tr, ts, ess, G,
             [Dn,In,Nn,Pn] = solve(coeffs(Acl,s) == coeffs(Ad,s));
             if isempty(Pn)
                 disp('Not possible to calculate using pole placement');
+                FF_PID = 1;
+                FB_PID = 1;
                 return;
             end
             %Feedback controller
