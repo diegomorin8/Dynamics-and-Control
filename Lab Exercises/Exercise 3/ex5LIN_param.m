@@ -1,6 +1,4 @@
-
 %%                              (EXC.6 - Hydraulic Parameters)
-
 fe      = 10000;                % N                 (Applied external Force/Load)
 g       = 9.81;                 % m/s^2             (Gravitational Field)
 rho     = 1000;                 % kg/m^3            (Oil density)
@@ -28,52 +26,3 @@ A1=A3;
 A2=A3;
 Cf1=Cf;
 Cf2=Cf;
-
-% SET INITIAL CONDITIONS INDEPENDENTLY OF LINEAR MODEL  (DISTINCT FROM EXC6(z)
-% x0      = [0 0 0];
-% u0      = [0.01 0];
-% xvq0            = 0.001;
-% fe0             = 0;
-% vq0             = 0;
-% p1q0            = 0;
-% p2q0            = 0;
-
-% SET INITIAL CONDITIONS TO LINEAR MODELS OPERATING POINT
-% x0      =[vq0 p1q0 p2q0];
-% u0      =[xvq0 fe0];
-
-
-
-
-
-
-%%                              (Other Commands #1)
-%
-%Commands:
-% zpk() --> command for polynomial factorization
-% get(0,'format')
-%{
-origFormat = get(0, 'format');
-format('rational');
-
-  -- Work in rational format --
-
-set(0,'format', origFormat);
-
-%}
-
-% get(ex5_m,'Number')                                 %Get Handle Property - 'Number'
-% set(groot,'CurrentFigure',ex5_m);
-% zpk('s')                          %defines s as a Laplace Variable and allows zpk format
-% dcgain(Sys)                       % Gives dcGain of a system
-% limit(a*s,s,0,'right')            % FVT
-% digits(2)                         % Sets the precision of VPA to 2
-% significant digis
-% vpa(x,2)                          % 2 is equal to digis(2), Variable
-% Precision Arithmetic uses a symbolic expression x
-%
-%%                              (Other Commands #2)
-%Finding different Transfer functionfunctions
-% zinv=inv(s*eye(2)-A);         % Invers     
-% zdet=det(s*eye(2)-A);         % Determinant
-% zadj = zinv*zdet            % Gives Adjungate of Ainv

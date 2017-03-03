@@ -17,15 +17,13 @@ display('Linearized TF for velocity output [xvp -> dxp]');
 display(minreal(Gpv));
 [Bvp, Avp] = tfdata(minreal(Gpv));
 
-%%          (Polynomials
-%
+% (Polynomials)
 AvpEQ   = s*s*Avp{1,1}(1) + s*Avp{1,1}(2) + Avp{1,1}(3);
 BvpEQ   = Bvp{1,1}(1)*s*s + Bvp{1,1}(2)*s + Bvp{1,1}(3);
 Bvp0    = Bvp{1,1}(3);
 
 %%          (Closed Loop - Plant: Unity Feedback)
 %
-
 [Zeros,Poles,Gain] = zpkdata(Gpv);
 Gpvpzk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
@@ -33,20 +31,18 @@ sysOrd = size(Poles{1,1},1);
 %get sys properties
 Gpv_CL  = feedback(Gpv,1);
 Sv = stepinfo(Gpv_CL);
-trv = Sv.RiseTime
-Mpv = Sv.Overshoot
-tsv = Sv.SettlingTime
+trv = Sv.RiseTime;
+Mpv = Sv.Overshoot;
+tsv = Sv.SettlingTime;
 ess = 100;
 
 %%          (Calculate Controller)
 %
 [H_FFv,H_FBv, PD, P, D, I, N] = PID_calc(0,-1,trv*0.9,ess,Gpv,AvpEQ,BvpEQ,Bvp0,sysOrd);
 
-P_C = double(P);
-D_C = double(D);
-I_C = double(I);
-N_C = double(N);
-
+%SIMULINK IMPLEMENTATION
+[N_temp, D_temp]=tfdata(H_FFv); N_FFv = N_temp{1,1}; D_FFv = D_temp{1,1};
+[N_temp, D_temp]=tfdata(H_FBv); N_FBv = N_temp{1,1};D_FBv = D_temp{1,1};
 
 %Calculate Closed Loop - Controller
 GpvP = H_FFv*feedback(Gpv,H_FBv);
@@ -55,19 +51,79 @@ GpvP = H_FFv*feedback(Gpv,H_FBv);
 Sv = stepinfo(Gpv_CL)
 SP = stepinfo(GpvP)
 
-[N_temp, D_temp]=tfdata(H_FFv);
-N_FFv = N_temp{1,1}
-D_FFv = D_temp{1,1}
-[N_temp, D_temp]=tfdata(H_FBv);
-N_FBv = N_temp{1,1}
-D_FBv = D_temp{1,1}
 display('Gpv');
 minreal(zpk(Gpv))
-
 display('GvpP');
 minreal(zpk(GpvP))
-figure;% subplot(2,1,1);
-step(Gpv_CL,'r:'); hold; step(GpvP, 'b');grid;
+% figure; step(Gpv_CL,'r:'); hold; step(GpvP, 'b');grid;
+
+
+
+
+%%          (Linearized Velocity Transfer Function)
+%
+derivative    = tf([1],[1 0]);
+Gpp     = derivative*Gpv;
+[N_temp, D_temp]    = tfdata(minreal(Gpp);)                
+Bpp = N_temp{1,1};
+App = D_temp{1,1};
+display('Linearized TF for velocity output [xvp -> dxp]');
+display(minreal(Gpp));
+% [Bvp, Avp] = tfdata(minreal(Gpv));
+
+% (Polynomials)
+AppEQ   = s*s*App(1) + s*App(2) + App(3);
+BppEQ   = Bpp(1)*s*s + Bpp(2)*s + Bpp(3);
+Bpp0    = Bpp(3);
+
+%%          (Closed Loop - Plant: Unity Feedback)
+%
+[Zeros,Poles,Gain] = zpkdata(Gpv);
+Gpppzk = zpk(Zeros, Poles, Gain);
+sysOrd = size(Poles{1,1},1);
+
+%get sys properties
+Gpp_CL  = feedback(Gpp,1);
+Sv = stepinfo(Gpv_CL);
+trv = Sv.RiseTime;
+Mpv = Sv.Overshoot;
+tsv = Sv.SettlingTime;
+ess = 100;
+
+%%          (Calculate Controller)
+%
+% [H_FFv,H_FBv, PD, P, D, I, N] = PID_calc(0,-1,trv*0.9,ess,Gpv,AvpEQ,BvpEQ,Bvp0,sysOrd);
+% 
+% %SIMULINK IMPLEMENTATION
+% [N_temp, D_temp]=tfdata(H_FFv); N_FFv = N_temp{1,1}; D_FFv = D_temp{1,1};
+% [N_temp, D_temp]=tfdata(H_FBv); N_FBv = N_temp{1,1};D_FBv = D_temp{1,1};
+% 
+% %Calculate Closed Loop - Controller
+% GpvP = H_FFv*feedback(Gpv,H_FBv);
+% 
+% %Compare Results
+% Sv = stepinfo(Gpv_CL)
+% SP = stepinfo(GpvP)
+% 
+% display('Gpv');
+% minreal(zpk(Gpv))
+% display('GvpP');
+% minreal(zpk(GpvP))
+% figure; step(Gpv_CL,'r:'); hold; step(GpvP, 'b');grid;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,19 +195,20 @@ step(Gpv_CL,'r:'); hold; step(GpvP, 'b');grid;
 % Gpp         = Gpv/s;                      % Plant TF xvq -> pq (Valve2Pos)
 % display(minreal(Gppv);
 %%                      (desired transfer function for velocity control)
-t_str = 'xvq -> vq (piston velocity';
-if ~exist('ex6t_h')
-        ex6p_t(z)=figure('Name',t_str,'numbertitle','off');
-else
-    if ~isvalid(ex6t_h)
-        ex6t_h(z)=figure('Name',t_str,'numbertitle','off');
-    else   
-        set(groot,'CurrentFigure',ex6t_h(z));
-        delete(ex6t_h)
-        ex6t_h(z)=figure('Name',t_str,'numbertitle','off');
-    end
-end
-display(H_11);
-subplot(1,3,1); step(H_11); grid;
-subplot(1,3,2); pzmap(H_11);grid;
-subplot(1,3,3); margin(H_11); grid;
+% t_str = 'xvq -> vq (piston velocity';
+% if ~exist('ex6t_h')
+%         ex6p_t(z)=figure('Name',t_str,'numbertitle','off');
+% else
+%     if ~isvalid(ex6t_h)
+%         ex6t_h(z)=figure('Name',t_str,'numbertitle','off');
+%     else   
+%         set(groot,'CurrentFigure',ex6t_h(z));
+%         delete(ex6t_h)
+%         ex6t_h(z)=figure('Name',t_str,'numbertitle','off');
+%     end
+% end
+% display(zpk(minreal(Gpv)));
+% display(zpk(minreal(Gpv_CL)));
+% subplot(1,3,1); step(minreal(Gpv)); grid;
+% subplot(1,3,2); pzmap(minreal(Gpv));grid;
+% subplot(1,3,3); margin(minreal(Gpv)); grid;
