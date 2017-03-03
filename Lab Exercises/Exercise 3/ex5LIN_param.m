@@ -1,4 +1,8 @@
 %%                              (EXC.6 - Hydraulic Parameters)
+
+Ts      = 1e-3;
+qi      = 2*pi/1000;
+
 fe      = 10000;                % N                 (Applied external Force/Load)
 g       = 9.81;                 % m/s^2             (Gravitational Field)
 rho     = 1000;                 % kg/m^3            (Oil density)

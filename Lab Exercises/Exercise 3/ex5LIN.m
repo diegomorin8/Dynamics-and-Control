@@ -31,57 +31,57 @@ feINI       = [fe_05_10k fe_1_10k fe_05_0k fe_1_0k];
 %%                              (EQUILIBRIUM POINTS)
 %
 %
-eqN = 3;                            % Output precision
+eqN         = 3;                            % Output precision
 
 
 %                              u(1) = f_e = 10000; u(2) = x_vq = 0.005 [_05_10k]
-xvq=0.005;
-a_05 = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10000; u(2) = x_vq = 0.005
-c_10k=(10000-Ps*A3);
-f_05_10k=a_05*x^2 + b*x +c_10k;
-vq_05_10k=solve(f_05_10k,x);
-vq_05_10k= vq_05_10k(i);
-p1q_05_10k = Ps- (A3*vq_05_10k/(xvq*Rv))^2;
-p2q_05_10k = (A3*vq_05_10k/(xvq*Rv))^2;
+xvq         = 0.005;
+a_05        = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10000; u(2) = x_vq = 0.005
+c_10k       =(10000-Ps*A3);
+f_05_10k    = a_05*x^2 + b*x +c_10k;
+vq_05_10k   = solve(f_05_10k,x);
+vq_05_10k   = vq_05_10k(i);
+p1q_05_10k  = Ps- (A3*vq_05_10k/(xvq*Rv))^2;
+p2q_05_10k  = (A3*vq_05_10k/(xvq*Rv))^2;
 
 
 %                              u(1) = f_e = 0; u(2) = x_vq = 0.005 [_05_0k]
-xvq=0.005;
-a_05 = ( 2*A3^3/(Rv^2*0.005^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.005
-c_0k=(-Ps*A3);
-f_05_0k=a_05*x^2 + b*x +c_0k;
-vq_05_0k=solve(f_05_0k,x);
-vq_05_0k = vq_05_0k(i);
-p1q_05_0k = Ps- (A3*vq_05_0k/(xvq*Rv))^2;
-p2q_05_0k = (A3*vq_05_0k/(xvq*Rv))^2;
+xvq         = 0.005;
+a_05        = ( 2*A3^3/(Rv^2*0.005^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.005
+c_0k        =(-Ps*A3);
+f_05_0k     = a_05*x^2 + b*x +c_0k;
+vq_05_0k    = solve(f_05_0k,x);
+vq_05_0k    = vq_05_0k(i);
+p1q_05_0k   = Ps- (A3*vq_05_0k/(xvq*Rv))^2;
+p2q_05_0k   = (A3*vq_05_0k/(xvq*Rv))^2;
 
 
 %                              u(1) = f_e = 0; u(2) = x_vq = 0.01 [_1_0k]
-xvq=0.01;
-a_1 = ( 2*A3^3/(Rv^2*0.01^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.01
-c_0k=(-Ps*A3);
-f_1_0k=a_1*x^2 + b*x +c_0k;
-vq_1_0k=solve(f_1_0k,x);
-vq_1_0k = vq_1_0k(i);
-p1q_1_0k = Ps- (A3*vq_1_0k/(xvq*Rv))^2;
-p2q_1_0k = (A3*vq_1_0k/(xvq*Rv))^2;
+xvq         = 0.01;
+a_1         = ( 2*A3^3/(Rv^2*0.01^2));            % u(1) = f_e = 0; u(2) = x_vq = 0.01
+c_0k        = (-Ps*A3);
+f_1_0k      = a_1*x^2 + b*x +c_0k;
+vq_1_0k     = solve(f_1_0k,x);
+vq_1_0k     = vq_1_0k(i);
+p1q_1_0k    = Ps- (A3*vq_1_0k/(xvq*Rv))^2;
+p2q_1_0k    = (A3*vq_1_0k/(xvq*Rv))^2;
 
 
 %                              u(1) = f_e = 10k; u(2) = x_vq = 0.01 [_1_10k]
-xvq= 0.01;
-a_1 = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10k; u(2) = x_vq = 0.01
-c_10k=(10000-Ps*A3);
-f_1_10k=a_1*x^2 + b*x +c_10k;
-vq_1_10k=solve(f_1_10k,x);
-vq_1_10k = vq_1_10k(i);
-p1q_1_10k = Ps- (A3*vq_1_10k/(xvq*Rv))^2;
-p2q_1_10k = (A3*vq_1_10k/(xvq*Rv))^2;
+xvq         = 0.01;
+a_1         = ( 2*A3^3/(Rv^2*xvq^2));            % u(1) = f_e = 10k; u(2) = x_vq = 0.01
+c_10k       =(10000-Ps*A3);
+f_1_10k     = a_1*x^2 + b*x +c_10k;
+vq_1_10k    = solve(f_1_10k,x);
+vq_1_10k    = vq_1_10k(i);
+p1q_1_10k   = Ps- (A3*vq_1_10k/(xvq*Rv))^2;
+p2q_1_10k   = (A3*vq_1_10k/(xvq*Rv))^2;
 
-EQPs = eye(4,3);
-EQPs(1,:) = [vq_05_10k, p1q_05_10k, p1q_05_10k];
-EQPs(2,:) = [vq_05_0k, p1q_05_0k, p2q_05_0k];
-EQPs(3,:) = [vq_1_0k, p1q_1_0k, p2q_1_0k];
-EQPs(4,:) = [vq_1_10k, p1q_1_10k,p2q_1_10k];
+EQPs        = eye(4,3);
+EQPs(1,:)   = [vq_05_10k, p1q_05_10k, p1q_05_10k];
+EQPs(2,:)   = [vq_05_0k, p1q_05_0k, p2q_05_0k];
+EQPs(3,:)   = [vq_1_0k, p1q_1_0k, p2q_1_0k];
+EQPs(4,:)   = [vq_1_10k, p1q_1_10k,p2q_1_10k];
 
 strEQ       = string(ones(4,1));
 strEQ(1,:)  = ['u1=0.005, u2=10k'];
