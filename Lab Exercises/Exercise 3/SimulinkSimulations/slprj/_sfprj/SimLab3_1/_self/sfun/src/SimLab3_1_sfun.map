@@ -1,0 +1,620 @@
+ SimLab3_1_sfun
+
+ Timestamp is 58b92e92 (Fri Mar 03 09:51:30 2017)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0000c5d4H .text                   CODE
+ 0002:00000000 00000238H .idata$5                DATA
+ 0002:00000238 00000004H .CRT$XCA                DATA
+ 0002:0000023c 00000004H .CRT$XCZ                DATA
+ 0002:00000240 00000004H .CRT$XIA                DATA
+ 0002:00000244 00000004H .CRT$XIAA               DATA
+ 0002:00000248 00000004H .CRT$XIC                DATA
+ 0002:0000024c 00000004H .CRT$XIZ                DATA
+ 0002:00000250 000006b8H .rdata                  DATA
+ 0002:00000910 00000004H .rdata$sxdata           DATA
+ 0002:00000914 00000004H .rtc$IAA                DATA
+ 0002:00000918 00000004H .rtc$IZZ                DATA
+ 0002:0000091c 00000004H .rtc$TAA                DATA
+ 0002:00000920 00000004H .rtc$TZZ                DATA
+ 0002:00000928 00000064H .xdata$x                DATA
+ 0002:0000098c 0000008cH .idata$2                DATA
+ 0002:00000a18 00000014H .idata$3                DATA
+ 0002:00000a2c 00000238H .idata$4                DATA
+ 0002:00000c64 00000c62H .idata$6                DATA
+ 0002:000018d0 00000054H .edata                  DATA
+ 0003:00000000 00002af0H .data                   DATA
+ 0003:00002af0 00000448H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00000000       ___ImageBase               10000000     <linker-defined>
+ 0001:00000000       _SimLab3_1_initializer     10001000 f   SimLab3_1_sfun.obj
+ 0001:00000010       _SimLab3_1_terminator      10001010 f   SimLab3_1_sfun.obj
+ 0001:00000020       _sf_SimLab3_1_method_dispatcher 10001020 f   SimLab3_1_sfun.obj
+ 0001:00000070       _sf_SimLab3_1_uses_exported_functions 10001070 f   SimLab3_1_sfun.obj
+ 0001:00000090       _sf_SimLab3_1_process_check_sum_call 10001090 f   SimLab3_1_sfun.obj
+ 0001:00000450       _sf_SimLab3_1_autoinheritance_info 10001450 f   SimLab3_1_sfun.obj
+ 0001:000005b0       _sf_SimLab3_1_get_eml_resolved_functions_info 100015b0 f   SimLab3_1_sfun.obj
+ 0001:000006d0       _sf_SimLab3_1_third_party_uses_info 100016d0 f   SimLab3_1_sfun.obj
+ 0001:00000830       _sf_SimLab3_1_jit_fallback_info 10001830 f   SimLab3_1_sfun.obj
+ 0001:00000990       _sf_SimLab3_1_updateBuildInfo_args_info 10001990 f   SimLab3_1_sfun.obj
+ 0001:00000af0       _sf_SimLab3_1_get_post_codegen_info 10001af0 f   SimLab3_1_sfun.obj
+ 0001:00000bc0       _SimLab3_1_debug_initialize 10001bc0 f   SimLab3_1_sfun.obj
+ 0001:00000c20       _SimLab3_1_register_exported_symbols 10001c20 f   SimLab3_1_sfun.obj
+ 0001:00000c30       _load_SimLab3_1_optimization_info 10001c30 f   SimLab3_1_sfun.obj
+ 0001:00000c70       _unload_SimLab3_1_optimization_info 10001c70 f   SimLab3_1_sfun.obj
+ 0001:00000ca0       _sf_c1_SimLab3_1_get_eml_resolved_functions_info 10001ca0 f   c1_SimLab3_1.obj
+ 0001:00001900       _sf_c1_SimLab3_1_get_check_sum 10002900 f   c1_SimLab3_1.obj
+ 0001:00001960       _sf_c1_SimLab3_1_get_autoinheritance_info 10002960 f   c1_SimLab3_1.obj
+ 0001:00001d90       _sf_c1_SimLab3_1_third_party_uses_info 10002d90 f   c1_SimLab3_1.obj
+ 0001:00001db0       _sf_c1_SimLab3_1_jit_fallback_info 10002db0 f   c1_SimLab3_1.obj
+ 0001:00001e60       _sf_c1_SimLab3_1_updateBuildInfo_args_info 10002e60 f   c1_SimLab3_1.obj
+ 0001:00001e80       _sf_c1_SimLab3_1_get_post_codegen_info 10002e80 f   c1_SimLab3_1.obj
+ 0001:00001f20       _c1_SimLab3_1_method_dispatcher 10002f20 f   c1_SimLab3_1.obj
+ 0001:00003b60       _sf_c4_SimLab3_1_get_eml_resolved_functions_info 10004b60 f   c4_SimLab3_1.obj
+ 0001:000047c0       _sf_c4_SimLab3_1_get_check_sum 100057c0 f   c4_SimLab3_1.obj
+ 0001:00004820       _sf_c4_SimLab3_1_get_autoinheritance_info 10005820 f   c4_SimLab3_1.obj
+ 0001:00004c50       _sf_c4_SimLab3_1_third_party_uses_info 10005c50 f   c4_SimLab3_1.obj
+ 0001:00004c70       _sf_c4_SimLab3_1_jit_fallback_info 10005c70 f   c4_SimLab3_1.obj
+ 0001:00004d20       _sf_c4_SimLab3_1_updateBuildInfo_args_info 10005d20 f   c4_SimLab3_1.obj
+ 0001:00004d40       _sf_c4_SimLab3_1_get_post_codegen_info 10005d40 f   c4_SimLab3_1.obj
+ 0001:00004de0       _c4_SimLab3_1_method_dispatcher 10005de0 f   c4_SimLab3_1.obj
+ 0001:000069f0       _sf_process_check_sum_call 100079f0 f   SimLab3_1_sfun_registry.obj
+ 0001:00006a20       _sf_process_machine_uses_exported_functions_call 10007a20 f   SimLab3_1_sfun_registry.obj
+ 0001:00006b20       _sf_process_autoinheritance_call 10007b20 f   SimLab3_1_sfun_registry.obj
+ 0001:00006c60       _sf_process_get_third_party_uses_info_call 10007c60 f   SimLab3_1_sfun_registry.obj
+ 0001:00006da0       _sf_process_get_jit_fallback_info_call 10007da0 f   SimLab3_1_sfun_registry.obj
+ 0001:00006ee0       _sf_process_get_updateBuildInfo_args_info_call 10007ee0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007020       _sf_process_get_eml_resolved_functions_info_call 10008020 f   SimLab3_1_sfun_registry.obj
+ 0001:00007140       _sf_process_get_post_codegen_info 10008140 f   SimLab3_1_sfun_registry.obj
+ 0001:00007240       _sf_mex_unlock_call        10008240 f   SimLab3_1_sfun_registry.obj
+ 0001:000072d0       _sf_machine_global_initializer_called 100082d0 f   SimLab3_1_sfun_registry.obj
+ 0001:000072f0       _sf_machine_global_method_dispatcher 100082f0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007330       _sf_machine_global_terminator 10008330 f   SimLab3_1_sfun_registry.obj
+ 0001:00007370       _sf_register_machine_exported_symbols 10008370 f   SimLab3_1_sfun_registry.obj
+ 0001:00007390       _callCustomFcn             10008390 f   SimLab3_1_sfun_registry.obj
+ 0001:000073a0       _sf_machine_global_initializer 100083a0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007410       _mdlGetSimState            10008410 f   SimLab3_1_sfun_registry.obj
+ 0001:00007470       _mdlSetSimState            10008470 f   SimLab3_1_sfun_registry.obj
+ 0001:000074a0       __ssSetStateAbsTol         100084a0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007540       __ssGetAbsTol              10008540 f   SimLab3_1_sfun_registry.obj
+ 0001:00007590       __ssSetInputPortMatrixDimensions 10008590 f   SimLab3_1_sfun_registry.obj
+ 0001:00007640       __ssSetOutputPortMatrixDimensions 10008640 f   SimLab3_1_sfun_registry.obj
+ 0001:000076f0       __ssSetInputPortVectorDimension 100086f0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007770       __ssSetOutputPortVectorDimension 10008770 f   SimLab3_1_sfun_registry.obj
+ 0001:000077f0       _ssIsRunTimeParamTunable   100087f0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007850       _ssGetSFuncBlockHandle     10008850 f   SimLab3_1_sfun_registry.obj
+ 0001:000078a0       __ssGetCurrentInputPortWidth 100088a0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007970       __ssGetCurrentOutputPortWidth 10008970 f   SimLab3_1_sfun_registry.obj
+ 0001:00007a40       __ssGetCallSystemNumFcnCallDestinations 10008a40 f   SimLab3_1_sfun_registry.obj
+ 0001:00007aa0       _ssWarning                 10008aa0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007b80       _ssGetIsZeroCrossControlDisabled 10008b80 f   SimLab3_1_sfun_registry.obj
+ 0001:00007be0       _ssSetIsInputPortUsedForContZcSignal 10008be0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007c30       _ssSetZcSignalIsZcElementDisc 10008c30 f   SimLab3_1_sfun_registry.obj
+ 0001:00007cb0       _ssSetZcSignalName         10008cb0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007d00       _ssSetZcSignalWidth        10008d00 f   SimLab3_1_sfun_registry.obj
+ 0001:00007d50       _ssSetZcSignalZcEventType  10008d50 f   SimLab3_1_sfun_registry.obj
+ 0001:00007da0       _ssSetZcSignalType         10008da0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007df0       _ssSetZcSignalZcTol        10008df0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007e40       _ssSetZcSignalNeedsEventNotification 10008e40 f   SimLab3_1_sfun_registry.obj
+ 0001:00007e90       _ssCreateAndAddZcSignalInfo 10008e90 f   SimLab3_1_sfun_registry.obj
+ 0001:00007ef0       _ssCloneAndAddZcSignalInfo 10008ef0 f   SimLab3_1_sfun_registry.obj
+ 0001:00007f50       _ssGetNumZcSignals         10008f50 f   SimLab3_1_sfun_registry.obj
+ 0001:00007fb0       _ssGetZcSignalVector       10008fb0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008010       _ssGetZcSignalZcEvents     10009010 f   SimLab3_1_sfun_registry.obj
+ 0001:00008070       _ssGetZcSignalName         10009070 f   SimLab3_1_sfun_registry.obj
+ 0001:000080d0       _ssGetZcSignalWidth        100090d0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008130       _ssGetZcSignalZcEventType  10009130 f   SimLab3_1_sfun_registry.obj
+ 0001:00008190       _ssGetZcSignalType         10009190 f   SimLab3_1_sfun_registry.obj
+ 0001:000081f0       _ssGetZcSignalZcTol        100091f0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008250       _ssGetZcSignalNeedsEventNotification 10009250 f   SimLab3_1_sfun_registry.obj
+ 0001:000082b0       _ssGetZcSignalIsZcElementDisc 100092b0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008330       _ssGetIsInputPortElementContinuous 10009330 f   SimLab3_1_sfun_registry.obj
+ 0001:000083b0       __ssGetInputPortSignalPtrsFcn 100093b0 f   SimLab3_1_sfun_registry.obj
+ 0001:000085b0       __ssGetInputPortSignalFcn  100095b0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008740       __ssSetInputPortDirectFeedThroughFcn 10009740 f   SimLab3_1_sfun_registry.obj
+ 0001:00008870       __ssSetInputPortReusableFcn 10009870 f   SimLab3_1_sfun_registry.obj
+ 0001:00008900       __ssSetOutputPortReusableFcn 10009900 f   SimLab3_1_sfun_registry.obj
+ 0001:00008990       _ssGetDTypeIdFromMxArray   10009990 f   SimLab3_1_sfun_registry.obj
+ 0001:00008a80       _ssWriteRTWStr             10009a80 f   SimLab3_1_sfun_registry.obj
+ 0001:00008ac0       _ssWriteRTWMxVectParam     10009ac0 f   SimLab3_1_sfun_registry.obj
+ 0001:00008b00       _ssWriteRTWMx2dMatParam    10009b00 f   SimLab3_1_sfun_registry.obj
+ 0001:00008b40       _ssWriteRTWNameValuePair   10009b40 f   SimLab3_1_sfun_registry.obj
+ 0001:00008eb0       _ssWriteRTWParameters      10009eb0 f   SimLab3_1_sfun_registry.obj
+ 0001:00009250       _ssWriteRTWParamSettings   1000a250 f   SimLab3_1_sfun_registry.obj
+ 0001:00009700       _ssWriteRTWWorkVect        1000a700 f   SimLab3_1_sfun_registry.obj
+ 0001:00009a90       _mexFunction               1000aa90 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b870       _ProcessMexSfunctionEveryCall 1000c870 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b98e       _sf_debug_set_machine_data_thresholds 1000c98e f   sf_runtime:sf_runtime.dll
+ 0001:0000b994       _sf_debug_set_machine_event_thresholds 1000c994 f   sf_runtime:sf_runtime.dll
+ 0001:0000b99a       _sf_debug_initialize_machine 1000c99a f   sf_runtime:sf_runtime.dll
+ 0001:0000b9a0       _sf_load_rtw_optimization_info 1000c9a0 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9a6       _sf_mex_emlrtNameCapturePostProcessR2012a 1000c9a6 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9ac       _sf_mex_assign             1000c9ac f   sf_runtime:sf_runtime.dll
+ 0001:0000b9b2       _sf_mex_createstruct       1000c9b2 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9b8       _sf_mex_destroy            1000c9b8 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9be       _sf_mex_duplicatearraysafe 1000c9be f   sf_runtime:sf_runtime.dll
+ 0001:0000b9c4       _sf_mex_createcellmatrix   1000c9c4 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9ca       _sf_mex_addfield           1000c9ca f   sf_runtime:sf_runtime.dll
+ 0001:0000b9d0       _sf_mex_create             1000c9d0 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9d6       _sf_mex_error_message      1000c9d6 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9dc       _sf_set_rtw_dwork_info     1000c9dc f   sf_runtime:sf_runtime.dll
+ 0001:0000b9e2       _sf_mark_chart_reusable_outputs 1000c9e2 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9e8       _sf_mark_chart_expressionable_inputs 1000c9e8 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9ee       _sf_update_buildInfo       1000c9ee f   sf_runtime:sf_runtime.dll
+ 0001:0000b9f4       _sf_rtw_info_uint_prop     1000c9f4 f   sf_runtime:sf_runtime.dll
+ 0001:0000b9fa       _sf_is_chart_inlinable     1000c9fa f   sf_runtime:sf_runtime.dll
+ 0001:0000ba00       _sim_mode_is_external      1000ca00 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba06       _sim_mode_is_rtw_gen       1000ca06 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba0c       _ssGetOutputPortSignal_wrapper 1000ca0c f   sf_runtime:sf_runtime.dll
+ 0001:0000ba12       _ssGetInputPortSignal_wrapper 1000ca12 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba18       _sf_mex_decode_encoded_mx_struct_array 1000ca18 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba1e       _sf_debug_reset_current_state_configuration 1000ca1e f   sf_runtime:sf_runtime.dll
+ 0001:0000ba24       _sf_debug_set_instance_data_value_ptr 1000ca24 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba2a       _sf_debug_set_chart_data_compiled_props 1000ca2a f   sf_runtime:sf_runtime.dll
+ 0001:0000ba30       _cv_eml_init_relational    1000ca30 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba36       _cv_eml_init_if            1000ca36 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba3c       _cv_eml_init_fcn           1000ca3c f   sf_runtime:sf_runtime.dll
+ 0001:0000ba42       _cv_eml_init_script        1000ca42 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba48       _sf_debug_cv_init_trans    1000ca48 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba4e       _sf_debug_cv_init_state    1000ca4e f   sf_runtime:sf_runtime.dll
+ 0001:0000ba54       _sf_debug_cv_init_chart    1000ca54 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba5a       _sf_debug_set_chart_decomposition 1000ca5a f   sf_runtime:sf_runtime.dll
+ 0001:0000ba60       _sf_debug_set_chart_substate_count 1000ca60 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba66       _sf_debug_set_chart_state_info 1000ca66 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba6c       _sf_debug_set_chart_data_props 1000ca6c f   sf_runtime:sf_runtime.dll
+ 0001:0000ba72       _sf_debug_set_chart_event_thresholds 1000ca72 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba78       _sf_debug_set_chart_disable_implicit_casting 1000ca78 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba7e       _sf_debug_initialize_chart 1000ca7e f   sf_runtime:sf_runtime.dll
+ 0001:0000ba84       _sf_mex_dup                1000ca84 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba8a       _sf_mex_import             1000ca8a f   sf_runtime:sf_runtime.dll
+ 0001:0000ba90       _sf_get_time               1000ca90 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba96       _sf_debug_check_for_state_inconsistency 1000ca96 f   sf_runtime:sf_runtime.dll
+ 0001:0000ba9c       _sf_debug_symbol_scope_pop 1000ca9c f   sf_runtime:sf_runtime.dll
+ 0001:0000baa2       _cv_eval_relational        1000caa2 f   sf_runtime:sf_runtime.dll
+ 0001:0000baa8       _eml_debug_line_call       1000caa8 f   sf_runtime:sf_runtime.dll
+ 0001:0000baae       _cv_eml_eval               1000caae f   sf_runtime:sf_runtime.dll
+ 0001:0000bab4       _sf_debug_symbol_scope_add_eml_importable 1000cab4 f   sf_runtime:sf_runtime.dll
+ 0001:0000baba       _sf_debug_symbol_scope_add_eml 1000caba f   sf_runtime:sf_runtime.dll
+ 0001:0000bac0       _sf_debug_symbol_scope_push_eml 1000cac0 f   sf_runtime:sf_runtime.dll
+ 0001:0000bac6       _sf_debug_data_range_wrapper 1000cac6 f   sf_runtime:sf_runtime.dll
+ 0001:0000bacc       _sf_debug_call             1000cacc f   sf_runtime:sf_runtime.dll
+ 0001:0000bad2       _sf_debug_symbol_scope_push 1000cad2 f   sf_runtime:sf_runtime.dll
+ 0001:0000bad8       _sf_mex_setcell            1000cad8 f   sf_runtime:sf_runtime.dll
+ 0001:0000bade       _sf_mex_getcell            1000cade f   sf_runtime:sf_runtime.dll
+ 0001:0000bae4       _sf_clear_rtw_identifier   1000cae4 f   sf_runtime:sf_runtime.dll
+ 0001:0000baea       _sf_debug_terminate        1000caea f   sf_runtime:sf_runtime.dll
+ 0001:0000baf0       _sf_debug_create_debug_instance_struct 1000caf0 f   sf_runtime:sf_runtime.dll
+ 0001:0000baf6       _sf_debug_api              1000caf6 f   sf_runtime:sf_runtime.dll
+ 0001:0000bafc       _callMdlMethodAndReportError 1000cafc f   sf_runtime:sf_runtime.dll
+ 0001:0000bb02       _call_sf_machine_global_method_dispatcher 1000cb02 f   sf_runtime:sf_runtime.dll
+ 0001:0000bb08       _sf_clear_error_manager_info 1000cb08 f   sf_runtime:sf_runtime.dll
+ 0001:0000bb0e       _sf_mex_error_direct_call  1000cb0e f   sf_runtime:sf_runtime.dll
+ 0001:0000bb14       _mxCreateLogicalScalar     1000cb14 f   libmx:libmx.dll
+ 0001:0000bb1a       _mxGetScalar               1000cb1a f   libmx:libmx.dll
+ 0001:0000bb20       _mxGetPr                   1000cb20 f   libmx:libmx.dll
+ 0001:0000bb26       _mxCreateDoubleMatrix_730  1000cb26 f   libmx:libmx.dll
+ 0001:0000bb2c       _mxGetString_730           1000cb2c f   libmx:libmx.dll
+ 0001:0000bb32       _mxIsChar                  1000cb32 f   libmx:libmx.dll
+ 0001:0000bb38       _mxDestroyArray            1000cb38 f   libmx:libmx.dll
+ 0001:0000bb3e       _mxDuplicateArray          1000cb3e f   libmx:libmx.dll
+ 0001:0000bb44       _mxCreateDoubleScalar      1000cb44 f   libmx:libmx.dll
+ 0001:0000bb4a       _mxSetField_730            1000cb4a f   libmx:libmx.dll
+ 0001:0000bb50       _mxCreateString            1000cb50 f   libmx:libmx.dll
+ 0001:0000bb56       _mxCreateStructMatrix_730  1000cb56 f   libmx:libmx.dll
+ 0001:0000bb5c       _mxCreateCellMatrix_730    1000cb5c f   libmx:libmx.dll
+ 0001:0000bb62       _mxCreateCellArray_730     1000cb62 f   libmx:libmx.dll
+ 0001:0000bb68       _mxCreateStructArray_730   1000cb68 f   libmx:libmx.dll
+ 0001:0000bb6e       _mxGetClassID              1000cb6e f   libmx:libmx.dll
+ 0001:0000bb74       _mxIsNumeric               1000cb74 f   libmx:libmx.dll
+ 0001:0000bb7a       _mxIsComplex               1000cb7a f   libmx:libmx.dll
+ 0001:0000bb80       _mxGetN                    1000cb80 f   libmx:libmx.dll
+ 0001:0000bb86       _mxGetM                    1000cb86 f   libmx:libmx.dll
+ 0001:0000bb8c       _mxCalloc                  1000cb8c f   libmx:libmx.dll
+ 0001:0000bb92       _mexMakeArrayPersistent    1000cb92 f   libmex:libmex.dll
+ 0001:0000bb98       _mexUnlock                 1000cb98 f   libmex:libmex.dll
+ 0001:0000bb9e       _mexIsLocked               1000cb9e f   libmex:libmex.dll
+ 0001:0000bba4       _mexWarnMsgTxt             1000cba4 f   libmex:libmex.dll
+ 0001:0000bbaa       _mexCallMATLABWithObject   1000cbaa f   libmex:libmex.dll
+ 0001:0000bbb0       _mexErrMsgTxt              1000cbb0 f   libmex:libmex.dll
+ 0001:0000bbb6       _mexLock                   1000cbb6 f   libmex:libmex.dll
+ 0001:0000bbbc       _utMalloc                  1000cbbc f   libut:libut.dll
+ 0001:0000bbc2       _utFree                    1000cbc2 f   libut:libut.dll
+ 0001:0000bbc8       _muDoubleScalarSign        1000cbc8 f   libmwmathutil:libmwmathutil.dll
+ 0001:0000bbce       _muDoubleScalarAbs         1000cbce f   libmwmathutil:libmwmathutil.dll
+ 0001:0000bbd4       _strcmp                    1000cbd4 f   MSVCRT:MSVCR100.dll
+ 0001:0000bbe0       @__security_check_cookie@4 1000cbe0 f   MSVCRT:secchk.obj
+ 0001:0000bbf0       _strlen                    1000cbf0 f   MSVCRT:MSVCR100.dll
+ 0001:0000bbf6       _memset                    1000cbf6 f   MSVCRT:MSVCR100.dll
+ 0001:0000bbfc       _free                      1000cbfc f   MSVCRT:MSVCR100.dll
+ 0001:0000bc02       _sprintf                   1000cc02 f   MSVCRT:MSVCR100.dll
+ 0001:0000bc08       _malloc                    1000cc08 f   MSVCRT:MSVCR100.dll
+ 0001:0000bc0e       _strcat                    1000cc0e f   MSVCRT:MSVCR100.dll
+ 0001:0000bc20       __ftol2_sse                1000cc20 f   MSVCRT:ftol2.obj
+ 0001:0000bc29       __ftol2_pentium4           1000cc29 f   MSVCRT:ftol2.obj
+ 0001:0000bc3c       __ftol2_sse_excpt          1000cc3c f   MSVCRT:ftol2.obj
+ 0001:0000bc56       __ftol2                    1000cc56 f   MSVCRT:ftol2.obj
+ 0001:0000bccc       _memcpy                    1000cccc f   MSVCRT:MSVCR100.dll
+ 0001:0000bcd2       _NtCurrentTeb              1000ccd2 f i MSVCRT:crtdll.obj
+ 0001:0000bd27       __CRT_INIT@12              1000cd27 f   MSVCRT:crtdll.obj
+ 0001:0000c047       __DllMainCRTStartup@12     1000d047 f   MSVCRT:crtdll.obj
+ 0001:0000c06a       ___report_gsfailure        1000d06a f   MSVCRT:gs_report.obj
+ 0001:0000c170       ___sse2_available_init     1000d170 f   MSVCRT:cpu_disp.obj
+ 0001:0000c180       ___clean_type_info_names   1000d180 f   MSVCRT:tncleanup.obj
+ 0001:0000c18c       __onexit                   1000d18c f   MSVCRT:atonexit.obj
+ 0001:0000c22d       _atexit                    1000d22d f   MSVCRT:atonexit.obj
+ 0001:0000c244       __RTC_Initialize           1000d244 f   MSVCRT:_initsect_.obj
+ 0001:0000c26a       __RTC_Terminate            1000d26a f   MSVCRT:_initsect_.obj
+ 0001:0000c290       __malloc_crt               1000d290 f   MSVCRT:MSVCR100.dll
+ 0001:0000c296       __encoded_null             1000d296 f   MSVCRT:MSVCR100.dll
+ 0001:0000c2a0       __ValidateImageBase        1000d2a0 f   MSVCRT:pesect.obj
+ 0001:0000c2e0       __FindPESection            1000d2e0 f   MSVCRT:pesect.obj
+ 0001:0000c330       __IsNonwritableInCurrentImage 1000d330 f   MSVCRT:pesect.obj
+ 0001:0000c3ec       __initterm                 1000d3ec f   MSVCRT:MSVCR100.dll
+ 0001:0000c3f2       __initterm_e               1000d3f2 f   MSVCRT:MSVCR100.dll
+ 0001:0000c3f8       __amsg_exit                1000d3f8 f   MSVCRT:MSVCR100.dll
+ 0001:0000c3fe       ___CppXcptFilter           1000d3fe f   MSVCRT:MSVCR100.dll
+ 0001:0000c404       _DllMain@12                1000d404 f   MSVCRT:dllmain.obj
+ 0001:0000c430       __SEH_prolog4              1000d430 f   MSVCRT:sehprolg4.obj
+ 0001:0000c475       __SEH_epilog4              1000d475 f   MSVCRT:sehprolg4.obj
+ 0001:0000c489       __except_handler4          1000d489 f   MSVCRT:chandler4gs.obj
+ 0001:0000c4ae       ___security_init_cookie    1000d4ae f   MSVCRT:gs_support.obj
+ 0001:0000c54a       __crt_debugger_hook        1000d54a f   MSVCRT:MSVCR100.dll
+ 0001:0000c550       ___clean_type_info_names_internal 1000d550 f   MSVCRT:MSVCR100.dll
+ 0001:0000c556       __unlock                   1000d556 f   MSVCRT:MSVCR100.dll
+ 0001:0000c55c       ___dllonexit               1000d55c f   MSVCRT:MSVCR100.dll
+ 0001:0000c562       __lock                     1000d562 f   MSVCRT:MSVCR100.dll
+ 0001:0000c568       __except_handler4_common   1000d568 f   MSVCRT:MSVCR100.dll
+ 0001:0000c56e       _EncodePointer@4           1000d56e f   kernel32:KERNEL32.dll
+ 0001:0000c574       _DecodePointer@4           1000d574 f   kernel32:KERNEL32.dll
+ 0001:0000c57a       _InterlockedExchange@8     1000d57a f   kernel32:KERNEL32.dll
+ 0001:0000c580       _Sleep@4                   1000d580 f   kernel32:KERNEL32.dll
+ 0001:0000c586       _InterlockedCompareExchange@12 1000d586 f   kernel32:KERNEL32.dll
+ 0001:0000c58c       _TerminateProcess@8        1000d58c f   kernel32:KERNEL32.dll
+ 0001:0000c592       _GetCurrentProcess@0       1000d592 f   kernel32:KERNEL32.dll
+ 0001:0000c598       _UnhandledExceptionFilter@4 1000d598 f   kernel32:KERNEL32.dll
+ 0001:0000c59e       _SetUnhandledExceptionFilter@4 1000d59e f   kernel32:KERNEL32.dll
+ 0001:0000c5a4       _IsDebuggerPresent@0       1000d5a4 f   kernel32:KERNEL32.dll
+ 0001:0000c5aa       _IsProcessorFeaturePresent@4 1000d5aa f   kernel32:KERNEL32.dll
+ 0001:0000c5b0       _DisableThreadLibraryCalls@4 1000d5b0 f   kernel32:KERNEL32.dll
+ 0001:0000c5b6       _QueryPerformanceCounter@4 1000d5b6 f   kernel32:KERNEL32.dll
+ 0001:0000c5bc       _GetTickCount@0            1000d5bc f   kernel32:KERNEL32.dll
+ 0001:0000c5c2       _GetCurrentThreadId@0      1000d5c2 f   kernel32:KERNEL32.dll
+ 0001:0000c5c8       _GetCurrentProcessId@0     1000d5c8 f   kernel32:KERNEL32.dll
+ 0001:0000c5ce       _GetSystemTimeAsFileTime@4 1000d5ce f   kernel32:KERNEL32.dll
+ 0002:00000000       __imp__GetSystemTimeAsFileTime@4 1000e000     kernel32:KERNEL32.dll
+ 0002:00000004       __imp__GetCurrentProcessId@0 1000e004     kernel32:KERNEL32.dll
+ 0002:00000008       __imp__GetCurrentThreadId@0 1000e008     kernel32:KERNEL32.dll
+ 0002:0000000c       __imp__GetTickCount@0      1000e00c     kernel32:KERNEL32.dll
+ 0002:00000010       __imp__QueryPerformanceCounter@4 1000e010     kernel32:KERNEL32.dll
+ 0002:00000014       __imp__DisableThreadLibraryCalls@4 1000e014     kernel32:KERNEL32.dll
+ 0002:00000018       __imp__IsProcessorFeaturePresent@4 1000e018     kernel32:KERNEL32.dll
+ 0002:0000001c       __imp__IsDebuggerPresent@0 1000e01c     kernel32:KERNEL32.dll
+ 0002:00000020       __imp__SetUnhandledExceptionFilter@4 1000e020     kernel32:KERNEL32.dll
+ 0002:00000024       __imp__UnhandledExceptionFilter@4 1000e024     kernel32:KERNEL32.dll
+ 0002:00000028       __imp__GetCurrentProcess@0 1000e028     kernel32:KERNEL32.dll
+ 0002:0000002c       __imp__TerminateProcess@8  1000e02c     kernel32:KERNEL32.dll
+ 0002:00000030       __imp__InterlockedCompareExchange@12 1000e030     kernel32:KERNEL32.dll
+ 0002:00000034       __imp__Sleep@4             1000e034     kernel32:KERNEL32.dll
+ 0002:00000038       __imp__InterlockedExchange@8 1000e038     kernel32:KERNEL32.dll
+ 0002:0000003c       __imp__DecodePointer@4     1000e03c     kernel32:KERNEL32.dll
+ 0002:00000040       __imp__EncodePointer@4     1000e040     kernel32:KERNEL32.dll
+ 0002:00000044       \177KERNEL32_NULL_THUNK_DATA 1000e044     kernel32:KERNEL32.dll
+ 0002:00000048       __imp___except_handler4_common 1000e048     MSVCRT:MSVCR100.dll
+ 0002:0000004c       __imp___onexit             1000e04c     MSVCRT:MSVCR100.dll
+ 0002:00000050       __imp___lock               1000e050     MSVCRT:MSVCR100.dll
+ 0002:00000054       __imp____dllonexit         1000e054     MSVCRT:MSVCR100.dll
+ 0002:00000058       __imp___unlock             1000e058     MSVCRT:MSVCR100.dll
+ 0002:0000005c       __imp____clean_type_info_names_internal 1000e05c     MSVCRT:MSVCR100.dll
+ 0002:00000060       __imp___crt_debugger_hook  1000e060     MSVCRT:MSVCR100.dll
+ 0002:00000064       __imp____CppXcptFilter     1000e064     MSVCRT:MSVCR100.dll
+ 0002:00000068       __imp___amsg_exit          1000e068     MSVCRT:MSVCR100.dll
+ 0002:0000006c       __imp___initterm_e         1000e06c     MSVCRT:MSVCR100.dll
+ 0002:00000070       __imp___initterm           1000e070     MSVCRT:MSVCR100.dll
+ 0002:00000074       __imp___encoded_null       1000e074     MSVCRT:MSVCR100.dll
+ 0002:00000078       __imp___malloc_crt         1000e078     MSVCRT:MSVCR100.dll
+ 0002:0000007c       __imp__memcpy              1000e07c     MSVCRT:MSVCR100.dll
+ 0002:00000080       __imp__strcat              1000e080     MSVCRT:MSVCR100.dll
+ 0002:00000084       __imp__malloc              1000e084     MSVCRT:MSVCR100.dll
+ 0002:00000088       __imp__sprintf             1000e088     MSVCRT:MSVCR100.dll
+ 0002:0000008c       __imp__free                1000e08c     MSVCRT:MSVCR100.dll
+ 0002:00000090       __imp__memset              1000e090     MSVCRT:MSVCR100.dll
+ 0002:00000094       __imp__strlen              1000e094     MSVCRT:MSVCR100.dll
+ 0002:00000098       __imp__strcmp              1000e098     MSVCRT:MSVCR100.dll
+ 0002:0000009c       \177MSVCR100_NULL_THUNK_DATA 1000e09c     MSVCRT:MSVCR100.dll
+ 0002:000000a0       __imp__mexErrMsgTxt        1000e0a0     libmex:libmex.dll
+ 0002:000000a4       __imp__mexUnlock           1000e0a4     libmex:libmex.dll
+ 0002:000000a8       __imp__mexIsLocked         1000e0a8     libmex:libmex.dll
+ 0002:000000ac       __imp__mexLock             1000e0ac     libmex:libmex.dll
+ 0002:000000b0       __imp__mexMakeArrayPersistent 1000e0b0     libmex:libmex.dll
+ 0002:000000b4       __imp__mexCallMATLABWithObject 1000e0b4     libmex:libmex.dll
+ 0002:000000b8       __imp__mexWarnMsgTxt       1000e0b8     libmex:libmex.dll
+ 0002:000000bc       \177libmex_NULL_THUNK_DATA 1000e0bc     libmex:libmex.dll
+ 0002:000000c0       __imp__muDoubleScalarAbs   1000e0c0     libmwmathutil:libmwmathutil.dll
+ 0002:000000c4       __imp__muDoubleScalarSign  1000e0c4     libmwmathutil:libmwmathutil.dll
+ 0002:000000c8       \177libmwmathutil_NULL_THUNK_DATA 1000e0c8     libmwmathutil:libmwmathutil.dll
+ 0002:000000cc       __imp__mxCalloc            1000e0cc     libmx:libmx.dll
+ 0002:000000d0       __imp__mxGetM              1000e0d0     libmx:libmx.dll
+ 0002:000000d4       __imp__mxGetN              1000e0d4     libmx:libmx.dll
+ 0002:000000d8       __imp__mxIsComplex         1000e0d8     libmx:libmx.dll
+ 0002:000000dc       __imp__mxIsNumeric         1000e0dc     libmx:libmx.dll
+ 0002:000000e0       __imp__mxGetClassID        1000e0e0     libmx:libmx.dll
+ 0002:000000e4       __imp__mxCreateStructArray_730 1000e0e4     libmx:libmx.dll
+ 0002:000000e8       __imp__mxCreateCellArray_730 1000e0e8     libmx:libmx.dll
+ 0002:000000ec       __imp__mxCreateCellMatrix_730 1000e0ec     libmx:libmx.dll
+ 0002:000000f0       __imp__mxCreateStructMatrix_730 1000e0f0     libmx:libmx.dll
+ 0002:000000f4       __imp__mxCreateString      1000e0f4     libmx:libmx.dll
+ 0002:000000f8       __imp__mxSetField_730      1000e0f8     libmx:libmx.dll
+ 0002:000000fc       __imp__mxCreateDoubleScalar 1000e0fc     libmx:libmx.dll
+ 0002:00000100       __imp__mxDuplicateArray    1000e100     libmx:libmx.dll
+ 0002:00000104       __imp__mxCreateLogicalScalar 1000e104     libmx:libmx.dll
+ 0002:00000108       __imp__mxGetScalar         1000e108     libmx:libmx.dll
+ 0002:0000010c       __imp__mxGetPr             1000e10c     libmx:libmx.dll
+ 0002:00000110       __imp__mxCreateDoubleMatrix_730 1000e110     libmx:libmx.dll
+ 0002:00000114       __imp__mxGetString_730     1000e114     libmx:libmx.dll
+ 0002:00000118       __imp__mxIsChar            1000e118     libmx:libmx.dll
+ 0002:0000011c       __imp__mxDestroyArray      1000e11c     libmx:libmx.dll
+ 0002:00000120       \177libmx_NULL_THUNK_DATA  1000e120     libmx:libmx.dll
+ 0002:00000124       __imp__utMalloc            1000e124     libut:libut.dll
+ 0002:00000128       __imp__utFree              1000e128     libut:libut.dll
+ 0002:0000012c       \177libut_NULL_THUNK_DATA  1000e12c     libut:libut.dll
+ 0002:00000130       __imp__call_sf_machine_global_method_dispatcher 1000e130     sf_runtime:sf_runtime.dll
+ 0002:00000134       __imp__callMdlMethodAndReportError 1000e134     sf_runtime:sf_runtime.dll
+ 0002:00000138       __imp__sf_debug_api        1000e138     sf_runtime:sf_runtime.dll
+ 0002:0000013c       __imp__sf_debug_create_debug_instance_struct 1000e13c     sf_runtime:sf_runtime.dll
+ 0002:00000140       __imp__sf_debug_terminate  1000e140     sf_runtime:sf_runtime.dll
+ 0002:00000144       __imp__sf_clear_rtw_identifier 1000e144     sf_runtime:sf_runtime.dll
+ 0002:00000148       __imp__sf_mex_getcell      1000e148     sf_runtime:sf_runtime.dll
+ 0002:0000014c       __imp__sf_mex_setcell      1000e14c     sf_runtime:sf_runtime.dll
+ 0002:00000150       __imp__sf_debug_symbol_scope_push 1000e150     sf_runtime:sf_runtime.dll
+ 0002:00000154       __imp__sf_clear_error_manager_info 1000e154     sf_runtime:sf_runtime.dll
+ 0002:00000158       __imp__sf_debug_data_range_wrapper 1000e158     sf_runtime:sf_runtime.dll
+ 0002:0000015c       __imp__sf_debug_symbol_scope_push_eml 1000e15c     sf_runtime:sf_runtime.dll
+ 0002:00000160       __imp__sf_debug_symbol_scope_add_eml 1000e160     sf_runtime:sf_runtime.dll
+ 0002:00000164       __imp__sf_debug_symbol_scope_add_eml_importable 1000e164     sf_runtime:sf_runtime.dll
+ 0002:00000168       __imp__cv_eml_eval         1000e168     sf_runtime:sf_runtime.dll
+ 0002:0000016c       __imp__eml_debug_line_call 1000e16c     sf_runtime:sf_runtime.dll
+ 0002:00000170       __imp__cv_eval_relational  1000e170     sf_runtime:sf_runtime.dll
+ 0002:00000174       __imp__sf_debug_symbol_scope_pop 1000e174     sf_runtime:sf_runtime.dll
+ 0002:00000178       __imp__sf_debug_check_for_state_inconsistency 1000e178     sf_runtime:sf_runtime.dll
+ 0002:0000017c       __imp__sf_get_time         1000e17c     sf_runtime:sf_runtime.dll
+ 0002:00000180       __imp__sf_mex_error_direct_call 1000e180     sf_runtime:sf_runtime.dll
+ 0002:00000184       __imp__sf_debug_call       1000e184     sf_runtime:sf_runtime.dll
+ 0002:00000188       __imp__sf_mex_import       1000e188     sf_runtime:sf_runtime.dll
+ 0002:0000018c       __imp__sf_mex_dup          1000e18c     sf_runtime:sf_runtime.dll
+ 0002:00000190       __imp__sf_debug_initialize_chart 1000e190     sf_runtime:sf_runtime.dll
+ 0002:00000194       __imp__sf_debug_set_chart_disable_implicit_casting 1000e194     sf_runtime:sf_runtime.dll
+ 0002:00000198       __imp__sf_debug_set_chart_event_thresholds 1000e198     sf_runtime:sf_runtime.dll
+ 0002:0000019c       __imp__sf_debug_set_chart_data_props 1000e19c     sf_runtime:sf_runtime.dll
+ 0002:000001a0       __imp__sf_debug_set_chart_state_info 1000e1a0     sf_runtime:sf_runtime.dll
+ 0002:000001a4       __imp__sf_debug_set_chart_substate_count 1000e1a4     sf_runtime:sf_runtime.dll
+ 0002:000001a8       __imp__sf_debug_set_chart_decomposition 1000e1a8     sf_runtime:sf_runtime.dll
+ 0002:000001ac       __imp__sf_debug_cv_init_chart 1000e1ac     sf_runtime:sf_runtime.dll
+ 0002:000001b0       __imp__sf_debug_cv_init_state 1000e1b0     sf_runtime:sf_runtime.dll
+ 0002:000001b4       __imp__sf_debug_cv_init_trans 1000e1b4     sf_runtime:sf_runtime.dll
+ 0002:000001b8       __imp__cv_eml_init_script  1000e1b8     sf_runtime:sf_runtime.dll
+ 0002:000001bc       __imp__cv_eml_init_fcn     1000e1bc     sf_runtime:sf_runtime.dll
+ 0002:000001c0       __imp__cv_eml_init_if      1000e1c0     sf_runtime:sf_runtime.dll
+ 0002:000001c4       __imp__cv_eml_init_relational 1000e1c4     sf_runtime:sf_runtime.dll
+ 0002:000001c8       __imp__sf_debug_set_chart_data_compiled_props 1000e1c8     sf_runtime:sf_runtime.dll
+ 0002:000001cc       __imp__sf_debug_set_instance_data_value_ptr 1000e1cc     sf_runtime:sf_runtime.dll
+ 0002:000001d0       __imp__sf_debug_reset_current_state_configuration 1000e1d0     sf_runtime:sf_runtime.dll
+ 0002:000001d4       __imp__sf_mex_decode_encoded_mx_struct_array 1000e1d4     sf_runtime:sf_runtime.dll
+ 0002:000001d8       __imp__ssGetInputPortSignal_wrapper 1000e1d8     sf_runtime:sf_runtime.dll
+ 0002:000001dc       __imp__ssGetOutputPortSignal_wrapper 1000e1dc     sf_runtime:sf_runtime.dll
+ 0002:000001e0       __imp__sim_mode_is_rtw_gen 1000e1e0     sf_runtime:sf_runtime.dll
+ 0002:000001e4       __imp__sim_mode_is_external 1000e1e4     sf_runtime:sf_runtime.dll
+ 0002:000001e8       __imp__sf_is_chart_inlinable 1000e1e8     sf_runtime:sf_runtime.dll
+ 0002:000001ec       __imp__sf_rtw_info_uint_prop 1000e1ec     sf_runtime:sf_runtime.dll
+ 0002:000001f0       __imp__sf_update_buildInfo 1000e1f0     sf_runtime:sf_runtime.dll
+ 0002:000001f4       __imp__sf_mark_chart_expressionable_inputs 1000e1f4     sf_runtime:sf_runtime.dll
+ 0002:000001f8       __imp__sf_mark_chart_reusable_outputs 1000e1f8     sf_runtime:sf_runtime.dll
+ 0002:000001fc       __imp__sf_set_rtw_dwork_info 1000e1fc     sf_runtime:sf_runtime.dll
+ 0002:00000200       __imp__sf_mex_error_message 1000e200     sf_runtime:sf_runtime.dll
+ 0002:00000204       __imp__sf_mex_create       1000e204     sf_runtime:sf_runtime.dll
+ 0002:00000208       __imp__sf_mex_addfield     1000e208     sf_runtime:sf_runtime.dll
+ 0002:0000020c       __imp__sf_mex_createcellmatrix 1000e20c     sf_runtime:sf_runtime.dll
+ 0002:00000210       __imp__sf_mex_duplicatearraysafe 1000e210     sf_runtime:sf_runtime.dll
+ 0002:00000214       __imp__sf_mex_destroy      1000e214     sf_runtime:sf_runtime.dll
+ 0002:00000218       __imp__sf_mex_createstruct 1000e218     sf_runtime:sf_runtime.dll
+ 0002:0000021c       __imp__sf_mex_assign       1000e21c     sf_runtime:sf_runtime.dll
+ 0002:00000220       __imp__sf_mex_emlrtNameCapturePostProcessR2012a 1000e220     sf_runtime:sf_runtime.dll
+ 0002:00000224       __imp__sf_load_rtw_optimization_info 1000e224     sf_runtime:sf_runtime.dll
+ 0002:00000228       __imp__sf_debug_initialize_machine 1000e228     sf_runtime:sf_runtime.dll
+ 0002:0000022c       __imp__sf_debug_set_machine_event_thresholds 1000e22c     sf_runtime:sf_runtime.dll
+ 0002:00000230       __imp__sf_debug_set_machine_data_thresholds 1000e230     sf_runtime:sf_runtime.dll
+ 0002:00000234       \177sf_runtime_NULL_THUNK_DATA 1000e234     sf_runtime:sf_runtime.dll
+ 0002:00000238       ___xc_a                    1000e238     MSVCRT:cinitexe.obj
+ 0002:0000023c       ___xc_z                    1000e23c     MSVCRT:cinitexe.obj
+ 0002:00000240       ___xi_a                    1000e240     MSVCRT:cinitexe.obj
+ 0002:0000024c       ___xi_z                    1000e24c     MSVCRT:cinitexe.obj
+ 0002:00000250       __real@41de2763a5400000    1000e250     SimLab3_1_sfun.obj
+ 0002:00000258       __real@41ebf91f21c00000    1000e258     SimLab3_1_sfun.obj
+ 0002:00000260       __real@41ef224748c00000    1000e260     SimLab3_1_sfun.obj
+ 0002:00000268       __real@41ecdfb662400000    1000e268     SimLab3_1_sfun.obj
+ 0002:00000270       __real@41e5402795600000    1000e270     SimLab3_1_sfun.obj
+ 0002:00000278       __real@41ecff6f22400000    1000e278     SimLab3_1_sfun.obj
+ 0002:00000280       __real@41c09410e0000000    1000e280     SimLab3_1_sfun.obj
+ 0002:00000288       __real@41db7f625a000000    1000e288     SimLab3_1_sfun.obj
+ 0002:00000290       __real@41d644fec5400000    1000e290     SimLab3_1_sfun.obj
+ 0002:00000298       __real@41d1526fbe400000    1000e298     SimLab3_1_sfun.obj
+ 0002:000002a0       __real@41be34dc2f000000    1000e2a0     SimLab3_1_sfun.obj
+ 0002:000002a8       __real@41cb90e6ca000000    1000e2a8     SimLab3_1_sfun.obj
+ 0002:000002b0       __real@0000000000000000    1000e2b0     SimLab3_1_sfun.obj
+ 0002:000002b8       __real@41b0217e4f000000    1000e2b8     SimLab3_1_sfun.obj
+ 0002:000002c0       __real@41e404c1c1c00000    1000e2c0     SimLab3_1_sfun.obj
+ 0002:000002c8       __real@41ca1109d8000000    1000e2c8     SimLab3_1_sfun.obj
+ 0002:000002d0       __real@41ea04597b000000    1000e2d0     SimLab3_1_sfun.obj
+ 0002:000002d8       __real@41d8de9b8c800000    1000e2d8     c1_SimLab3_1.obj
+ 0002:000002e0       __real@41e4d3fe8ec00000    1000e2e0     c1_SimLab3_1.obj
+ 0002:000002e8       __real@41eadae61ce00000    1000e2e8     c1_SimLab3_1.obj
+ 0002:000002f0       __real@41e9373b15e00000    1000e2f0     c1_SimLab3_1.obj
+ 0002:000002f8       __real@4024000000000000    1000e2f8     c1_SimLab3_1.obj
+ 0002:00000300       __real@3ff0000000000000    1000e300     c1_SimLab3_1.obj
+ 0002:00000308       __real@3fb999999999999a    1000e308     c1_SimLab3_1.obj
+ 0002:00000310       __real@3f50624dd2f1a9fc    1000e310     c1_SimLab3_1.obj
+ 0002:00000318       __real@4000000000000000    1000e318     c1_SimLab3_1.obj
+ 0002:00000320       _DYNAMIC_DIMENSION_DEF     1000e320     SimLab3_1_sfun_registry.obj
+ 0002:00000330       __ssBadLevel2InputAccessMsg 1000e330     SimLab3_1_sfun_registry.obj
+ 0002:000004b8       __ssBadLevel2DirectFeedMsg 1000e4b8     SimLab3_1_sfun_registry.obj
+ 0002:000005f8       __ssBadLevel2DirectFeedSolutionMsg 1000e5f8     SimLab3_1_sfun_registry.obj
+ 0002:00000668       __ssBadLevel2ZeroDirectFeedMsg 1000e668     SimLab3_1_sfun_registry.obj
+ 0002:000007a8       __ssBadLevel2ZeroDirectFeedMsg2 1000e7a8     SimLab3_1_sfun_registry.obj
+ 0002:00000890       __real@bff0000000000000    1000e890     SimLab3_1_sfun_registry.obj
+ 0002:00000898       __real@4153d65940000000    1000e898     SimLab3_1_sfun_registry.obj
+ 0002:000008a0       __pDefaultRawDllMain       1000e8a0     MSVCRT:crtdll.obj
+ 0002:000008a0       __pRawDllMain              1000e8a0     MSVCRT:crtdll.obj
+ 0002:000008ac       ?ProcessDetach@NativeDll@<CrtImplementationDetails>@@0IB 1000e8ac     MSVCRT:tncleanup.obj
+ 0002:000008b0       ?ProcessAttach@NativeDll@<CrtImplementationDetails>@@0IB 1000e8b0     MSVCRT:tncleanup.obj
+ 0002:000008b4       ?ThreadAttach@NativeDll@<CrtImplementationDetails>@@0IB 1000e8b4     MSVCRT:tncleanup.obj
+ 0002:000008b8       ?ThreadDetach@NativeDll@<CrtImplementationDetails>@@0IB 1000e8b8     MSVCRT:tncleanup.obj
+ 0002:000008bc       ?ProcessVerifier@NativeDll@<CrtImplementationDetails>@@0IB 1000e8bc     MSVCRT:tncleanup.obj
+ 0002:000008c0       __load_config_used         1000e8c0     MSVCRT:loadcfg.obj
+ 0002:00000910       ___safe_se_handler_table   1000e910     <linker-defined>
+ 0002:00000914       ___rtc_iaa                 1000e914     MSVCRT:_initsect_.obj
+ 0002:00000918       ___rtc_izz                 1000e918     MSVCRT:_initsect_.obj
+ 0002:0000091c       ___rtc_taa                 1000e91c     MSVCRT:_initsect_.obj
+ 0002:00000920       ___rtc_tzz                 1000e920     MSVCRT:_initsect_.obj
+ 0002:0000098c       __IMPORT_DESCRIPTOR_sf_runtime 1000e98c     sf_runtime:sf_runtime.dll
+ 0002:000009a0       __IMPORT_DESCRIPTOR_libmx  1000e9a0     libmx:libmx.dll
+ 0002:000009b4       __IMPORT_DESCRIPTOR_libmex 1000e9b4     libmex:libmex.dll
+ 0002:000009c8       __IMPORT_DESCRIPTOR_libut  1000e9c8     libut:libut.dll
+ 0002:000009dc       __IMPORT_DESCRIPTOR_libmwmathutil 1000e9dc     libmwmathutil:libmwmathutil.dll
+ 0002:000009f0       __IMPORT_DESCRIPTOR_MSVCR100 1000e9f0     MSVCRT:MSVCR100.dll
+ 0002:00000a04       __IMPORT_DESCRIPTOR_KERNEL32 1000ea04     kernel32:KERNEL32.dll
+ 0002:00000a18       __NULL_IMPORT_DESCRIPTOR   1000ea18     sf_runtime:sf_runtime.dll
+ 0003:00001f4c       _DYNAMIC_DIMENSION         10011f4c     SimLab3_1_sfun_registry.obj
+ 0003:00002ad8       ___security_cookie         10012ad8     MSVCRT:gs_cookie.obj
+ 0003:00002adc       ___security_cookie_complement 10012adc     MSVCRT:gs_cookie.obj
+ 0003:00002ae0       ___native_dllmain_reason   10012ae0     MSVCRT:natstart.obj
+ 0003:00002ae4       ___native_vcclrit_reason   10012ae4     MSVCRT:natstart.obj
+ 0003:00002be0       _sfGlobalDebugInstanceStruct 10012be0     SimLab3_1_sfun_registry.obj
+ 0003:00002f14       ?__type_info_root_node@@3U__type_info_node@@A 10012f14     MSVCRT:tncleanup.obj
+ 0003:00002f1c       __SimLab3_1MachineNumber_  10012f1c     <common>
+ 0003:00002f20       ___native_startup_state    10012f20     <common>
+ 0003:00002f24       ___native_startup_lock     10012f24     <common>
+ 0003:00002f28       ___onexitend               10012f28     <common>
+ 0003:00002f2c       ___onexitbegin             10012f2c     <common>
+ 0003:00002f30       ___sse2_available          10012f30     <common>
+ 0003:00002f34       ___dyn_tls_init_callback   10012f34     <common>
+
+ entry point at        0001:0000c047
+
+ Static symbols
+
+ 0001:00000d00       _c1_info_helper            10001d00 f   c1_SimLab3_1.obj
+ 0001:00001850       _c1_emlrt_marshallOut      10002850 f   c1_SimLab3_1.obj
+ 0001:000018b0       _c1_b_emlrt_marshallOut    100028b0 f   c1_SimLab3_1.obj
+ 0001:00001f80       _mdlProcessParameters_c1_SimLab3_1 10002f80 f   c1_SimLab3_1.obj
+ 0001:00002030       _initialize_params_c1_SimLab3_1 10003030 f   c1_SimLab3_1.obj
+ 0001:00002040       _mdlSetWorkWidths_c1_SimLab3_1 10003040 f   c1_SimLab3_1.obj
+ 0001:000023e0       _sf_get_instance_specialization 100033e0 f   c1_SimLab3_1.obj
+ 0001:000023f0       _mdlStart_c1_SimLab3_1     100033f0 f   c1_SimLab3_1.obj
+ 0001:000025d0       _init_dsm_address_info     100035d0 f   c1_SimLab3_1.obj
+ 0001:000025e0       _init_simulink_io_address  100035e0 f   c1_SimLab3_1.obj
+ 0001:00002630       _sf_get_sim_state_info_c1_SimLab3_1 10003630 f   c1_SimLab3_1.obj
+ 0001:000026d0       _chart_debug_initialization 100036d0 f   c1_SimLab3_1.obj
+ 0001:00002ca0       _init_script_number_translation 10003ca0 f   c1_SimLab3_1.obj
+ 0001:00002cb0       _c1_sf_marshallOut         10003cb0 f   c1_SimLab3_1.obj
+ 0001:00002d30       _c1_sf_marshallIn          10003d30 f   c1_SimLab3_1.obj
+ 0001:00002db0       _c1_b_emlrt_marshallIn     10003db0 f   c1_SimLab3_1.obj
+ 0001:00002e00       _sf_opaque_initialize_c1_SimLab3_1 10003e00 f   c1_SimLab3_1.obj
+ 0001:00002e30       _initialize_c1_SimLab3_1   10003e30 f   c1_SimLab3_1.obj
+ 0001:00002e60       _sf_opaque_enable_c1_SimLab3_1 10003e60 f   c1_SimLab3_1.obj
+ 0001:00002e80       _enable_c1_SimLab3_1       10003e80 f   c1_SimLab3_1.obj
+ 0001:00002ea0       _sf_opaque_disable_c1_SimLab3_1 10003ea0 f   c1_SimLab3_1.obj
+ 0001:00002ec0       _disable_c1_SimLab3_1      10003ec0 f   c1_SimLab3_1.obj
+ 0001:00002ee0       _sf_opaque_gateway_c1_SimLab3_1 10003ee0 f   c1_SimLab3_1.obj
+ 0001:00002f00       _sf_gateway_c1_SimLab3_1   10003f00 f   c1_SimLab3_1.obj
+ 0001:00003730       _sf_opaque_get_sim_state_c1_SimLab3_1 10004730 f   c1_SimLab3_1.obj
+ 0001:00003760       _get_sim_state_c1_SimLab3_1 10004760 f   c1_SimLab3_1.obj
+ 0001:00003870       _sf_opaque_set_sim_state_c1_SimLab3_1 10004870 f   c1_SimLab3_1.obj
+ 0001:000038b0       _set_sim_state_c1_SimLab3_1 100048b0 f   c1_SimLab3_1.obj
+ 0001:00003960       _c1_update_debugger_state_c1_SimLab3_1 10004960 f   c1_SimLab3_1.obj
+ 0001:00003970       _c1_emlrt_marshallIn       10004970 f   c1_SimLab3_1.obj
+ 0001:000039c0       _c1_d_emlrt_marshallIn     100049c0 f   c1_SimLab3_1.obj
+ 0001:00003a10       _c1_e_emlrt_marshallIn     10004a10 f   c1_SimLab3_1.obj
+ 0001:00003a60       _sf_opaque_terminate_c1_SimLab3_1 10004a60 f   c1_SimLab3_1.obj
+ 0001:00003af0       _finalize_c1_SimLab3_1     10004af0 f   c1_SimLab3_1.obj
+ 0001:00003b00       _sf_opaque_init_subchart_simstructs 10004b00 f   c1_SimLab3_1.obj
+ 0001:00003b20       _initSimStructsc1_SimLab3_1 10004b20 f   c1_SimLab3_1.obj
+ 0001:00003b30       _mdlRTW_c1_SimLab3_1       10004b30 f   c1_SimLab3_1.obj
+ 0001:00003bc0       _c4_info_helper            10004bc0 f   c4_SimLab3_1.obj
+ 0001:00004710       _c4_emlrt_marshallOut      10005710 f   c4_SimLab3_1.obj
+ 0001:00004770       _c4_b_emlrt_marshallOut    10005770 f   c4_SimLab3_1.obj
+ 0001:00004e40       _mdlProcessParameters_c4_SimLab3_1 10005e40 f   c4_SimLab3_1.obj
+ 0001:00004ef0       _initialize_params_c4_SimLab3_1 10005ef0 f   c4_SimLab3_1.obj
+ 0001:00004f00       _mdlSetWorkWidths_c4_SimLab3_1 10005f00 f   c4_SimLab3_1.obj
+ 0001:000052a0       _sf_get_instance_specialization 100062a0 f   c4_SimLab3_1.obj
+ 0001:000052b0       _mdlStart_c4_SimLab3_1     100062b0 f   c4_SimLab3_1.obj
+ 0001:00005490       _init_dsm_address_info     10006490 f   c4_SimLab3_1.obj
+ 0001:000054a0       _init_simulink_io_address  100064a0 f   c4_SimLab3_1.obj
+ 0001:000054f0       _sf_get_sim_state_info_c4_SimLab3_1 100064f0 f   c4_SimLab3_1.obj
+ 0001:00005590       _chart_debug_initialization 10006590 f   c4_SimLab3_1.obj
+ 0001:00005b60       _init_script_number_translation 10006b60 f   c4_SimLab3_1.obj
+ 0001:00005b70       _c4_sf_marshallOut         10006b70 f   c4_SimLab3_1.obj
+ 0001:00005bf0       _c4_sf_marshallIn          10006bf0 f   c4_SimLab3_1.obj
+ 0001:00005c70       _c4_b_emlrt_marshallIn     10006c70 f   c4_SimLab3_1.obj
+ 0001:00005cc0       _sf_opaque_initialize_c4_SimLab3_1 10006cc0 f   c4_SimLab3_1.obj
+ 0001:00005cf0       _initialize_c4_SimLab3_1   10006cf0 f   c4_SimLab3_1.obj
+ 0001:00005d20       _sf_opaque_enable_c4_SimLab3_1 10006d20 f   c4_SimLab3_1.obj
+ 0001:00005d40       _enable_c4_SimLab3_1       10006d40 f   c4_SimLab3_1.obj
+ 0001:00005d60       _sf_opaque_disable_c4_SimLab3_1 10006d60 f   c4_SimLab3_1.obj
+ 0001:00005d80       _disable_c4_SimLab3_1      10006d80 f   c4_SimLab3_1.obj
+ 0001:00005da0       _sf_opaque_gateway_c4_SimLab3_1 10006da0 f   c4_SimLab3_1.obj
+ 0001:00005dc0       _sf_gateway_c4_SimLab3_1   10006dc0 f   c4_SimLab3_1.obj
+ 0001:000065c0       _sf_opaque_get_sim_state_c4_SimLab3_1 100075c0 f   c4_SimLab3_1.obj
+ 0001:000065f0       _get_sim_state_c4_SimLab3_1 100075f0 f   c4_SimLab3_1.obj
+ 0001:00006700       _sf_opaque_set_sim_state_c4_SimLab3_1 10007700 f   c4_SimLab3_1.obj
+ 0001:00006740       _set_sim_state_c4_SimLab3_1 10007740 f   c4_SimLab3_1.obj
+ 0001:000067f0       _c4_update_debugger_state_c4_SimLab3_1 100077f0 f   c4_SimLab3_1.obj
+ 0001:00006800       _c4_emlrt_marshallIn       10007800 f   c4_SimLab3_1.obj
+ 0001:00006850       _c4_d_emlrt_marshallIn     10007850 f   c4_SimLab3_1.obj
+ 0001:000068a0       _c4_e_emlrt_marshallIn     100078a0 f   c4_SimLab3_1.obj
+ 0001:000068f0       _sf_opaque_terminate_c4_SimLab3_1 100078f0 f   c4_SimLab3_1.obj
+ 0001:00006980       _finalize_c4_SimLab3_1     10007980 f   c4_SimLab3_1.obj
+ 0001:00006990       _sf_opaque_init_subchart_simstructs 10007990 f   c4_SimLab3_1.obj
+ 0001:000069b0       _initSimStructsc4_SimLab3_1 100079b0 f   c4_SimLab3_1.obj
+ 0001:000069c0       _mdlRTW_c4_SimLab3_1       100079c0 f   c4_SimLab3_1.obj
+ 0001:00007440       _getChartInfoFromSimStruct 10008440 f   SimLab3_1_sfun_registry.obj
+ 0001:00008540       __ssFatalError             10009540 f   SimLab3_1_sfun_registry.obj
+ 0001:0000a8a0       _ProcessMexSfunctionCmdLineCall 1000b8a0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000aa30       _sf_debug_api_wrapper      1000ba30 f   SimLab3_1_sfun_registry.obj
+ 0001:0000aa60       _mdlStart                  1000ba60 f   SimLab3_1_sfun_registry.obj
+ 0001:0000aa80       _mdl_start_processing      1000ba80 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ab10       _mdlTerminate              1000bb10 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ab30       _mdl_terminate_processing  1000bb30 f   SimLab3_1_sfun_registry.obj
+ 0001:0000aba0       _mdlInitializeSampleTimes  1000bba0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000abc0       _mdlZeroCrossings          1000bbc0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000abe0       _mdl_zeroCrossings_processing 1000bbe0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ac10       _mdlDerivatives            1000bc10 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ac30       _mdl_derivatives_processing 1000bc30 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ac70       _mdlInitializeConditions   1000bc70 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ac90       _mdl_initialize_conditions_processing 1000bc90 f   SimLab3_1_sfun_registry.obj
+ 0001:0000acd0       _mdlEnable                 1000bcd0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000acf0       _mdl_enable_processing     1000bcf0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ad20       _mdlDisable                1000bd20 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ad40       _mdl_disable_processing    1000bd40 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ad70       _mdlOutputs                1000bd70 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ad90       _mdl_outputs_processing    1000bd90 f   SimLab3_1_sfun_registry.obj
+ 0001:0000ae60       _mdl_outputs_continuous_legacy 1000be60 f   SimLab3_1_sfun_registry.obj
+ 0001:0000af30       _mdlGetTimeOfNextVarHit    1000bf30 f   SimLab3_1_sfun_registry.obj
+ 0001:0000af70       __ProcessMexSfunctionCmdLineCall 1000bf70 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b590       _mdlSetWorkWidths          1000c590 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b5b0       _mdlProcessParameters      1000c5b0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b5d0       _mdlInitializeSizes        1000c5d0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b5f0       _mdlExtModeExec            1000c5f0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b610       _mdl_ext_mode_exec_processing 1000c610 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b650       _mdlRTW                    1000c650 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b680       __CreateSimStruct          1000c680 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b7b0       __RegNumInputPortsCB       1000c7b0 f   SimLab3_1_sfun_registry.obj
+ 0001:0000b810       __RegNumOutputPortsCB      1000c810 f   SimLab3_1_sfun_registry.obj
+ 0001:0000bcd9       _pre_c_init                1000ccd9 f   MSVCRT:crtdll.obj
+ 0001:0000bf31       ___DllMainCRTStartup       1000cf31 f   MSVCRT:crtdll.obj
