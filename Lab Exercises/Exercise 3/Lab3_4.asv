@@ -113,8 +113,10 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_P_pos, FB_P_pos, PD, P, D, I, N] = PID_calc_disc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd,Ts);
 
-[FB_num, FB_den] = tfdata(tf(FB_P_pos,1));
-[FF_num, FF_den] = tfdata(tf(FF_P_pos,1));
+FB_num = FB_P_pos;
+FB_den = 1;
+, FB_den] = tfdata(FB_P_pos);
+[FF_num, FF_den] = tfdata(FF_P_pos);
 %Set the parameters that will be used in simulink
 Psp_d = vpa(P);
 Dsp_d = vpa(D);
