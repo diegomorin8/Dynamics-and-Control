@@ -103,8 +103,6 @@ title('Root locus before the controller')
 %Calculate the controler
 [FF_P_pos,FB_P_pos, PD, P, D, I, N] = PID_calc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
 
-
-[Num_FF,Den_FF] = tfdata(FF_P_pos);
 %Set the parameters that will be used in simulink
 Psp = double(P);
 Dsp = double(D);
@@ -118,6 +116,9 @@ G_P_pos = FF_P_pos*feedback(Gpos,FB_P_pos);
 %with higher gain
 P = 1.3;
 G_P_pos = feedback(Gpos*P,1);
+FF_P_pos = P;
+FB_P_pos = P;
+[Num_FF,Den_FF] = tfdata(tf(FF_P_pos,1));
 
 %Get the step response info
 SP = stepinfo(G_P_pos);
