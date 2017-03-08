@@ -1,6 +1,6 @@
 %%                              (EXC.6 - Hydraulic Parameters)
 
-Ts      = 0.125e-2;
+Ts      = 0.05e-2;
 qi      = 2*pi/8192;
 
 fe      = 10000;                % N                 (Applied external Force/Load)
