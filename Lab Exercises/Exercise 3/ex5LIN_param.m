@@ -1,7 +1,7 @@
 %%                              (EXC.6 - Hydraulic Parameters)
 
-Ts      = 1e-3;
-qi      = 2*pi/1000;
+Ts      = 0.125e-2;
+qi      = 2*pi/8192;
 
 fe      = 10000;                % N                 (Applied external Force/Load)
 g       = 9.81;                 % m/s^2             (Gravitational Field)

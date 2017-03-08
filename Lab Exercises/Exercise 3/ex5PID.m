@@ -33,7 +33,12 @@ Spv     = stepinfo(Gpv_CL);                                                     
     ess     = 0.05;
 %%          (Calculate Controller)
 %
-[H_FFv,H_FBv, PD, P_Cv, D_Cv, I_Cv, N_Cv] = PID_v2(0,-1,0.1,ess,Gpv,AvpEQ,BvpEQ,Bvp0,sysOrdv);
+Mp_Dv    = 0;
+tr_Dv    = trv;
+ts_Dv    = -1;
+E_Dv     = ess;
+
+[H_FFv,H_FBv, PD, P_Cv, D_Cv, I_Cv, N_Cv] = PID_v2(Mp_Dv,tr_Dv,-1,E_Dv,Gpv,AvpEQ,BvpEQ,Bvp0,sysOrdv);
 
         %SIMULINK IMPLEMENTATION
         P_Cv    = double(P_Cv);
@@ -48,7 +53,7 @@ GpvP    = H_FFv*feedback(Gpv,H_FBv);GpvP_zpk = zpk(minreal(GpvP)); display(GpvP_
 Spv     = stepinfo(Gpv_CL); SpvP    = stepinfo(GpvP);                                                           % Compare Results
 display(' ');
 outstr=strcat('Gpv_CL : t_R =  ',num2str(Spv.RiseTime));disp(outstr);
-outstr=strcat('GpvP_CL: t_R =  ',num2str(SpvP.RiseTime));disp(outstr);
+outstr=strcat('GpvP_CL: t_R =  ',num2str(SpvP.RiseTime),' (Specs: ',num2str(tr_Dv));disp(outstr);
 % display('Gpv');display(minreal(zpk(Gpv)));display('GpvP'); display(minreal(zpk(GpvP)));
 % figure; step(Gpv_CL,'r:');hold; step(GpvP, 'b');grid;
 %% ################### Controller Design Completed #######################
@@ -116,58 +121,58 @@ display(' ');display(' ');display(' ');
 
 
 %% ################### POSITION CONTROL #################################
-display('###############################################');
-display('############## BEGIN POSITION #################');
-intg    = tf([1],[1 0]);
-Gpp     = minreal(intg*GpvP);Gpp_zpk=zpk(Gpp);display(Gpp_zpk);                                        % display('Linearized TF for position output [xvp -> dxp -> 1/s -> xp]');
-[N_T, D_T]    = tfdata(minreal(Gpp));                
-Bpp     = N_T{1,1};
-App     = D_T{1,1};
-
-
-AppEQ   = App(1)*s^3 + App(2)*s^2 + App(3)*s+App(4);                                                    % Determine Polynomials
-BppEQ   = Bpp(1)*s^3 + Bpp(2)*s^2 + Bpp(3)*s+Bpp(4);
-Bpp0    = Bpp(3);
+% display('###############################################');
+% display('############## BEGIN POSITION #################');
+% intg    = tf([1],[1 0]);
+% Gpp     = minreal(intg*GpvP);Gpp_zpk=zpk(Gpp);display(Gpp_zpk);                                        % display('Linearized TF for position output [xvp -> dxp -> 1/s -> xp]');
+% [N_T, D_T]    = tfdata(minreal(Gpp));                
+% Bpp     = N_T{1,1};
+% App     = D_T{1,1};
+% 
+% 
+% AppEQ   = App(1)*s^3 + App(2)*s^2 + App(3)*s+App(4);                                                    % Determine Polynomials
+% BppEQ   = Bpp(1)*s^3 + Bpp(2)*s^2 + Bpp(3)*s+Bpp(4);
+% Bpp0    = Bpp(3);
 %%          (PROPERTIES: CL - Plant: Unity Feedback)
-
-[Zeros,Poles,Gain] = zpkdata(Gpp);                                                                      % Gpppzk = zpk(Zeros, Poles, Gain);
-    sysOrdp = size(Poles{1,1},1);
-
-
-
-Gpp_CL  = feedback(Gpp,1);        
-        % figure;
-        % subplot(2,2,1);pzmap(Gpp);grid;
-        % subplot(2,2,2);pzmap(Gpv);grid;
-        % subplot(2,2,3);pzmap(Gpp_CL);grid;
-        % subplot(2,2,4);pzmap(Gpv_CL);grid;
-    Spp     = stepinfo(Gpp_CL);                                                                         % STEP PROPERTIES
-    trp     = Spp.RiseTime;
-    Mpp     = Spp.Overshoot;
-    tsp     = Spp.SettlingTime;
-    ess     = 100;
+% 
+% [Zeros,Poles,Gain] = zpkdata(Gpp);                                                                      % Gpppzk = zpk(Zeros, Poles, Gain);
+%     sysOrdp = size(Poles{1,1},1);
+% 
+% 
+% 
+% Gpp_CL  = feedback(Gpp,1);        
+%         % figure;
+%         % subplot(2,2,1);pzmap(Gpp);grid;
+%         % subplot(2,2,2);pzmap(Gpv);grid;
+%         % subplot(2,2,3);pzmap(Gpp_CL);grid;
+%         % subplot(2,2,4);pzmap(Gpv_CL);grid;
+%     Spp     = stepinfo(Gpp_CL);                                                                         % STEP PROPERTIES
+%     trp     = Spp.RiseTime;
+%     Mpp     = Spp.Overshoot;
+%     tsp     = Spp.SettlingTime;
+%     ess     = 100;
 %%          (Calculate Controller)
-
-[H_FFp,H_FBp, PD, P_Cp, D_Cp, I_Cp, N_Cp] = PID_v2(-1,-1,-1,ess,Gpp,AppEQ,BppEQ,Bpp0,sysOrdp);
-
-        %SIMULINK IMPLEMENTATION
-        P_Cp    = double(P_Cp);
-        D_Cp    = double(D_Cp);
-        I_Cp    = double(I_Cp);
-        N_Cp    = double(N_Cp);
-        [N_T, D_T]    = tfdata(H_FFp); N_FFp = N_T{1,1}; D_FFp = D_T{1,1};
-        [N_T, D_T]    = tfdata(H_FBp); N_FBp = N_T{1,1}; D_FBp = D_T{1,1};
-
-
-GppP    = H_FFp*feedback(Gpp,H_FBp);GppP_zpk = zpk(minreal(GpvP)); display(GppP_zpk);                        % Calculate Closed Loop - Controller
-Spp     = stepinfo(Gpp_CL); SppP    = stepinfo(GppP);                                   % Compare Results
-
-display(' ');
-outstr=strcat('Gpp_CL : t_R =  ',num2str(Spp.RiseTime));disp(outstr);
-outstr=strcat('GppP_CL: t_R =  ',num2str(SppP.RiseTime));disp(outstr);
-
-display('Gpp');  display(minreal(zpk(Gpp)));display('GppP');display(minreal(zpk(GppP)));
-figure;step(Gpp_CL,'r:');hold;step(GppP, 'b');grid;
+% 
+% [H_FFp,H_FBp, PD, P_Cp, D_Cp, I_Cp, N_Cp] = PID_v2(3,tr_Dv*10,-1,ess,Gpp,AppEQ,BppEQ,Bpp0,sysOrdp);
+% 
+%         %SIMULINK IMPLEMENTATION
+%         P_Cp    = double(P_Cp);
+%         D_Cp    = double(D_Cp);
+%         I_Cp    = double(I_Cp);
+%         N_Cp    = double(N_Cp);
+%         [N_T, D_T]    = tfdata(H_FFp); N_FFp = N_T{1,1}; D_FFp = D_T{1,1};
+%         [N_T, D_T]    = tfdata(H_FBp); N_FBp = N_T{1,1}; D_FBp = D_T{1,1};
+% 
+% 
+% GppP    = H_FFp*feedback(Gpp,H_FBp);GppP_zpk = zpk(minreal(GpvP)); display(GppP_zpk);                        % Calculate Closed Loop - Controller
+% Spp     = stepinfo(Gpp_CL); SppP    = stepinfo(GppP);                                   % Compare Results
+% 
+% display(' ');
+% outstr=strcat('Gpp_CL : t_R =  ',num2str(Spp.RiseTime));disp(outstr);
+% outstr=strcat('GppP_CL: t_R =  ',num2str(SppP.RiseTime));disp(outstr);
+% 
+% display('Gpp');  display(minreal(zpk(Gpp)));display('GppP');display(minreal(zpk(GppP)));
+% figure;step(Gpp_CL,'r:');hold;step(GppP, 'b');grid;
 %% ################### Controller Design Completed #######################
 
 %% ------------------  BEGIN PLOTS ------------------------------------
@@ -224,5 +229,5 @@ figure;step(Gpp_CL,'r:');hold;step(GppP, 'b');grid;
 % subplot(1,3,3); margin(minreal(GppP)); grid;
 %% ------------------  END PLOTS  ------------------------------------ 
 %%
-display('############## END POSITION ###################');
-display('###############################################');
+% display('############## END POSITION ###################');
+% display('###############################################');

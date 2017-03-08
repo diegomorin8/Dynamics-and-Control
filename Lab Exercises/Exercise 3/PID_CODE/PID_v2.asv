@@ -20,7 +20,7 @@ display(' ');
     D_C     = 0;
     I_C     = 0;
     N_C     = 1;
-    Ktr     = 2.2;                                                                  %2.2                 tr= 1.8/wn; 
+    Ktr     = 1.8;                                                                  %2.2                 tr= 1.8/wn; 
     Kts     = 4.6;                                                                  %3.9                 ts= 4.6/zeta/wn;  
     display('Initialization complete                 [x];'); 
 %% - Specifications 
@@ -29,7 +29,7 @@ display(' ');
             zeta = 1;
         else 
             %tp  = pi/(wn*sqrt(1-z^2)); log(abs(Mp)) == -z*wn*tp;
-            eqn = -pi*z/sqrt(1-z^2) == log(Mp);
+            eqn = -pi*z/sqrt(1-z^2) == log(abs(Mp));
             zeta = vpa(solve(eqn,z));
         end
         wn      = Kts/(ts*zeta);
@@ -47,8 +47,8 @@ display(' ');
         else 
             zeta = 1;
         end
-        wn      = 1200;
-%         wn      = (1+1.1*zeta+1.4*zeta^2)/tr;                                               
+        wn      = %Ktr/tr;
+        wn      = (1+1.1*zeta+1.4*zeta^2)/tr;                                               
         eqn_p1  = s^2 + 2*zeta*wn*s + wn^2 == 0; 
         poleD   = vpa(solve(eqn_p1,s));
         pdVec   = [real(poleD(1)) imag(poleD(1))];
@@ -57,9 +57,9 @@ display(' ');
         end
         
     elseif Mp == -1 && tr ~= -1 && ts ~= -1
-        wn      = Ktr/tr;                                                   %         wn      = (1+1.1*zeta+1.4*zeta^2)/tr;  
-        zeta    =   Kts/(ts*wn);                                            %         zeta   = 3/(wn*ts);                                                 
-        eqn_p1  = s*s + 2*zeta*wn*s + wn^2 == 0; 
+        wn      = (1+1.1*zeta+1.4*zeta^2)/tr;                                               %Ktr/tr;
+        zeta   = 3/(wn*ts);                                                                 %Kts/(ts*wn);
+        eqn_p1  = s*s + 2*zeta*wn*s + wn*wn == 0; 
         poleD   = vpa(solve(eqn_p1,s));
         pdVec   = [real(poleD(1)) imag(poleD(1))];
         if( abs(pdVec(2)) <= 0.001)

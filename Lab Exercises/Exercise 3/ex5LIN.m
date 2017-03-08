@@ -10,8 +10,8 @@ ex5LIN_param                          %param.m
 showeq              = false;              % Show only chosen EQ
 % showeq           = true;               % Show all EQ
 % z                =   1;
-z                   =   2;
-% z                =   3;
+% z                =   2;
+z                =   3;
 % z                =   4;
 %%                              (Equilibrium Points - LINEARIZATION)
 % State Space 
