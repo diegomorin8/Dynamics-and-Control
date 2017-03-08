@@ -1,6 +1,7 @@
 Model {
   Name			  "mIO"
-  Version		  8.8
+  Version		  8.4
+  MdlSubVersion		  0
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
@@ -9,30 +10,17 @@ Model {
       Name		      "dph_sim"
       BusObject		      ""
       BusOutputAsStruct	      "off"
-      UnitExpr		      "inherit"
     }
     Outport {
       Name		      "phi_sim"
       BusObject		      ""
       BusOutputAsStruct	      "off"
-      UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.34"
+    ComputedModelVersion    "1.49"
     NumModelReferences	    0
     NumTestPointedSignals   0
-    NumProvidedFunctions    0
-    NumRequiredFunctions    0
-    NumResetEvents	    0
-    HasInitializeEvent	    0
-    HasTerminateEvent	    0
-    IsExportFunctionModel   0
   }
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 8 0"
   PostLoadFcn		  ", if any(exist('dsrtsu_mdlpostloadfcn', 'file') == [2, 3, 6]), try dsrtsu_mdlpostloadfcn('Execute', "
   "bdroot); catch fprintf('Error in PostLoadFcn (dsrtsu_mdlpostloadfcn) for model \"%s\":\\n %s\\n', bdroot, lasterr); "
   "end, end, \n"
@@ -47,7 +35,6 @@ Model {
   MaxMDLFileLineLength	  120
   InitFcn		  "param"
   UserBdParams		  "DSRTSU_INTERNAL_RTI_VER;DSRTSU_INTERNAL_RTI_TYPE;DSRTSU_INTERNAL_RTIFPGA"
-  LastSavedArchitecture	  "win64"
   Object {
     $PropName		    "BdWindowsInfo"
     $ObjectID		    1
@@ -57,7 +44,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [19.0, 36.0, 1376.0, 744.0]
+      Location		      [1912.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -81,33 +68,10 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1661.0, 717.0]
-	ZoomFactor		[1.0]
-	Offset			[-20.247417521358898, -10.683642942817357]
+	Extents			[1886.0, 882.0]
+	ZoomFactor		[1.3409111411817773]
+	Offset			[16.684337997847145, 161.11914693218517]
       }
-      Object {
-	$PropName		"DockComponentsInfo"
-	$ObjectID		6
-	$ClassName		"Simulink.DockComponentInfo"
-	Type			"GLUE2:PropertyInspector"
-	ID			"Property Inspector"
-	Visible			[0]
-	CreateCallback		""
-	UserData		""
-	Floating		[0]
-	DockPosition		"Right"
-	Width			[512]
-	Height			[384]
-      }
-      WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
-      "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAB0AP///wAAAAEAAAAAAAAAAPwCA"
-      "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAMAD///8AAAamAAADDgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACR/////wAAAAAAAAAA/////wEAAAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/"
-      "////wEAAAP+/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   DSRTSU_INTERNAL_RTI_VER "450"
@@ -117,11 +81,11 @@ Model {
   Creator		  "user"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Philipp"
+  LastModifiedBy	  "es2lab2"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 08 12:18:16 2017"
-  RTWModifiedTimeStamp	  410872358
-  ModelVersionFormat	  "1.%<AutoIncrement:34>"
+  LastModifiedDate	  "Wed Mar 08 15:19:05 2017"
+  RTWModifiedTimeStamp	  410886626
+  ModelVersionFormat	  "1.%<AutoIncrement:49>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -129,10 +93,6 @@ Model {
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
-  ShowEditTimeErrors	  on
-  ShowEditTimeWarnings	  on
-  ShowEditTimeAdvisorChecks off
-  ShowPortUnits		  off
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -141,10 +101,8 @@ Model {
   ShowSignalResolutionIcons on
   ShowViewerIcons	  on
   SortedOrder		  off
-  VariantCondition	  off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
-  ShowVisualizeInsertedRTB on
   ShowMarkup		  on
   BlockNameDataTip	  off
   BlockParametersDataTip  off
@@ -152,7 +110,6 @@ Model {
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
-  FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
   PauseTimes		  "5"
@@ -169,7 +126,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "mIO"
     Array {
@@ -185,6 +142,27 @@ Model {
       PropName		      "logAsSpecifiedByModelsSSIDs_"
     }
   }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  CovEnableCumulative	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  CovSFcnEnable		  off
+  CovBoundaryAbsTol	  0.000010
+  CovBoundaryRelTol	  0.010000
+  CovUseTimeInterval	  off
+  CovStartTime		  0
+  CovStopTime		  0
   ExtModeBatchMode	  off
   ExtModeEnableFloating	  on
   ExtModeTrigType	  "manual"
@@ -206,24 +184,21 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
+  BufferReuse		  off
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      8
-      Version		      "1.16.5"
-      DisabledProps	      []
-      Description	      ""
+      $ObjectID		      7
+      Version		      "1.14.3"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  9
-	  Version		  "1.16.5"
-	  DisabledProps		  []
-	  Description		  ""
+	  $ObjectID		  8
+	  Version		  "1.14.3"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -240,7 +215,7 @@ Model {
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
-	  EnableMultiTasking	  on
+	  SolverMode		  "Auto"
 	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode1"
@@ -250,20 +225,15 @@ Model {
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
 	  AlgebraicLoopSolver	  "TrustRegion"
-	  SolverInfoToggleStatus  off
-	  IsAutoAppliedInSIP	  off
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
 	  AutoInsertRateTranBlk	  off
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
-	  SampleTimeProperty	  []
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  10
-	  Version		  "1.16.5"
-	  DisabledProps		  []
-	  Description		  ""
+	  $ObjectID		  9
+	  Version		  "1.14.3"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -282,8 +252,6 @@ Model {
 	  DSMLogging		  on
 	  InspectSignalLogs	  off
 	  VisualizeSimOutput	  on
-	  StreamToWorkspace	  off
-	  StreamVariableName	  "streamout"
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
 	  StateSaveName		  "xout"
@@ -295,13 +263,10 @@ Model {
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
-	  LoggingToFile		  off
-	  LoggingFileName	  "out.mat"
-	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  11
-	  Version		  "1.16.5"
+	  $ObjectID		  10
+	  Version		  "1.14.3"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -315,12 +280,11 @@ Model {
 	    Cell		    "UseSpecifiedMinMax"
 	    PropName		    "DisabledProps"
 	  }
-	  Description		  ""
 	  BlockReduction	  off
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs off
-	  DefaultParameterBehavior "Tunable"
-	  UseDivisionForNetSlopeComputation "off"
+	  InlineParams		  off
+	  UseDivisionForNetSlopeComputation "Off"
 	  UseFloatMulNetSlope	  off
 	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
@@ -331,42 +295,38 @@ Model {
 	  CachingGlobalReferences off
 	  GlobalBufferReuse	  off
 	  StrengthReduction	  off
-	  AdvancedOptControl	  ""
 	  ExpressionFolding	  off
 	  BooleansAsBitfields	  off
 	  BitfieldContainerType	  "uint_T"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
-	  PassReuseOutputArgsThreshold 12
 	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
 	  LocalBlockOutputs	  off
 	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
 	  ActiveStateOutputEnumStorageType "Native Integer"
+	  UseTempVars		  off
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
 	  InitFltsAndDblsToZero	  on
 	  NoFixptDivByZeroProtection off
 	  EfficientFloat2IntCast  off
 	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
 	  LifeSpan		  "inf"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
-	  SimCompilerOptimization "off"
+	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  12
-	  Version		  "1.16.5"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    "UseOnlyExistingSharedCode"
-	    PropName		    "DisabledProps"
-	  }
-	  Description		  ""
+	  $ObjectID		  11
+	  Version		  "1.14.3"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -393,6 +353,7 @@ Model {
 	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "none"
 	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
 	  MultiTaskDSMMsg	  "warning"
 	  MultiTaskCondExecSysMsg "none"
 	  MultiTaskRateTransMsg	  "error"
@@ -414,24 +375,23 @@ Model {
 	  UnnecessaryDatatypeConvMsg "none"
 	  VectorMatrixConversionMsg "none"
 	  InvalidFcnCallConnMsg	  "error"
-	  FcnCallInpInsideContextMsg "warning"
+	  FcnCallInpInsideContextMsg "EnableAllAsError"
 	  SignalLabelMismatchMsg  "none"
 	  UnconnectedInputMsg	  "none"
 	  UnconnectedOutputMsg	  "none"
 	  UnconnectedLineMsg	  "warning"
-	  UseOnlyExistingSharedCode "error"
 	  SFcnCompatibilityMsg	  "none"
 	  FrameProcessingCompatibilityMsg "error"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
-	  AllowSymbolicDim	  off
-	  RowMajorDimensionSupport off
+	  EnableOverflowDetection off
 	  ModelReferenceIOMsg	  "none"
 	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
 	  UnknownTsInhSupMsg	  "warning"
 	  ModelReferenceDataLoggingMessage "warning"
 	  ModelReferenceSymbolNameMessage "warning"
@@ -443,33 +403,21 @@ Model {
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
-	  SymbolicDimMinMaxWarning "warning"
-	  LossOfSymbolicDimsSimulationWarning "warning"
-	  LossOfSymbolicDimsCodeGenerationWarning "error"
+	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
 	  SFInvalidInputDataAccessInChartInitDiag "warning"
 	  SFNoUnconditionalDefaultTransitionDiag "warning"
 	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnreachableExecutionPathDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
 	  SFUndirectedBroadcastEventsDiag "warning"
 	  SFTransitionActionBeforeConditionDiag	"warning"
-	  SFOutputUsedAsStateInMooreChartDiag "error"
-	  SFTemporalDelaySmallerThanSampleTimeDiag "warning"
-	  SFSelfTransitionDiag	  "warning"
-	  SFExecutionAtInitializationDiag "none"
-	  SFMachineParentedDataDiag "warning"
 	  IntegerSaturationMsg	  "warning"
-	  AllowedUnitSystems	  "all"
-	  UnitsInconsistencyMsg	  "warning"
-	  AllowAutomaticUnitConversions	on
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  13
-	  Version		  "1.16.5"
-	  DisabledProps		  []
-	  Description		  ""
+	  $ObjectID		  12
+	  Version		  "1.14.3"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -478,8 +426,6 @@ Model {
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
 	  ProdBitPerPointer	  32
-	  ProdBitPerSizeT	  32
-	  ProdBitPerPtrDiffT	  32
 	  ProdLargestAtomicInteger "Char"
 	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Zero"
@@ -496,8 +442,6 @@ Model {
 	  TargetBitPerFloat	  32
 	  TargetBitPerDouble	  64
 	  TargetBitPerPointer	  32
-	  TargetBitPerSizeT	  32
-	  TargetBitPerPtrDiffT	  32
 	  TargetLargestAtomicInteger "Char"
 	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
@@ -505,67 +449,50 @@ Model {
 	  TargetIntDivRoundTo	  "Zero"
 	  TargetEndianess	  "BigEndian"
 	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
 	  TargetPreprocMaxBitsSint 32
 	  TargetPreprocMaxBitsUint 32
 	  TargetHWDeviceType	  "Generic->Custom"
 	  TargetUnknown		  off
 	  ProdEqTarget		  on
-	  UseEmbeddedCoderFeatures on
-	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  14
-	  Version		  "1.16.5"
-	  DisabledProps		  []
-	  Description		  ""
+	  $ObjectID		  13
+	  Version		  "1.14.3"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
-	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
 	  ParallelModelReferenceErrorOnInvalidPool on
 	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
 	  PropagateVarSize	  "Infer from blocks in model"
-	  ModelDependencies	  ""
 	  ModelReferencePassRootInputsByReference on
 	  ModelReferenceMinAlgLoopOccurrences off
 	  PropagateSignalLabelsOutOfModel off
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  15
-	  Version		  "1.16.5"
-	  DisabledProps		  []
-	  Description		  ""
-	  SimCustomSourceCode	  ""
-	  SimCustomHeaderCode	  ""
-	  SimCustomInitializer	  ""
-	  SimCustomTerminator	  ""
-	  SimReservedNameArray	  []
-	  SimUserSources	  ""
-	  SimUserIncludeDirs	  ""
-	  SimUserLibraries	  ""
-	  SimUserDefines	  ""
-	  SimCustomCompilerFlags  ""
-	  SimCustomLinkerFlags	  ""
+	  $ObjectID		  14
+	  Version		  "1.14.3"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
+	  SimBlas		  on
 	  SimCtrlC		  on
+	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	  SimGenImportedTypeDefs  off
-	  ModelFunctionsGlobalVisibility "on"
-	  CompileTimeRecursionLimit 50
-	  EnableRuntimeRecursion  on
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  16
-	  Version		  "1.16.5"
+	  $ObjectID		  15
+	  Version		  "1.14.3"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    17
+	    Dimension		    16
 	    Cell		    "IncludeHyperlinkInReport"
 	    Cell		    "GenerateTraceInfo"
 	    Cell		    "GenerateTraceReport"
@@ -582,11 +509,9 @@ Model {
 	    Cell		    "CodeProfilingSaveOptions"
 	    Cell		    "CodeProfilingInstrumentation"
 	    Cell		    "PackageGeneratedCodeAndArtifacts"
-	    Cell		    "GenerateMissedCodeReplacementReport"
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "rti1104.tlc"
-	  HardwareBoard		  "None"
 	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rti"
@@ -600,11 +525,15 @@ Model {
 	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  on
-	  RTWBuildHooks		  []
 	  ProfileTLC		  off
 	  TLCDebug		  off
 	  TLCCoverage		  off
 	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "rti1104_make_rtw_hook"
+	  ConfigurationScript	  ""
+	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
 	  CustomSourceCode	  ""
@@ -612,13 +541,10 @@ Model {
 	  CustomInclude		  ""
 	  CustomSource		  ""
 	  CustomLibrary		  ""
-	  CustomDefine		  ""
-	  CustomLAPACKCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
 	  BuildConfiguration	  "Faster Builds"
-	  CustomToolchainOptions  []
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  PortableWordSizes	  off
@@ -630,29 +556,31 @@ Model {
 	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
 	  GenerateTraceReport	  off
 	  GenerateTraceReportSl	  off
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
-	  GenerateMissedCodeReplacementReport off
-	  RTWCompilerOptimization "off"
-	  ObjectivePriorities	  []
+	  RTWCompilerOptimization "Off"
 	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
 	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      17
-	      Version		      "1.16.5"
+	      $ObjectID		      16
+	      Version		      "1.14.3"
 	      Array {
 		Type			"Cell"
-		Dimension		26
+		Dimension		24
 		Cell			"IgnoreCustomStorageClasses"
 		Cell			"ParameterTuningSideEffectCode"
 		Cell			"IgnoreTestpoints"
@@ -677,12 +605,8 @@ Model {
 		Cell			"CustomSymbolStrMacro"
 		Cell			"CustomSymbolStrUtil"
 		Cell			"ReqsInCode"
-		Cell			"CustomSymbolStrModelFcn"
-		Cell			"CustomUserTokenString"
 		PropName		"DisabledProps"
 	      }
-	      Description	      ""
-	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
 	      CommentStyle	      "Auto"
@@ -704,39 +628,34 @@ Model {
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
 	      CustomSymbolStrFcn      "$R$N$M$F"
-	      CustomSymbolStrModelFcn "$R$N"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
-	      CustomUserTokenString   ""
-	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
-	      DefineNamingFcn	      ""
 	      ParamNamingRule	      "None"
-	      ParamNamingFcn	      ""
 	      SignalNamingRule	      "None"
-	      SignalNamingFcn	      ""
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
-	      InternalIdentifierFile  ""
 	      InternalIdentifier      "Shortened"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
-	      ReservedNameArray	      []
 	    }
 	    Simulink.STFCustomTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      18
-	      Version		      "1.16.5"
+	      $ObjectID		      17
+	      Version		      "1.14.3"
 	      Array {
 		Type			"Cell"
-		Dimension		22
+		Dimension		25
+		Cell			"TimeScaleFactor"
+		Cell			"CCompilerOptimizationOpts"
+		Cell			"RTICfgSetVer"
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
@@ -753,15 +672,14 @@ Model {
 		Cell			"GRTInterface"
 		Cell			"ParMdlRefBuildCompliant"
 		Cell			"MultiInstanceERTCode"
-		Cell			"CPPClassGenCompliant"
-		Cell			"PortableWordSizes"
 		Cell			"CodeInterfacePackaging"
-		Cell			"RemoveResetFunc"
-		Cell			"ExistingSharedCode"
-		Cell			"RemoveDisableFunc"
+		Cell			"PortableWordSizes"
+		Cell			"CPPClassGenCompliant"
+		Cell			"LoadToFlash"
+		Cell			"BoardName"
+		Cell			"CombineOutputUpdateFcns"
 		PropName		"DisabledProps"
 	      }
-	      Description	      ""
 	      TargetFcnLib	      "ansi_tfl_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -773,8 +691,6 @@ Model {
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
-	      InferredTypesCompatibility off
-	      ExistingSharedCode      ""
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
 	      ModelReferenceCompliant on
@@ -799,21 +715,17 @@ Model {
 	      PurelyIntegerCode	      off
 	      SupportContinuousTime   on
 	      SupportNonInlinedSFcns  on
-	      RemoveDisableFunc	      off
-	      RemoveResetFunc	      off
 	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
 	      CastingMode	      "Nominal"
 	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
-	      MDXCompliant	      off
 	      GRTInterface	      on
 	      GenerateAllocFcn	      off
-	      UseToolchainInfoCompliant	off
 	      GenerateSharedConstants on
-	      CoderGroups	      []
 	      SystemTargetFile	      "rti1104.tlc"
 	      DialogCategory	      0
 	      Array {
@@ -821,11 +733,11 @@ Model {
 		Dimension		1
 		Simulink.GRTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
-		  $ObjectID		  19
-		  Version		  "1.16.5"
+		  $ObjectID		  18
+		  Version		  "1.14.3"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    22
+		    Dimension		    20
 		    Cell		    "GeneratePreprocessorConditionals"
 		    Cell		    "IncludeMdlTerminateFcn"
 		    Cell		    "SuppressErrorStatus"
@@ -841,16 +753,13 @@ Model {
 		    Cell		    "SupportNonInlinedSFcns"
 		    Cell		    "GRTInterface"
 		    Cell		    "ParMdlRefBuildCompliant"
-		    Cell		    "PortableWordSizes"
 		    Cell		    "MultiInstanceERTCode"
 		    Cell		    "CodeInterfacePackaging"
+		    Cell		    "PortableWordSizes"
 		    Cell		    "CPPClassGenCompliant"
-		    Cell		    "RemoveResetFunc"
-		    Cell		    "ExistingSharedCode"
-		    Cell		    "RemoveDisableFunc"
+		    Cell		    "CombineOutputUpdateFcns"
 		    PropName		    "DisabledProps"
 		  }
-		  Description		  ""
 		  TargetFcnLib		  "ansi_tfl_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
@@ -862,8 +771,6 @@ Model {
 		  ERTMultiwordLength	  256
 		  MultiwordLength	  2048
 		  GenerateFullHeader	  on
-		  InferredTypesCompatibility off
-		  ExistingSharedCode	  ""
 		  GenerateSampleERTMain	  off
 		  GenerateTestInterfaces  off
 		  ModelReferenceCompliant on
@@ -888,21 +795,17 @@ Model {
 		  PurelyIntegerCode	  off
 		  SupportContinuousTime	  on
 		  SupportNonInlinedSFcns  on
-		  RemoveDisableFunc	  off
-		  RemoveResetFunc	  off
 		  SupportVariableSizeSignals off
+		  EnableShiftOperators	  on
 		  ParenthesesLevel	  "Nominal"
 		  CastingMode		  "Nominal"
 		  MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
-		  MDXCompliant		  off
 		  GRTInterface		  on
 		  GenerateAllocFcn	  off
-		  UseToolchainInfoCompliant off
 		  GenerateSharedConstants on
-		  CoderGroups		  []
 		  UseMalloc		  off
 		  ExtMode		  off
 		  ExtModeStaticAlloc	  off
@@ -910,7 +813,6 @@ Model {
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTransport	  0
 		  ExtModeMexFile	  "noextcomm"
-		  ExtModeMexArgs	  ""
 		  ExtModeIntrfLevel	  "Level1"
 		  RTWCAPISignals	  off
 		  RTWCAPIParams		  off
@@ -1077,8 +979,8 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  20
-	  Version		  "1.16.5"
+	  $ObjectID		  19
+	  Version		  "1.14.3"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -1126,11 +1028,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    8
+    $ObjectID		    7
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1173,7 +1075,7 @@ Model {
   MaskDefaults {
     SelfModifiable	    "off"
     IconFrame		    "on"
-    IconOpaque		    "opaque"
+    IconOpaque		    "on"
     RunInitForIconRedraw    "off"
     IconRotate		    "none"
     PortRotate		    "default"
@@ -1215,6 +1117,32 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      DiscreteIntegrator
+      IntegratorMethod	      "Integration: Forward Euler"
+      gainval		      "1.0"
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      InitialConditionSetting "Output"
+      SampleTime	      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      IgnoreLimit	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+      ICPrevOutput	      "DiscIntNeverNeededParam"
+      ICPrevScaledInput	      "DiscIntNeverNeededParam"
+    }
+    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -1241,7 +1169,6 @@ Model {
       OutDataTypeStr	      "Inherit: auto"
       LockScale		      off
       BusOutputAsStruct	      off
-      Unit		      "inherit"
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
@@ -1259,9 +1186,6 @@ Model {
       LimitOutput	      off
       UpperSaturationLimit    "inf"
       LowerSaturationLimit    "-inf"
-      WrapState		      off
-      WrappedStateUpperValue  "pi"
-      WrappedStateLowerValue  "-pi"
       ShowSaturationPort      off
       ShowStatePort	      off
       AbsoluteTolerance	      "auto"
@@ -1295,13 +1219,11 @@ Model {
       OutDataTypeStr	      "Inherit: auto"
       LockScale		      off
       BusOutputAsStruct	      off
-      Unit		      "inherit"
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
       SignalType	      "auto"
       SamplingMode	      "auto"
-      EnsureOutportIsVirtual  off
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
@@ -1343,11 +1265,6 @@ Model {
       RndMeth		      "Floor"
     }
     Block {
-      BlockType		      Scope
-      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
-      Floating		      off
-    }
-    Block {
       BlockType		      SignalGenerator
       WaveForm		      "sine"
       TimeSource	      "Use simulation time"
@@ -1373,6 +1290,7 @@ Model {
       TreatAsAtomicUnit	      off
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
+      CheckFcnCallInpInsideContextMsg off
       SystemSampleTime	      "-1"
       RTWSystemCode	      "Auto"
       RTWFcnNameOpts	      "Auto"
@@ -1391,11 +1309,9 @@ Model {
       Opaque		      off
       MaskHideContents	      off
       SFBlockType	      "NONE"
+      Variant		      off
       GeneratePreprocessorConditionals off
-      PropagateVariantConditions off
-      TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
-      IsWebBlock	      off
     }
     Block {
       BlockType		      Sum
@@ -1420,7 +1336,7 @@ Model {
   }
   System {
     Name		    "mIO"
-    Location		    [19, 36, 1395, 780]
+    Location		    [1912, -8, 3848, 1048]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1432,391 +1348,85 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "134"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "398"
+    SIDHighWatermark	    "597"
     Block {
-      BlockType		      Reference
-      Name		      "Discrete PID Controller"
-      SID		      "376"
-      Ports		      [1, 1]
-      Position		      [350, 237, 390, 273]
-      ZOrder		      199
-      BackgroundColor	      "yellow"
-      LibraryVersion	      "1.388"
-      SourceBlock	      "simulink/Continuous/PID Controller"
-      SourceType	      "PID 1dof"
-      ContentPreviewEnabled   off
-      Controller	      "PID"
-      TimeDomain	      "Discrete-time"
-      SampleTime	      "1"
-      IntegratorMethod	      "Forward Euler"
-      FilterMethod	      "Forward Euler"
-      Form		      "Parallel"
-      UseFilter		      on
-      ControllerParametersSource "internal"
-      P			      "Pz_pos"
-      I			      "Iz_Pos"
-      D			      "Dz_Pos"
-      N			      "Nz_Pos"
-      InitialConditionSource  "internal"
-      InitialConditionForIntegrator "0"
-      InitialConditionForFilter	"0"
-      ExternalReset	      "none"
-      IgnoreLimit	      off
-      ZeroCross		      on
-      LimitOutput	      off
-      UpperSaturationLimit    "inf"
-      LowerSaturationLimit    "-inf"
-      LinearizeAsGain	      off
-      AntiWindupMode	      "none"
-      Kb		      "1"
-      TrackingMode	      off
-      Kt		      "1"
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-      LockScale		      off
-      PParamMin		      "[]"
-      PParamMax		      "[]"
-      PParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      IParamMin		      "[]"
-      IParamMax		      "[]"
-      IParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      DParamMin		      "[]"
-      DParamMax		      "[]"
-      DParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      NParamMin		      "[]"
-      NParamMax		      "[]"
-      NParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      KbParamMin	      "[]"
-      KbParamMax	      "[]"
-      KbParamDataTypeStr      "Inherit: Inherit via internal rule"
-      KtParamMin	      "[]"
-      KtParamMax	      "[]"
-      KtParamDataTypeStr      "Inherit: Inherit via internal rule"
-      POutMin		      "[]"
-      POutMax		      "[]"
-      POutDataTypeStr	      "Inherit: Inherit via internal rule"
-      PGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      PProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IOutMin		      "[]"
-      IOutMax		      "[]"
-      IOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DOutMin		      "[]"
-      DOutMax		      "[]"
-      DOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      DGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NOutMin		      "[]"
-      NOutMax		      "[]"
-      NOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      NGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      KbOutMin		      "[]"
-      KbOutMax		      "[]"
-      KbOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      KtOutMin		      "[]"
-      KtOutMax		      "[]"
-      KtOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IntegratorOutMin	      "[]"
-      IntegratorOutMax	      "[]"
-      IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
-      FilterOutMin	      "[]"
-      FilterOutMax	      "[]"
-      FilterOutDataTypeStr    "Inherit: Inherit via internal rule"
-      SumOutMin		      "[]"
-      SumOutMax		      "[]"
-      SumOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SumI1OutMin	      "[]"
-      SumI1OutMax	      "[]"
-      SumI1OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI2OutMin	      "[]"
-      SumI2OutMax	      "[]"
-      SumI2OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI3OutMin	      "[]"
-      SumI3OutMax	      "[]"
-      SumI3OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumDOutMin	      "[]"
-      SumDOutMax	      "[]"
-      SumDOutDataTypeStr      "Inherit: Inherit via internal rule"
-      SumAccumDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI1AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI2AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI3AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumDAccumDataTypeStr    "Inherit: Inherit via internal rule"
-      SaturationOutMin	      "[]"
-      SaturationOutMax	      "[]"
-      SaturationOutDataTypeStr "Inherit: Same as input"
-      IntegratorContinuousStateAttributes "''"
-      IntegratorStateMustResolveToSignalObject off
-      IntegratorRTWStateStorageClass "Auto"
-      FilterContinuousStateAttributes "''"
-      FilterStateMustResolveToSignalObject off
-      FilterRTWStateStorageClass "Auto"
-      DifferentiatorICPrevScaledInput "0"
-      DifferentiatorOutMin    "[]"
-      DifferentiatorOutMax    "[]"
-      DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
+      BlockType		      Constant
+      Name		      "Ctrl. Signal Selector"
+      SID		      "486"
+      Position		      [960, 215, 990, 245]
+      ZOrder		      275
+      BackgroundColor	      "blue"
+      Value		      "4"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Ctrl. Sine"
+      SID		      "487"
+      Ports		      [0, 1]
+      Position		      [960, 275, 990, 305]
+      ZOrder		      273
+      BackgroundColor	      "green"
+      Amplitude		      "24"
+      Frequency		      "2*pi*2/10"
+      Units		      "rad/sec"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Ctrl. Square"
+      SID		      "488"
+      Ports		      [0, 1]
+      Position		      [960, 335, 990, 365]
+      ZOrder		      274
+      BackgroundColor	      "green"
+      WaveForm		      "square"
+      Amplitude		      "24"
+      Frequency		      "2*pi*2/10"
+      Units		      "rad/sec"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Ctrl. Step"
+      SID		      "489"
+      Position		      [960, 395, 990, 425]
+      ZOrder		      280
+      BackgroundColor	      "green"
+      Time		      "0"
+      After		      "24"
+      SampleTime	      "0"
     }
     Block {
       BlockType		      Reference
-      Name		      "Discrete PID Controller1"
-      SID		      "393"
+      Name		      "Discrete Derivative"
+      SID		      "403"
       Ports		      [1, 1]
-      Position		      [250, 337, 290, 373]
-      ZOrder		      203
-      BackgroundColor	      "yellow"
-      LibraryVersion	      "1.388"
-      SourceBlock	      "simulink/Continuous/PID Controller"
-      SourceType	      "PID 1dof"
-      ContentPreviewEnabled   off
-      Controller	      "PID"
-      TimeDomain	      "Continuous-time"
-      SampleTime	      "-1"
-      IntegratorMethod	      "Forward Euler"
-      FilterMethod	      "Forward Euler"
-      Form		      "Parallel"
-      UseFilter		      on
-      ControllerParametersSource "internal"
-      P			      "P_cont"
-      I			      "I_cont"
-      D			      "D_cont"
-      N			      "N_cont"
-      InitialConditionSource  "internal"
-      InitialConditionForIntegrator "0"
-      InitialConditionForFilter	"0"
-      ExternalReset	      "none"
-      IgnoreLimit	      off
-      ZeroCross		      on
-      LimitOutput	      off
-      UpperSaturationLimit    "inf"
-      LowerSaturationLimit    "-inf"
-      LinearizeAsGain	      off
-      AntiWindupMode	      "none"
-      Kb		      "1"
-      TrackingMode	      off
-      Kt		      "1"
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-      LockScale		      off
-      PParamMin		      "[]"
-      PParamMax		      "[]"
-      PParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      IParamMin		      "[]"
-      IParamMax		      "[]"
-      IParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      DParamMin		      "[]"
-      DParamMax		      "[]"
-      DParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      NParamMin		      "[]"
-      NParamMax		      "[]"
-      NParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      KbParamMin	      "[]"
-      KbParamMax	      "[]"
-      KbParamDataTypeStr      "Inherit: Inherit via internal rule"
-      KtParamMin	      "[]"
-      KtParamMax	      "[]"
-      KtParamDataTypeStr      "Inherit: Inherit via internal rule"
-      POutMin		      "[]"
-      POutMax		      "[]"
-      POutDataTypeStr	      "Inherit: Inherit via internal rule"
-      PGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      PProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IOutMin		      "[]"
-      IOutMax		      "[]"
-      IOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DOutMin		      "[]"
-      DOutMax		      "[]"
-      DOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      DGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NOutMin		      "[]"
-      NOutMax		      "[]"
-      NOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      NGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      KbOutMin		      "[]"
-      KbOutMax		      "[]"
-      KbOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      KtOutMin		      "[]"
-      KtOutMax		      "[]"
-      KtOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IntegratorOutMin	      "[]"
-      IntegratorOutMax	      "[]"
-      IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
-      FilterOutMin	      "[]"
-      FilterOutMax	      "[]"
-      FilterOutDataTypeStr    "Inherit: Inherit via internal rule"
-      SumOutMin		      "[]"
-      SumOutMax		      "[]"
-      SumOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SumI1OutMin	      "[]"
-      SumI1OutMax	      "[]"
-      SumI1OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI2OutMin	      "[]"
-      SumI2OutMax	      "[]"
-      SumI2OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI3OutMin	      "[]"
-      SumI3OutMax	      "[]"
-      SumI3OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumDOutMin	      "[]"
-      SumDOutMax	      "[]"
-      SumDOutDataTypeStr      "Inherit: Inherit via internal rule"
-      SumAccumDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI1AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI2AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI3AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumDAccumDataTypeStr    "Inherit: Inherit via internal rule"
-      SaturationOutMin	      "[]"
-      SaturationOutMax	      "[]"
-      SaturationOutDataTypeStr "Inherit: Same as input"
-      IntegratorContinuousStateAttributes "''"
-      IntegratorStateMustResolveToSignalObject off
-      IntegratorRTWStateStorageClass "Auto"
-      FilterContinuousStateAttributes "''"
-      FilterStateMustResolveToSignalObject off
-      FilterRTWStateStorageClass "Auto"
-      DifferentiatorICPrevScaledInput "0"
-      DifferentiatorOutMin    "[]"
-      DifferentiatorOutMax    "[]"
-      DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Discrete PID Controller2"
-      SID		      "310"
-      Ports		      [1, 1]
-      Position		      [535, 277, 575, 313]
-      ZOrder		      205
+      Position		      [860, 657, 920, 693]
+      ZOrder		      300
       BlockMirror	      on
-      BackgroundColor	      "yellow"
-      LibraryVersion	      "1.388"
-      SourceBlock	      "simulink/Continuous/PID Controller"
-      SourceType	      "PID 1dof"
+      LibraryVersion	      "1.354"
+      SourceBlock	      "simulink/Discrete/Discrete Derivative"
+      SourceType	      "Discrete Derivative"
       ContentPreviewEnabled   off
-      Controller	      "PID"
-      TimeDomain	      "Discrete-time"
-      SampleTime	      "1"
-      IntegratorMethod	      "Forward Euler"
-      FilterMethod	      "Forward Euler"
-      Form		      "Parallel"
-      UseFilter		      on
-      ControllerParametersSource "internal"
-      P			      "Pz_Vel"
-      I			      "Iz_Vel"
-      D			      "Dz_Vel"
-      N			      "Nz_Vel"
-      InitialConditionSource  "internal"
-      InitialConditionForIntegrator "0"
-      InitialConditionForFilter	"0"
-      ExternalReset	      "none"
-      IgnoreLimit	      off
-      ZeroCross		      on
-      LimitOutput	      off
-      UpperSaturationLimit    "inf"
-      LowerSaturationLimit    "-inf"
-      LinearizeAsGain	      off
-      AntiWindupMode	      "none"
-      Kb		      "1"
-      TrackingMode	      off
-      Kt		      "1"
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
+      gainval		      "1.0"
+      ICPrevScaledInput	      "0.0"
+      InputProcessing	      "Inherited"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutputDataTypeScalingMode	"Inherit via internal rule"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^-10"
       LockScale		      off
-      PParamMin		      "[]"
-      PParamMax		      "[]"
-      PParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      IParamMin		      "[]"
-      IParamMax		      "[]"
-      IParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      DParamMin		      "[]"
-      DParamMax		      "[]"
-      DParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      NParamMin		      "[]"
-      NParamMax		      "[]"
-      NParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      KbParamMin	      "[]"
-      KbParamMax	      "[]"
-      KbParamDataTypeStr      "Inherit: Inherit via internal rule"
-      KtParamMin	      "[]"
-      KtParamMax	      "[]"
-      KtParamDataTypeStr      "Inherit: Inherit via internal rule"
-      POutMin		      "[]"
-      POutMax		      "[]"
-      POutDataTypeStr	      "Inherit: Inherit via internal rule"
-      PGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      PProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IOutMin		      "[]"
-      IOutMax		      "[]"
-      IOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      IProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DOutMin		      "[]"
-      DOutMax		      "[]"
-      DOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      DGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      DProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NOutMin		      "[]"
-      NOutMax		      "[]"
-      NOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      NGainOutDataTypeStr     "Inherit: Inherit via internal rule"
-      NProdOutDataTypeStr     "Inherit: Inherit via internal rule"
-      KbOutMin		      "[]"
-      KbOutMax		      "[]"
-      KbOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      KtOutMin		      "[]"
-      KtOutMax		      "[]"
-      KtOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      IntegratorOutMin	      "[]"
-      IntegratorOutMax	      "[]"
-      IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
-      FilterOutMin	      "[]"
-      FilterOutMax	      "[]"
-      FilterOutDataTypeStr    "Inherit: Inherit via internal rule"
-      SumOutMin		      "[]"
-      SumOutMax		      "[]"
-      SumOutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SumI1OutMin	      "[]"
-      SumI1OutMax	      "[]"
-      SumI1OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI2OutMin	      "[]"
-      SumI2OutMax	      "[]"
-      SumI2OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI3OutMin	      "[]"
-      SumI3OutMax	      "[]"
-      SumI3OutDataTypeStr     "Inherit: Inherit via internal rule"
-      SumDOutMin	      "[]"
-      SumDOutMax	      "[]"
-      SumDOutDataTypeStr      "Inherit: Inherit via internal rule"
-      SumAccumDataTypeStr     "Inherit: Inherit via internal rule"
-      SumI1AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI2AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumI3AccumDataTypeStr   "Inherit: Inherit via internal rule"
-      SumDAccumDataTypeStr    "Inherit: Inherit via internal rule"
-      SaturationOutMin	      "[]"
-      SaturationOutMax	      "[]"
-      SaturationOutDataTypeStr "Inherit: Same as input"
-      IntegratorContinuousStateAttributes "''"
-      IntegratorStateMustResolveToSignalObject off
-      IntegratorRTWStateStorageClass "Auto"
-      FilterContinuousStateAttributes "''"
-      FilterStateMustResolveToSignalObject off
-      FilterRTWStateStorageClass "Auto"
-      DifferentiatorICPrevScaledInput "0"
-      DifferentiatorOutMin    "[]"
-      DifferentiatorOutMax    "[]"
-      DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
+      RndMeth		      "Floor"
+      DoSatur		      off
     }
     Block {
       BlockType		      Gain
       Name		      "Gain"
-      SID		      "141"
-      Position		      [640, 185, 670, 215]
-      ZOrder		      5
+      SID		      "404"
+      Position		      [1295, 490, 1325, 520]
+      ZOrder		      276
       Gain		      "-1"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1825,16 +1435,15 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Motor Model"
-      SID		      "232"
+      SID		      "405"
       Ports		      [1, 2]
-      Position		      [660, 84, 725, 146]
-      ZOrder		      162
+      Position		      [1230, 379, 1295, 441]
+      ZOrder		      282
       BackgroundColor	      "cyan"
       RequestExecContextInheritance off
-      Variant		      off
       System {
 	Name			"Motor Model"
-	Location		[-8, 0, 1928, 1056]
+	Location		[19, 36, 1395, 780]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1850,7 +1459,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "Signal Input"
-	  SID			  "261"
+	  SID			  "406"
 	  Position		  [290, 188, 320, 202]
 	  ZOrder		  178
 	  IconDisplay		  "Port number"
@@ -1858,7 +1467,7 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Divide"
-	  SID			  "245"
+	  SID			  "407"
 	  Ports			  [2, 1]
 	  Position		  [890, 187, 920, 218]
 	  ZOrder		  173
@@ -1871,7 +1480,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Friction"
-	  SID			  "246"
+	  SID			  "408"
 	  Position		  [720, 355, 775, 395]
 	  ZOrder		  171
 	  BlockMirror		  on
@@ -1883,7 +1492,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain2"
-	  SID			  "247"
+	  SID			  "409"
 	  Position		  [445, 172, 525, 218]
 	  ZOrder		  170
 	  Gain			  "Km/R"
@@ -1894,7 +1503,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain4"
-	  SID			  "248"
+	  SID			  "410"
 	  Position		  [830, 285, 955, 335]
 	  ZOrder		  167
 	  BlockMirror		  on
@@ -1906,7 +1515,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain6"
-	  SID			  "249"
+	  SID			  "411"
 	  Position		  [1240, 190, 1275, 220]
 	  ZOrder		  168
 	  Gain			  "1/n"
@@ -1917,7 +1526,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain7"
-	  SID			  "250"
+	  SID			  "412"
 	  Position		  [1105, 250, 1140, 280]
 	  ZOrder		  169
 	  Gain			  "1/n"
@@ -1928,7 +1537,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator1"
-	  SID			  "251"
+	  SID			  "413"
 	  Ports			  [1, 1]
 	  Position		  [960, 190, 990, 220]
 	  ZOrder		  165
@@ -1936,7 +1545,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator2"
-	  SID			  "252"
+	  SID			  "414"
 	  Ports			  [1, 1]
 	  Position		  [1090, 190, 1120, 220]
 	  ZOrder		  166
@@ -1944,7 +1553,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Jeq"
-	  SID			  "253"
+	  SID			  "415"
 	  Position		  [665, 230, 695, 260]
 	  ZOrder		  175
 	  Value			  "Jeq"
@@ -1952,7 +1561,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
-	  SID			  "255"
+	  SID			  "416"
 	  Ports			  [2, 1]
 	  Position		  [605, 185, 625, 205]
 	  ZOrder		  164
@@ -1966,7 +1575,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum2"
-	  SID			  "256"
+	  SID			  "417"
 	  Ports			  [2, 1]
 	  Position		  [605, 300, 625, 320]
 	  ZOrder		  172
@@ -1981,7 +1590,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "eps_Jeq"
-	  SID			  "257"
+	  SID			  "418"
 	  Position		  [745, 224, 805, 266]
 	  ZOrder		  174
 	  Gain			  "eps_Jeq"
@@ -1992,7 +1601,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "eps_dm"
-	  SID			  "258"
+	  SID			  "419"
 	  Position		  [920, 352, 1005, 398]
 	  ZOrder		  176
 	  BlockMirror		  on
@@ -2004,7 +1613,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "dph_sim"
-	  SID			  "259"
+	  SID			  "420"
 	  Position		  [1215, 258, 1245, 272]
 	  ZOrder		  163
 	  IconDisplay		  "Port number"
@@ -2012,43 +1621,43 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "phi_sim"
-	  SID			  "260"
+	  SID			  "421"
 	  Position		  [1400, 198, 1430, 212]
 	  ZOrder		  162
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  17
+	  ZOrder		  1
 	  SrcBlock		  "Integrator1"
 	  SrcPort		  1
 	  Points		  [44, 0; 0, 25]
 	  Branch {
-	    ZOrder		    16
+	    ZOrder		    2
 	    Points		    [0, 80]
 	    Branch {
-	      ZOrder		      15
+	      ZOrder		      3
 	      Points		      [0, 65]
 	      DstBlock		      "eps_dm"
 	      DstPort		      1
 	    }
 	    Branch {
-	      ZOrder		      14
+	      ZOrder		      4
 	      DstBlock		      "Gain4"
 	      DstPort		      1
 	    }
 	  }
 	  Branch {
-	    ZOrder		    13
+	    ZOrder		    5
 	    Points		    [32, 0]
 	    Branch {
-	      ZOrder		      12
+	      ZOrder		      6
 	      Points		      [0, 35]
 	      DstBlock		      "Gain7"
 	      DstPort		      1
 	    }
 	    Branch {
-	      ZOrder		      11
+	      ZOrder		      7
 	      Points		      [0, -25]
 	      DstBlock		      "Integrator2"
 	      DstPort		      1
@@ -2056,42 +1665,42 @@ Model {
 	  }
 	}
 	Line {
-	  ZOrder		  18
+	  ZOrder		  8
 	  SrcBlock		  "Integrator2"
 	  SrcPort		  1
 	  DstBlock		  "Gain6"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  19
+	  ZOrder		  9
 	  SrcBlock		  "Gain6"
 	  SrcPort		  1
 	  DstBlock		  "phi_sim"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  22
+	  ZOrder		  10
 	  SrcBlock		  "Gain7"
 	  SrcPort		  1
 	  DstBlock		  "dph_sim"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  24
+	  ZOrder		  11
 	  SrcBlock		  "Gain2"
 	  SrcPort		  1
 	  DstBlock		  "Sum1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  12
 	  SrcBlock		  "Divide"
 	  SrcPort		  1
 	  DstBlock		  "Integrator1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  26
+	  ZOrder		  13
 	  SrcBlock		  "Friction"
 	  SrcPort		  1
 	  Points		  [-100, 0]
@@ -2099,35 +1708,35 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  14
 	  SrcBlock		  "Gain4"
 	  SrcPort		  1
 	  DstBlock		  "Sum2"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  28
+	  ZOrder		  15
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
 	  DstBlock		  "Sum1"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  29
+	  ZOrder		  16
 	  SrcBlock		  "Sum1"
 	  SrcPort		  1
 	  DstBlock		  "Divide"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  30
+	  ZOrder		  17
 	  SrcBlock		  "Jeq"
 	  SrcPort		  1
 	  DstBlock		  "eps_Jeq"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  31
+	  ZOrder		  18
 	  SrcBlock		  "eps_Jeq"
 	  SrcPort		  1
 	  Points		  [35, 0; 0, -35]
@@ -2135,14 +1744,14 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  32
+	  ZOrder		  19
 	  SrcBlock		  "eps_dm"
 	  SrcPort		  1
 	  DstBlock		  "Friction"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  55
+	  ZOrder		  20
 	  SrcBlock		  "Signal Input"
 	  SrcPort		  1
 	  DstBlock		  "Gain2"
@@ -2153,23 +1762,907 @@ Model {
     Block {
       BlockType		      MultiPortSwitch
       Name		      "Multiport\nSwitch"
-      SID		      "218"
+      SID		      "422"
       Ports		      [7, 1]
-      Position		      [510, 168, 550, 242]
-      ZOrder		      155
+      Position		      [1060, 200, 1130, 620]
+      ZOrder		      279
       Inputs		      "6"
       InputSameDT	      off
       SaturateOnIntegerOverflow	off
     }
     Block {
+      BlockType		      MultiPortSwitch
+      Name		      "Multiport\nSwitch1"
+      SID		      "522"
+      Ports		      [4, 1]
+      Position		      [205, 365, 245, 575]
+      ZOrder		      303
+      InputSameDT	      off
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "PID_pos_discrete\n\n"
+      SID		      "423"
+      Ports		      [1, 1]
+      Position		      [645, 509, 745, 551]
+      ZOrder		      295
+      RequestExecContextInheritance off
+      System {
+	Name			"PID_pos_discrete\n\n"
+	Location		[19, 36, 1395, 780]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"80"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Volt in"
+	  SID			  "424"
+	  Position		  [335, 63, 365, 77]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add2"
+	  SID			  "425"
+	  Ports			  [2, 1]
+	  Position		  [775, 62, 805, 93]
+	  ZOrder		  232
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Derivative Gain2"
+	  SID			  "426"
+	  Position		  [510, 127, 560, 163]
+	  ZOrder		  228
+	  Gain			  "double(Dpos_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator1"
+	  SID			  "427"
+	  Ports			  [1, 1]
+	  Position		  [680, 187, 715, 223]
+	  ZOrder		  235
+	  BlockMirror		  on
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "Ts"
+	}
+	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator2"
+	  SID			  "428"
+	  Ports			  [1, 1]
+	  Position		  [680, 262, 715, 298]
+	  ZOrder		  236
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "Ts"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Filter Gain1"
+	  SID			  "429"
+	  Position		  [680, 127, 725, 163]
+	  ZOrder		  229
+	  Gain			  "double(Npos_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Integral Gain2"
+	  SID			  "430"
+	  Position		  [525, 262, 575, 298]
+	  ZOrder		  207
+	  Gain			  "double(Ipos_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Proportional Gain1"
+	  SID			  "431"
+	  Position		  [535, 52, 585, 88]
+	  ZOrder		  227
+	  Gain			  "double(Ppos_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "432"
+	  Ports			  [1, 1]
+	  Position		  [970, 65, 1000, 95]
+	  ZOrder		  187
+	  InputPortMap		  "u0"
+	  UpperLimit		  "24"
+	  LowerLimit		  "-24"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "433"
+	  Ports			  [2, 1]
+	  Position		  [600, 135, 620, 155]
+	  ZOrder		  231
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  "434"
+	  Ports			  [2, 1]
+	  Position		  [890, 70, 910, 90]
+	  ZOrder		  191
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Speed out"
+	  SID			  "435"
+	  Position		  [1075, 73, 1105, 87]
+	  ZOrder		  -2
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Discrete-Time\nIntegrator2"
+	  SrcPort		  1
+	  Points		  [180, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Integral Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Discrete-Time\nIntegrator2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Add2"
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Speed out"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Volt in"
+	  SrcPort		  1
+	  Points		  [37, 0]
+	  Branch {
+	    ZOrder		    7
+	    Points		    [0, 75]
+	    Branch {
+	      ZOrder		      8
+	      Points		      [0, 135]
+	      DstBlock		      "Integral Gain2"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      9
+	      DstBlock		      "Derivative Gain2"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    ZOrder		    10
+	    DstBlock		    "Proportional Gain1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Discrete-Time\nIntegrator1"
+	  SrcPort		  1
+	  Points		  [-65, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Filter Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Derivative Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Proportional Gain1"
+	  SrcPort		  1
+	  DstBlock		  "Add2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Filter Gain1"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    ZOrder		    16
+	    Points		    [0, 60]
+	    DstBlock		    "Discrete-Time\nIntegrator1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    17
+	    DstBlock		    "Add2"
+	    DstPort		    2
+	  }
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "PID_position_continuous\n"
+      SID		      "436"
+      Ports		      [1, 1]
+      Position		      [860, 569, 960, 611]
+      ZOrder		      296
+      RequestExecContextInheritance off
+      System {
+	Name			"PID_position_continuous\n"
+	Location		[19, 36, 1395, 780]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Volt in"
+	  SID			  "437"
+	  Position		  [485, 258, 515, 272]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Derivative Gain"
+	  SID			  "438"
+	  Position		  [570, 355, 600, 385]
+	  ZOrder		  139
+	  Gain			  "Dpos"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Filter Gain"
+	  SID			  "439"
+	  Position		  [805, 355, 835, 385]
+	  ZOrder		  140
+	  Gain			  "Npos"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Integral Gain"
+	  SID			  "440"
+	  Position		  [570, 250, 600, 280]
+	  ZOrder		  138
+	  Gain			  "Ipos"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator"
+	  SID			  "441"
+	  Ports			  [1, 1]
+	  Position		  [805, 250, 835, 280]
+	  ZOrder		  143
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "Integrator1"
+	  SID			  "442"
+	  Ports			  [1, 1]
+	  Position		  [805, 425, 835, 455]
+	  ZOrder		  141
+	  BlockMirror		  on
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Proportional Gain"
+	  SID			  "443"
+	  Position		  [570, 160, 600, 190]
+	  ZOrder		  129
+	  Gain			  "Ppos"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "444"
+	  Ports			  [1, 1]
+	  Position		  [930, 250, 960, 280]
+	  ZOrder		  188
+	  InputPortMap		  "u0"
+	  UpperLimit		  "24"
+	  LowerLimit		  "-24"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "445"
+	  Ports			  [2, 1]
+	  Position		  [700, 360, 720, 380]
+	  ZOrder		  145
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "446"
+	  Ports			  [3, 1]
+	  Position		  [880, 255, 900, 275]
+	  ZOrder		  144
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Position out"
+	  SID			  "447"
+	  Position		  [1035, 258, 1065, 272]
+	  ZOrder		  -2
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Integrator"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Integrator1"
+	  SrcPort		  1
+	  Points		  [-90, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Filter Gain"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  Branch {
+	    ZOrder		    4
+	    Points		    [10, 0]
+	    DstBlock		    "Sum1"
+	    DstPort		    3
+	  }
+	  Branch {
+	    ZOrder		    5
+	    Points		    [0, 70]
+	    DstBlock		    "Integrator1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Filter Gain"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  7
+	  SrcBlock		  "Derivative Gain"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "Integral Gain"
+	  SrcPort		  1
+	  DstBlock		  "Integrator"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Proportional Gain"
+	  SrcPort		  1
+	  Points		  [285, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Volt in"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    ZOrder		    11
+	    Points		    [0, 105]
+	    DstBlock		    "Derivative Gain"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    12
+	    DstBlock		    "Integral Gain"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    13
+	    Points		    [0, -90]
+	    DstBlock		    "Proportional Gain"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Position out"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "PID_speed_discrete"
+      SID		      "448"
+      Ports		      [1, 1]
+      Position		      [415, 449, 515, 491]
+      ZOrder		      294
+      RequestExecContextInheritance off
+      System {
+	Name			"PID_speed_discrete"
+	Location		[1912, -8, 3848, 1048]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"175"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Volt in"
+	  SID			  "449"
+	  Position		  [335, 63, 365, 77]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add2"
+	  SID			  "450"
+	  Ports			  [2, 1]
+	  Position		  [775, 62, 805, 93]
+	  ZOrder		  232
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Anti-Windup"
+	  SID			  "519"
+	  Position		  [765, 352, 815, 388]
+	  ZOrder		  239
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  Gain			  "29.6"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Anti-Windup1"
+	  SID			  "577"
+	  Position		  [675, 352, 725, 388]
+	  ZOrder		  242
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Derivative Gain2"
+	  SID			  "451"
+	  Position		  [510, 127, 560, 163]
+	  ZOrder		  228
+	  Gain			  "double(Dsp_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator1"
+	  SID			  "452"
+	  Ports			  [1, 1]
+	  Position		  [680, 187, 715, 223]
+	  ZOrder		  235
+	  BlockMirror		  on
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator2"
+	  SID			  "453"
+	  Ports			  [1, 1]
+	  Position		  [680, 262, 715, 298]
+	  ZOrder		  236
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Filter Gain1"
+	  SID			  "454"
+	  Position		  [680, 127, 725, 163]
+	  ZOrder		  229
+	  Gain			  "double(Nsp_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Integral Gain2"
+	  SID			  "455"
+	  Position		  [525, 262, 575, 298]
+	  ZOrder		  207
+	  Gain			  "double(Isp_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Proportional Gain1"
+	  SID			  "456"
+	  Position		  [535, 52, 585, 88]
+	  ZOrder		  227
+	  Gain			  "double(Psp_d)"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "457"
+	  Ports			  [1, 1]
+	  Position		  [925, 65, 955, 95]
+	  ZOrder		  187
+	  InputPortMap		  "u0"
+	  UpperLimit		  "24"
+	  LowerLimit		  "-24"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "458"
+	  Ports			  [2, 1]
+	  Position		  [600, 135, 620, 155]
+	  ZOrder		  231
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "517"
+	  Ports			  [2, 1]
+	  Position		  [930, 135, 950, 155]
+	  ZOrder		  237
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+|-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  "459"
+	  Ports			  [2, 1]
+	  Position		  [850, 70, 870, 90]
+	  ZOrder		  191
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "518"
+	  Ports			  [2, 1]
+	  Position		  [600, 270, 620, 290]
+	  ZOrder		  238
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|+-"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Speed out"
+	  SID			  "460"
+	  Position		  [1075, 73, 1105, 87]
+	  ZOrder		  -2
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Discrete-Time\nIntegrator2"
+	  SrcPort		  1
+	  Points		  [140, 0]
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Add2"
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  Points		  [23, 0]
+	  Branch {
+	    ZOrder		    21
+	    Points		    [0, 65]
+	    DstBlock		    "Sum2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    20
+	    DstBlock		    "Saturation"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [16, 0]
+	  Branch {
+	    ZOrder		    19
+	    Points		    [0, 65]
+	    DstBlock		    "Sum2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    18
+	    DstBlock		    "Speed out"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Volt in"
+	  SrcPort		  1
+	  Points		  [37, 0]
+	  Branch {
+	    ZOrder		    7
+	    Points		    [0, 75]
+	    Branch {
+	      ZOrder		      8
+	      Points		      [0, 135]
+	      DstBlock		      "Integral Gain2"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      9
+	      DstBlock		      "Derivative Gain2"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    ZOrder		    10
+	    DstBlock		    "Proportional Gain1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Discrete-Time\nIntegrator1"
+	  SrcPort		  1
+	  Points		  [-65, 0]
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "Filter Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Derivative Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Proportional Gain1"
+	  SrcPort		  1
+	  DstBlock		  "Add2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Filter Gain1"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    ZOrder		    16
+	    Points		    [0, 60]
+	    DstBlock		    "Discrete-Time\nIntegrator1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    17
+	    DstBlock		    "Add2"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  22
+	  SrcBlock		  "Integral Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Sum4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  23
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  DstBlock		  "Discrete-Time\nIntegrator2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  24
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [0, 210]
+	  DstBlock		  "Anti-Windup"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  31
+	  SrcBlock		  "Anti-Windup"
+	  SrcPort		  1
+	  DstBlock		  "Anti-Windup1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  32
+	  SrcBlock		  "Anti-Windup1"
+	  SrcPort		  1
+	  Points		  [-60, 0]
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+      }
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "PWM"
-      SID		      "58"
+      SID		      "461"
       Ports		      [1]
-      Position		      [790, 169, 855, 231]
-      ZOrder		      -1
+      Position		      [1345, 474, 1410, 536]
+      ZOrder		      272
+      BackgroundColor	      "green"
       RequestExecContextInheritance off
-      Variant		      off
       System {
 	Name			"PWM"
 	Location		[-8, 0, 1928, 1056]
@@ -2188,7 +2681,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u1"
-	  SID			  "59"
+	  SID			  "462"
 	  Position		  [40, 113, 70, 127]
 	  ZOrder		  -1
 	  IconDisplay		  "Port number"
@@ -2196,7 +2689,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DS1104BIT_OUT_C0"
-	  SID			  "61"
+	  SID			  "463"
 	  Ports			  [1]
 	  Position		  [290, 26, 395, 64]
 	  ZOrder		  -3
@@ -2223,7 +2716,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DS1104SL_DSP_PWM"
-	  SID			  "63"
+	  SID			  "464"
 	  Ports			  [4]
 	  Position		  [455, 107, 525, 193]
 	  ZOrder		  -5
@@ -2278,7 +2771,7 @@ Model {
 	Block {
 	  BlockType		  DataTypeConversion
 	  Name			  "Data Type Conversion"
-	  SID			  "64"
+	  SID			  "465"
 	  Position		  [190, 31, 245, 59]
 	  ZOrder		  -6
 	  OutDataTypeStr	  "boolean"
@@ -2286,35 +2779,35 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Enable[1_Off, 0_On]"
-	  SID			  "72"
+	  SID			  "466"
 	  Position		  [25, 30, 55, 60]
 	  ZOrder		  -14
 	}
 	Block {
 	  BlockType		  Ground
 	  Name			  "Ground1"
-	  SID			  "66"
+	  SID			  "467"
 	  Position		  [405, 150, 425, 170]
 	  ZOrder		  -8
 	}
 	Block {
 	  BlockType		  Ground
 	  Name			  "Ground2"
-	  SID			  "67"
+	  SID			  "468"
 	  Position		  [365, 170, 385, 190]
 	  ZOrder		  -9
 	}
 	Block {
 	  BlockType		  Ground
 	  Name			  "Ground3"
-	  SID			  "99"
+	  SID			  "469"
 	  Position		  [390, 130, 410, 150]
 	  ZOrder		  1
 	}
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation"
-	  SID			  "100"
+	  SID			  "470"
 	  Ports			  [1, 1]
 	  Position		  [145, 105, 175, 135]
 	  ZOrder		  2
@@ -2325,7 +2818,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "68"
+	  SID			  "471"
 	  Ports			  [2, 1]
 	  Position		  [305, 110, 325, 130]
 	  ZOrder		  -10
@@ -2338,7 +2831,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "pwm_offstet"
-	  SID			  "70"
+	  SID			  "472"
 	  Position		  [260, 165, 290, 195]
 	  ZOrder		  -12
 	  Value			  "0.5"
@@ -2346,41 +2839,41 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "pwm_skalning"
-	  SID			  "74"
+	  SID			  "473"
 	  Position		  [240, 105, 270, 135]
 	  ZOrder		  -16
 	  Gain			  "1/48"
 	}
 	Line {
-	  ZOrder		  7
+	  ZOrder		  1
 	  SrcBlock		  "Enable[1_Off, 0_On]"
 	  SrcPort		  1
 	  DstBlock		  "Data Type Conversion"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  2
 	  SrcBlock		  "Data Type Conversion"
 	  SrcPort		  1
 	  DstBlock		  "DS1104BIT_OUT_C0"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  9
+	  ZOrder		  3
 	  SrcBlock		  "pwm_skalning"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  10
+	  ZOrder		  4
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
 	  DstBlock		  "DS1104SL_DSP_PWM"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  11
+	  ZOrder		  5
 	  SrcBlock		  "pwm_offstet"
 	  SrcPort		  1
 	  Points		  [20, 0]
@@ -2388,35 +2881,35 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  12
+	  ZOrder		  6
 	  SrcBlock		  "u1"
 	  SrcPort		  1
 	  DstBlock		  "Saturation"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  13
+	  ZOrder		  7
 	  SrcBlock		  "Ground1"
 	  SrcPort		  1
 	  DstBlock		  "DS1104SL_DSP_PWM"
 	  DstPort		  3
 	}
 	Line {
-	  ZOrder		  14
+	  ZOrder		  8
 	  SrcBlock		  "Ground2"
 	  SrcPort		  1
 	  DstBlock		  "DS1104SL_DSP_PWM"
 	  DstPort		  4
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  9
 	  SrcBlock		  "Ground3"
 	  SrcPort		  1
 	  DstBlock		  "DS1104SL_DSP_PWM"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  10
 	  SrcBlock		  "Saturation"
 	  SrcPort		  1
 	  DstBlock		  "pwm_skalning"
@@ -2427,29 +2920,30 @@ Model {
     Block {
       BlockType		      Step
       Name		      "Pos"
-      SID		      "381"
-      Position		      [65, 240, 95, 270]
-      ZOrder		      192
-      BackgroundColor	      "darkGreen"
-      Time		      "0"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Pos1"
-      SID		      "397"
-      Position		      [115, 340, 145, 370]
-      ZOrder		      195
-      BackgroundColor	      "darkGreen"
+      SID		      "474"
+      Position		      [405, 540, 435, 570]
+      ZOrder		      285
+      BackgroundColor	      "[0.419608, 0.588235, 0.239216]"
       Time		      "0"
       SampleTime	      "0"
     }
     Block {
       BlockType		      Quantizer
+      Name		      "Quantizer"
+      SID		      "476"
+      Position		      [1025, 660, 1055, 690]
+      ZOrder		      298
+      BlockMirror	      on
+      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+      QuantizationInterval    "Pulses"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      Quantizer
       Name		      "Quantizer1"
-      SID		      "377"
-      Position		      [200, 240, 230, 270]
-      ZOrder		      198
+      SID		      "477"
+      Position		      [775, 515, 805, 545]
+      ZOrder		      291
       BackgroundColor	      "yellow"
       QuantizationInterval    "Pulses"
       LinearizeAsGain	      off
@@ -2458,9 +2952,9 @@ Model {
     Block {
       BlockType		      Quantizer
       Name		      "Quantizer2"
-      SID		      "394"
-      Position		      [320, 340, 350, 370]
-      ZOrder		      201
+      SID		      "478"
+      Position		      [995, 575, 1025, 605]
+      ZOrder		      289
       BackgroundColor	      "yellow"
       QuantizationInterval    "Pulses"
       LinearizeAsGain	      off
@@ -2469,11 +2963,11 @@ Model {
     Block {
       BlockType		      Quantizer
       Name		      "Quantizer3"
-      SID		      "311"
-      Position		      [675, 275, 705, 305]
-      ZOrder		      204
-      BlockMirror	      on
+      SID		      "479"
+      Position		      [565, 455, 595, 485]
+      ZOrder		      293
       BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
       QuantizationInterval    "Pulses"
       LinearizeAsGain	      off
       SampleTime	      "Ts"
@@ -2481,13 +2975,13 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "RTI Data"
-      SID		      "40"
+      SID		      "480"
       Tag		      "struct('RTIDataServer',struct('RTIDataServerVs','2','RTIModelDescription','struct(''main'',''mIO'','"
       "'sub'','''',''isMp'',0)'))"
       Ports		      []
-      Position		      [75, 125, 126, 137]
-      ZOrder		      -2
-      ForegroundColor	      "gray"
+      Position		      [670, 305, 721, 317]
+      ZOrder		      271
+      ForegroundColor	      "[0.501961, 0.501961, 0.501961]"
       BackgroundColor	      "[0.752941, 0.752941, 0.752941]"
       DropShadow	      on
       ShowName		      off
@@ -2506,10 +3000,9 @@ Model {
       NameChangeFcn	      "if exist('rtidc'), try,  rtidc('DataHostBlockClbNameChange', gcbh); catch, disp(['Warning: "
       "''NameChangeFcn'' for RTI Data block failed: ' lasterr]); end, end, "
       RequestExecContextInheritance off
-      Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		21
 	$ClassName		"Simulink.Mask"
 	Type			"RTI_DATA_HOST"
 	Description		"RTI Data Block.\nThis block is used by RTI to store internal model-dependent data.\nPlease keep this bl"
@@ -2537,27 +3030,26 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "RTI Data Store"
-	  SID			  "228"
+	  SID			  "594"
 	  Tag			  "struct('public',struct('sub',struct('name',{{'mIO'}},'data',{{struct('TH',struct('thTaskInfo',struct('task"
 	  "Type',{'TIMER','HWINT','TMRINT','SWINT','GLINT'},'tasksNumOf',{1,0,0,0,0},'srcIds',{{'TIMERA'},{},{},{},{}},'taskNa"
 	  "mes',{{['Timer Task 1']},{},{},{},{}})),'th_tc',struct('dataType','TASK','taskGroupId','','taskGroupList',{{}},'tas"
 	  "kSchedulingPolicy','FCFS','taskType','TIMER','blkh',-1,'srcId','TIMERA','srcSgnName',['Timer A interrupt'],'srcCpuN"
-	  "ame','','taskName',['Timer Task 1  [0.1] s'],'taskNameDisplayExt','','smplTime',0.1,'smplTimeOffs',0,'hasFixedPrior"
-	  "ity',0,'priority',1,'hasFixedOvc',0,'ovcType',1,'ovcMax',1),'tc_th',struct('dataType','TASK','taskGroupId','','task"
-	  "GroupList',{{}},'taskSchedulingPolicy','FCFS','taskType','TIMER','blkh',-1,'srcId','TIMERA','srcSgnName',['Timer A "
-	  "interrupt'],'srcCpuName','','taskName',['Timer Task 1  [0.1] s'],'taskNameDisplayExt','','smplTime',0.1,'smplTimeOf"
-	  "fs',0,'hasFixedPriority',0,'priority',1,'hasFixedOvc',0,'ovcType',1,'ovcMax',1))}})),'private',struct('version',str"
-	  "uct('dsVer',uint32(2)),'access',struct('modified',['10-Feb-2017 13:23:51'],'type','Model','isPerm',1)))"
+	  "ame','','taskName',['Timer Task 1  [0.01] s'],'taskNameDisplayExt','','smplTime',0.01,'smplTimeOffs',0,'hasFixedPri"
+	  "ority',0,'priority',1,'hasFixedOvc',0,'ovcType',1,'ovcMax',1),'tc_th',struct('dataType','TASK','taskGroupId','','ta"
+	  "skGroupList',{{}},'taskSchedulingPolicy','FCFS','taskType','TIMER','blkh',-1,'srcId','TIMERA','srcSgnName',['Timer "
+	  "A interrupt'],'srcCpuName','','taskName',['Timer Task 1  [0.01] s'],'taskNameDisplayExt','','smplTime',0.01,'smplTi"
+	  "meOffs',0,'hasFixedPriority',0,'priority',1,'hasFixedOvc',0,'ovcType',1,'ovcMax',1))}})),'private',struct('version'"
+	  ",struct('dsVer',uint32(2)),'access',struct('modified',['08-Mar-2017 15:19:05'],'type','Model','isPerm',1)))"
 	  Ports			  []
 	  Position		  [146, 12, 181, 25]
-	  ZOrder		  18
+	  ZOrder		  35
 	  ForegroundColor	  "white"
 	  ShowName		  off
 	  RequestExecContextInheritance	off
-	  Variant		  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    23
+	    $ObjectID		    22
 	    $ClassName		    "Simulink.Mask"
 	    Type		    "RTI_DATA_STORE"
 	    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deletin"
@@ -2586,17 +3078,16 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "RTI Data Store"
-	      SID		      "229"
+	      SID		      "595"
 	      Ports		      []
 	      Position		      [146, 12, 181, 25]
-	      ZOrder		      19
+	      ZOrder		      36
 	      ForegroundColor	      "white"
 	      ShowName		      off
 	      RequestExecContextInheritance off
-	      Variant		      off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		24
+		$ObjectID		23
 		$ClassName		"Simulink.Mask"
 		Type			"RTI_DATA_STORE"
 		Description		"RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleting this "
@@ -2625,17 +3116,16 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "RTI Data Store"
-		  SID			  "230"
+		  SID			  "596"
 		  Ports			  []
 		  Position		  [146, 12, 181, 25]
-		  ZOrder		  20
+		  ZOrder		  37
 		  ForegroundColor	  "white"
 		  ShowName		  off
 		  RequestExecContextInheritance	off
-		  Variant		  off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    25
+		    $ObjectID		    24
 		    $ClassName		    "Simulink.Mask"
 		    Type		    "RTI_DATA_STORE"
 		    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleti"
@@ -2664,17 +3154,16 @@ Model {
 		    Block {
 		    BlockType		    SubSystem
 		    Name		    "RTI Data Store"
-		    SID			    "231"
+		    SID			    "597"
 		    Ports		    []
 		    Position		    [146, 12, 181, 25]
-		    ZOrder		    21
+		    ZOrder		    38
 		    ForegroundColor	    "white"
 		    ShowName		    off
 		    RequestExecContextInheritance off
-		    Variant		    off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    26
+		    $ObjectID		    25
 		    $ClassName		    "Simulink.Mask"
 		    Type		    "RTI_DATA_STORE"
 		    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleti"
@@ -2711,70 +3200,12 @@ Model {
       }
     }
     Block {
-      BlockType		      Scope
-      Name		      "Scope"
-      SID		      "223"
-      Ports		      [1]
-      Position		      [805, 29, 835, 61]
-      ZOrder		      161
-      ScopeSpecificationString "C++SS(StrPVP('Location','[1, 48, 1921, 1039]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
-      ",24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'','"
-      "'AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'',"
-      "''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|no"
-      "ne|none|none'')'),StrPVP('ShowLegends','off'),StrPVP('ScrollMode','off'),StrPVP('LimitDataPoints','on'),StrPVP('"
-      "DataFormat','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
-      NumInputPorts	      "1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "SignalSelector[0Square,1Sine]"
-      SID		      "116"
-      Position		      [380, 65, 410, 95]
-      ZOrder		      4
-      BackgroundColor	      "blue"
-      Value		      "3"
-    }
-    Block {
-      BlockType		      SignalGenerator
-      Name		      "SinGenerator"
-      SID		      "101"
-      Ports		      [0, 1]
-      Position		      [410, 120, 440, 150]
-      ZOrder		      1
-      BackgroundColor	      "green"
-      Amplitude		      "0"
-      Units		      "rad/sec"
-    }
-    Block {
-      BlockType		      SignalGenerator
-      Name		      "SquareGenerator"
-      SID		      "114"
-      Ports		      [0, 1]
-      Position		      [330, 120, 360, 150]
-      ZOrder		      2
-      BackgroundColor	      "green"
-      WaveForm		      "square"
-      Amplitude		      "6"
-      Frequency		      "2*pi*1e-4"
-      Units		      "rad/sec"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step"
-      SID		      "219"
-      Position		      [250, 120, 280, 150]
-      ZOrder		      156
-      BackgroundColor	      "green"
-      Time		      "0"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Sum
       Name		      "Sum1"
-      SID		      "380"
+      SID		      "490"
       Ports		      [2, 1]
-      Position		      [150, 245, 170, 265]
-      ZOrder		      193
+      Position		      [580, 520, 600, 540]
+      ZOrder		      286
       NamePlacement	      "alternate"
       ShowName		      off
       IconShape		      "round"
@@ -2786,12 +3217,10 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Sum2"
-      SID		      "352"
+      SID		      "491"
       Ports		      [2, 1]
-      Position		      [730, 280, 750, 300]
-      ZOrder		      173
-      BlockMirror	      on
-      NamePlacement	      "alternate"
+      Position		      [365, 460, 385, 480]
+      ZOrder		      284
       ShowName		      off
       IconShape		      "round"
       Inputs		      "|+-"
@@ -2802,10 +3231,10 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Sum3"
-      SID		      "398"
+      SID		      "492"
       Ports		      [2, 1]
-      Position		      [200, 345, 220, 365]
-      ZOrder		      196
+      Position		      [825, 580, 845, 600]
+      ZOrder		      288
       NamePlacement	      "alternate"
       ShowName		      off
       IconShape		      "round"
@@ -2815,58 +3244,104 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
+      BlockType		      Constant
+      Name		      "Vel.Ref. Signal Selector"
+      SID		      "523"
+      Position		      [65, 380, 95, 410]
+      ZOrder		      304
+      BackgroundColor	      "blue"
+      NamePlacement	      "alternate"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Vel.Ref. Sine"
+      SID		      "525"
+      Ports		      [0, 1]
+      Position		      [65, 480, 95, 510]
+      ZOrder		      306
+      BackgroundColor	      "[0.000000, 0.819608, 0.000000]"
+      NamePlacement	      "alternate"
+      Amplitude		      "50"
+      Frequency		      "2*pi*2/10"
+      Units		      "rad/sec"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Vel.Ref. Square"
+      SID		      "534"
+      Ports		      [0, 1]
+      Position		      [65, 530, 95, 560]
+      ZOrder		      307
+      BackgroundColor	      "green"
+      NamePlacement	      "alternate"
+      WaveForm		      "square"
+      Amplitude		      "50"
+      Frequency		      "2/10"
+      Units		      "rad/sec"
+    }
+    Block {
       BlockType		      Step
-      Name		      "Velocity Ref\n"
-      SID		      "351"
-      Position		      [940, 275, 970, 305]
-      ZOrder		      172
-      BlockMirror	      on
-      BackgroundColor	      "darkGreen"
+      Name		      "Vel.Ref. Step"
+      SID		      "493"
+      Position		      [65, 430, 95, 460]
+      ZOrder		      283
+      BackgroundColor	      "[0.419608, 0.588235, 0.239216]"
+      NamePlacement	      "alternate"
       Time		      "0"
+      After		      "50"
       SampleTime	      "0"
     }
     Block {
       BlockType		      ZeroOrderHold
-      Name		      "Zero-Order\nHold1"
-      SID		      "378"
-      Position		      [275, 240, 310, 270]
-      ZOrder		      200
-      BackgroundColor	      "yellow"
-      SampleTime	      "Ts"
-    }
-    Block {
-      BlockType		      ZeroOrderHold
-      Name		      "Zero-Order\nHold2"
-      SID		      "395"
-      Position		      [380, 340, 415, 370]
-      ZOrder		      202
-      BackgroundColor	      "yellow"
-      SampleTime	      "Ts"
-    }
-    Block {
-      BlockType		      ZeroOrderHold
-      Name		      "Zero-Order\nHold3"
-      SID		      "312"
-      Position		      [615, 275, 650, 305]
-      ZOrder		      206
+      Name		      "ZOH"
+      SID		      "494"
+      Position		      [950, 660, 985, 690]
+      ZOrder		      299
       BlockMirror	      on
+      BackgroundColor	      "[0.909804, 0.819608, 0.321569]"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "ZOH1"
+      SID		      "495"
+      Position		      [515, 515, 550, 545]
+      ZOrder		      290
       BackgroundColor	      "yellow"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "ZOH2"
+      SID		      "496"
+      Position		      [760, 575, 795, 605]
+      ZOrder		      297
+      BackgroundColor	      "yellow"
+      SampleTime	      "Ts"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "ZOH3"
+      SID		      "497"
+      Position		      [290, 455, 320, 485]
+      ZOrder		      292
+      BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
       SampleTime	      "Ts"
     }
     Block {
       BlockType		      SubSystem
       Name		      "enc I/F"
-      SID		      "76"
+      SID		      "498"
       Ports		      [0, 2]
-      Position		      [459, 345, 526, 395]
-      ZOrder		      -3
-      BlockRotation	      270
-      NamePlacement	      "alternate"
+      Position		      [1360, 579, 1410, 646]
+      ZOrder		      270
+      BlockMirror	      on
+      BackgroundColor	      "red"
       RequestExecContextInheritance off
-      Variant		      off
       System {
 	Name			"enc I/F"
-	Location		[-8, 0, 1928, 1056]
+	Location		[1912, -8, 3848, 1048]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2882,7 +3357,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DS1104ENC_POS_C1"
-	  SID			  "77"
+	  SID			  "499"
 	  Ports			  [0, 2]
 	  Position		  [30, 106, 120, 144]
 	  ZOrder		  -1
@@ -2907,7 +3382,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DS1104ENC_SETUP"
-	  SID			  "79"
+	  SID			  "500"
 	  Ports			  []
 	  Position		  [140, 16, 230, 54]
 	  ZOrder		  -3
@@ -2931,7 +3406,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DS1104ENC_SET_POS_C1"
-	  SID			  "80"
+	  SID			  "501"
 	  Ports			  [0, 0, 0, 1]
 	  Position		  [75, 353, 166, 389]
 	  ZOrder		  -4
@@ -2956,7 +3431,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Reset enc"
-	  SID			  "82"
+	  SID			  "502"
 	  Position		  [20, 290, 50, 320]
 	  ZOrder		  -6
 	  Value			  "0"
@@ -2964,7 +3439,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "fi1_scaling"
-	  SID			  "83"
+	  SID			  "503"
 	  Position		  [200, 85, 295, 125]
 	  ZOrder		  -7
 	  Gain			  "2*pi/(1000)"
@@ -2972,7 +3447,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "w1_scaling"
-	  SID			  "85"
+	  SID			  "504"
 	  Position		  [195, 140, 295, 190]
 	  ZOrder		  -9
 	  Gain			  "2*pi/(1000)/Ts"
@@ -2980,7 +3455,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "fi1"
-	  SID			  "87"
+	  SID			  "505"
 	  Position		  [320, 93, 350, 107]
 	  ZOrder		  -11
 	  IconDisplay		  "Port number"
@@ -2988,7 +3463,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "w1"
-	  SID			  "88"
+	  SID			  "506"
 	  Position		  [320, 148, 350, 162]
 	  ZOrder		  -12
 	  Port			  "2"
@@ -3003,7 +3478,7 @@ Model {
 	  DstPort		  trigger
 	}
 	Line {
-	  ZOrder		  5
+	  ZOrder		  2
 	  SrcBlock		  "DS1104ENC_POS_C1"
 	  SrcPort		  1
 	  Points		  [35, 0; 0, -10]
@@ -3011,7 +3486,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  6
+	  ZOrder		  3
 	  SrcBlock		  "DS1104ENC_POS_C1"
 	  SrcPort		  2
 	  Points		  [34, 0; 0, 30]
@@ -3019,7 +3494,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  4
 	  SrcBlock		  "fi1_scaling"
 	  SrcPort		  1
 	  Points		  [5, 0]
@@ -3027,7 +3502,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  9
+	  ZOrder		  5
 	  SrcBlock		  "w1_scaling"
 	  SrcPort		  1
 	  Points		  [5, 0]
@@ -3039,234 +3514,321 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "dph_sim"
-      SID		      "158"
-      Position		      [840, 93, 875, 107]
-      ZOrder		      119
+      SID		      "507"
+      Position		      [1375, 388, 1410, 402]
+      ZOrder		      278
+      BackgroundColor	      "red"
+      NamePlacement	      "alternate"
       IconDisplay	      "Port number"
     }
     Block {
       BlockType		      Outport
       Name		      "phi_sim"
-      SID		      "159"
-      Position		      [790, 123, 820, 137]
-      ZOrder		      118
+      SID		      "508"
+      Position		      [1380, 418, 1410, 432]
+      ZOrder		      277
+      BackgroundColor	      "red"
+      NamePlacement	      "alternate"
       Port		      "2"
       IconDisplay	      "Port number"
     }
     Line {
-      ZOrder		      145
-      SrcBlock		      "SinGenerator"
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      362
+      SrcBlock		      "Ctrl. Sine"
       SrcPort		      1
-      Points		      [17, 0; 0, 50]
       DstBlock		      "Multiport\nSwitch"
       DstPort		      2
     }
     Line {
-      ZOrder		      146
-      SrcBlock		      "SquareGenerator"
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      363
+      SrcBlock		      "Ctrl. Square"
       SrcPort		      1
-      Points		      [24, 0; 0, 60]
       DstBlock		      "Multiport\nSwitch"
       DstPort		      3
     }
     Line {
-      ZOrder		      147
-      SrcBlock		      "SignalSelector[0Square,1Sine]"
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      364
+      SrcBlock		      "Ctrl. Signal Selector"
       SrcPort		      1
-      Points		      [58, 0; 0, 95]
       DstBlock		      "Multiport\nSwitch"
       DstPort		      1
     }
     Line {
-      ZOrder		      148
-      SrcBlock		      "Step"
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      365
+      SrcBlock		      "Ctrl. Step"
       SrcPort		      1
-      Points		      [10, 0; 0, 70]
       DstBlock		      "Multiport\nSwitch"
       DstPort		      4
     }
     Line {
-      ZOrder		      182
+      ZOrder		      366
       SrcBlock		      "Motor Model"
       SrcPort		      2
       DstBlock		      "phi_sim"
       DstPort		      1
     }
     Line {
-      ZOrder		      183
+      ZOrder		      369
       SrcBlock		      "Motor Model"
       SrcPort		      1
-      Points		      [65, 0]
-      Branch {
-	ZOrder			303
-	Points			[0, -55]
-	DstBlock		"Scope"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			230
-	DstBlock		"dph_sim"
-	DstPort			1
-      }
+      DstBlock		      "dph_sim"
+      DstPort		      1
     }
     Line {
-      ZOrder		      220
+      ZOrder		      370
       SrcBlock		      "Gain"
       SrcPort		      1
       DstBlock		      "PWM"
       DstPort		      1
     }
     Line {
-      ZOrder		      223
-      SrcBlock		      "Velocity Ref\n"
-      SrcPort		      1
-      DstBlock		      "Sum2"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      227
-      SrcBlock		      "enc I/F"
-      SrcPort		      2
-      Points		      [230, 0]
-      DstBlock		      "Sum2"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      142
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      374
       SrcBlock		      "Multiport\nSwitch"
       SrcPort		      1
-      Points		      [20, 0; 0, -5]
+      Points		      [21, 0]
       Branch {
-	ZOrder			302
-	Points			[0, -85]
+	ZOrder			415
 	DstBlock		"Motor Model"
 	DstPort			1
       }
       Branch {
-	ZOrder			301
+	ZOrder			413
+	Points			[0, 95]
 	DstBlock		"Gain"
 	DstPort			1
       }
     }
     Line {
-      ZOrder		      304
-      SrcBlock		      "Pos"
-      SrcPort		      1
-      DstBlock		      "Sum1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      330
-      SrcBlock		      "Discrete PID Controller"
-      SrcPort		      1
-      Points		      [9, 0; 0, -30]
-      DstBlock		      "Multiport\nSwitch"
-      DstPort		      6
-    }
-    Line {
-      ZOrder		      347
-      SrcBlock		      "Discrete PID Controller2"
-      SrcPort		      1
-      Points		      [-103, 0; 0, -80]
-      DstBlock		      "Multiport\nSwitch"
-      DstPort		      5
-    }
-    Line {
-      ZOrder		      317
-      SrcBlock		      "Pos1"
-      SrcPort		      1
-      DstBlock		      "Sum3"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      310
-      SrcBlock		      "enc I/F"
-      SrcPort		      1
-      Points		      [0, -36; -104, 0]
-      Branch {
-	ZOrder			341
-	Points			[-211, 0]
-	DstBlock		"Sum1"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			322
-	Points			[0, 104; -161, 0]
-	DstBlock		"Sum3"
-	DstPort			2
-      }
-    }
-    Line {
-      ZOrder		      325
-      SrcBlock		      "Quantizer1"
-      SrcPort		      1
-      DstBlock		      "Zero-Order\nHold1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      329
-      SrcBlock		      "Sum1"
+      ZOrder		      376
+      SrcBlock		      "PID_pos_discrete\n\n"
       SrcPort		      1
       DstBlock		      "Quantizer1"
       DstPort		      1
     }
     Line {
-      ZOrder		      328
-      SrcBlock		      "Zero-Order\nHold1"
-      SrcPort		      1
-      DstBlock		      "Discrete PID Controller"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      331
-      SrcBlock		      "Quantizer2"
-      SrcPort		      1
-      DstBlock		      "Zero-Order\nHold2"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      333
-      SrcBlock		      "Discrete PID Controller1"
-      SrcPort		      1
-      DstBlock		      "Quantizer2"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      335
-      SrcBlock		      "Sum3"
-      SrcPort		      1
-      DstBlock		      "Discrete PID Controller1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      339
-      SrcBlock		      "Zero-Order\nHold2"
-      SrcPort		      1
-      Points		      [15, 0; 0, -120]
-      DstBlock		      "Multiport\nSwitch"
-      DstPort		      7
-    }
-    Line {
-      ZOrder		      342
-      SrcBlock		      "Quantizer3"
-      SrcPort		      1
-      DstBlock		      "Zero-Order\nHold3"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      346
-      SrcBlock		      "Sum2"
+      ZOrder		      377
+      SrcBlock		      "PID_speed_discrete"
       SrcPort		      1
       DstBlock		      "Quantizer3"
       DstPort		      1
     }
     Line {
-      ZOrder		      345
-      SrcBlock		      "Zero-Order\nHold3"
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      375
+      SrcBlock		      "Pos"
       SrcPort		      1
-      Points		      [-15, 0; 0, 5]
-      DstBlock		      "Discrete PID Controller2"
+      Points		      [18, 0]
+      Branch {
+	ZOrder			421
+	Points			[0, 35]
+	DstBlock		"ZOH2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			403
+	Points			[0, -25]
+	DstBlock		"ZOH1"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      381
+      SrcBlock		      "enc I/F"
+      SrcPort		      1
+      Points		      [-47, 0; 0, 80]
+      Branch {
+	ZOrder			424
+	Points			[0, 65; -718, 0]
+	DstBlock		"Sum1"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			422
+	DstBlock		"Quantizer"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      382
+      SrcBlock		      "Sum1"
+      SrcPort		      1
+      DstBlock		      "PID_pos_discrete\n\n"
       DstPort		      1
+    }
+    Line {
+      ZOrder		      383
+      SrcBlock		      "PID_position_continuous\n"
+      SrcPort		      1
+      DstBlock		      "Quantizer2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      384
+      SrcBlock		      "Sum3"
+      SrcPort		      1
+      DstBlock		      "PID_position_continuous\n"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      385
+      SrcBlock		      "Quantizer2"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      7
+    }
+    Line {
+      ZOrder		      386
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      DstBlock		      "PID_speed_discrete"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      387
+      SrcBlock		      "ZOH1"
+      SrcPort		      1
+      DstBlock		      "Sum1"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      388
+      SrcBlock		      "Quantizer1"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      6
+    }
+    Line {
+      ZOrder		      389
+      SrcBlock		      "ZOH3"
+      SrcPort		      1
+      DstBlock		      "Sum2"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      390
+      SrcBlock		      "Quantizer3"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      5
+    }
+    Line {
+      ZOrder		      391
+      SrcBlock		      "ZOH2"
+      SrcPort		      1
+      DstBlock		      "Sum3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      392
+      SrcBlock		      "enc I/F"
+      SrcPort		      2
+      Points		      [-9, 0; 0, 150; -971, 0]
+      DstBlock		      "Sum2"
+      DstPort		      2
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      393
+      SrcBlock		      "Quantizer"
+      SrcPort		      1
+      DstBlock		      "ZOH"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      394
+      SrcBlock		      "ZOH"
+      SrcPort		      1
+      DstBlock		      "Discrete Derivative"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      395
+      SrcBlock		      "Discrete Derivative"
+      SrcPort		      1
+      Points		      [-20, 0]
+      DstBlock		      "Sum3"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      406
+      SrcBlock		      "Multiport\nSwitch1"
+      SrcPort		      1
+      DstBlock		      "ZOH3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      407
+      SrcBlock		      "Vel.Ref. Step"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      408
+      SrcBlock		      "Vel.Ref. Signal Selector"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      409
+      SrcBlock		      "Vel.Ref. Sine"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      410
+      SrcBlock		      "Vel.Ref. Square"
+      SrcPort		      1
+      DstBlock		      "Multiport\nSwitch1"
+      DstPort		      4
     }
   }
 }

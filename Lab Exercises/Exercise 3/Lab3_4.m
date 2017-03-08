@@ -22,7 +22,7 @@ Jeq = Jm + (J1+J2)/(n^2);
 
 %Sampling time
 % Sensor simulation
-Ts = 2E-3; % Sampling time
+Ts = 2E-2; % Sampling time
 Pulses = (2*pi)/1000; % Pulses per rad
 
 %%%%%%%%% Voltage input
