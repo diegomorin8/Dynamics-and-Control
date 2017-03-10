@@ -275,7 +275,7 @@ Gzpk = zpk(Zeros, Poles, Gain);
 sysOrd = size(Poles{1,1},1);
 
 %Param choose
-pos_ref_step = 20; %rad/s
+pos_ref_step = 4; %rad/s
 
 %For the first exercise, choose how much should the pos be decreased
 relative_ts = 0.2;

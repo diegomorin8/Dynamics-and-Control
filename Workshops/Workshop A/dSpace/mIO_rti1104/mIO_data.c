@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Wed Mar 08 15:10:40 2017
+ * C source code generated on : Fri Mar 10 11:52:00 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -36,9 +36,7 @@ P_mIO_T mIO_P = {
   0.0062831853071795866,               /* Variable: Pulses
                                         * Referenced by:
                                         *   '<Root>/Quantizer'
-                                        *   '<Root>/Quantizer1'
                                         *   '<Root>/Quantizer2'
-                                        *   '<Root>/Quantizer3'
                                         */
   1.3528E-5,                           /* Variable: dm
                                         * Referenced by: '<S2>/Friction'
@@ -151,10 +149,10 @@ P_mIO_T mIO_P = {
   0.0062831853071795866,               /* Expression: 2*pi/(1000)
                                         * Referenced by: '<S8>/fi1_scaling'
                                         */
-  -26.085337870743828,                 /* Expression: double(Ppos_d)
+  27.821441753300917,                  /* Expression: double(Ppos_d)
                                         * Referenced by: '<S3>/Proportional Gain1'
                                         */
-  0.1377858260627656,                  /* Expression: double(Dpos_d)
+  1.45647119291339,                    /* Expression: double(Dpos_d)
                                         * Referenced by: '<S3>/Derivative Gain2'
                                         */
   0.01,                                /* Computed Parameter: DiscreteTimeIntegrator1_gainv_h
@@ -163,7 +161,7 @@ P_mIO_T mIO_P = {
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Discrete-Time Integrator1'
                                         */
-  50.580241741089864,                  /* Expression: double(Npos_d)
+  105.58648860914488,                  /* Expression: double(Npos_d)
                                         * Referenced by: '<S3>/Filter Gain1'
                                         */
   0.01,                                /* Computed Parameter: DiscreteTimeIntegrator2_gainv_d
@@ -220,7 +218,13 @@ P_mIO_T mIO_P = {
   4.3377605058023088E-5,               /* Expression: Km*Kemf/(R)
                                         * Referenced by: '<S2>/Gain4'
                                         */
-  637.93078325871022,                  /* Expression: double(Ipos_d)
+  29.6,                                /* Expression: 29.6
+                                        * Referenced by: '<S3>/Anti-Windup1'
+                                        */
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S3>/Anti-Windup2'
+                                        */
+  201.60686999208338,                  /* Expression: double(Ipos_d)
                                         * Referenced by: '<S3>/Integral Gain2'
                                         */
   29.6,                                /* Expression: 29.6

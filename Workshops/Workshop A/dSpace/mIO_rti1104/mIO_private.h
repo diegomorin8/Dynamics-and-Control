@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Wed Mar 08 15:10:40 2017
+ * C source code generated on : Fri Mar 10 11:52:00 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

@@ -1,0 +1,28 @@
+%implements s1_b0_wk4sd_Derivatives "C"
+
+%function Derivatives(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+XDot_mIO_T *_rtXdot;
+%closefile localVarDecl
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+/* Derivatives for Integrator: '<S2>/Integrator1' */
+_rtXdot->Integrator1_CSTATE = mIO_B.Divide;
+/* Derivatives for Integrator: '<S2>/Integrator2' */
+_rtXdot->Integrator2_CSTATE = mIO_B.Integrator1;
+/* Derivatives for Integrator: '<S4>/Integrator' */
+_rtXdot->Integrator_CSTATE = mIO_B.IntegralGain;
+/* Derivatives for Integrator: '<S4>/Integrator1' */
+_rtXdot->Integrator1_CSTATE_n = mIO_B.FilterGain;
+%closefile cfgTxt
+%<cfgTxt>
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Derivatives(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 5, fcnProtoType)>
+%<LibSetSystemField(system, "CachedDerivativeLocalVars", localVarDecl)>
+%endfunction

@@ -1,0 +1,28 @@
+%implements s1_b0_p03sd_ForcingFunction "C"
+
+%function ForcingFunction(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+XDot_mIO_T *_rtXdot;
+%closefile localVarDecl
+_rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
+/* ForcingFunction for Integrator: '<S2>/Integrator1' */
+_rtXdot->Integrator1_CSTATE = mIO_B.Divide;
+/* ForcingFunction for Integrator: '<S2>/Integrator2' */
+_rtXdot->Integrator2_CSTATE = mIO_B.Integrator1;
+/* ForcingFunction for Integrator: '<S4>/Integrator' */
+_rtXdot->Integrator_CSTATE = mIO_B.IntegralGain;
+/* ForcingFunction for Integrator: '<S4>/Integrator1' */
+_rtXdot->Integrator1_CSTATE_n = mIO_B.FilterGain;
+%closefile cfgTxt
+%<cfgTxt>
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ForcingFunction(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 6, fcnProtoType)>
+%<LibSetSystemField(system, "CachedForcingFunctionLocalVars", localVarDecl)>
+%endfunction

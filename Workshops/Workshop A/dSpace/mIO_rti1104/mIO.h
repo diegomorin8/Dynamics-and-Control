@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Wed Mar 08 15:10:40 2017
+ * C source code generated on : Fri Mar 10 11:52:00 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -811,7 +811,6 @@ typedef struct {
   real_T DiscreteTimeIntegrator2;      /* '<S5>/Discrete-Time Integrator2' */
   real_T Sum3;                         /* '<S5>/Sum3' */
   real_T Saturation;                   /* '<S5>/Saturation' */
-  real_T Quantizer3;                   /* '<Root>/Quantizer3' */
   real_T Pos;                          /* '<Root>/Pos' */
   real_T ZOH1;                         /* '<Root>/ZOH1' */
   real_T SFunction1;                   /* '<S14>/S-Function1' */
@@ -826,7 +825,6 @@ typedef struct {
   real_T DiscreteTimeIntegrator2_h;    /* '<S3>/Discrete-Time Integrator2' */
   real_T Sum3_a;                       /* '<S3>/Sum3' */
   real_T Saturation_k;                 /* '<S3>/Saturation' */
-  real_T Quantizer1;                   /* '<Root>/Quantizer1' */
   real_T ZOH2;                         /* '<Root>/ZOH2' */
   real_T Quantizer;                    /* '<Root>/Quantizer' */
   real_T ZOH;                          /* '<Root>/ZOH' */
@@ -856,11 +854,15 @@ typedef struct {
   real_T Sum1_a;                       /* '<S2>/Sum1' */
   real_T eps_Jeq;                      /* '<S2>/eps_Jeq' */
   real_T Divide;                       /* '<S2>/Divide' */
+  real_T Sum2_b;                       /* '<S3>/Sum2' */
+  real_T AntiWindup1;                  /* '<S3>/Anti-Windup1' */
+  real_T AntiWindup2;                  /* '<S3>/Anti-Windup2' */
   real_T IntegralGain2;                /* '<S3>/Integral Gain2' */
+  real_T Sum5;                         /* '<S3>/Sum5' */
   real_T IntegralGain;                 /* '<S4>/Integral Gain' */
   real_T Sum2_o;                       /* '<S5>/Sum2' */
   real_T AntiWindup;                   /* '<S5>/Anti-Windup' */
-  real_T AntiWindup1;                  /* '<S5>/Anti-Windup1' */
+  real_T AntiWindup1_k;                /* '<S5>/Anti-Windup1' */
   real_T IntegralGain2_g;              /* '<S5>/Integral Gain2' */
   real_T Sum4;                         /* '<S5>/Sum4' */
   boolean_T DataTypeConversion;        /* '<S6>/Data Type Conversion' */
@@ -962,9 +964,7 @@ struct P_mIO_T_ {
   real_T Pulses;                       /* Variable: Pulses
                                         * Referenced by:
                                         *   '<Root>/Quantizer'
-                                        *   '<Root>/Quantizer1'
                                         *   '<Root>/Quantizer2'
-                                        *   '<Root>/Quantizer3'
                                         */
   real_T dm;                           /* Variable: dm
                                         * Referenced by: '<S2>/Friction'
@@ -1146,13 +1146,19 @@ struct P_mIO_T_ {
   real_T Gain4_Gain;                   /* Expression: Km*Kemf/(R)
                                         * Referenced by: '<S2>/Gain4'
                                         */
+  real_T AntiWindup1_Gain;             /* Expression: 29.6
+                                        * Referenced by: '<S3>/Anti-Windup1'
+                                        */
+  real_T AntiWindup2_Gain;             /* Expression: 1
+                                        * Referenced by: '<S3>/Anti-Windup2'
+                                        */
   real_T IntegralGain2_Gain;           /* Expression: double(Ipos_d)
                                         * Referenced by: '<S3>/Integral Gain2'
                                         */
   real_T AntiWindup_Gain;              /* Expression: 29.6
                                         * Referenced by: '<S5>/Anti-Windup'
                                         */
-  real_T AntiWindup1_Gain;             /* Expression: 1
+  real_T AntiWindup1_Gain_f;           /* Expression: 1
                                         * Referenced by: '<S5>/Anti-Windup1'
                                         */
   real_T IntegralGain2_Gain_h;         /* Expression: double(Isp_d)

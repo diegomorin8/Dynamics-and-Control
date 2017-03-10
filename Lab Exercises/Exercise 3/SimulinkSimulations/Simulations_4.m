@@ -14,7 +14,7 @@ Nsp = double(Nsp_d);
 %Step response with and without controller
 Sine_wave = 0; % 0 - Step input - 1 - Sine wave input
 time = 2;
-Amplitude = 20;
+Amplitude = 4;
 Freq = 0.2;
 %Call the simulink model
 sim('SimLab3_4')

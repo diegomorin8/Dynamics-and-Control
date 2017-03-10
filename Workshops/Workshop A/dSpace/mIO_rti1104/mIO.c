@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.48
+ * Model version              : 1.52
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Wed Mar 08 15:10:40 2017
+ * C source code generated on : Fri Mar 10 11:52:00 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -237,10 +237,6 @@ void mIO_output(void)
     }
 
     /* End of Saturate: '<S5>/Saturation' */
-
-    /* Quantizer: '<Root>/Quantizer3' */
-    temp = mIO_B.Saturation;
-    mIO_B.Quantizer3 = rt_roundd_snf(temp / mIO_P.Pulses) * mIO_P.Pulses;
   }
 
   /* Step: '<Root>/Pos' */
@@ -302,10 +298,6 @@ void mIO_output(void)
     }
 
     /* End of Saturate: '<S3>/Saturation' */
-
-    /* Quantizer: '<Root>/Quantizer1' */
-    temp = mIO_B.Saturation_k;
-    mIO_B.Quantizer1 = rt_roundd_snf(temp / mIO_P.Pulses) * mIO_P.Pulses;
 
     /* ZeroOrderHold: '<Root>/ZOH2' */
     mIO_B.ZOH2 = mIO_B.Pos;
@@ -392,11 +384,11 @@ void mIO_output(void)
     break;
 
    case 4:
-    mIO_B.MultiportSwitch = mIO_B.Quantizer3;
+    mIO_B.MultiportSwitch = mIO_B.Saturation;
     break;
 
    case 5:
-    mIO_B.MultiportSwitch = mIO_B.Quantizer1;
+    mIO_B.MultiportSwitch = mIO_B.Saturation_k;
     break;
 
    default:
@@ -489,8 +481,20 @@ void mIO_output(void)
   /* Product: '<S2>/Divide' */
   mIO_B.Divide = mIO_B.Sum1_a / mIO_B.eps_Jeq;
   if (rtmIsMajorTimeStep(mIO_M)) {
+    /* Sum: '<S3>/Sum2' */
+    mIO_B.Sum2_b = mIO_B.Sum3_a - mIO_B.Saturation_k;
+
+    /* Gain: '<S3>/Anti-Windup1' */
+    mIO_B.AntiWindup1 = mIO_P.AntiWindup1_Gain * mIO_B.Sum2_b;
+
+    /* Gain: '<S3>/Anti-Windup2' */
+    mIO_B.AntiWindup2 = mIO_P.AntiWindup2_Gain * mIO_B.AntiWindup1;
+
     /* Gain: '<S3>/Integral Gain2' */
     mIO_B.IntegralGain2 = mIO_P.IntegralGain2_Gain * mIO_B.Sum1_o;
+
+    /* Sum: '<S3>/Sum5' */
+    mIO_B.Sum5 = mIO_B.IntegralGain2 - mIO_B.AntiWindup2;
 
     /* Gain: '<S4>/Integral Gain' */
     mIO_B.IntegralGain = mIO_P.Ipos * mIO_B.Sum3_o;
@@ -502,13 +506,13 @@ void mIO_output(void)
     mIO_B.AntiWindup = mIO_P.AntiWindup_Gain * mIO_B.Sum2_o;
 
     /* Gain: '<S5>/Anti-Windup1' */
-    mIO_B.AntiWindup1 = mIO_P.AntiWindup1_Gain * mIO_B.AntiWindup;
+    mIO_B.AntiWindup1_k = mIO_P.AntiWindup1_Gain_f * mIO_B.AntiWindup;
 
     /* Gain: '<S5>/Integral Gain2' */
     mIO_B.IntegralGain2_g = mIO_P.IntegralGain2_Gain_h * mIO_B.Sum2;
 
     /* Sum: '<S5>/Sum4' */
-    mIO_B.Sum4 = mIO_B.IntegralGain2_g - mIO_B.AntiWindup1;
+    mIO_B.Sum4 = mIO_B.IntegralGain2_g - mIO_B.AntiWindup1_k;
 
     /* Outputs for Triggered SubSystem: '<S8>/DS1104ENC_SET_POS_C1' incorporates:
      *  TriggerPort: '<S16>/Trigger'
@@ -555,7 +559,7 @@ void mIO_update(void)
 
     /* Update for DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
     mIO_DW.DiscreteTimeIntegrator2_DSTAT_k +=
-      mIO_P.DiscreteTimeIntegrator2_gainv_d * mIO_B.IntegralGain2;
+      mIO_P.DiscreteTimeIntegrator2_gainv_d * mIO_B.Sum5;
 
     /* Update for UnitDelay: '<S1>/UD' */
     mIO_DW.UD_DSTATE = mIO_B.TSamp;
@@ -818,7 +822,6 @@ RT_MODEL_mIO_T *mIO(void)
     mIO_B.DiscreteTimeIntegrator2 = 0.0;
     mIO_B.Sum3 = 0.0;
     mIO_B.Saturation = 0.0;
-    mIO_B.Quantizer3 = 0.0;
     mIO_B.Pos = 0.0;
     mIO_B.ZOH1 = 0.0;
     mIO_B.SFunction1 = 0.0;
@@ -833,7 +836,6 @@ RT_MODEL_mIO_T *mIO(void)
     mIO_B.DiscreteTimeIntegrator2_h = 0.0;
     mIO_B.Sum3_a = 0.0;
     mIO_B.Saturation_k = 0.0;
-    mIO_B.Quantizer1 = 0.0;
     mIO_B.ZOH2 = 0.0;
     mIO_B.Quantizer = 0.0;
     mIO_B.ZOH = 0.0;
@@ -863,11 +865,15 @@ RT_MODEL_mIO_T *mIO(void)
     mIO_B.Sum1_a = 0.0;
     mIO_B.eps_Jeq = 0.0;
     mIO_B.Divide = 0.0;
+    mIO_B.Sum2_b = 0.0;
+    mIO_B.AntiWindup1 = 0.0;
+    mIO_B.AntiWindup2 = 0.0;
     mIO_B.IntegralGain2 = 0.0;
+    mIO_B.Sum5 = 0.0;
     mIO_B.IntegralGain = 0.0;
     mIO_B.Sum2_o = 0.0;
     mIO_B.AntiWindup = 0.0;
-    mIO_B.AntiWindup1 = 0.0;
+    mIO_B.AntiWindup1_k = 0.0;
     mIO_B.IntegralGain2_g = 0.0;
     mIO_B.Sum4 = 0.0;
   }
@@ -911,9 +917,9 @@ RT_MODEL_mIO_T *mIO(void)
   mIO_M->Sizes.numU = (0);             /* Number of model inputs */
   mIO_M->Sizes.sysDirFeedThru = (0);   /* The model is not direct feedthrough */
   mIO_M->Sizes.numSampTimes = (2);     /* Number of sample times */
-  mIO_M->Sizes.numBlocks = (95);       /* Number of blocks */
-  mIO_M->Sizes.numBlockIO = (77);      /* Number of block outputs */
-  mIO_M->Sizes.numBlockPrms = (71);    /* Sum of parameter "widths" */
+  mIO_M->Sizes.numBlocks = (97);       /* Number of blocks */
+  mIO_M->Sizes.numBlockIO = (79);      /* Number of block outputs */
+  mIO_M->Sizes.numBlockPrms = (73);    /* Sum of parameter "widths" */
   return mIO_M;
 }
 

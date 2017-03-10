@@ -6,10 +6,11 @@ function [FF_PID, FB_PID, poleD, Pn, Dn, In, Nn] = PID_calc_disc( Mp, tr, ts, es
     Dn = 0;
     In = 0;
     Nn = 1;
-    
     %Thumb rule
-    max_wn = 2*pi/(10*Ts);
-    min_wn = 2*pi/(30*Ts);
+%     max_wn = 2*pi/(10*Ts)
+%     min_wn = 2*pi/(30*Ts)
+    max_wn = 1000000;
+    min_wn = 0;
     %Main code
     if Mp ~= -1 && tr == -1 && ts ~= -1
         if Mp > 0

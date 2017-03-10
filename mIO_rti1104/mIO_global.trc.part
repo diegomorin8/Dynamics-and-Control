@@ -1,0 +1,95 @@
+-- ******** Tunable Parameters ************************************************
+
+group "Tunable Parameters"
+{
+ flags: COLLAPSED
+}
+
+	p_1_mIO_real_T_0[0]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Dpos"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[1]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ipos"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[2]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Jeq"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[3]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Npos"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[4]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Ppos"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[5]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "Pulses"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[6]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "dm"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "eps_Jeq"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "eps_dm"
+	 flags:   PARAM
+	}
+
+endgroup
+
+
+-- ******** State Machine Data ************************************************
+
+-- No Stateflow chart within the model.
+
+
+-- ******** Data Store Memories ***********************************************
+
+-- No Data Store Memories within the model.
+
+
+-- ******** Labels ************************************************************
+
+group "Labels"
+{
+ flags: COLLAPSED
+}
+	p_0_mIO_real_T_0[43]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "U(k-1)"
+	 origin:  "mIO/Discrete Derivative/UD/Out1"
+	 flags:   LABEL|READONLY
+	}
+
+endgroup
+
+-- ******** RTT Dynamic Variables *********************************************
+
+-- Generation of RTT Dynamic Variables turned off with EnableRealTimeTesting option.
+
