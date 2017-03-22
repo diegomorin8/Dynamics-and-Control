@@ -44,7 +44,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1912.0, 0.0, 1936.0, 1056.0]
+      Location		      [1912.0, -8.0, 1936.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -1342,7 +1342,7 @@ Model {
   }
   System {
     Name		    "mIO"
-    Location		    [1912, 0, 3848, 1056]
+    Location		    [1912, -8, 3848, 1048]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
