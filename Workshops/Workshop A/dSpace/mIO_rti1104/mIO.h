@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.52
+ * Model version              : 1.59
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Fri Mar 10 11:52:00 2017
+ * C source code generated on : Wed Mar 22 15:31:21 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -787,10 +787,10 @@
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T Integrator1;                  /* '<S2>/Integrator1' */
-  real_T Gain7;                        /* '<S2>/Gain7' */
-  real_T Integrator2;                  /* '<S2>/Integrator2' */
-  real_T Gain6;                        /* '<S2>/Gain6' */
+  real_T Integrator1;                  /* '<S1>/Integrator1' */
+  real_T Gain7;                        /* '<S1>/Gain7' */
+  real_T Integrator2;                  /* '<S1>/Integrator2' */
+  real_T Gain6;                        /* '<S1>/Gain6' */
   real_T CtrlSine;                     /* '<Root>/Ctrl. Sine' */
   real_T CtrlSquare;                   /* '<Root>/Ctrl. Square' */
   real_T CtrlStep;                     /* '<Root>/Ctrl. Step' */
@@ -799,115 +799,108 @@ typedef struct {
   real_T VelRefSquare;                 /* '<Root>/Vel.Ref. Square' */
   real_T MultiportSwitch1;             /* '<Root>/Multiport Switch1' */
   real_T ZOH3;                         /* '<Root>/ZOH3' */
-  real_T SFunction2;                   /* '<S14>/S-Function2' */
-  real_T w1_scaling;                   /* '<S8>/w1_scaling' */
+  real_T SFunction2;                   /* '<S13>/S-Function2' */
+  real_T w1_scaling;                   /* '<S7>/w1_scaling' */
   real_T Sum2;                         /* '<Root>/Sum2' */
-  real_T ProportionalGain1;            /* '<S5>/Proportional Gain1' */
-  real_T DerivativeGain2;              /* '<S5>/Derivative Gain2' */
-  real_T DiscreteTimeIntegrator1;      /* '<S5>/Discrete-Time Integrator1' */
-  real_T Sum1;                         /* '<S5>/Sum1' */
-  real_T FilterGain1;                  /* '<S5>/Filter Gain1' */
-  real_T Add2;                         /* '<S5>/Add2' */
-  real_T DiscreteTimeIntegrator2;      /* '<S5>/Discrete-Time Integrator2' */
-  real_T Sum3;                         /* '<S5>/Sum3' */
-  real_T Saturation;                   /* '<S5>/Saturation' */
+  real_T ProportionalGain1;            /* '<S4>/Proportional Gain1' */
+  real_T DerivativeGain2;              /* '<S4>/Derivative Gain2' */
+  real_T DiscreteTimeIntegrator1;      /* '<S4>/Discrete-Time Integrator1' */
+  real_T Sum1;                         /* '<S4>/Sum1' */
+  real_T FilterGain1;                  /* '<S4>/Filter Gain1' */
+  real_T Add2;                         /* '<S4>/Add2' */
+  real_T DiscreteTimeIntegrator2;      /* '<S4>/Discrete-Time Integrator2' */
+  real_T Sum3;                         /* '<S4>/Sum3' */
+  real_T Saturation;                   /* '<S4>/Saturation' */
   real_T Pos;                          /* '<Root>/Pos' */
   real_T ZOH1;                         /* '<Root>/ZOH1' */
-  real_T SFunction1;                   /* '<S14>/S-Function1' */
-  real_T fi1_scaling;                  /* '<S8>/fi1_scaling' */
+  real_T SFunction1;                   /* '<S13>/S-Function1' */
+  real_T fi1_scaling;                  /* '<S7>/fi1_scaling' */
   real_T Sum1_o;                       /* '<Root>/Sum1' */
-  real_T ProportionalGain1_c;          /* '<S3>/Proportional Gain1' */
-  real_T DerivativeGain2_p;            /* '<S3>/Derivative Gain2' */
-  real_T DiscreteTimeIntegrator1_p;    /* '<S3>/Discrete-Time Integrator1' */
-  real_T Sum1_e;                       /* '<S3>/Sum1' */
-  real_T FilterGain1_i;                /* '<S3>/Filter Gain1' */
-  real_T Add2_a;                       /* '<S3>/Add2' */
-  real_T DiscreteTimeIntegrator2_h;    /* '<S3>/Discrete-Time Integrator2' */
-  real_T Sum3_a;                       /* '<S3>/Sum3' */
-  real_T Saturation_k;                 /* '<S3>/Saturation' */
+  real_T ProportionalGain1_c;          /* '<S2>/Proportional Gain1' */
+  real_T DerivativeGain2_p;            /* '<S2>/Derivative Gain2' */
+  real_T DiscreteTimeIntegrator1_p;    /* '<S2>/Discrete-Time Integrator1' */
+  real_T Sum1_e;                       /* '<S2>/Sum1' */
+  real_T FilterGain1_i;                /* '<S2>/Filter Gain1' */
+  real_T Add2_a;                       /* '<S2>/Add2' */
+  real_T DiscreteTimeIntegrator2_h;    /* '<S2>/Discrete-Time Integrator2' */
+  real_T Sum3_a;                       /* '<S2>/Sum3' */
+  real_T Saturation_k;                 /* '<S2>/Saturation' */
   real_T ZOH2;                         /* '<Root>/ZOH2' */
-  real_T Quantizer;                    /* '<Root>/Quantizer' */
-  real_T ZOH;                          /* '<Root>/ZOH' */
-  real_T TSamp;                        /* '<S1>/TSamp' */
-  real_T Uk1;                          /* '<S1>/UD' */
-  real_T Diff;                         /* '<S1>/Diff' */
   real_T Sum3_o;                       /* '<Root>/Sum3' */
-  real_T ProportionalGain;             /* '<S4>/Proportional Gain' */
-  real_T Integrator;                   /* '<S4>/Integrator' */
-  real_T DerivativeGain;               /* '<S4>/Derivative Gain' */
-  real_T Integrator1_l;                /* '<S4>/Integrator1' */
-  real_T Sum;                          /* '<S4>/Sum' */
-  real_T FilterGain;                   /* '<S4>/Filter Gain' */
-  real_T Sum1_ec;                      /* '<S4>/Sum1' */
-  real_T Saturation_a;                 /* '<S4>/Saturation' */
-  real_T Quantizer2;                   /* '<Root>/Quantizer2' */
+  real_T ProportionalGain;             /* '<S3>/Proportional Gain' */
+  real_T DiscreteTimeIntegrator1_pk;   /* '<S3>/Discrete-Time Integrator1' */
+  real_T DerivativeGain;               /* '<S3>/Derivative Gain' */
+  real_T DiscreteTimeIntegrator2_f;    /* '<S3>/Discrete-Time Integrator2' */
+  real_T Sum;                          /* '<S3>/Sum' */
+  real_T FilterGain;                   /* '<S3>/Filter Gain' */
+  real_T Sum1_ec;                      /* '<S3>/Sum1' */
+  real_T Saturation_a;                 /* '<S3>/Saturation' */
   real_T MultiportSwitch;              /* '<Root>/Multiport Switch' */
   real_T Gain;                         /* '<Root>/Gain' */
-  real_T Saturation_n;                 /* '<S6>/Saturation' */
-  real_T pwm_skalning;                 /* '<S6>/pwm_skalning' */
-  real_T Sum_k;                        /* '<S6>/Sum' */
-  real_T Gain2;                        /* '<S2>/Gain2' */
-  real_T eps_dm;                       /* '<S2>/eps_dm' */
-  real_T Friction;                     /* '<S2>/Friction' */
-  real_T Gain4;                        /* '<S2>/Gain4' */
-  real_T Sum2_g;                       /* '<S2>/Sum2' */
-  real_T Sum1_a;                       /* '<S2>/Sum1' */
-  real_T eps_Jeq;                      /* '<S2>/eps_Jeq' */
-  real_T Divide;                       /* '<S2>/Divide' */
-  real_T Sum2_b;                       /* '<S3>/Sum2' */
-  real_T AntiWindup1;                  /* '<S3>/Anti-Windup1' */
-  real_T AntiWindup2;                  /* '<S3>/Anti-Windup2' */
-  real_T IntegralGain2;                /* '<S3>/Integral Gain2' */
-  real_T Sum5;                         /* '<S3>/Sum5' */
-  real_T IntegralGain;                 /* '<S4>/Integral Gain' */
-  real_T Sum2_o;                       /* '<S5>/Sum2' */
-  real_T AntiWindup;                   /* '<S5>/Anti-Windup' */
-  real_T AntiWindup1_k;                /* '<S5>/Anti-Windup1' */
-  real_T IntegralGain2_g;              /* '<S5>/Integral Gain2' */
-  real_T Sum4;                         /* '<S5>/Sum4' */
-  boolean_T DataTypeConversion;        /* '<S6>/Data Type Conversion' */
+  real_T Saturation_n;                 /* '<S5>/Saturation' */
+  real_T pwm_skalning;                 /* '<S5>/pwm_skalning' */
+  real_T Sum_k;                        /* '<S5>/Sum' */
+  real_T Gain2;                        /* '<S1>/Gain2' */
+  real_T eps_dm;                       /* '<S1>/eps_dm' */
+  real_T Friction;                     /* '<S1>/Friction' */
+  real_T Gain4;                        /* '<S1>/Gain4' */
+  real_T Sum2_g;                       /* '<S1>/Sum2' */
+  real_T Sum1_a;                       /* '<S1>/Sum1' */
+  real_T eps_Jeq;                      /* '<S1>/eps_Jeq' */
+  real_T Divide;                       /* '<S1>/Divide' */
+  real_T Sum2_b;                       /* '<S2>/Sum2' */
+  real_T AntiWindup1;                  /* '<S2>/Anti-Windup1' */
+  real_T AntiWindup2;                  /* '<S2>/Anti-Windup2' */
+  real_T IntegralGain2;                /* '<S2>/Integral Gain2' */
+  real_T Sum5;                         /* '<S2>/Sum5' */
+  real_T Sum3_b;                       /* '<S3>/Sum3' */
+  real_T AntiWindup;                   /* '<S3>/Anti-Windup' */
+  real_T AntiWindup1_n;                /* '<S3>/Anti-Windup1' */
+  real_T IntegralGain;                 /* '<S3>/Integral Gain' */
+  real_T Sum4;                         /* '<S3>/Sum4' */
+  real_T Sum2_o;                       /* '<S4>/Sum2' */
+  real_T AntiWindup_e;                 /* '<S4>/Anti-Windup' */
+  real_T AntiWindup1_k;                /* '<S4>/Anti-Windup1' */
+  real_T IntegralGain2_g;              /* '<S4>/Integral Gain2' */
+  real_T Sum4_f;                       /* '<S4>/Sum4' */
+  boolean_T DataTypeConversion;        /* '<S5>/Data Type Conversion' */
 } B_mIO_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T DiscreteTimeIntegrator1_DSTATE;/* '<S5>/Discrete-Time Integrator1' */
-  real_T DiscreteTimeIntegrator2_DSTATE;/* '<S5>/Discrete-Time Integrator2' */
-  real_T DiscreteTimeIntegrator1_DSTAT_l;/* '<S3>/Discrete-Time Integrator1' */
-  real_T DiscreteTimeIntegrator2_DSTAT_k;/* '<S3>/Discrete-Time Integrator2' */
-  real_T UD_DSTATE;                    /* '<S1>/UD' */
-  int_T SFunction1_IWORK[4];           /* '<S10>/S-Function1' */
-  int_T SFunction2_IWORK[4];           /* '<S10>/S-Function2' */
-  int_T SFunction3_IWORK[4];           /* '<S10>/S-Function3' */
-  int_T SFunction4_IWORK[4];           /* '<S10>/S-Function4' */
+  real_T DiscreteTimeIntegrator1_DSTATE;/* '<S4>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator2_DSTATE;/* '<S4>/Discrete-Time Integrator2' */
+  real_T DiscreteTimeIntegrator1_DSTAT_l;/* '<S2>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator2_DSTAT_k;/* '<S2>/Discrete-Time Integrator2' */
+  real_T DiscreteTimeIntegrator1_DSTAT_i;/* '<S3>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator2_DSTAT_p;/* '<S3>/Discrete-Time Integrator2' */
+  int_T SFunction1_IWORK[4];           /* '<S9>/S-Function1' */
+  int_T SFunction2_IWORK[4];           /* '<S9>/S-Function2' */
+  int_T SFunction3_IWORK[4];           /* '<S9>/S-Function3' */
+  int_T SFunction4_IWORK[4];           /* '<S9>/S-Function4' */
 } DW_mIO_T;
 
 /* Continuous states (auto storage) */
 typedef struct {
-  real_T Integrator1_CSTATE;           /* '<S2>/Integrator1' */
-  real_T Integrator2_CSTATE;           /* '<S2>/Integrator2' */
-  real_T Integrator_CSTATE;            /* '<S4>/Integrator' */
-  real_T Integrator1_CSTATE_n;         /* '<S4>/Integrator1' */
+  real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<S1>/Integrator2' */
 } X_mIO_T;
 
 /* State derivatives (auto storage) */
 typedef struct {
-  real_T Integrator1_CSTATE;           /* '<S2>/Integrator1' */
-  real_T Integrator2_CSTATE;           /* '<S2>/Integrator2' */
-  real_T Integrator_CSTATE;            /* '<S4>/Integrator' */
-  real_T Integrator1_CSTATE_n;         /* '<S4>/Integrator1' */
+  real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<S1>/Integrator2' */
 } XDot_mIO_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T Integrator1_CSTATE;        /* '<S2>/Integrator1' */
-  boolean_T Integrator2_CSTATE;        /* '<S2>/Integrator2' */
-  boolean_T Integrator_CSTATE;         /* '<S4>/Integrator' */
-  boolean_T Integrator1_CSTATE_n;      /* '<S4>/Integrator1' */
+  boolean_T Integrator1_CSTATE;        /* '<S1>/Integrator1' */
+  boolean_T Integrator2_CSTATE;        /* '<S1>/Integrator2' */
 } XDis_mIO_T;
 
 /* Zero-crossing (trigger) state */
 typedef struct {
-  ZCSigState DS1104ENC_SET_POS_C1_Trig_ZCE;/* '<S8>/DS1104ENC_SET_POS_C1' */
+  ZCSigState DS1104ENC_SET_POS_C1_Trig_ZCE;/* '<S7>/DS1104ENC_SET_POS_C1' */
 } PrevZCX_mIO_T;
 
 #ifndef ODE1_INTG
@@ -947,45 +940,40 @@ typedef struct {
 /* Parameters (auto storage) */
 struct P_mIO_T_ {
   real_T Dpos;                         /* Variable: Dpos
-                                        * Referenced by: '<S4>/Derivative Gain'
+                                        * Referenced by: '<S3>/Derivative Gain'
                                         */
   real_T Ipos;                         /* Variable: Ipos
-                                        * Referenced by: '<S4>/Integral Gain'
+                                        * Referenced by: '<S3>/Integral Gain'
                                         */
   real_T Jeq;                          /* Variable: Jeq
-                                        * Referenced by: '<S2>/Jeq'
+                                        * Referenced by: '<S1>/Jeq'
                                         */
   real_T Npos;                         /* Variable: Npos
-                                        * Referenced by: '<S4>/Filter Gain'
+                                        * Referenced by: '<S3>/Filter Gain'
                                         */
   real_T Ppos;                         /* Variable: Ppos
-                                        * Referenced by: '<S4>/Proportional Gain'
-                                        */
-  real_T Pulses;                       /* Variable: Pulses
-                                        * Referenced by:
-                                        *   '<Root>/Quantizer'
-                                        *   '<Root>/Quantizer2'
+                                        * Referenced by: '<S3>/Proportional Gain'
                                         */
   real_T dm;                           /* Variable: dm
-                                        * Referenced by: '<S2>/Friction'
+                                        * Referenced by: '<S1>/Friction'
                                         */
   real_T eps_Jeq;                      /* Variable: eps_Jeq
-                                        * Referenced by: '<S2>/eps_Jeq'
+                                        * Referenced by: '<S1>/eps_Jeq'
                                         */
   real_T eps_dm;                       /* Variable: eps_dm
-                                        * Referenced by: '<S2>/eps_dm'
+                                        * Referenced by: '<S1>/eps_dm'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
-                                        * Referenced by: '<S2>/Integrator1'
+                                        * Referenced by: '<S1>/Integrator1'
                                         */
   real_T Gain7_Gain;                   /* Expression: 1/n
-                                        * Referenced by: '<S2>/Gain7'
+                                        * Referenced by: '<S1>/Gain7'
                                         */
   real_T Integrator2_IC;               /* Expression: 0
-                                        * Referenced by: '<S2>/Integrator2'
+                                        * Referenced by: '<S1>/Integrator2'
                                         */
   real_T Gain6_Gain;                   /* Expression: 1/n
-                                        * Referenced by: '<S2>/Gain6'
+                                        * Referenced by: '<S1>/Gain6'
                                         */
   real_T CtrlSignalSelector_Value;     /* Expression: 4
                                         * Referenced by: '<Root>/Ctrl. Signal Selector'
@@ -1036,34 +1024,34 @@ struct P_mIO_T_ {
                                         * Referenced by: '<Root>/Vel.Ref. Square'
                                         */
   real_T w1_scaling_Gain;              /* Expression: 2*pi/(1000)/Ts
-                                        * Referenced by: '<S8>/w1_scaling'
+                                        * Referenced by: '<S7>/w1_scaling'
                                         */
   real_T ProportionalGain1_Gain;       /* Expression: double(Psp_d)
-                                        * Referenced by: '<S5>/Proportional Gain1'
+                                        * Referenced by: '<S4>/Proportional Gain1'
                                         */
   real_T DerivativeGain2_Gain;         /* Expression: double(Dsp_d)
-                                        * Referenced by: '<S5>/Derivative Gain2'
+                                        * Referenced by: '<S4>/Derivative Gain2'
                                         */
   real_T DiscreteTimeIntegrator1_gainval;/* Computed Parameter: DiscreteTimeIntegrator1_gainval
-                                          * Referenced by: '<S5>/Discrete-Time Integrator1'
+                                          * Referenced by: '<S4>/Discrete-Time Integrator1'
                                           */
   real_T DiscreteTimeIntegrator1_IC;   /* Expression: 0
-                                        * Referenced by: '<S5>/Discrete-Time Integrator1'
+                                        * Referenced by: '<S4>/Discrete-Time Integrator1'
                                         */
   real_T FilterGain1_Gain;             /* Expression: double(Nsp_d)
-                                        * Referenced by: '<S5>/Filter Gain1'
+                                        * Referenced by: '<S4>/Filter Gain1'
                                         */
   real_T DiscreteTimeIntegrator2_gainval;/* Computed Parameter: DiscreteTimeIntegrator2_gainval
-                                          * Referenced by: '<S5>/Discrete-Time Integrator2'
+                                          * Referenced by: '<S4>/Discrete-Time Integrator2'
                                           */
   real_T DiscreteTimeIntegrator2_IC;   /* Expression: 0
-                                        * Referenced by: '<S5>/Discrete-Time Integrator2'
+                                        * Referenced by: '<S4>/Discrete-Time Integrator2'
                                         */
   real_T Saturation_UpperSat;          /* Expression: 24
-                                        * Referenced by: '<S5>/Saturation'
+                                        * Referenced by: '<S4>/Saturation'
                                         */
   real_T Saturation_LowerSat;          /* Expression: -24
-                                        * Referenced by: '<S5>/Saturation'
+                                        * Referenced by: '<S4>/Saturation'
                                         */
   real_T Pos_Time;                     /* Expression: 0
                                         * Referenced by: '<Root>/Pos'
@@ -1075,97 +1063,103 @@ struct P_mIO_T_ {
                                         * Referenced by: '<Root>/Pos'
                                         */
   real_T fi1_scaling_Gain;             /* Expression: 2*pi/(1000)
-                                        * Referenced by: '<S8>/fi1_scaling'
+                                        * Referenced by: '<S7>/fi1_scaling'
                                         */
   real_T ProportionalGain1_Gain_c;     /* Expression: double(Ppos_d)
-                                        * Referenced by: '<S3>/Proportional Gain1'
+                                        * Referenced by: '<S2>/Proportional Gain1'
                                         */
   real_T DerivativeGain2_Gain_l;       /* Expression: double(Dpos_d)
-                                        * Referenced by: '<S3>/Derivative Gain2'
+                                        * Referenced by: '<S2>/Derivative Gain2'
                                         */
   real_T DiscreteTimeIntegrator1_gainv_h;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_h
-                                          * Referenced by: '<S3>/Discrete-Time Integrator1'
+                                          * Referenced by: '<S2>/Discrete-Time Integrator1'
                                           */
   real_T DiscreteTimeIntegrator1_IC_a; /* Expression: 0
-                                        * Referenced by: '<S3>/Discrete-Time Integrator1'
+                                        * Referenced by: '<S2>/Discrete-Time Integrator1'
                                         */
   real_T FilterGain1_Gain_o;           /* Expression: double(Npos_d)
-                                        * Referenced by: '<S3>/Filter Gain1'
+                                        * Referenced by: '<S2>/Filter Gain1'
                                         */
   real_T DiscreteTimeIntegrator2_gainv_d;/* Computed Parameter: DiscreteTimeIntegrator2_gainv_d
-                                          * Referenced by: '<S3>/Discrete-Time Integrator2'
+                                          * Referenced by: '<S2>/Discrete-Time Integrator2'
                                           */
   real_T DiscreteTimeIntegrator2_IC_o; /* Expression: 0
-                                        * Referenced by: '<S3>/Discrete-Time Integrator2'
+                                        * Referenced by: '<S2>/Discrete-Time Integrator2'
                                         */
   real_T Saturation_UpperSat_b;        /* Expression: 24
-                                        * Referenced by: '<S3>/Saturation'
+                                        * Referenced by: '<S2>/Saturation'
                                         */
   real_T Saturation_LowerSat_c;        /* Expression: -24
-                                        * Referenced by: '<S3>/Saturation'
+                                        * Referenced by: '<S2>/Saturation'
                                         */
-  real_T TSamp_WtEt;                   /* Computed Parameter: TSamp_WtEt
-                                        * Referenced by: '<S1>/TSamp'
+  real_T DiscreteTimeIntegrator1_gainv_c;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_c
+                                          * Referenced by: '<S3>/Discrete-Time Integrator1'
+                                          */
+  real_T DiscreteTimeIntegrator1_IC_l; /* Expression: 0
+                                        * Referenced by: '<S3>/Discrete-Time Integrator1'
                                         */
-  real_T UD_InitialCondition;          /* Expression: ICPrevScaledInput
-                                        * Referenced by: '<S1>/UD'
-                                        */
-  real_T Integrator_IC;                /* Expression: 0
-                                        * Referenced by: '<S4>/Integrator'
-                                        */
-  real_T Integrator1_IC_p;             /* Expression: 0
-                                        * Referenced by: '<S4>/Integrator1'
+  real_T DiscreteTimeIntegrator2_gainv_k;/* Computed Parameter: DiscreteTimeIntegrator2_gainv_k
+                                          * Referenced by: '<S3>/Discrete-Time Integrator2'
+                                          */
+  real_T DiscreteTimeIntegrator2_IC_d; /* Expression: 0
+                                        * Referenced by: '<S3>/Discrete-Time Integrator2'
                                         */
   real_T Saturation_UpperSat_g;        /* Expression: 24
-                                        * Referenced by: '<S4>/Saturation'
+                                        * Referenced by: '<S3>/Saturation'
                                         */
   real_T Saturation_LowerSat_m;        /* Expression: -24
-                                        * Referenced by: '<S4>/Saturation'
+                                        * Referenced by: '<S3>/Saturation'
                                         */
   real_T Gain_Gain;                    /* Expression: -1
                                         * Referenced by: '<Root>/Gain'
                                         */
   real_T Saturation_UpperSat_bg;       /* Expression: 24
-                                        * Referenced by: '<S6>/Saturation'
+                                        * Referenced by: '<S5>/Saturation'
                                         */
   real_T Saturation_LowerSat_k;        /* Expression: -24
-                                        * Referenced by: '<S6>/Saturation'
+                                        * Referenced by: '<S5>/Saturation'
                                         */
   real_T pwm_skalning_Gain;            /* Expression: 1/48
-                                        * Referenced by: '<S6>/pwm_skalning'
+                                        * Referenced by: '<S5>/pwm_skalning'
                                         */
   real_T pwm_offstet_Value;            /* Expression: 0.5
-                                        * Referenced by: '<S6>/pwm_offstet'
+                                        * Referenced by: '<S5>/pwm_offstet'
                                         */
   real_T Enable1_Off0_On_Value;        /* Expression: 1
-                                        * Referenced by: '<S6>/Enable[1_Off, 0_On]'
+                                        * Referenced by: '<S5>/Enable[1_Off, 0_On]'
                                         */
   real_T Gain2_Gain;                   /* Expression: Km/R
-                                        * Referenced by: '<S2>/Gain2'
+                                        * Referenced by: '<S1>/Gain2'
                                         */
   real_T Gain4_Gain;                   /* Expression: Km*Kemf/(R)
-                                        * Referenced by: '<S2>/Gain4'
+                                        * Referenced by: '<S1>/Gain4'
                                         */
   real_T AntiWindup1_Gain;             /* Expression: 29.6
-                                        * Referenced by: '<S3>/Anti-Windup1'
+                                        * Referenced by: '<S2>/Anti-Windup1'
                                         */
   real_T AntiWindup2_Gain;             /* Expression: 1
-                                        * Referenced by: '<S3>/Anti-Windup2'
+                                        * Referenced by: '<S2>/Anti-Windup2'
                                         */
   real_T IntegralGain2_Gain;           /* Expression: double(Ipos_d)
-                                        * Referenced by: '<S3>/Integral Gain2'
+                                        * Referenced by: '<S2>/Integral Gain2'
                                         */
   real_T AntiWindup_Gain;              /* Expression: 29.6
-                                        * Referenced by: '<S5>/Anti-Windup'
+                                        * Referenced by: '<S3>/Anti-Windup'
+                                        */
+  real_T AntiWindup1_Gain_j;           /* Expression: 1
+                                        * Referenced by: '<S3>/Anti-Windup1'
+                                        */
+  real_T AntiWindup_Gain_o;            /* Expression: 29.6
+                                        * Referenced by: '<S4>/Anti-Windup'
                                         */
   real_T AntiWindup1_Gain_f;           /* Expression: 1
-                                        * Referenced by: '<S5>/Anti-Windup1'
+                                        * Referenced by: '<S4>/Anti-Windup1'
                                         */
   real_T IntegralGain2_Gain_h;         /* Expression: double(Isp_d)
-                                        * Referenced by: '<S5>/Integral Gain2'
+                                        * Referenced by: '<S4>/Integral Gain2'
                                         */
   real_T Resetenc_Value;               /* Expression: 0
-                                        * Referenced by: '<S8>/Reset enc'
+                                        * Referenced by: '<S7>/Reset enc'
                                         */
 };
 
@@ -1200,7 +1194,7 @@ struct tag_RTM_mIO_T {
     boolean_T zCCacheNeedsReset;
     boolean_T derivCacheNeedsReset;
     boolean_T blkStateChange;
-    real_T odeF[1][4];
+    real_T odeF[1][2];
     ODE1_IntgData intgData;
     void *dwork;
   } ModelData;
@@ -1332,21 +1326,20 @@ extern RT_MODEL_mIO_T *const mIO_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'mIO'
- * '<S1>'   : 'mIO/Discrete Derivative'
- * '<S2>'   : 'mIO/Motor Model'
- * '<S3>'   : 'mIO/PID_pos_discrete  '
- * '<S4>'   : 'mIO/PID_position_continuous '
- * '<S5>'   : 'mIO/PID_speed_discrete'
- * '<S6>'   : 'mIO/PWM'
- * '<S7>'   : 'mIO/RTI Data'
- * '<S8>'   : 'mIO/enc I//F'
- * '<S9>'   : 'mIO/PWM/DS1104BIT_OUT_C0'
- * '<S10>'  : 'mIO/PWM/DS1104SL_DSP_PWM'
- * '<S11>'  : 'mIO/RTI Data/RTI Data Store'
- * '<S12>'  : 'mIO/RTI Data/RTI Data Store/RTI Data Store'
- * '<S13>'  : 'mIO/RTI Data/RTI Data Store/RTI Data Store/RTI Data Store'
- * '<S14>'  : 'mIO/enc I//F/DS1104ENC_POS_C1'
- * '<S15>'  : 'mIO/enc I//F/DS1104ENC_SETUP'
- * '<S16>'  : 'mIO/enc I//F/DS1104ENC_SET_POS_C1'
+ * '<S1>'   : 'mIO/Motor Model'
+ * '<S2>'   : 'mIO/PID_pos_discrete  '
+ * '<S3>'   : 'mIO/PID_position_continuous '
+ * '<S4>'   : 'mIO/PID_speed_discrete'
+ * '<S5>'   : 'mIO/PWM'
+ * '<S6>'   : 'mIO/RTI Data'
+ * '<S7>'   : 'mIO/enc I//F'
+ * '<S8>'   : 'mIO/PWM/DS1104BIT_OUT_C0'
+ * '<S9>'   : 'mIO/PWM/DS1104SL_DSP_PWM'
+ * '<S10>'  : 'mIO/RTI Data/RTI Data Store'
+ * '<S11>'  : 'mIO/RTI Data/RTI Data Store/RTI Data Store'
+ * '<S12>'  : 'mIO/RTI Data/RTI Data Store/RTI Data Store/RTI Data Store'
+ * '<S13>'  : 'mIO/enc I//F/DS1104ENC_POS_C1'
+ * '<S14>'  : 'mIO/enc I//F/DS1104ENC_SETUP'
+ * '<S15>'  : 'mIO/enc I//F/DS1104ENC_SET_POS_C1'
  */
 #endif                                 /* RTW_HEADER_mIO_h_ */

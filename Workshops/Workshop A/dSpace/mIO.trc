@@ -3,7 +3,7 @@
 --  Trace file: mIO.trc
 --
 --  RTI1104 7.3 (02-Nov-2014)
---  Fri Mar 10 11:52:00 2017
+--  Wed Mar 22 15:31:21 2017
 --
 --  Used options:
 --    TRCGenerateVirtualBlocks      = 1
@@ -27,7 +27,7 @@
 
 _genname     "RTI"
 _genversion  "7.3"
-_gendate     "03/10/2017 11:52:03"
+_gendate     "03/22/2017 15:31:24"
 _description ""
 _author      "RTI1104 7.3 (02-Nov-2014)"
 _model       "mIO.mdl"
@@ -39,9 +39,9 @@ _integer_type(32)
 -- No Data Capture blocks within model: use base sample time as sampling period
 sampling_period[0]
 {
-  value:       0.01
+  value:       0.025
   alias:       "HostService"
-  increment:   0.01
+  increment:   0.025
   unit:        "s"
 }
 
@@ -158,7 +158,7 @@ group "Model Root"
 	 flags: BLOCK|COLLAPSED
 	}
 		-- Skipping output Out1
-		p_1_mIO_real_T_0[13]
+		p_1_mIO_real_T_0[12]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
@@ -175,7 +175,7 @@ group "Model Root"
 	 flags: BLOCK|COLLAPSED
 	}
 		-- Skipping output Out1
-		p_1_mIO_real_T_0[21]
+		p_1_mIO_real_T_0[20]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Value"
@@ -191,14 +191,14 @@ group "Model Root"
 	 desc:  ""
 	 flags: BLOCK|COLLAPSED
 	}
-		p_0_mIO_real_T_0[55]
+		p_0_mIO_real_T_0[49]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
 		 desc:    ""
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_mIO_real_T_0[58]
+		p_1_mIO_real_T_0[57]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Gain"
@@ -214,7 +214,7 @@ group "Model Root"
 	 desc:  ""
 	 flags: BLOCK|COLLAPSED
 	}
-		p_0_mIO_real_T_0[54]
+		p_0_mIO_real_T_0[48]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -242,54 +242,6 @@ group "Model Root"
 
 	endgroup -- block-group "Multiport\nSwitch1"
 
-	group "Quantizer" -- block-group
-	{
-	 block: "Quantizer"
-	 desc:  ""
-	 flags: BLOCK|COLLAPSED
-	}
-		p_0_mIO_real_T_0[39]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Out1"
-		 desc:    ""
-		 flags:   OUTPUT|READONLY
-		}
-		p_1_mIO_real_T_0[5]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "QuantizationInterval"
-		 flags:   PARAM
-		 origin:  "Pulses"
-		}
-
-
-	endgroup -- block-group "Quantizer"
-
-	group "Quantizer2" -- block-group
-	{
-	 block: "Quantizer"
-	 desc:  ""
-	 flags: BLOCK|COLLAPSED
-	}
-		p_0_mIO_real_T_0[53]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Out1"
-		 desc:    ""
-		 flags:   OUTPUT|READONLY
-		}
-		p_1_mIO_real_T_0[5]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "QuantizationInterval"
-		 flags:   PARAM
-		 origin:  "Pulses"
-		}
-
-
-	endgroup -- block-group "Quantizer2"
-
 	group "Ctrl. Sine" -- block-group
 	{
 	 block: "SignalGenerator"
@@ -304,13 +256,13 @@ group "Model Root"
 		 flags:   OUTPUT|READONLY
 		}
 
-		p_1_mIO_real_T_0[14]
+		p_1_mIO_real_T_0[13]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[15]
+		p_1_mIO_real_T_0[14]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
@@ -334,13 +286,13 @@ group "Model Root"
 		 flags:   OUTPUT|READONLY
 		}
 
-		p_1_mIO_real_T_0[16]
+		p_1_mIO_real_T_0[15]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[17]
+		p_1_mIO_real_T_0[16]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
@@ -364,13 +316,13 @@ group "Model Root"
 		 flags:   OUTPUT|READONLY
 		}
 
-		p_1_mIO_real_T_0[25]
+		p_1_mIO_real_T_0[24]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[26]
+		p_1_mIO_real_T_0[25]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
@@ -394,13 +346,13 @@ group "Model Root"
 		 flags:   OUTPUT|READONLY
 		}
 
-		p_1_mIO_real_T_0[27]
+		p_1_mIO_real_T_0[26]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Amplitude"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[28]
+		p_1_mIO_real_T_0[27]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Frequency"
@@ -423,19 +375,19 @@ group "Model Root"
 		 desc:    ""
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_mIO_real_T_0[18]
+		p_1_mIO_real_T_0[17]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Time"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[19]
+		p_1_mIO_real_T_0[18]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Before"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[20]
+		p_1_mIO_real_T_0[19]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "After"
@@ -458,19 +410,19 @@ group "Model Root"
 		 desc:    ""
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_mIO_real_T_0[39]
+		p_1_mIO_real_T_0[38]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Time"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[40]
+		p_1_mIO_real_T_0[39]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Before"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[41]
+		p_1_mIO_real_T_0[40]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "After"
@@ -493,19 +445,19 @@ group "Model Root"
 		 desc:    ""
 		 flags:   OUTPUT|READONLY
 		}
-		p_1_mIO_real_T_0[22]
+		p_1_mIO_real_T_0[21]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Time"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[23]
+		p_1_mIO_real_T_0[22]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Before"
 		 flags:   PARAM
 		}
-		p_1_mIO_real_T_0[24]
+		p_1_mIO_real_T_0[23]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "After"
@@ -555,7 +507,7 @@ group "Model Root"
 	 desc:  ""
 	 flags: BLOCK|COLLAPSED
 	}
-		p_0_mIO_real_T_0[44]
+		p_0_mIO_real_T_0[39]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Out1"
@@ -565,23 +517,6 @@ group "Model Root"
 
 
 	endgroup -- block-group "Sum3"
-
-	group "ZOH" -- block-group
-	{
-	 block: "ZeroOrderHold"
-	 desc:  ""
-	 flags: BLOCK|COLLAPSED
-	}
-		p_0_mIO_real_T_0[40]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Out1"
-		 desc:    ""
-		 flags:   OUTPUT|READONLY
-		}
-
-
-	endgroup -- block-group "ZOH"
 
 	group "ZOH1" -- block-group
 	{
@@ -636,144 +571,6 @@ group "Model Root"
 
   
   
-	group "Discrete Derivative" -- subsystem-group
-	{
-	 flags: COLLAPSED
-	 desc:  ""
-	}
-
-		p_0_mIO_real_T_0[43]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "Y"
-		 desc:    ""
-		 flags:   OUTPUT|READONLY
-		}
-
-		group "U" -- block-group
-		{
-		 block: "Inport"
-		 desc:  ""
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[40]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-
-
-		endgroup -- block-group "U"
-
-		group "Diff" -- block-group
-		{
-		 block: "Sum"
-		 desc:  "\nAdd in CPU"
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[43]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-
-
-		endgroup -- block-group "Diff"
-
-		group "Data Type\nDuplicate" -- block-group
-		{
-		 block: "DataTypeDuplicate"
-		 desc:  ""
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[43]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "In1"
-			 desc:    ""
-			 flags:   SINK|READONLY
-			}
-			p_0_mIO_real_T_0[41]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "In2"
-			 desc:    ""
-			 flags:   SINK|READONLY
-			}
-			p_0_mIO_real_T_0[42]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "In3"
-			 desc:    ""
-			 flags:   SINK|READONLY
-			}
-
-
-
-		endgroup -- block-group "Data Type\nDuplicate"
-
-		group "TSamp" -- block-group
-		{
-		 block: "SampleTimeMath"
-		 desc:  ""
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[41]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_mIO_real_T_0[52]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "WtEt"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "TSamp"
-
-		group "UD" -- block-group
-		{
-		 block: "UnitDelay"
-		 desc:  "\nStore in Global RAM"
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[42]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_mIO_real_T_0[53]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "InitialCondition"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "UD"
-
-
-		p_0_mIO_real_T_0[42]
-		{
-		 type:    flt(64,IEEE)*
-		 alias:   "U(k-1)"
-		 origin:  "mIO/Discrete Derivative/UD/Out1"
-		 flags:   LABEL|READONLY
-		}
-
-	endgroup -- subsystem-group "Discrete Derivative"
-  
-  
 	group "Motor Model" -- subsystem-group
 	{
 	 flags: COLLAPSED
@@ -801,7 +598,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[54]
+			p_0_mIO_real_T_0[48]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -836,14 +633,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[61]
+			p_0_mIO_real_T_0[55]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[6]
+			p_1_mIO_real_T_0[5]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -860,14 +657,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[59]
+			p_0_mIO_real_T_0[53]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[64]
+			p_1_mIO_real_T_0[63]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -883,14 +680,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[62]
+			p_0_mIO_real_T_0[56]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[65]
+			p_1_mIO_real_T_0[64]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -913,7 +710,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[12]
+			p_1_mIO_real_T_0[11]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -936,7 +733,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[10]
+			p_1_mIO_real_T_0[9]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -952,14 +749,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[65]
+			p_0_mIO_real_T_0[59]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[7]
+			p_1_mIO_real_T_0[6]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -976,14 +773,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[60]
+			p_0_mIO_real_T_0[54]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[8]
+			p_1_mIO_real_T_0[7]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1007,7 +804,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[9]
+			p_1_mIO_real_T_0[8]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1030,7 +827,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[11]
+			p_1_mIO_real_T_0[10]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1046,7 +843,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[66]
+			p_0_mIO_real_T_0[60]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1063,7 +860,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[64]
+			p_0_mIO_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1080,7 +877,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[63]
+			p_0_mIO_real_T_0[57]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1140,13 +937,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[45]
+			p_1_mIO_real_T_0[44]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "gainval"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[46]
+			p_1_mIO_real_T_0[45]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1169,13 +966,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[48]
+			p_1_mIO_real_T_0[47]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "gainval"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[49]
+			p_1_mIO_real_T_0[48]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1191,14 +988,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[68]
+			p_0_mIO_real_T_0[62]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[66]
+			p_1_mIO_real_T_0[65]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1214,14 +1011,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[69]
+			p_0_mIO_real_T_0[63]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[67]
+			p_1_mIO_real_T_0[66]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1244,7 +1041,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[44]
+			p_1_mIO_real_T_0[43]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1267,7 +1064,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[47]
+			p_1_mIO_real_T_0[46]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1283,14 +1080,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[70]
+			p_0_mIO_real_T_0[64]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[68]
+			p_1_mIO_real_T_0[67]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1313,7 +1110,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[43]
+			p_1_mIO_real_T_0[42]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1336,13 +1133,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[50]
+			p_1_mIO_real_T_0[49]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "UpperLimit"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[51]
+			p_1_mIO_real_T_0[50]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "LowerLimit"
@@ -1392,7 +1189,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[67]
+			p_0_mIO_real_T_0[61]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1426,7 +1223,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[71]
+			p_0_mIO_real_T_0[65]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1448,7 +1245,7 @@ group "Model Root"
 	 desc:  ""
 	}
 
-		p_0_mIO_real_T_0[52]
+		p_0_mIO_real_T_0[47]
 		{
 		 type:    flt(64,IEEE)*
 		 alias:   "Position out"
@@ -1462,7 +1259,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[44]
+			p_0_mIO_real_T_0[39]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1473,13 +1270,117 @@ group "Model Root"
 
 		endgroup -- block-group "Volt in"
 
+		group "Discrete-Time\nIntegrator1" -- block-group
+		{
+		 block: "DiscreteIntegrator"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[41]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_mIO_real_T_0[51]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "gainval"
+			 flags:   PARAM
+			}
+			p_1_mIO_real_T_0[52]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Discrete-Time\nIntegrator1"
+
+		group "Discrete-Time\nIntegrator2" -- block-group
+		{
+		 block: "DiscreteIntegrator"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[43]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_mIO_real_T_0[53]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "gainval"
+			 flags:   PARAM
+			}
+			p_1_mIO_real_T_0[54]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "InitialCondition"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Discrete-Time\nIntegrator2"
+
+		group "Anti-Windup" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[67]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_mIO_real_T_0[68]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Anti-Windup"
+
+		group "Anti-Windup1" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[68]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_1_mIO_real_T_0[69]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Anti-Windup1"
+
 		group "Derivative Gain" -- block-group
 		{
 		 block: "Gain"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[47]
+			p_0_mIO_real_T_0[42]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1503,7 +1404,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[50]
+			p_0_mIO_real_T_0[45]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1527,7 +1428,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[72]
+			p_0_mIO_real_T_0[69]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1551,7 +1452,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[45]
+			p_0_mIO_real_T_0[40]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1569,36 +1470,13 @@ group "Model Root"
 
 		endgroup -- block-group "Proportional Gain"
 
-		group "Integrator" -- block-group
+		group "Saturation" -- block-group
 		{
-		 block: "Integrator"
+		 block: "Saturate"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[46]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_mIO_real_T_0[54]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "InitialCondition"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Integrator"
-
-		group "Integrator1" -- block-group
-		{
-		 block: "Integrator"
-		 desc:  ""
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[48]
+			p_0_mIO_real_T_0[47]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1608,33 +1486,10 @@ group "Model Root"
 			p_1_mIO_real_T_0[55]
 			{
 			 type:    flt(64,IEEE)*
-			 alias:   "InitialCondition"
-			 flags:   PARAM
-			}
-
-
-		endgroup -- block-group "Integrator1"
-
-		group "Saturation" -- block-group
-		{
-		 block: "Saturate"
-		 desc:  ""
-		 flags: BLOCK|COLLAPSED
-		}
-			p_0_mIO_real_T_0[52]
-			{
-			 type:    flt(64,IEEE)*
-			 alias:   "Out1"
-			 desc:    ""
-			 flags:   OUTPUT|READONLY
-			}
-			p_1_mIO_real_T_0[56]
-			{
-			 type:    flt(64,IEEE)*
 			 alias:   "UpperLimit"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[57]
+			p_1_mIO_real_T_0[56]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "LowerLimit"
@@ -1650,7 +1505,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[49]
+			p_0_mIO_real_T_0[44]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1667,7 +1522,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[51]
+			p_0_mIO_real_T_0[46]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -1677,6 +1532,40 @@ group "Model Root"
 
 
 		endgroup -- block-group "Sum1"
+
+		group "Sum3" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[66]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Sum3"
+
+		group "Sum4" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_0_mIO_real_T_0[70]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Sum4"
 
 
 
@@ -1727,13 +1616,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[32]
+			p_1_mIO_real_T_0[31]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "gainval"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[33]
+			p_1_mIO_real_T_0[32]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1756,13 +1645,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[35]
+			p_1_mIO_real_T_0[34]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "gainval"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[36]
+			p_1_mIO_real_T_0[35]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "InitialCondition"
@@ -1778,14 +1667,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[74]
+			p_0_mIO_real_T_0[72]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[69]
+			p_1_mIO_real_T_0[70]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1801,14 +1690,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[75]
+			p_0_mIO_real_T_0[73]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[70]
+			p_1_mIO_real_T_0[71]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1831,7 +1720,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[31]
+			p_1_mIO_real_T_0[30]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1854,7 +1743,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[34]
+			p_1_mIO_real_T_0[33]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1870,14 +1759,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[76]
+			p_0_mIO_real_T_0[74]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[71]
+			p_1_mIO_real_T_0[72]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1900,7 +1789,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[30]
+			p_1_mIO_real_T_0[29]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -1923,13 +1812,13 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[37]
+			p_1_mIO_real_T_0[36]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "UpperLimit"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[38]
+			p_1_mIO_real_T_0[37]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "LowerLimit"
@@ -1979,7 +1868,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[73]
+			p_0_mIO_real_T_0[71]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -2013,7 +1902,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[77]
+			p_0_mIO_real_T_0[75]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -2042,7 +1931,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[55]
+			p_0_mIO_real_T_0[49]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -2060,7 +1949,7 @@ group "Model Root"
 		 flags: BLOCK|COLLAPSED
 		}
 			-- Skipping output Out1
-			p_1_mIO_real_T_0[63]
+			p_1_mIO_real_T_0[62]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -2077,7 +1966,7 @@ group "Model Root"
 		 flags: BLOCK|COLLAPSED
 		}
 			-- Skipping output Out1
-			p_1_mIO_real_T_0[62]
+			p_1_mIO_real_T_0[61]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -2112,14 +2001,14 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[57]
+			p_0_mIO_real_T_0[51]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[61]
+			p_1_mIO_real_T_0[60]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -2168,20 +2057,20 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[56]
+			p_0_mIO_real_T_0[50]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[59]
+			p_1_mIO_real_T_0[58]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "UpperLimit"
 			 flags:   PARAM
 			}
-			p_1_mIO_real_T_0[60]
+			p_1_mIO_real_T_0[59]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "LowerLimit"
@@ -2197,7 +2086,7 @@ group "Model Root"
 		 desc:  ""
 		 flags: BLOCK|COLLAPSED
 		}
-			p_0_mIO_real_T_0[58]
+			p_0_mIO_real_T_0[52]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Out1"
@@ -2271,7 +2160,7 @@ group "Model Root"
 		 flags: BLOCK|COLLAPSED
 		}
 			-- Skipping output Out1
-			p_1_mIO_real_T_0[72]
+			p_1_mIO_real_T_0[73]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Value"
@@ -2294,7 +2183,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[42]
+			p_1_mIO_real_T_0[41]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -2317,7 +2206,7 @@ group "Model Root"
 			 desc:    ""
 			 flags:   OUTPUT|READONLY
 			}
-			p_1_mIO_real_T_0[29]
+			p_1_mIO_real_T_0[28]
 			{
 			 type:    flt(64,IEEE)*
 			 alias:   "Gain"
@@ -2419,22 +2308,16 @@ group "Tunable Parameters"
 	p_1_mIO_real_T_0[5]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "Pulses"
+	 alias:   "dm"
 	 flags:   PARAM
 	}
 	p_1_mIO_real_T_0[6]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "dm"
-	 flags:   PARAM
-	}
-	p_1_mIO_real_T_0[7]
-	{
-	 type:    flt(64,IEEE)*
 	 alias:   "eps_Jeq"
 	 flags:   PARAM
 	}
-	p_1_mIO_real_T_0[8]
+	p_1_mIO_real_T_0[7]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "eps_dm"
@@ -2460,13 +2343,6 @@ group "Labels"
 {
  flags: COLLAPSED
 }
-	p_0_mIO_real_T_0[42]
-	{
-	 type:    flt(64,IEEE)*
-	 alias:   "U(k-1)"
-	 origin:  "mIO/Discrete Derivative/UD/Out1"
-	 flags:   LABEL|READONLY
-	}
 
 endgroup
 

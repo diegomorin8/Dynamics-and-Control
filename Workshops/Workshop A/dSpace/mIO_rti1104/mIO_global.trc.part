@@ -38,22 +38,16 @@ group "Tunable Parameters"
 	p_1_mIO_real_T_0[5]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "Pulses"
+	 alias:   "dm"
 	 flags:   PARAM
 	}
 	p_1_mIO_real_T_0[6]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "dm"
-	 flags:   PARAM
-	}
-	p_1_mIO_real_T_0[7]
-	{
-	 type:    flt(64,IEEE)*
 	 alias:   "eps_Jeq"
 	 flags:   PARAM
 	}
-	p_1_mIO_real_T_0[8]
+	p_1_mIO_real_T_0[7]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "eps_dm"
@@ -79,13 +73,6 @@ group "Labels"
 {
  flags: COLLAPSED
 }
-	p_0_mIO_real_T_0[42]
-	{
-	 type:    flt(64,IEEE)*
-	 alias:   "U(k-1)"
-	 origin:  "mIO/Discrete Derivative/UD/Out1"
-	 flags:   LABEL|READONLY
-	}
 
 endgroup
 

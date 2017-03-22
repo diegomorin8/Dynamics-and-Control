@@ -3,7 +3,7 @@
 --  Trace file: mIO.trc
 --
 --  RTI1104 7.3 (02-Nov-2014)
---  Fri Mar 10 11:52:00 2017
+--  Wed Mar 22 15:31:21 2017
 --
 --  Used options:
 --    TRCGenerateVirtualBlocks      = 1
@@ -27,7 +27,7 @@
 
 _genname     "RTI"
 _genversion  "7.3"
-_gendate     "03/10/2017 11:52:03"
+_gendate     "03/22/2017 15:31:24"
 _description ""
 _author      "RTI1104 7.3 (02-Nov-2014)"
 _model       "mIO.mdl"
@@ -39,9 +39,9 @@ _integer_type(32)
 -- No Data Capture blocks within model: use base sample time as sampling period
 sampling_period[0]
 {
-  value:       0.01
+  value:       0.025
   alias:       "HostService"
-  increment:   0.01
+  increment:   0.025
   unit:        "s"
 }
 

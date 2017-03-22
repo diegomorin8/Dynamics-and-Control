@@ -17,7 +17,7 @@ Model {
       BusOutputAsStruct	      "off"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.55"
+    ComputedModelVersion    "1.59"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -59,7 +59,7 @@ Model {
 	$PropName		"ExplorerBarInfo"
 	$ObjectID		4
 	$ClassName		"Simulink.ExplorerBarInfo"
-	Visible			[1]
+	Visible			[0]
       }
       Object {
 	$PropName		"EditorsInfo"
@@ -68,7 +68,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1886.0, 882.0]
+	Extents			[1886.0, 912.0]
 	ZoomFactor		[1.0]
 	Offset			[-367.486948331539, 105.20331001076397]
       }
@@ -83,9 +83,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "es2lab2"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 10 12:23:25 2017"
-  RTWModifiedTimeStamp	  411049562
-  ModelVersionFormat	  "1.%<AutoIncrement:55>"
+  LastModifiedDate	  "Wed Mar 22 15:25:43 2017"
+  RTWModifiedTimeStamp	  412097292
+  ModelVersionFormat	  "1.%<AutoIncrement:59>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -195,7 +195,7 @@ Model {
       Version		      "1.14.3"
       Array {
 	Type			"Handle"
-	Dimension		9
+	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  8
 	  Version		  "1.14.3"
@@ -674,9 +674,9 @@ Model {
 		Cell			"MultiInstanceERTCode"
 		Cell			"CodeInterfacePackaging"
 		Cell			"LoadToFlash"
+		Cell			"BoardName"
 		Cell			"PortableWordSizes"
 		Cell			"CPPClassGenCompliant"
-		Cell			"BoardName"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_tmw.mat"
@@ -754,9 +754,9 @@ Model {
 		    Cell		    "ParMdlRefBuildCompliant"
 		    Cell		    "MultiInstanceERTCode"
 		    Cell		    "CodeInterfacePackaging"
+		    Cell		    "CPPClassGenCompliant"
 		    Cell		    "CombineOutputUpdateFcns"
 		    Cell		    "PortableWordSizes"
-		    Cell		    "CPPClassGenCompliant"
 		    PropName		    "DisabledProps"
 		  }
 		  TargetFcnLib		  "ansi_tfl_tmw.mat"
@@ -823,8 +823,8 @@ Model {
 		PropName		"Components"
 	      }
 	      CustomProperty {
-		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B_MATLAB_RTI_RTI1104_TLC_rti1104_1InitialSi"
-		"mState"
+		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B restore_MATLAB_RTI_RTI1104_TLC_rti1104_1I"
+		"nitialSimState"
 		EnumStrPairs {
 		  Value			  0
 		  String		  "RUN"
@@ -837,8 +837,8 @@ Model {
 		Value			"RUN"
 	      }
 	      CustomProperty {
-		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B_MATLAB_RTI_RTI1104_TLC_rti1104_1Execution"
-		"Mode"
+		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B restore_MATLAB_RTI_RTI1104_TLC_rti1104_1E"
+		"xecutionMode"
 		EnumStrPairs {
 		  Value			  0
 		  String		  "real-time"
@@ -866,8 +866,8 @@ Model {
 		Value			"OPTION_DISABLED"
 	      }
 	      CustomProperty {
-		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B_MATLAB_RTI_RTI1104_TLC_rti1104_1Assertion"
-		"Mode"
+		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B restore_MATLAB_RTI_RTI1104_TLC_rti1104_1A"
+		"ssertionMode"
 		EnumStrPairs {
 		  Value			  0
 		  String		  "OFF"
@@ -880,8 +880,8 @@ Model {
 		Value			"OFF"
 	      }
 	      CustomProperty {
-		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B_MATLAB_RTI_RTI1104_TLC_rti1104_1CCompiler"
-		"OptimizationOptsPopup_"
+		DataType		"RTWOptions_EnumType_C__Program Files (x86)_dSPACE RCPHIL 2014-B restore_MATLAB_RTI_RTI1104_TLC_rti1104_1C"
+		"CompilerOptimizationOptsPopup_"
 		EnumStrPairs {
 		  Value			  0
 		  String		  "Default"
@@ -1016,6 +1016,19 @@ Model {
 	  CovStartTime		  0
 	  CovStopTime		  0
 	}
+	hdlcoderui.hdlcc {
+	  $ObjectID		  20
+	  Version		  "1.14.3"
+	  Description		  "HDL Coder custom configuration component"
+	  Name			  "HDL Coder"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    " "
+	    PropName		    "HDLConfigFile"
+	  }
+	  HDLCActiveTab		  "0"
+	}
 	PropName		"Components"
       }
       Name		      "Configuration"
@@ -1031,7 +1044,7 @@ Model {
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    21
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1243,12 +1256,6 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      Quantizer
-      QuantizationInterval    "0.5"
-      LinearizeAsGain	      on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Saturate
       UpperLimitSource	      "Dialog"
       UpperLimit	      "0.5"
@@ -1349,7 +1356,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "684"
+    SIDHighWatermark	    "709"
     Block {
       BlockType		      Constant
       Name		      "Ctrl. Signal Selector"
@@ -2192,6 +2199,27 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator1"
+	  SID			  "704"
+	  Ports			  [1, 1]
+	  Position		  [780, 247, 815, 283]
+	  ZOrder		  253
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "Ts"
+	}
+	Block {
+	  BlockType		  DiscreteIntegrator
+	  Name			  "Discrete-Time\nIntegrator2"
+	  SID			  "705"
+	  Ports			  [1, 1]
+	  Position		  [800, 512, 835, 548]
+	  ZOrder		  254
+	  BlockMirror		  on
+	  InitialConditionSetting "State (most efficient)"
+	  SampleTime		  "Ts"
+	}
+	Block {
 	  BlockType		  Gain
 	  Name			  "Filter Gain"
 	  SID			  "439"
@@ -2212,23 +2240,6 @@ Model {
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Integrator
-	  Name			  "Integrator"
-	  SID			  "441"
-	  Ports			  [1, 1]
-	  Position		  [805, 250, 835, 280]
-	  ZOrder		  143
-	}
-	Block {
-	  BlockType		  Integrator
-	  Name			  "Integrator1"
-	  SID			  "442"
-	  Ports			  [1, 1]
-	  Position		  [805, 515, 835, 545]
-	  ZOrder		  141
-	  BlockMirror		  on
 	}
 	Block {
 	  BlockType		  Gain
@@ -2320,17 +2331,17 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Integrator"
+	  ZOrder		  44
+	  SrcBlock		  "Discrete-Time\nIntegrator1"
 	  SrcPort		  1
 	  DstBlock		  "Sum1"
 	  DstPort		  2
 	}
 	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Integrator1"
+	  ZOrder		  45
+	  SrcBlock		  "Discrete-Time\nIntegrator2"
 	  SrcPort		  1
-	  Points		  [-90, 0]
+	  Points		  [-85, 0]
 	  DstBlock		  "Sum"
 	  DstPort		  2
 	}
@@ -2338,18 +2349,18 @@ Model {
 	  ZOrder		  3
 	  SrcBlock		  "Filter Gain"
 	  SrcPort		  1
-	  Points		  [40, 0]
+	  Points		  [58, 0]
 	  Branch {
-	    ZOrder		    4
-	    Points		    [10, 0]
-	    DstBlock		    "Sum1"
-	    DstPort		    3
+	    ZOrder		    46
+	    Points		    [7, 0; 0, 70]
+	    DstBlock		    "Discrete-Time\nIntegrator2"
+	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    5
-	    Points		    [0, 70]
-	    DstBlock		    "Integrator1"
-	    DstPort		    1
+	    ZOrder		    4
+	    Points		    [0, -170]
+	    DstBlock		    "Sum1"
+	    DstPort		    3
 	  }
 	}
 	Line {
@@ -2439,10 +2450,10 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  37
+	  ZOrder		  43
 	  SrcBlock		  "Sum4"
 	  SrcPort		  1
-	  DstBlock		  "Integrator"
+	  DstBlock		  "Discrete-Time\nIntegrator1"
 	  DstPort		  1
 	}
 	Line {
@@ -3114,15 +3125,6 @@ Model {
       SampleTime	      "0"
     }
     Block {
-      BlockType		      Quantizer
-      Name		      "Quantizer"
-      SID		      "680"
-      Position		      [960, 575, 990, 605]
-      ZOrder		      317
-      QuantizationInterval    "Pulses"
-      SampleTime	      "Ts"
-    }
-    Block {
       BlockType		      SubSystem
       Name		      "RTI Data"
       SID		      "480"
@@ -3152,7 +3154,7 @@ Model {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		21
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Type			"RTI_DATA_HOST"
 	Description		"RTI Data Block.\nThis block is used by RTI to store internal model-dependent data.\nPlease keep this bl"
@@ -3180,16 +3182,16 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "RTI Data Store"
-	  SID			  "681"
+	  SID			  "706"
 	  Ports			  []
 	  Position		  [146, 12, 181, 25]
-	  ZOrder		  42
+	  ZOrder		  47
 	  ForegroundColor	  "white"
 	  ShowName		  off
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    22
+	    $ObjectID		    23
 	    $ClassName		    "Simulink.Mask"
 	    Type		    "RTI_DATA_STORE"
 	    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deletin"
@@ -3218,16 +3220,16 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "RTI Data Store"
-	      SID		      "682"
+	      SID		      "707"
 	      Ports		      []
 	      Position		      [146, 12, 181, 25]
-	      ZOrder		      43
+	      ZOrder		      48
 	      ForegroundColor	      "white"
 	      ShowName		      off
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		23
+		$ObjectID		24
 		$ClassName		"Simulink.Mask"
 		Type			"RTI_DATA_STORE"
 		Description		"RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleting this "
@@ -3256,16 +3258,16 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "RTI Data Store"
-		  SID			  "683"
+		  SID			  "708"
 		  Ports			  []
 		  Position		  [146, 12, 181, 25]
-		  ZOrder		  44
+		  ZOrder		  49
 		  ForegroundColor	  "white"
 		  ShowName		  off
 		  RequestExecContextInheritance	off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    24
+		    $ObjectID		    25
 		    $ClassName		    "Simulink.Mask"
 		    Type		    "RTI_DATA_STORE"
 		    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleti"
@@ -3294,16 +3296,16 @@ Model {
 		    Block {
 		    BlockType		    SubSystem
 		    Name		    "RTI Data Store"
-		    SID			    "684"
+		    SID			    "709"
 		    Ports		    []
 		    Position		    [146, 12, 181, 25]
-		    ZOrder		    45
+		    ZOrder		    50
 		    ForegroundColor	    "white"
 		    ShowName		    off
 		    RequestExecContextInheritance off
 		    Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    25
+		    $ObjectID		    26
 		    $ClassName		    "Simulink.Mask"
 		    Type		    "RTI_DATA_STORE"
 		    Description		    "RTI Data Store Block. This block is used by RTI to store internal model dependent data. Deleti"
@@ -3746,10 +3748,6 @@ Model {
       }
     }
     Line {
-      FontName		      "Helvetica"
-      FontSize		      9
-      FontWeight	      "normal"
-      FontAngle		      "normal"
       ZOrder		      382
       SrcBlock		      "Sum1"
       SrcPort		      1
@@ -3867,15 +3865,8 @@ Model {
       DstPort		      4
     }
     Line {
-      ZOrder		      465
+      ZOrder		      491
       SrcBlock		      "PID_position_continuous\n"
-      SrcPort		      1
-      DstBlock		      "Quantizer"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      466
-      SrcBlock		      "Quantizer"
       SrcPort		      1
       DstBlock		      "Multiport\nSwitch"
       DstPort		      7

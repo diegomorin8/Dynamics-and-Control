@@ -5,7 +5,7 @@
    Task Configuration file for model : mIO
 
    RTI1104 7.3 (02-Nov-2014)/2.6
-   10-Mar-2017 11:52:00
+   22-Mar-2017 15:31:21
 
    MATLAB 8.4.0.150421 (R2014b)
 
@@ -15,7 +15,7 @@
 
 /* ===== List of model tasks and assigned interrupt sources ================
 
-   Timer Task 1 [0.01 0] s        : Timer A interrupt
+   Timer Task 1 [0.025 0] s       : Timer A interrupt
 
   * ========================================================================= */
 
@@ -119,7 +119,7 @@ static void rti_th_initialize(void)
   rtith_bind_interrupt( /* --- Bind interrupt to task. ----- */
       service, subentry,         /*  RTK service, RTK subentry.       */
       pTask1,             /*  Task (TCB pointer).              */
-      (0.01 * RTI_TIMER_TASK_TIME_SCALE),             /*  Sample time or period.           */
+      (0.025 * RTI_TIMER_TASK_TIME_SCALE),             /*  Sample time or period.           */
       C_LOCAL,             /*  RTK channel.                     */
       -1,             /*  Logical interrupt number.        */
       NULL);            /*  Hook function.                   */

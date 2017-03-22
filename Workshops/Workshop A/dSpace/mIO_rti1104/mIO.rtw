@@ -3,8 +3,8 @@ CompiledModel {
   OrigName		  "mIO"
   Version		  "8.7 (R2014b) 08-Sep-2014"
   SimulinkVersion	  "8.4"
-  ModelVersion		  "1.52"
-  GeneratedOn		  "Fri Mar 10 11:51:58 2017"
+  ModelVersion		  "1.59"
+  GeneratedOn		  "Wed Mar 22 15:31:19 2017"
   HasSimStructVars	  0
   HasCodeVariants	  0
   PreserveExternInFcnDecls 1
@@ -428,7 +428,7 @@ CompiledModel {
   SolverUpdateJacobianAtReset no
   FixedStepOpts {
     SolverMode		    SingleTasking
-    FixedStep		    0.01
+    FixedStep		    0.025
     ExtrapolationOrder	    -1
     NumberNewtonIterations  -1
     TID01EQ		    1
@@ -465,13 +465,13 @@ CompiledModel {
     tlcLanguage		    "C"
     tlcTargetType	    "RT"
   }
-  RTWContext		  [-1921281088, 0]
+  RTWContext		  [-1956023080, 0]
   RTWCGIR		  1
   TLCBlkFcnInCGIR	  1
   SLCI			  off
   SubsystemHdlForRightClickBuild 0.0
-  LocalSharedCodeManagerFile "C:/Users/es2lab2/Documents/MATLAB/Dynamics-and-Control/Workshops/Workshop A/dSpace/slprj"
-  "/rti1104/_sharedutils/shared_file.dmr"
+  LocalSharedCodeManagerFile "C:/Users/es2lab2/Documents/DiegoAndSof/Dynamics-and-Control/Workshops/Workshop A/dSpace/"
+  "slprj/rti1104/_sharedutils/shared_file.dmr"
   DataLoggingOpts {
     SaveFormat		    0
     MaxRows		    1000
@@ -481,15 +481,15 @@ CompiledModel {
     NumOutputSaveNames	    0
     StateSaveName	    ""
     FinalStateName	    ""
-    NumLoggedStates	    9
+    NumLoggedStates	    8
     SignalLoggingSaveFormat "ModelDataLogs"
     CompiledSignalLoggingSaveFormat "ModelDataLogs"
   }
   NumModelInputs	  0
   NumModelOutputs	  2
-  NumNonVirtBlocksInModel 97
+  NumNonVirtBlocksInModel 94
   DirectFeedthrough	  no
-  NumContStates		  4
+  NumContStates		  2
   ModelHasProjections	  no
   ModelIsLinearlyImplicit no
   ModelMassMatrixType	  0
@@ -498,7 +498,7 @@ CompiledModel {
   NumNonsampledZCs	  0
   NumZCEvents		  1
   ZCVectorlength	  1
-  NumBlockSignals	  85
+  NumBlockSignals	  83
   NumBlockParams	  74
   NumAlgebraicLoops	  0
   HasRootTriggerPort	  no
@@ -514,8 +514,8 @@ CompiledModel {
   NumSimulinkFunctions	  0
   PositivePriority	  no
   ConcurrentTasks	  no
-  SingleTimeDomainApplication "ClockDomain {\n_task0 : { \nSampleTime [0, 0]\nSampleTime [0, 1]\nSampleTime [0.01, 0]\n"
-  " }\n }\n"
+  SingleTimeDomainApplication "ClockDomain {\n_task0 : { \nSampleTime [0, 0]\nSampleTime [0, 1]\nSampleTime [0.025, 0]"
+  "\n }\n }\n"
   AllSampleTimesInherited no
   ModelSampleTimeInheritanceDetails {
     AllowedOverall	    no
@@ -533,7 +533,7 @@ CompiledModel {
   HasNonVirtualConstantTs no
   FixedStepSizeBasedOnHeuristic	no
   InvariantConstants	  no
-  FundamentalStepSize	  0.01
+  FundamentalStepSize	  0.025
   SingleRate		  no
   NumSampleTimes	  2
   SampleTime {
@@ -548,7 +548,7 @@ CompiledModel {
     TimeSource		    Self_internal
     AsyncPromotedTID	    0
     TimerUpdateCode	    ""
-    ClockTickStepSize	    0.01
+    ClockTickStepSize	    0.025
     NeedAbsoluteTime	    yes
     IsInlined		    no
     NeedFloatTime	    yes
@@ -562,14 +562,14 @@ CompiledModel {
     TID			    1
     PriorityAssigned	    yes
     Priority		    40
-    PeriodAndOffset	    [0.01, 0.0]
+    PeriodAndOffset	    [0.025, 0.0]
     Asynchronous	    no
     IsUnionTs		    no
     IsVirtualTs		    no
     TimeSource		    Self_internal
     AsyncPromotedTID	    1
     TimerUpdateCode	    ""
-    ClockTickStepSize	    0.01
+    ClockTickStepSize	    0.025
     NeedAbsoluteTime	    yes
     IsInlined		    no
     NeedFloatTime	    no
@@ -835,18 +835,18 @@ CompiledModel {
     HasObject		    0
   }
   HasEcoderProperties	  0
-  NumBlockTypeCounts	  19
+  NumBlockTypeCounts	  15
   BlockTypeCount {
     Type		    "DiscreteIntegrator"
-    Count		    4
+    Count		    6
   }
   BlockTypeCount {
     Type		    "Gain"
-    Count		    27
+    Count		    29
   }
   BlockTypeCount {
     Type		    "Integrator"
-    Count		    4
+    Count		    2
   }
   BlockTypeCount {
     Type		    "Outport"
@@ -866,19 +866,11 @@ CompiledModel {
   }
   BlockTypeCount {
     Type		    "Sum"
-    Count		    19
+    Count		    20
   }
   BlockTypeCount {
     Type		    "Constant"
     Count		    6
-  }
-  BlockTypeCount {
-    Type		    "DataTypeDuplicate"
-    Count		    1
-  }
-  BlockTypeCount {
-    Type		    "Quantizer"
-    Count		    2
   }
   BlockTypeCount {
     Type		    "Saturate"
@@ -893,16 +885,8 @@ CompiledModel {
     Count		    3
   }
   BlockTypeCount {
-    Type		    "UnitDelay"
-    Count		    1
-  }
-  BlockTypeCount {
-    Type		    "SampleTimeMath"
-    Count		    1
-  }
-  BlockTypeCount {
     Type		    "ZeroOrderHold"
-    Count		    4
+    Count		    3
   }
   BlockTypeCount {
     Type		    "DataTypeConversion"
@@ -1021,13 +1005,13 @@ CompiledModel {
       Type		      root
       SubsystemBlockIndex     [-1, -1]
       NVOwnerSysIdx	      1
-      NumBlocks		      31
+      NumBlocks		      27
       NumOutportBlocks	      2
       OutportBlocks	      [0:1]
-      NumSubsystemBlocks      8
-      SubsystemBlocks	      [2:9]
-      NumChildSubsystems      8
-      ChildSubsystems	      [1:8]
+      NumSubsystemBlocks      7
+      SubsystemBlocks	      [2:8]
+      NumChildSubsystems      7
+      ChildSubsystems	      [1:7]
       Block {
 	Name			"<Root>/dph_sim"
 	SLName			"dph_sim"
@@ -1059,28 +1043,6 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<Root>/Discrete Derivative"
-	SLName			"Discrete Derivative"
-	SID			"403"
-	Type			SubSystem
-	Virtual			1
-	NumDataInputPorts	1
-	DataInputPort {
-	  SLName		  "U"
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B40]
-	  }
-	}
-	DataOutputPort {
-	  SLName		  "Y"
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B43]
-	  }
-	}
-      }
-      Block {
 	Name			"<Root>/Motor Model"
 	SLName			"Motor Model"
 	SID			"405"
@@ -1092,7 +1054,7 @@ CompiledModel {
 	  SLName		  "Signal Input"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B54]
+	    _Source		    [B48]
 	  }
 	}
 	DataOutputPort {
@@ -1143,14 +1105,14 @@ CompiledModel {
 	  SLName		  "Volt in"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B44]
+	    _Source		    [B39]
 	  }
 	}
 	DataOutputPort {
 	  SLName		  "Position out"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B52]
+	    _Source		    [B47]
 	  }
 	}
       }
@@ -1188,7 +1150,7 @@ CompiledModel {
 	  SLName		  "u1"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B55]
+	    _Source		    [B49]
 	  }
 	}
       }
@@ -1237,7 +1199,7 @@ CompiledModel {
 	Parameter {
 	  Name			  "Value"
 	  SLName		  "Value"
-	  _idx			  13
+	  _idx			  12
 	  String		  "4"
 	  StringType		  "Expression"
 	}
@@ -1258,7 +1220,7 @@ CompiledModel {
 	Parameter {
 	  Name			  "Value"
 	  SLName		  "Value"
-	  _idx			  21
+	  _idx			  20
 	  String		  "1"
 	  StringType		  "Expression"
 	}
@@ -1274,19 +1236,19 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B54]
+	    _Source		    [B48]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B55]
+	    _Source		    [B49]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  58
+	  _idx			  57
 	  String		  "-1"
 	  StringType		  "Expression"
 	}
@@ -1338,13 +1300,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B53]
+	    _Source		    [B47]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B54]
+	    _Source		    [B48]
 	  }
 	}
       }
@@ -1387,60 +1349,6 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<Root>/Quantizer"
-	SLName			"Quantizer"
-	SID			"476"
-	Type			Quantizer
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B27]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B39]
-	  }
-	}
-	Parameter {
-	  Name			  "Pulses"
-	  SLName		  "QuantizationInterval"
-	  _idx			  5
-	  IsReference		  1
-	}
-	NumParameters		1
-      }
-      Block {
-	Name			"<Root>/Quantizer2"
-	SLName			"Quantizer2"
-	SID			"478"
-	Type			Quantizer
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B52]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B53]
-	  }
-	}
-	Parameter {
-	  Name			  "Pulses"
-	  SLName		  "QuantizationInterval"
-	  _idx			  5
-	  IsReference		  1
-	}
-	NumParameters		1
-      }
-      Block {
 	Name			"<Root>/Ctrl. Sine"
 	SLName			"Ctrl. Sine"
 	SID			"487"
@@ -1455,14 +1363,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Amplitude"
 	  SLName		  "Amplitude"
-	  _idx			  14
+	  _idx			  13
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Frequency"
 	  SLName		  "Frequency"
-	  _idx			  15
+	  _idx			  14
 	  String		  "2*pi*2/10"
 	  StringType		  "Expression"
 	}
@@ -1483,14 +1391,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Amplitude"
 	  SLName		  "Amplitude"
-	  _idx			  16
+	  _idx			  15
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Frequency"
 	  SLName		  "Frequency"
-	  _idx			  17
+	  _idx			  16
 	  String		  ""
 	  StringTransformed	  "2*pi*2/10"
 	  StringType		  "Computed"
@@ -1512,14 +1420,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Amplitude"
 	  SLName		  "Amplitude"
-	  _idx			  25
+	  _idx			  24
 	  String		  "50"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Frequency"
 	  SLName		  "Frequency"
-	  _idx			  26
+	  _idx			  25
 	  String		  "2*pi*2/10"
 	  StringType		  "Expression"
 	}
@@ -1540,14 +1448,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Amplitude"
 	  SLName		  "Amplitude"
-	  _idx			  27
+	  _idx			  26
 	  String		  "50"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Frequency"
 	  SLName		  "Frequency"
-	  _idx			  28
+	  _idx			  27
 	  String		  ""
 	  StringTransformed	  "2/10"
 	  StringType		  "Computed"
@@ -1569,21 +1477,21 @@ CompiledModel {
 	Parameter {
 	  Name			  "Time"
 	  SLName		  "Time"
-	  _idx			  18
+	  _idx			  17
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Before"
 	  SLName		  "Before"
-	  _idx			  19
+	  _idx			  18
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "After"
 	  SLName		  "After"
-	  _idx			  20
+	  _idx			  19
 	  String		  "24"
 	  StringType		  "Expression"
 	}
@@ -1604,21 +1512,21 @@ CompiledModel {
 	Parameter {
 	  Name			  "Time"
 	  SLName		  "Time"
-	  _idx			  39
+	  _idx			  38
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Before"
 	  SLName		  "Before"
-	  _idx			  40
+	  _idx			  39
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "After"
 	  SLName		  "After"
-	  _idx			  41
+	  _idx			  40
 	  String		  "1"
 	  StringType		  "Expression"
 	}
@@ -1639,21 +1547,21 @@ CompiledModel {
 	Parameter {
 	  Name			  "Time"
 	  SLName		  "Time"
-	  _idx			  22
+	  _idx			  21
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "Before"
 	  SLName		  "Before"
-	  _idx			  23
+	  _idx			  22
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "After"
 	  SLName		  "After"
-	  _idx			  24
+	  _idx			  23
 	  String		  "50"
 	  StringType		  "Expression"
 	}
@@ -1727,33 +1635,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B43]
+	    _Source		    [B27]
 	  }
 	}
 	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B44]
-	  }
-	}
-      }
-      Block {
-	Name			"<Root>/ZOH"
-	SLName			"ZOH"
-	SID			"494"
-	Type			ZeroOrderHold
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
 	    _Source		    [B39]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B40]
 	  }
 	}
       }
@@ -1819,164 +1707,9 @@ CompiledModel {
       }
     }
     Subsystem {
-      Name		      "<Root>/Discrete Derivative"
-      SLName		      "Discrete Derivative"
-      MaskType		      "Discrete Derivative"
-      SubsystemBlockIndex     [0, 2]
-      NVOwnerSysIdx	      1
-      NumBlocks		      6
-      NumInportBlocks	      1
-      InportBlocks	      [0]
-      NumOutportBlocks	      1
-      OutportBlocks	      [1]
-      Block {
-	Name			"<S1>/U"
-	SLName			"U"
-	SID			"403:1"
-	Type			Inport
-	Virtual			1
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B40]
-	  }
-	}
-      }
-      Block {
-	Name			"<S1>/Y"
-	SLName			"Y"
-	SID			"403:6"
-	Type			Outport
-	Virtual			1
-	NumDataInputPorts	1
-	NumDataOutputPorts	0
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B43]
-	  }
-	}
-      }
-      Block {
-	Name			"<S1>/Diff"
-	SLName			"Diff"
-	SID			"403:3"
-	Type			Sum
-	Description		"\nAdd in CPU"
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	2
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B41]
-	  }
-	}
-	DataInputPort {
-	  SignalLabel		  "U(k-1)"
-	  Region {
-	    _Source		    [B42]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B43]
-	  }
-	}
-      }
-      Block {
-	Name			"<S1>/Data Type Duplicate"
-	SLName			"Data Type\nDuplicate"
-	SID			"403:2"
-	Type			DataTypeDuplicate
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	3
-	NumDataOutputPorts	0
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B43]
-	  }
-	}
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B41]
-	  }
-	}
-	DataInputPort {
-	  SignalLabel		  "U(k-1)"
-	  Region {
-	    _Source		    [B42]
-	  }
-	}
-      }
-      Block {
-	Name			"<S1>/TSamp"
-	SLName			"TSamp"
-	SID			"403:4"
-	Type			SampleTimeMath
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B40]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B41]
-	  }
-	}
-	Parameter {
-	  Name			  "WtEt"
-	  SLName		  "WtEt"
-	  _idx			  52
-	  String		  ""
-	  StringType		  "Computed"
-	}
-	NumParameters		1
-      }
-      Block {
-	Name			"<S1>/UD"
-	SLName			"UD"
-	SID			"403:5"
-	Type			UnitDelay
-	Description		"\nStore in Global RAM"
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B41]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  "U(k-1)"
-	  Region {
-	    _Source		    [B42]
-	  }
-	}
-	Parameter {
-	  Name			  "InitialCondition"
-	  SLName		  "InitialCondition"
-	  _idx			  53
-	  String		  "ICPrevScaledInput"
-	  StringType		  "Expression"
-	}
-	NumParameters		1
-	DiscState {
-	  _idx			  4
-	}
-	NumDiscStates		1
-      }
-    }
-    Subsystem {
       Name		      "<Root>/Motor Model"
       SLName		      "Motor Model"
-      SubsystemBlockIndex     [0, 3]
+      SubsystemBlockIndex     [0, 2]
       NVOwnerSysIdx	      1
       NumBlocks		      16
       NumInportBlocks	      1
@@ -1984,7 +1717,7 @@ CompiledModel {
       NumOutportBlocks	      2
       OutportBlocks	      [1:2]
       Block {
-	Name			"<S2>/Signal Input"
+	Name			"<S1>/Signal Input"
 	SLName			"Signal Input"
 	SID			"406"
 	Type			Inport
@@ -1992,12 +1725,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B54]
+	    _Source		    [B48]
 	  }
 	}
       }
       Block {
-	Name			"<S2>/dph_sim"
+	Name			"<S1>/dph_sim"
 	SLName			"dph_sim"
 	SID			"420"
 	Type			Outport
@@ -2012,7 +1745,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S2>/phi_sim"
+	Name			"<S1>/phi_sim"
 	SLName			"phi_sim"
 	SID			"421"
 	Type			Outport
@@ -2027,7 +1760,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S2>/Jeq"
+	Name			"<S1>/Jeq"
 	SLName			"Jeq"
 	SID			"415"
 	Type			Constant
@@ -2047,36 +1780,9 @@ CompiledModel {
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/Friction"
+	Name			"<S1>/Friction"
 	SLName			"Friction"
 	SID			"408"
-	Type			Gain
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B60]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B61]
-	  }
-	}
-	Parameter {
-	  Name			  "dm"
-	  SLName		  "Gain"
-	  _idx			  6
-	  IsReference		  1
-	}
-	NumParameters		1
-      }
-      Block {
-	Name			"<S2>/Gain2"
-	SLName			"Gain2"
-	SID			"409"
 	Type			Gain
 	_blkref			[1, -1, 18]
 	NumDataInputPorts	1
@@ -2089,20 +1795,47 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B59]
+	    _Source		    [B55]
+	  }
+	}
+	Parameter {
+	  Name			  "dm"
+	  SLName		  "Gain"
+	  _idx			  5
+	  IsReference		  1
+	}
+	NumParameters		1
+      }
+      Block {
+	Name			"<S1>/Gain2"
+	SLName			"Gain2"
+	SID			"409"
+	Type			Gain
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	1
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B48]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B53]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  64
+	  _idx			  63
 	  String		  "Km/R"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/Gain4"
+	Name			"<S1>/Gain4"
 	SLName			"Gain4"
 	SID			"410"
 	Type			Gain
@@ -2117,20 +1850,20 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B62]
+	    _Source		    [B56]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  65
+	  _idx			  64
 	  String		  "Km*Kemf/(R)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/Gain6"
+	Name			"<S1>/Gain6"
 	SLName			"Gain6"
 	SID			"411"
 	Type			Gain
@@ -2151,14 +1884,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  12
+	  _idx			  11
 	  String		  "1/n"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/Gain7"
+	Name			"<S1>/Gain7"
 	SLName			"Gain7"
 	SID			"412"
 	Type			Gain
@@ -2179,14 +1912,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  10
+	  _idx			  9
 	  String		  "1/n"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/eps_Jeq"
+	Name			"<S1>/eps_Jeq"
 	SLName			"eps_Jeq"
 	SID			"418"
 	Type			Gain
@@ -2201,19 +1934,19 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B65]
+	    _Source		    [B59]
 	  }
 	}
 	Parameter {
 	  Name			  "eps_Jeq"
 	  SLName		  "Gain"
-	  _idx			  7
+	  _idx			  6
 	  IsReference		  1
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/eps_dm"
+	Name			"<S1>/eps_dm"
 	SLName			"eps_dm"
 	SID			"419"
 	Type			Gain
@@ -2228,19 +1961,19 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B60]
+	    _Source		    [B54]
 	  }
 	}
 	Parameter {
 	  Name			  "eps_dm"
 	  SLName		  "Gain"
-	  _idx			  8
+	  _idx			  7
 	  IsReference		  1
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S2>/Integrator1"
+	Name			"<S1>/Integrator1"
 	SLName			"Integrator1"
 	SID			"413"
 	Type			Integrator
@@ -2249,7 +1982,7 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B66]
+	    _Source		    [B60]
 	  }
 	}
 	DataOutputPort {
@@ -2261,7 +1994,7 @@ CompiledModel {
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  9
+	  _idx			  8
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -2276,7 +2009,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S2>/Integrator2"
+	Name			"<S1>/Integrator2"
 	SLName			"Integrator2"
 	SID			"414"
 	Type			Integrator
@@ -2297,7 +2030,7 @@ CompiledModel {
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  11
+	  _idx			  10
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -2312,7 +2045,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S2>/Divide"
+	Name			"<S1>/Divide"
 	SLName			"Divide"
 	SID			"407"
 	Type			Product
@@ -2321,24 +2054,24 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B64]
+	    _Source		    [B58]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B65]
+	    _Source		    [B59]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B66]
+	    _Source		    [B60]
 	  }
 	}
       }
       Block {
-	Name			"<S2>/Sum1"
+	Name			"<S1>/Sum1"
 	SLName			"Sum1"
 	SID			"416"
 	Type			Sum
@@ -2347,24 +2080,24 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B59]
+	    _Source		    [B53]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B63]
+	    _Source		    [B57]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B64]
+	    _Source		    [B58]
 	  }
 	}
       }
       Block {
-	Name			"<S2>/Sum2"
+	Name			"<S1>/Sum2"
 	SLName			"Sum2"
 	SID			"417"
 	Type			Sum
@@ -2373,19 +2106,19 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B61]
+	    _Source		    [B55]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B62]
+	    _Source		    [B56]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B63]
+	    _Source		    [B57]
 	  }
 	}
       }
@@ -2393,7 +2126,7 @@ CompiledModel {
     Subsystem {
       Name		      "<Root>/PID_pos_discrete  "
       SLName		      "PID_pos_discrete\n\n"
-      SubsystemBlockIndex     [0, 4]
+      SubsystemBlockIndex     [0, 3]
       NVOwnerSysIdx	      1
       NumBlocks		      16
       NumInportBlocks	      1
@@ -2401,7 +2134,7 @@ CompiledModel {
       NumOutportBlocks	      1
       OutportBlocks	      [1]
       Block {
-	Name			"<S3>/Volt in"
+	Name			"<S2>/Volt in"
 	SLName			"Volt in"
 	SID			"424"
 	Type			Inport
@@ -2414,7 +2147,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S3>/Speed out"
+	Name			"<S2>/Speed out"
 	SLName			"Speed out"
 	SID			"435"
 	Type			Outport
@@ -2429,7 +2162,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S3>/Discrete-Time Integrator1"
+	Name			"<S2>/Discrete-Time Integrator1"
 	SLName			"Discrete-Time\nIntegrator1"
 	SID			"427"
 	Type			DiscreteIntegrator
@@ -2450,14 +2183,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "gainval"
 	  SLName		  "gainval"
-	  _idx			  45
+	  _idx			  44
 	  String		  ""
 	  StringType		  "Computed"
 	}
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  46
+	  _idx			  45
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -2468,7 +2201,7 @@ CompiledModel {
 	NumDiscStates		1
       }
       Block {
-	Name			"<S3>/Discrete-Time Integrator2"
+	Name			"<S2>/Discrete-Time Integrator2"
 	SLName			"Discrete-Time\nIntegrator2"
 	SID			"428"
 	Type			DiscreteIntegrator
@@ -2477,7 +2210,7 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B71]
+	    _Source		    [B65]
 	  }
 	}
 	DataOutputPort {
@@ -2489,14 +2222,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "gainval"
 	  SLName		  "gainval"
-	  _idx			  48
+	  _idx			  47
 	  String		  ""
 	  StringType		  "Computed"
 	}
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  49
+	  _idx			  48
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -2507,7 +2240,7 @@ CompiledModel {
 	NumDiscStates		1
       }
       Block {
-	Name			"<S3>/Anti-Windup1"
+	Name			"<S2>/Anti-Windup1"
 	SLName			"Anti-Windup1"
 	SID			"614"
 	Type			Gain
@@ -2516,26 +2249,26 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B67]
+	    _Source		    [B61]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B68]
+	    _Source		    [B62]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  66
+	  _idx			  65
 	  String		  "29.6"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Anti-Windup2"
+	Name			"<S2>/Anti-Windup2"
 	SLName			"Anti-Windup2"
 	SID			"615"
 	Type			Gain
@@ -2544,26 +2277,26 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B68]
+	    _Source		    [B62]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B69]
+	    _Source		    [B63]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  67
+	  _idx			  66
 	  String		  "1"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Derivative Gain2"
+	Name			"<S2>/Derivative Gain2"
 	SLName			"Derivative Gain2"
 	SID			"426"
 	Type			Gain
@@ -2584,14 +2317,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  44
+	  _idx			  43
 	  String		  "double(Dpos_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Filter Gain1"
+	Name			"<S2>/Filter Gain1"
 	SLName			"Filter Gain1"
 	SID			"429"
 	Type			Gain
@@ -2612,14 +2345,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  47
+	  _idx			  46
 	  String		  "double(Npos_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Integral Gain2"
+	Name			"<S2>/Integral Gain2"
 	SLName			"Integral Gain2"
 	SID			"430"
 	Type			Gain
@@ -2634,20 +2367,20 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B70]
+	    _Source		    [B64]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  68
+	  _idx			  67
 	  String		  "double(Ipos_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Proportional Gain1"
+	Name			"<S2>/Proportional Gain1"
 	SLName			"Proportional Gain1"
 	SID			"431"
 	Type			Gain
@@ -2668,14 +2401,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  43
+	  _idx			  42
 	  String		  "double(Ppos_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S3>/Saturation"
+	Name			"<S2>/Saturation"
 	SLName			"Saturation"
 	SID			"432"
 	Type			Saturate
@@ -2696,21 +2429,21 @@ CompiledModel {
 	Parameter {
 	  Name			  "UpperLimit"
 	  SLName		  "UpperLimit"
-	  _idx			  50
+	  _idx			  49
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "LowerLimit"
 	  SLName		  "LowerLimit"
-	  _idx			  51
+	  _idx			  50
 	  String		  "-24"
 	  StringType		  "Expression"
 	}
 	NumParameters		2
       }
       Block {
-	Name			"<S3>/Add2"
+	Name			"<S2>/Add2"
 	SLName			"Add2"
 	SID			"425"
 	Type			Sum
@@ -2736,7 +2469,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S3>/Sum1"
+	Name			"<S2>/Sum1"
 	SLName			"Sum1"
 	SID			"433"
 	Type			Sum
@@ -2762,7 +2495,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S3>/Sum2"
+	Name			"<S2>/Sum2"
 	SLName			"Sum2"
 	SID			"619"
 	Type			Sum
@@ -2783,12 +2516,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B67]
+	    _Source		    [B61]
 	  }
 	}
       }
       Block {
-	Name			"<S3>/Sum3"
+	Name			"<S2>/Sum3"
 	SLName			"Sum3"
 	SID			"434"
 	Type			Sum
@@ -2814,7 +2547,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S3>/Sum5"
+	Name			"<S2>/Sum5"
 	SLName			"Sum5"
 	SID			"621"
 	Type			Sum
@@ -2823,19 +2556,19 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B70]
+	    _Source		    [B64]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B69]
+	    _Source		    [B63]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B71]
+	    _Source		    [B65]
 	  }
 	}
       }
@@ -2843,15 +2576,15 @@ CompiledModel {
     Subsystem {
       Name		      "<Root>/PID_position_continuous "
       SLName		      "PID_position_continuous\n"
-      SubsystemBlockIndex     [0, 5]
+      SubsystemBlockIndex     [0, 4]
       NVOwnerSysIdx	      1
-      NumBlocks		      11
+      NumBlocks		      15
       NumInportBlocks	      1
       InportBlocks	      [0]
       NumOutportBlocks	      1
       OutportBlocks	      [1]
       Block {
-	Name			"<S4>/Volt in"
+	Name			"<S3>/Volt in"
 	SLName			"Volt in"
 	SID			"437"
 	Type			Inport
@@ -2859,12 +2592,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B44]
+	    _Source		    [B39]
 	  }
 	}
       }
       Block {
-	Name			"<S4>/Position out"
+	Name			"<S3>/Position out"
 	SLName			"Position out"
 	SID			"447"
 	Type			Outport
@@ -2874,12 +2607,146 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B52]
+	    _Source		    [B47]
 	  }
 	}
       }
       Block {
-	Name			"<S4>/Derivative Gain"
+	Name			"<S3>/Discrete-Time Integrator1"
+	SLName			"Discrete-Time\nIntegrator1"
+	SID			"704"
+	Type			DiscreteIntegrator
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	1
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B70]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B41]
+	  }
+	}
+	Parameter {
+	  Name			  "gainval"
+	  SLName		  "gainval"
+	  _idx			  51
+	  String		  ""
+	  StringType		  "Computed"
+	}
+	Parameter {
+	  Name			  "InitialCondition"
+	  SLName		  "InitialCondition"
+	  _idx			  52
+	  String		  "0"
+	  StringType		  "Expression"
+	}
+	NumParameters		2
+	DiscState {
+	  _idx			  4
+	}
+	NumDiscStates		1
+      }
+      Block {
+	Name			"<S3>/Discrete-Time Integrator2"
+	SLName			"Discrete-Time\nIntegrator2"
+	SID			"705"
+	Type			DiscreteIntegrator
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	1
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B45]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B43]
+	  }
+	}
+	Parameter {
+	  Name			  "gainval"
+	  SLName		  "gainval"
+	  _idx			  53
+	  String		  ""
+	  StringType		  "Computed"
+	}
+	Parameter {
+	  Name			  "InitialCondition"
+	  SLName		  "InitialCondition"
+	  _idx			  54
+	  String		  "0"
+	  StringType		  "Expression"
+	}
+	NumParameters		2
+	DiscState {
+	  _idx			  5
+	}
+	NumDiscStates		1
+      }
+      Block {
+	Name			"<S3>/Anti-Windup"
+	SLName			"Anti-Windup"
+	SID			"626"
+	Type			Gain
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	1
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B66]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B67]
+	  }
+	}
+	Parameter {
+	  Name			  "Gain"
+	  SLName		  "Gain"
+	  _idx			  68
+	  String		  "29.6"
+	  StringType		  "Expression"
+	}
+	NumParameters		1
+      }
+      Block {
+	Name			"<S3>/Anti-Windup1"
+	SLName			"Anti-Windup1"
+	SID			"627"
+	Type			Gain
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	1
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B67]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B68]
+	  }
+	}
+	Parameter {
+	  Name			  "Gain"
+	  SLName		  "Gain"
+	  _idx			  69
+	  String		  "1"
+	  StringType		  "Expression"
+	}
+	NumParameters		1
+      }
+      Block {
+	Name			"<S3>/Derivative Gain"
 	SLName			"Derivative Gain"
 	SID			"438"
 	Type			Gain
@@ -2888,13 +2755,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B44]
+	    _Source		    [B39]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B47]
+	    _Source		    [B42]
 	  }
 	}
 	Parameter {
@@ -2906,7 +2773,7 @@ CompiledModel {
 	NumParameters		1
       }
       Block {
-	Name			"<S4>/Filter Gain"
+	Name			"<S3>/Filter Gain"
 	SLName			"Filter Gain"
 	SID			"439"
 	Type			Gain
@@ -2915,13 +2782,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B49]
+	    _Source		    [B44]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B50]
+	    _Source		    [B45]
 	  }
 	}
 	Parameter {
@@ -2933,7 +2800,7 @@ CompiledModel {
 	NumParameters		1
       }
       Block {
-	Name			"<S4>/Integral Gain"
+	Name			"<S3>/Integral Gain"
 	SLName			"Integral Gain"
 	SID			"440"
 	Type			Gain
@@ -2942,13 +2809,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B44]
+	    _Source		    [B39]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B72]
+	    _Source		    [B69]
 	  }
 	}
 	Parameter {
@@ -2960,7 +2827,7 @@ CompiledModel {
 	NumParameters		1
       }
       Block {
-	Name			"<S4>/Proportional Gain"
+	Name			"<S3>/Proportional Gain"
 	SLName			"Proportional Gain"
 	SID			"443"
 	Type			Gain
@@ -2969,13 +2836,13 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B44]
+	    _Source		    [B39]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B45]
+	    _Source		    [B40]
 	  }
 	}
 	Parameter {
@@ -2987,79 +2854,7 @@ CompiledModel {
 	NumParameters		1
       }
       Block {
-	Name			"<S4>/Integrator"
-	SLName			"Integrator"
-	SID			"441"
-	Type			Integrator
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B72]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B46]
-	  }
-	}
-	Parameter {
-	  Name			  "InitialCondition"
-	  SLName		  "InitialCondition"
-	  _idx			  54
-	  String		  "0"
-	  StringType		  "Expression"
-	}
-	NumParameters		1
-	NumContStates		1
-	NumDerivatives		1
-	ContState {
-	  _idx			  2
-	}
-	Derivative {
-	  _idx			  2
-	}
-      }
-      Block {
-	Name			"<S4>/Integrator1"
-	SLName			"Integrator1"
-	SID			"442"
-	Type			Integrator
-	_blkref			[1, -1, 18]
-	NumDataInputPorts	1
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B50]
-	  }
-	}
-	DataOutputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [B48]
-	  }
-	}
-	Parameter {
-	  Name			  "InitialCondition"
-	  SLName		  "InitialCondition"
-	  _idx			  55
-	  String		  "0"
-	  StringType		  "Expression"
-	}
-	NumParameters		1
-	NumContStates		1
-	NumDerivatives		1
-	ContState {
-	  _idx			  3
-	}
-	Derivative {
-	  _idx			  3
-	}
-      }
-      Block {
-	Name			"<S4>/Saturation"
+	Name			"<S3>/Saturation"
 	SLName			"Saturation"
 	SID			"444"
 	Type			Saturate
@@ -3068,33 +2863,33 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B51]
+	    _Source		    [B46]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B52]
+	    _Source		    [B47]
 	  }
 	}
 	Parameter {
 	  Name			  "UpperLimit"
 	  SLName		  "UpperLimit"
-	  _idx			  56
+	  _idx			  55
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "LowerLimit"
 	  SLName		  "LowerLimit"
-	  _idx			  57
+	  _idx			  56
 	  String		  "-24"
 	  StringType		  "Expression"
 	}
 	NumParameters		2
       }
       Block {
-	Name			"<S4>/Sum"
+	Name			"<S3>/Sum"
 	SLName			"Sum"
 	SID			"445"
 	Type			Sum
@@ -3103,24 +2898,24 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B47]
+	    _Source		    [B42]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B48]
+	    _Source		    [B43]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B49]
+	    _Source		    [B44]
 	  }
 	}
       }
       Block {
-	Name			"<S4>/Sum1"
+	Name			"<S3>/Sum1"
 	SLName			"Sum1"
 	SID			"446"
 	Type			Sum
@@ -3129,9 +2924,35 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
+	    _Source		    [B40]
+	  }
+	}
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B41]
+	  }
+	}
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
 	    _Source		    [B45]
 	  }
 	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B46]
+	  }
+	}
+      }
+      Block {
+	Name			"<S3>/Sum3"
+	SLName			"Sum3"
+	SID			"634"
+	Type			Sum
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	2
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
@@ -3141,13 +2962,39 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B50]
+	    _Source		    [B47]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B51]
+	    _Source		    [B66]
+	  }
+	}
+      }
+      Block {
+	Name			"<S3>/Sum4"
+	SLName			"Sum4"
+	SID			"635"
+	Type			Sum
+	_blkref			[1, -1, 18]
+	NumDataInputPorts	2
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B69]
+	  }
+	}
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B68]
+	  }
+	}
+	DataOutputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [B70]
 	  }
 	}
       }
@@ -3155,7 +3002,7 @@ CompiledModel {
     Subsystem {
       Name		      "<Root>/PID_speed_discrete"
       SLName		      "PID_speed_discrete"
-      SubsystemBlockIndex     [0, 6]
+      SubsystemBlockIndex     [0, 5]
       NVOwnerSysIdx	      1
       NumBlocks		      16
       NumInportBlocks	      1
@@ -3163,7 +3010,7 @@ CompiledModel {
       NumOutportBlocks	      1
       OutportBlocks	      [1]
       Block {
-	Name			"<S5>/Volt in"
+	Name			"<S4>/Volt in"
 	SLName			"Volt in"
 	SID			"449"
 	Type			Inport
@@ -3176,7 +3023,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S5>/Speed out"
+	Name			"<S4>/Speed out"
 	SLName			"Speed out"
 	SID			"460"
 	Type			Outport
@@ -3191,7 +3038,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S5>/Discrete-Time Integrator1"
+	Name			"<S4>/Discrete-Time Integrator1"
 	SLName			"Discrete-Time\nIntegrator1"
 	SID			"452"
 	Type			DiscreteIntegrator
@@ -3212,14 +3059,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "gainval"
 	  SLName		  "gainval"
-	  _idx			  32
+	  _idx			  31
 	  String		  ""
 	  StringType		  "Computed"
 	}
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  33
+	  _idx			  32
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -3230,7 +3077,7 @@ CompiledModel {
 	NumDiscStates		1
       }
       Block {
-	Name			"<S5>/Discrete-Time Integrator2"
+	Name			"<S4>/Discrete-Time Integrator2"
 	SLName			"Discrete-Time\nIntegrator2"
 	SID			"453"
 	Type			DiscreteIntegrator
@@ -3239,7 +3086,7 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B77]
+	    _Source		    [B75]
 	  }
 	}
 	DataOutputPort {
@@ -3251,14 +3098,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "gainval"
 	  SLName		  "gainval"
-	  _idx			  35
+	  _idx			  34
 	  String		  ""
 	  StringType		  "Computed"
 	}
 	Parameter {
 	  Name			  "InitialCondition"
 	  SLName		  "InitialCondition"
-	  _idx			  36
+	  _idx			  35
 	  String		  "0"
 	  StringType		  "Expression"
 	}
@@ -3269,7 +3116,7 @@ CompiledModel {
 	NumDiscStates		1
       }
       Block {
-	Name			"<S5>/Anti-Windup"
+	Name			"<S4>/Anti-Windup"
 	SLName			"Anti-Windup"
 	SID			"519"
 	Type			Gain
@@ -3278,26 +3125,26 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B73]
+	    _Source		    [B71]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B74]
+	    _Source		    [B72]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  69
+	  _idx			  70
 	  String		  "29.6"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Anti-Windup1"
+	Name			"<S4>/Anti-Windup1"
 	SLName			"Anti-Windup1"
 	SID			"577"
 	Type			Gain
@@ -3306,26 +3153,26 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B74]
+	    _Source		    [B72]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B75]
+	    _Source		    [B73]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  70
+	  _idx			  71
 	  String		  "1"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Derivative Gain2"
+	Name			"<S4>/Derivative Gain2"
 	SLName			"Derivative Gain2"
 	SID			"451"
 	Type			Gain
@@ -3346,14 +3193,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  31
+	  _idx			  30
 	  String		  "double(Dsp_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Filter Gain1"
+	Name			"<S4>/Filter Gain1"
 	SLName			"Filter Gain1"
 	SID			"454"
 	Type			Gain
@@ -3374,14 +3221,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  34
+	  _idx			  33
 	  String		  "double(Nsp_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Integral Gain2"
+	Name			"<S4>/Integral Gain2"
 	SLName			"Integral Gain2"
 	SID			"455"
 	Type			Gain
@@ -3396,20 +3243,20 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B76]
+	    _Source		    [B74]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  71
+	  _idx			  72
 	  String		  "double(Isp_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Proportional Gain1"
+	Name			"<S4>/Proportional Gain1"
 	SLName			"Proportional Gain1"
 	SID			"456"
 	Type			Gain
@@ -3430,14 +3277,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  30
+	  _idx			  29
 	  String		  "double(Psp_d)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S5>/Saturation"
+	Name			"<S4>/Saturation"
 	SLName			"Saturation"
 	SID			"457"
 	Type			Saturate
@@ -3458,21 +3305,21 @@ CompiledModel {
 	Parameter {
 	  Name			  "UpperLimit"
 	  SLName		  "UpperLimit"
-	  _idx			  37
+	  _idx			  36
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "LowerLimit"
 	  SLName		  "LowerLimit"
-	  _idx			  38
+	  _idx			  37
 	  String		  "-24"
 	  StringType		  "Expression"
 	}
 	NumParameters		2
       }
       Block {
-	Name			"<S5>/Add2"
+	Name			"<S4>/Add2"
 	SLName			"Add2"
 	SID			"450"
 	Type			Sum
@@ -3498,7 +3345,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S5>/Sum1"
+	Name			"<S4>/Sum1"
 	SLName			"Sum1"
 	SID			"458"
 	Type			Sum
@@ -3524,7 +3371,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S5>/Sum2"
+	Name			"<S4>/Sum2"
 	SLName			"Sum2"
 	SID			"517"
 	Type			Sum
@@ -3545,12 +3392,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B73]
+	    _Source		    [B71]
 	  }
 	}
       }
       Block {
-	Name			"<S5>/Sum3"
+	Name			"<S4>/Sum3"
 	SLName			"Sum3"
 	SID			"459"
 	Type			Sum
@@ -3576,7 +3423,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S5>/Sum4"
+	Name			"<S4>/Sum4"
 	SLName			"Sum4"
 	SID			"518"
 	Type			Sum
@@ -3585,19 +3432,19 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B76]
+	    _Source		    [B74]
 	  }
 	}
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B75]
+	    _Source		    [B73]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B77]
+	    _Source		    [B75]
 	  }
 	}
       }
@@ -3605,7 +3452,7 @@ CompiledModel {
     Subsystem {
       Name		      "<Root>/PWM"
       SLName		      "PWM"
-      SubsystemBlockIndex     [0, 7]
+      SubsystemBlockIndex     [0, 6]
       NVOwnerSysIdx	      1
       NumBlocks		      12
       NumInportBlocks	      1
@@ -3613,9 +3460,9 @@ CompiledModel {
       NumSubsystemBlocks      2
       SubsystemBlocks	      [1:2]
       NumChildSubsystems      2
-      ChildSubsystems	      [9:10]
+      ChildSubsystems	      [8:9]
       Block {
-	Name			"<S6>/u1"
+	Name			"<S5>/u1"
 	SLName			"u1"
 	SID			"462"
 	Type			Inport
@@ -3623,12 +3470,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B55]
+	    _Source		    [B49]
 	  }
 	}
       }
       Block {
-	Name			"<S6>/DS1104BIT_OUT_C0"
+	Name			"<S5>/DS1104BIT_OUT_C0"
 	SLName			"DS1104BIT_OUT_C0"
 	SID			"463"
 	Type			SubSystem
@@ -3639,12 +3486,12 @@ CompiledModel {
 	  SLName		  "Dig_out"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B78]
+	    _Source		    [B76]
 	  }
 	}
       }
       Block {
-	Name			"<S6>/DS1104SL_DSP_PWM"
+	Name			"<S5>/DS1104SL_DSP_PWM"
 	SLName			"DS1104SL_DSP_PWM"
 	SID			"464"
 	Type			SubSystem
@@ -3655,7 +3502,7 @@ CompiledModel {
 	  SLName		  "PWM Channel 1"
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B58]
+	    _Source		    [B52]
 	  }
 	}
 	DataInputPort {
@@ -3681,7 +3528,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S6>/Enable[1_Off, 0_On]"
+	Name			"<S5>/Enable[1_Off, 0_On]"
 	SLName			"Enable[1_Off, 0_On]"
 	SID			"466"
 	Type			Constant
@@ -3695,14 +3542,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Value"
 	  SLName		  "Value"
-	  _idx			  63
+	  _idx			  62
 	  String		  "1"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S6>/pwm_offstet"
+	Name			"<S5>/pwm_offstet"
 	SLName			"pwm_offstet"
 	SID			"472"
 	Type			Constant
@@ -3716,14 +3563,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Value"
 	  SLName		  "Value"
-	  _idx			  62
+	  _idx			  61
 	  String		  "0.5"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S6>/Data Type Conversion"
+	Name			"<S5>/Data Type Conversion"
 	SLName			"Data Type Conversion"
 	SID			"465"
 	Type			DataTypeConversion
@@ -3738,12 +3585,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B78]
+	    _Source		    [B76]
 	  }
 	}
       }
       Block {
-	Name			"<S6>/pwm_skalning"
+	Name			"<S5>/pwm_skalning"
 	SLName			"pwm_skalning"
 	SID			"473"
 	Type			Gain
@@ -3752,26 +3599,26 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B56]
+	    _Source		    [B50]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B57]
+	    _Source		    [B51]
 	  }
 	}
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  61
+	  _idx			  60
 	  String		  "1/48"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S6>/Ground1"
+	Name			"<S5>/Ground1"
 	SLName			"Ground1"
 	SID			"467"
 	Type			Ground
@@ -3784,7 +3631,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S6>/Ground2"
+	Name			"<S5>/Ground2"
 	SLName			"Ground2"
 	SID			"468"
 	Type			Ground
@@ -3797,7 +3644,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S6>/Ground3"
+	Name			"<S5>/Ground3"
 	SLName			"Ground3"
 	SID			"469"
 	Type			Ground
@@ -3810,7 +3657,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S6>/Saturation"
+	Name			"<S5>/Saturation"
 	SLName			"Saturation"
 	SID			"470"
 	Type			Saturate
@@ -3819,33 +3666,33 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B55]
+	    _Source		    [B49]
 	  }
 	}
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B56]
+	    _Source		    [B50]
 	  }
 	}
 	Parameter {
 	  Name			  "UpperLimit"
 	  SLName		  "UpperLimit"
-	  _idx			  59
+	  _idx			  58
 	  String		  "24"
 	  StringType		  "Expression"
 	}
 	Parameter {
 	  Name			  "LowerLimit"
 	  SLName		  "LowerLimit"
-	  _idx			  60
+	  _idx			  59
 	  String		  "-24"
 	  StringType		  "Expression"
 	}
 	NumParameters		2
       }
       Block {
-	Name			"<S6>/Sum"
+	Name			"<S5>/Sum"
 	SLName			"Sum"
 	SID			"471"
 	Type			Sum
@@ -3854,7 +3701,7 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B57]
+	    _Source		    [B51]
 	  }
 	}
 	DataInputPort {
@@ -3866,7 +3713,7 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B58]
+	    _Source		    [B52]
 	  }
 	}
       }
@@ -3875,17 +3722,17 @@ CompiledModel {
       Name		      "<Root>/RTI Data"
       SLName		      "RTI Data"
       MaskType		      "RTI_DATA_HOST"
-      SubsystemBlockIndex     [0, 8]
+      SubsystemBlockIndex     [0, 7]
       NVOwnerSysIdx	      1
       NumBlocks		      1
       NumSubsystemBlocks      1
       SubsystemBlocks	      [0]
       NumChildSubsystems      1
-      ChildSubsystems	      [11]
+      ChildSubsystems	      [10]
       Block {
-	Name			"<S7>/RTI Data Store"
+	Name			"<S6>/RTI Data Store"
 	SLName			"RTI Data Store"
-	SID			"622"
+	SID			"706"
 	Type			SubSystem
 	Virtual			1
 	NumDataOutputPorts	0
@@ -3894,7 +3741,7 @@ CompiledModel {
     Subsystem {
       Name		      "<Root>/enc I//F"
       SLName		      "enc I//F"
-      SubsystemBlockIndex     [0, 9]
+      SubsystemBlockIndex     [0, 8]
       NVOwnerSysIdx	      1
       NumBlocks		      8
       NumOutportBlocks	      2
@@ -3902,9 +3749,9 @@ CompiledModel {
       NumSubsystemBlocks      3
       SubsystemBlocks	      [2:4]
       NumChildSubsystems      3
-      ChildSubsystems	      [12:14]
+      ChildSubsystems	      [11:13]
       Block {
-	Name			"<S8>/fi1"
+	Name			"<S7>/fi1"
 	SLName			"fi1"
 	SID			"505"
 	Type			Outport
@@ -3919,7 +3766,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S8>/w1"
+	Name			"<S7>/w1"
 	SLName			"w1"
 	SID			"506"
 	Type			Outport
@@ -3934,7 +3781,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S8>/DS1104ENC_POS_C1"
+	Name			"<S7>/DS1104ENC_POS_C1"
 	SLName			"DS1104ENC_POS_C1"
 	SID			"499"
 	Type			SubSystem
@@ -3956,7 +3803,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S8>/DS1104ENC_SETUP"
+	Name			"<S7>/DS1104ENC_SETUP"
 	SLName			"DS1104ENC_SETUP"
 	SID			"500"
 	Type			SubSystem
@@ -3964,7 +3811,7 @@ CompiledModel {
 	NumDataOutputPorts	0
       }
       Block {
-	Name			"<S8>/DS1104ENC_SET_POS_C1"
+	Name			"<S7>/DS1104ENC_SET_POS_C1"
 	SLName			"DS1104ENC_SET_POS_C1"
 	SID			"501"
 	Type			SubSystem
@@ -3980,7 +3827,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S8>/Reset enc"
+	Name			"<S7>/Reset enc"
 	SLName			"Reset enc"
 	SID			"502"
 	Type			Constant
@@ -3994,14 +3841,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Value"
 	  SLName		  "Value"
-	  _idx			  72
+	  _idx			  73
 	  String		  "0"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S8>/fi1_scaling"
+	Name			"<S7>/fi1_scaling"
 	SLName			"fi1_scaling"
 	SID			"503"
 	Type			Gain
@@ -4022,14 +3869,14 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  42
+	  _idx			  41
 	  String		  "2*pi/(1000)"
 	  StringType		  "Expression"
 	}
 	NumParameters		1
       }
       Block {
-	Name			"<S8>/w1_scaling"
+	Name			"<S7>/w1_scaling"
 	SLName			"w1_scaling"
 	SID			"504"
 	Type			Gain
@@ -4050,7 +3897,7 @@ CompiledModel {
 	Parameter {
 	  Name			  "Gain"
 	  SLName		  "Gain"
-	  _idx			  29
+	  _idx			  28
 	  String		  "2*pi/(1000)/Ts"
 	  StringType		  "Expression"
 	}
@@ -4058,16 +3905,16 @@ CompiledModel {
       }
     }
     Subsystem {
-      Name		      "<S6>/DS1104BIT_OUT_C0"
+      Name		      "<S5>/DS1104BIT_OUT_C0"
       SLName		      "DS1104BIT_OUT_C0"
       MaskType		      "RTI"
-      SubsystemBlockIndex     [6, 1]
+      SubsystemBlockIndex     [5, 1]
       NVOwnerSysIdx	      1
       NumBlocks		      2
       NumInportBlocks	      1
       InportBlocks	      [0]
       Block {
-	Name			"<S9>/Dig_out"
+	Name			"<S8>/Dig_out"
 	SLName			"Dig_out"
 	SID			"463:1"
 	Type			Inport
@@ -4075,12 +3922,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B78]
+	    _Source		    [B76]
 	  }
 	}
       }
       Block {
-	Name			"<S9>/S-Function1"
+	Name			"<S8>/S-Function1"
 	SLName			"S-Function1"
 	SID			"463:2"
 	Type			"S-Function"
@@ -4090,22 +3937,22 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B78]
+	    _Source		    [B76]
 	  }
 	}
       }
     }
     Subsystem {
-      Name		      "<S6>/DS1104SL_DSP_PWM"
+      Name		      "<S5>/DS1104SL_DSP_PWM"
       SLName		      "DS1104SL_DSP_PWM"
       MaskType		      "RTI"
-      SubsystemBlockIndex     [6, 2]
+      SubsystemBlockIndex     [5, 2]
       NVOwnerSysIdx	      1
       NumBlocks		      8
       NumInportBlocks	      4
       InportBlocks	      [0:3]
       Block {
-	Name			"<S10>/PWM Channel 1"
+	Name			"<S9>/PWM Channel 1"
 	SLName			"PWM Channel 1"
 	SID			"464:1"
 	Type			Inport
@@ -4113,12 +3960,12 @@ CompiledModel {
 	DataOutputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B58]
+	    _Source		    [B52]
 	  }
 	}
       }
       Block {
-	Name			"<S10>/PWM Channel 2"
+	Name			"<S9>/PWM Channel 2"
 	SLName			"PWM Channel 2"
 	SID			"464:2"
 	Type			Inport
@@ -4131,7 +3978,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S10>/PWM Channel 3"
+	Name			"<S9>/PWM Channel 3"
 	SLName			"PWM Channel 3"
 	SID			"464:3"
 	Type			Inport
@@ -4144,7 +3991,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S10>/PWM Channel 4"
+	Name			"<S9>/PWM Channel 4"
 	SLName			"PWM Channel 4"
 	SID			"464:4"
 	Type			Inport
@@ -4157,7 +4004,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S10>/S-Function1"
+	Name			"<S9>/S-Function1"
 	SLName			"S-Function1"
 	SID			"464:5"
 	Type			"S-Function"
@@ -4167,28 +4014,7 @@ CompiledModel {
 	DataInputPort {
 	  SignalLabel		  ""
 	  Region {
-	    _Source		    [B58]
-	  }
-	}
-	NumDiscStates		0
-	DWork {
-	  Dimensions		  [1, 4]
-	  _idx			  5
-	}
-	NumDWorks		1
-      }
-      Block {
-	Name			"<S10>/S-Function2"
-	SLName			"S-Function2"
-	SID			"464:6"
-	Type			"S-Function"
-	_blkref			[1, -1, 8]
-	NumDataInputPorts	1
-	NumDataOutputPorts	0
-	DataInputPort {
-	  SignalLabel		  ""
-	  Region {
-	    _Source		    [G0]
+	    _Source		    [B52]
 	  }
 	}
 	NumDiscStates		0
@@ -4199,11 +4025,11 @@ CompiledModel {
 	NumDWorks		1
       }
       Block {
-	Name			"<S10>/S-Function3"
-	SLName			"S-Function3"
-	SID			"464:7"
+	Name			"<S9>/S-Function2"
+	SLName			"S-Function2"
+	SID			"464:6"
 	Type			"S-Function"
-	_blkref			[1, -1, 9]
+	_blkref			[1, -1, 8]
 	NumDataInputPorts	1
 	NumDataOutputPorts	0
 	DataInputPort {
@@ -4220,11 +4046,11 @@ CompiledModel {
 	NumDWorks		1
       }
       Block {
-	Name			"<S10>/S-Function4"
-	SLName			"S-Function4"
-	SID			"464:8"
+	Name			"<S9>/S-Function3"
+	SLName			"S-Function3"
+	SID			"464:7"
 	Type			"S-Function"
-	_blkref			[1, -1, 10]
+	_blkref			[1, -1, 9]
 	NumDataInputPorts	1
 	NumDataOutputPorts	0
 	DataInputPort {
@@ -4240,38 +4066,59 @@ CompiledModel {
 	}
 	NumDWorks		1
       }
+      Block {
+	Name			"<S9>/S-Function4"
+	SLName			"S-Function4"
+	SID			"464:8"
+	Type			"S-Function"
+	_blkref			[1, -1, 10]
+	NumDataInputPorts	1
+	NumDataOutputPorts	0
+	DataInputPort {
+	  SignalLabel		  ""
+	  Region {
+	    _Source		    [G0]
+	  }
+	}
+	NumDiscStates		0
+	DWork {
+	  Dimensions		  [1, 4]
+	  _idx			  9
+	}
+	NumDWorks		1
+      }
     }
     Subsystem {
-      Name		      "<S7>/RTI Data Store"
+      Name		      "<S6>/RTI Data Store"
       SLName		      "RTI Data Store"
       MaskType		      "RTI_DATA_STORE"
-      SubsystemBlockIndex     [7, 0]
+      SubsystemBlockIndex     [6, 0]
       NVOwnerSysIdx	      1
       NumBlocks		      1
       NumSubsystemBlocks      1
       SubsystemBlocks	      [0]
       NumChildSubsystems      1
-      ChildSubsystems	      [15]
+      ChildSubsystems	      [14]
       Block {
-	Name			"<S11>/RTI Data Store"
+	Name			"<S10>/RTI Data Store"
 	SLName			"RTI Data Store"
-	SID			"623"
+	SID			"707"
 	Type			SubSystem
 	Virtual			1
 	NumDataOutputPorts	0
       }
     }
     Subsystem {
-      Name		      "<S8>/DS1104ENC_POS_C1"
+      Name		      "<S7>/DS1104ENC_POS_C1"
       SLName		      "DS1104ENC_POS_C1"
       MaskType		      "RTI"
-      SubsystemBlockIndex     [8, 2]
+      SubsystemBlockIndex     [7, 2]
       NVOwnerSysIdx	      1
       NumBlocks		      4
       NumOutportBlocks	      2
       OutportBlocks	      [0:1]
       Block {
-	Name			"<S14>/Enc position"
+	Name			"<S13>/Enc position"
 	SLName			"Enc position"
 	SID			"499:17"
 	Type			Outport
@@ -4286,7 +4133,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S14>/Enc delta position"
+	Name			"<S13>/Enc delta position"
 	SLName			"Enc delta position"
 	SID			"499:18"
 	Type			Outport
@@ -4301,7 +4148,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S14>/S-Function1"
+	Name			"<S13>/S-Function1"
 	SLName			"S-Function1"
 	SID			"499:15"
 	Type			"S-Function"
@@ -4314,7 +4161,7 @@ CompiledModel {
 	}
       }
       Block {
-	Name			"<S14>/S-Function2"
+	Name			"<S13>/S-Function2"
 	SLName			"S-Function2"
 	SID			"499:16"
 	Type			"S-Function"
@@ -4328,14 +4175,14 @@ CompiledModel {
       }
     }
     Subsystem {
-      Name		      "<S8>/DS1104ENC_SETUP"
+      Name		      "<S7>/DS1104ENC_SETUP"
       SLName		      "DS1104ENC_SETUP"
       MaskType		      "RTI"
-      SubsystemBlockIndex     [8, 3]
+      SubsystemBlockIndex     [7, 3]
       NVOwnerSysIdx	      1
       NumBlocks		      2
       Block {
-	Name			"<S15>/S-Function1"
+	Name			"<S14>/S-Function1"
 	SLName			"S-Function1"
 	SID			"500:20"
 	Type			"S-Function"
@@ -4343,7 +4190,7 @@ CompiledModel {
 	NumDataOutputPorts	0
       }
       Block {
-	Name			"<S15>/S-Function2"
+	Name			"<S14>/S-Function2"
 	SLName			"S-Function2"
 	SID			"500:21"
 	Type			"S-Function"
@@ -4352,16 +4199,16 @@ CompiledModel {
       }
     }
     Subsystem {
-      Name		      "<S8>/DS1104ENC_SET_POS_C1"
+      Name		      "<S7>/DS1104ENC_SET_POS_C1"
       SLName		      "DS1104ENC_SET_POS_C1"
       Type		      trigger
       MaskType		      "RTI"
-      SubsystemBlockIndex     [8, 4]
+      SubsystemBlockIndex     [7, 4]
       SLContextSysNum	      1
       NVOwnerSysIdx	      0
       NumBlocks		      2
       Block {
-	Name			"<S16>/S-Function1"
+	Name			"<S15>/S-Function1"
 	SLName			"S-Function1"
 	SID			"501:24"
 	Type			"S-Function"
@@ -4369,7 +4216,7 @@ CompiledModel {
 	NumDataOutputPorts	0
       }
       Block {
-	Name			"<S16>/Trigger"
+	Name			"<S15>/Trigger"
 	SLName			"Trigger"
 	SID			"501:23"
 	Type			TriggerPort
@@ -4378,10 +4225,30 @@ CompiledModel {
       }
     }
     Subsystem {
+      Name		      "<S10>/RTI Data Store"
+      SLName		      "RTI Data Store"
+      MaskType		      "RTI_DATA_STORE"
+      SubsystemBlockIndex     [10, 0]
+      NVOwnerSysIdx	      1
+      NumBlocks		      1
+      NumSubsystemBlocks      1
+      SubsystemBlocks	      [0]
+      NumChildSubsystems      1
+      ChildSubsystems	      [15]
+      Block {
+	Name			"<S11>/RTI Data Store"
+	SLName			"RTI Data Store"
+	SID			"708"
+	Type			SubSystem
+	Virtual			1
+	NumDataOutputPorts	0
+      }
+    }
+    Subsystem {
       Name		      "<S11>/RTI Data Store"
       SLName		      "RTI Data Store"
       MaskType		      "RTI_DATA_STORE"
-      SubsystemBlockIndex     [11, 0]
+      SubsystemBlockIndex     [14, 0]
       NVOwnerSysIdx	      1
       NumBlocks		      1
       NumSubsystemBlocks      1
@@ -4391,7 +4258,7 @@ CompiledModel {
       Block {
 	Name			"<S12>/RTI Data Store"
 	SLName			"RTI Data Store"
-	SID			"624"
+	SID			"709"
 	Type			SubSystem
 	Virtual			1
 	NumDataOutputPorts	0
@@ -4403,28 +4270,8 @@ CompiledModel {
       MaskType		      "RTI_DATA_STORE"
       SubsystemBlockIndex     [15, 0]
       NVOwnerSysIdx	      1
-      NumBlocks		      1
-      NumSubsystemBlocks      1
-      SubsystemBlocks	      [0]
-      NumChildSubsystems      1
-      ChildSubsystems	      [17]
-      Block {
-	Name			"<S13>/RTI Data Store"
-	SLName			"RTI Data Store"
-	SID			"625"
-	Type			SubSystem
-	Virtual			1
-	NumDataOutputPorts	0
-      }
     }
-    Subsystem {
-      Name		      "<S13>/RTI Data Store"
-      SLName		      "RTI Data Store"
-      MaskType		      "RTI_DATA_STORE"
-      SubsystemBlockIndex     [16, 0]
-      NVOwnerSysIdx	      1
-    }
-    NumSubsystems	    18
+    NumSubsystems	    17
   }
   ExternalInputs {
     ExternalInputDefaults {
@@ -4686,7 +4533,7 @@ CompiledModel {
       TID		      0
       SysNum		      0
     }
-    NumGlobalBlockOutputs   79
+    NumGlobalBlockOutputs   77
     NumLocalBlockOutputs    0
     NumExternalBlockOutputs 0
     NumConstBlockOutputs    0
@@ -4694,478 +4541,483 @@ CompiledModel {
     GlobalBlockOutput {
       VarGroupIdx	      [1, 0]
       LogicalSrc	      B0
-      GrSrc		      [2, 11, 0, 0]
+      GrSrc		      [1, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 1]
       LogicalSrc	      B1
       DrivesRootOutport	      yes
-      GrSrc		      [2, 8, 0, 0]
+      GrSrc		      [1, 8, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 2]
       LogicalSrc	      B2
-      GrSrc		      [2, 12, 0, 0]
+      GrSrc		      [1, 12, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 3]
       LogicalSrc	      B3
       DrivesRootOutport	      yes
-      GrSrc		      [2, 7, 0, 0]
+      GrSrc		      [1, 7, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 4]
       LogicalSrc	      B4
-      GrSrc		      [0, 17, 0, 0]
+      GrSrc		      [0, 14, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 5]
       LogicalSrc	      B5
-      GrSrc		      [0, 18, 0, 0]
+      GrSrc		      [0, 15, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 6]
       LogicalSrc	      B6
-      GrSrc		      [0, 21, 0, 0]
+      GrSrc		      [0, 18, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 7]
       LogicalSrc	      B7
-      GrSrc		      [0, 23, 0, 0]
+      GrSrc		      [0, 20, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 8]
       LogicalSrc	      B8
-      GrSrc		      [0, 19, 0, 0]
+      GrSrc		      [0, 16, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 9]
       LogicalSrc	      B9
-      GrSrc		      [0, 20, 0, 0]
+      GrSrc		      [0, 17, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 10]
       LogicalSrc	      B10
-      GrSrc		      [0, 14, 0, 0]
+      GrSrc		      [0, 13, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 11]
       TID		      1
       LogicalSrc	      B11
-      GrSrc		      [0, 30, 0, 0]
+      GrSrc		      [0, 26, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 12]
       TID		      1
       LogicalSrc	      B12
-      GrSrc		      [12, 3, 0, 0]
+      GrSrc		      [11, 3, 0, 0]
       SigSrc		      [1, -1, 4, 0]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 13]
       TID		      1
       LogicalSrc	      B13
-      GrSrc		      [8, 7, 0, 0]
+      GrSrc		      [7, 7, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 14]
       TID		      1
       LogicalSrc	      B14
-      GrSrc		      [0, 25, 0, 0]
+      GrSrc		      [0, 22, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 15]
       TID		      1
       LogicalSrc	      B15
-      GrSrc		      [5, 9, 0, 0]
+      GrSrc		      [4, 9, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 16]
       TID		      1
       LogicalSrc	      B16
-      GrSrc		      [5, 6, 0, 0]
+      GrSrc		      [4, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 17]
       TID		      1
       LogicalSrc	      B17
-      GrSrc		      [5, 2, 0, 0]
+      GrSrc		      [4, 2, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 18]
       TID		      1
       LogicalSrc	      B18
-      GrSrc		      [5, 12, 0, 0]
+      GrSrc		      [4, 12, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 19]
       TID		      1
       LogicalSrc	      B19
-      GrSrc		      [5, 7, 0, 0]
+      GrSrc		      [4, 7, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 20]
       TID		      1
       LogicalSrc	      B20
-      GrSrc		      [5, 11, 0, 0]
+      GrSrc		      [4, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 21]
       TID		      1
       LogicalSrc	      B21
-      GrSrc		      [5, 3, 0, 0]
+      GrSrc		      [4, 3, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 22]
       TID		      1
       LogicalSrc	      B22
-      GrSrc		      [5, 14, 0, 0]
+      GrSrc		      [4, 14, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 23]
       TID		      1
       LogicalSrc	      B23
-      GrSrc		      [5, 10, 0, 0]
+      GrSrc		      [4, 10, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 24]
       LogicalSrc	      B24
-      GrSrc		      [0, 22, 0, 0]
+      GrSrc		      [0, 19, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 25]
       TID		      1
       LogicalSrc	      B25
-      GrSrc		      [0, 28, 0, 0]
+      GrSrc		      [0, 24, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 26]
       TID		      1
       LogicalSrc	      B26
-      GrSrc		      [12, 2, 0, 0]
+      GrSrc		      [11, 2, 0, 0]
       SigSrc		      [1, -1, 5, 0]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 27]
       TID		      1
       LogicalSrc	      B27
-      GrSrc		      [8, 6, 0, 0]
+      GrSrc		      [7, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 28]
       TID		      1
       LogicalSrc	      B28
-      GrSrc		      [0, 24, 0, 0]
+      GrSrc		      [0, 21, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 29]
       TID		      1
       LogicalSrc	      B29
-      GrSrc		      [3, 9, 0, 0]
+      GrSrc		      [2, 9, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 30]
       TID		      1
       LogicalSrc	      B30
-      GrSrc		      [3, 6, 0, 0]
+      GrSrc		      [2, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 31]
       TID		      1
       LogicalSrc	      B31
-      GrSrc		      [3, 2, 0, 0]
+      GrSrc		      [2, 2, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 32]
       TID		      1
       LogicalSrc	      B32
-      GrSrc		      [3, 12, 0, 0]
+      GrSrc		      [2, 12, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 33]
       TID		      1
       LogicalSrc	      B33
-      GrSrc		      [3, 7, 0, 0]
+      GrSrc		      [2, 7, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 34]
       TID		      1
       LogicalSrc	      B34
-      GrSrc		      [3, 11, 0, 0]
+      GrSrc		      [2, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 35]
       TID		      1
       LogicalSrc	      B35
-      GrSrc		      [3, 3, 0, 0]
+      GrSrc		      [2, 3, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 36]
       TID		      1
       LogicalSrc	      B36
-      GrSrc		      [3, 14, 0, 0]
+      GrSrc		      [2, 14, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 37]
       TID		      1
       LogicalSrc	      B37
-      GrSrc		      [3, 10, 0, 0]
+      GrSrc		      [2, 10, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 38]
       TID		      1
       LogicalSrc	      B38
-      GrSrc		      [0, 29, 0, 0]
+      GrSrc		      [0, 25, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 39]
       TID		      1
       LogicalSrc	      B39
-      GrSrc		      [0, 15, 0, 0]
+      GrSrc		      [0, 23, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 40]
       TID		      1
       LogicalSrc	      B40
-      GrSrc		      [0, 27, 0, 0]
+      GrSrc		      [3, 9, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 41]
       TID		      1
       LogicalSrc	      B41
-      GrSrc		      [1, 4, 0, 0]
+      GrSrc		      [3, 2, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 42]
       TID		      1
       LogicalSrc	      B42
-      GrSrc		      [1, 5, 0, 0]
+      GrSrc		      [3, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
-      SigLabel		      "U(k-1)"
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 43]
       TID		      1
       LogicalSrc	      B43
-      GrSrc		      [1, 2, 0, 0]
+      GrSrc		      [3, 3, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 44]
       TID		      1
       LogicalSrc	      B44
-      GrSrc		      [0, 26, 0, 0]
+      GrSrc		      [3, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 45]
       TID		      1
       LogicalSrc	      B45
-      GrSrc		      [4, 5, 0, 0]
+      GrSrc		      [3, 7, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 46]
+      TID		      1
       LogicalSrc	      B46
-      GrSrc		      [4, 6, 0, 0]
+      GrSrc		      [3, 12, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 47]
       TID		      1
       LogicalSrc	      B47
-      GrSrc		      [4, 2, 0, 0]
+      GrSrc		      [3, 10, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 48]
       LogicalSrc	      B48
-      GrSrc		      [4, 7, 0, 0]
+      GrSrc		      [0, 12, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 49]
       LogicalSrc	      B49
-      GrSrc		      [4, 9, 0, 0]
+      GrSrc		      [0, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 50]
       LogicalSrc	      B50
-      GrSrc		      [4, 3, 0, 0]
+      GrSrc		      [5, 10, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 51]
       LogicalSrc	      B51
-      GrSrc		      [4, 10, 0, 0]
+      GrSrc		      [5, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 52]
       LogicalSrc	      B52
-      GrSrc		      [4, 8, 0, 0]
+      GrSrc		      [5, 11, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 53]
-      TID		      1
       LogicalSrc	      B53
-      GrSrc		      [0, 16, 0, 0]
+      GrSrc		      [1, 5, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 54]
       LogicalSrc	      B54
-      GrSrc		      [0, 13, 0, 0]
+      GrSrc		      [1, 10, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 55]
       LogicalSrc	      B55
-      GrSrc		      [0, 12, 0, 0]
+      GrSrc		      [1, 4, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 56]
       LogicalSrc	      B56
-      GrSrc		      [6, 10, 0, 0]
+      GrSrc		      [1, 6, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 57]
       LogicalSrc	      B57
-      GrSrc		      [6, 6, 0, 0]
+      GrSrc		      [1, 15, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 58]
       LogicalSrc	      B58
-      GrSrc		      [6, 11, 0, 0]
+      GrSrc		      [1, 14, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 59]
+      TID		      1
       LogicalSrc	      B59
-      GrSrc		      [2, 5, 0, 0]
+      GrSrc		      [1, 9, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 60]
       LogicalSrc	      B60
-      GrSrc		      [2, 10, 0, 0]
+      GrSrc		      [1, 13, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 61]
+      TID		      1
       LogicalSrc	      B61
-      GrSrc		      [2, 4, 0, 0]
+      GrSrc		      [2, 13, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 62]
+      TID		      1
       LogicalSrc	      B62
-      GrSrc		      [2, 6, 0, 0]
+      GrSrc		      [2, 4, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 63]
+      TID		      1
       LogicalSrc	      B63
-      GrSrc		      [2, 15, 0, 0]
+      GrSrc		      [2, 5, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 64]
+      TID		      1
       LogicalSrc	      B64
-      GrSrc		      [2, 14, 0, 0]
+      GrSrc		      [2, 8, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 65]
       TID		      1
       LogicalSrc	      B65
-      GrSrc		      [2, 9, 0, 0]
+      GrSrc		      [2, 15, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 66]
+      TID		      1
       LogicalSrc	      B66
-      GrSrc		      [2, 13, 0, 0]
+      GrSrc		      [3, 13, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 67]
       TID		      1
       LogicalSrc	      B67
-      GrSrc		      [3, 13, 0, 0]
+      GrSrc		      [3, 4, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 68]
       TID		      1
       LogicalSrc	      B68
-      GrSrc		      [3, 4, 0, 0]
+      GrSrc		      [3, 5, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 69]
       TID		      1
       LogicalSrc	      B69
-      GrSrc		      [3, 5, 0, 0]
+      GrSrc		      [3, 8, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 70]
       TID		      1
       LogicalSrc	      B70
-      GrSrc		      [3, 8, 0, 0]
+      GrSrc		      [3, 14, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 71]
       TID		      1
       LogicalSrc	      B71
-      GrSrc		      [3, 15, 0, 0]
+      GrSrc		      [4, 13, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
@@ -5179,97 +5031,83 @@ CompiledModel {
       VarGroupIdx	      [1, 73]
       TID		      1
       LogicalSrc	      B73
-      GrSrc		      [5, 13, 0, 0]
+      GrSrc		      [4, 5, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 74]
       TID		      1
       LogicalSrc	      B74
-      GrSrc		      [5, 4, 0, 0]
+      GrSrc		      [4, 8, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 75]
       TID		      1
       LogicalSrc	      B75
-      GrSrc		      [5, 5, 0, 0]
+      GrSrc		      [4, 15, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     GlobalBlockOutput {
       VarGroupIdx	      [1, 76]
-      TID		      1
-      LogicalSrc	      B76
-      GrSrc		      [5, 8, 0, 0]
-      SigSrc		      [1, -1, 18, -1]
-    }
-    GlobalBlockOutput {
-      VarGroupIdx	      [1, 77]
-      TID		      1
-      LogicalSrc	      B77
-      GrSrc		      [5, 15, 0, 0]
-      SigSrc		      [1, -1, 18, -1]
-    }
-    GlobalBlockOutput {
-      VarGroupIdx	      [1, 78]
       CGTypeIdx		      8
       TID		      1
-      LogicalSrc	      B78
-      GrSrc		      [6, 5, 0, 0]
+      LogicalSrc	      B76
+      GrSrc		      [5, 5, 0, 0]
       SigSrc		      [1, -1, 18, -1]
     }
     ConstOutputExpr {
       Identifier	      "CtrlSignalSelector"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B79
+      LogicalSrc	      B77
       ConstExpr		      1
-      GrSrc		      [0, 10, 0, 0]
+      GrSrc		      [0, 9, 0, 0]
       SigSrc		      [1, -1, 2, 0]
     }
     ConstOutputExpr {
       Identifier	      "VelRefSignalSelector"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B80
+      LogicalSrc	      B78
       ConstExpr		      1
-      GrSrc		      [0, 11, 0, 0]
+      GrSrc		      [0, 10, 0, 0]
       SigSrc		      [1, -1, 3, 0]
     }
     ConstOutputExpr {
       Identifier	      "pwm_offstet"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B81
+      LogicalSrc	      B79
       ConstExpr		      1
-      GrSrc		      [6, 4, 0, 0]
+      GrSrc		      [5, 4, 0, 0]
       SigSrc		      [1, -1, 6, 0]
     }
     ConstOutputExpr {
       Identifier	      "Enable1_Off0_On"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B82
+      LogicalSrc	      B80
       ConstExpr		      1
-      GrSrc		      [6, 3, 0, 0]
+      GrSrc		      [5, 3, 0, 0]
       SigSrc		      [1, -1, 11, 0]
     }
     ConstOutputExpr {
       Identifier	      "Jeq"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B83
+      LogicalSrc	      B81
       ConstExpr		      1
-      GrSrc		      [2, 3, 0, 0]
+      GrSrc		      [1, 3, 0, 0]
       SigSrc		      [1, -1, 13, 0]
     }
     ConstOutputExpr {
       Identifier	      "Resetenc"
       SysCsIdx		      [1, -1]
       TID		      1
-      LogicalSrc	      B84
+      LogicalSrc	      B82
       ConstExpr		      1
-      GrSrc		      [8, 5, 0, 0]
+      GrSrc		      [7, 5, 0, 0]
       SigSrc		      [1, -1, 14, 0]
     }
   }
@@ -5326,15 +5164,15 @@ CompiledModel {
       ForEachNumberOfIters    0
       InitInStart	      0
     }
-    NumDWorks		    9
-    NumNonLocalDWorks	    9
+    NumDWorks		    10
+    NumNonLocalDWorks	    10
     DWork {
       VarGroupIdx	      [2, 0]
       Name		      "DSTATE"
       LogicalSrc	      D0
       UsedAs		      "DSTATE"
       DataLoggingOn	      1
-      GrSrc		      [5, 2]
+      GrSrc		      [4, 2]
       SigSrc		      [1, -1, 18, 0]
       TID		      1
     }
@@ -5344,7 +5182,7 @@ CompiledModel {
       LogicalSrc	      D1
       UsedAs		      "DSTATE"
       DataLoggingOn	      1
-      GrSrc		      [5, 3]
+      GrSrc		      [4, 3]
       SigSrc		      [1, -1, 18, 1]
       TID		      1
     }
@@ -5354,7 +5192,7 @@ CompiledModel {
       LogicalSrc	      D2
       UsedAs		      "DSTATE"
       DataLoggingOn	      1
-      GrSrc		      [3, 2]
+      GrSrc		      [2, 2]
       SigSrc		      [1, -1, 18, 2]
       TID		      1
     }
@@ -5364,7 +5202,7 @@ CompiledModel {
       LogicalSrc	      D3
       UsedAs		      "DSTATE"
       DataLoggingOn	      1
-      GrSrc		      [3, 3]
+      GrSrc		      [2, 3]
       SigSrc		      [1, -1, 18, 3]
       TID		      1
     }
@@ -5374,18 +5212,18 @@ CompiledModel {
       LogicalSrc	      D4
       UsedAs		      "DSTATE"
       DataLoggingOn	      1
-      GrSrc		      [1, 5]
+      GrSrc		      [3, 2]
       SigSrc		      [1, -1, 18, 4]
       TID		      1
     }
     DWork {
       VarGroupIdx	      [2, 5]
-      CGTypeIdx		      20
-      Name		      "IWORK"
+      Name		      "DSTATE"
       LogicalSrc	      D5
-      Origin		      "IWORK"
-      GrSrc		      [10, 4]
-      SigSrc		      [1, -1, 7, 0]
+      UsedAs		      "DSTATE"
+      DataLoggingOn	      1
+      GrSrc		      [3, 3]
+      SigSrc		      [1, -1, 18, 5]
       TID		      1
     }
     DWork {
@@ -5394,8 +5232,8 @@ CompiledModel {
       Name		      "IWORK"
       LogicalSrc	      D6
       Origin		      "IWORK"
-      GrSrc		      [10, 5]
-      SigSrc		      [1, -1, 8, 0]
+      GrSrc		      [9, 4]
+      SigSrc		      [1, -1, 7, 0]
       TID		      1
     }
     DWork {
@@ -5404,8 +5242,8 @@ CompiledModel {
       Name		      "IWORK"
       LogicalSrc	      D7
       Origin		      "IWORK"
-      GrSrc		      [10, 6]
-      SigSrc		      [1, -1, 9, 0]
+      GrSrc		      [9, 5]
+      SigSrc		      [1, -1, 8, 0]
       TID		      1
     }
     DWork {
@@ -5414,7 +5252,17 @@ CompiledModel {
       Name		      "IWORK"
       LogicalSrc	      D8
       Origin		      "IWORK"
-      GrSrc		      [10, 7]
+      GrSrc		      [9, 6]
+      SigSrc		      [1, -1, 9, 0]
+      TID		      1
+    }
+    DWork {
+      VarGroupIdx	      [2, 9]
+      CGTypeIdx		      20
+      Name		      "IWORK"
+      LogicalSrc	      D9
+      Origin		      "IWORK"
+      GrSrc		      [9, 7]
       SigSrc		      [1, -1, 10, 0]
       TID		      1
     }
@@ -5437,12 +5285,12 @@ CompiledModel {
       SigSrc		      [-1, -1, -1]
       DerivativeMemoryMapIdx  [-1, -1, -1]
     }
-    NumContStates	    4
+    NumContStates	    2
     ContState {
       VarGroupIdx	      [4, 5, 6, -1, 0]
       Identifier	      "Integrator1_CSTATE"
       StartIndex	      0
-      GrSrc		      [2, 11]
+      GrSrc		      [1, 11]
       SigSrc		      [1, -1, 18]
       Partitions {
 	NumPartitions		1
@@ -5458,7 +5306,7 @@ CompiledModel {
       VarGroupIdx	      [4, 5, 6, -1, 1]
       Identifier	      "Integrator2_CSTATE"
       StartIndex	      1
-      GrSrc		      [2, 12]
+      GrSrc		      [1, 12]
       SigSrc		      [1, -1, 18]
       Partitions {
 	NumPartitions		1
@@ -5467,38 +5315,6 @@ CompiledModel {
 	  PathAlias		  ""
 	  Width			  1
 	  CStateIndices		  [1]
-	}
-      }
-    }
-    ContState {
-      VarGroupIdx	      [4, 5, 6, -1, 2]
-      Identifier	      "Integrator_CSTATE"
-      StartIndex	      2
-      GrSrc		      [4, 6]
-      SigSrc		      [1, -1, 18]
-      Partitions {
-	NumPartitions		1
-	Partition {
-	  Name			  ""
-	  PathAlias		  ""
-	  Width			  1
-	  CStateIndices		  [2]
-	}
-      }
-    }
-    ContState {
-      VarGroupIdx	      [4, 5, 6, -1, 3]
-      Identifier	      "Integrator1_CSTATE_n"
-      StartIndex	      3
-      GrSrc		      [4, 7]
-      SigSrc		      [1, -1, 18]
-      Partitions {
-	NumPartitions		1
-	Partition {
-	  Name			  ""
-	  PathAlias		  ""
-	  Width			  1
-	  CStateIndices		  [3]
 	}
       }
     }
@@ -5515,7 +5331,7 @@ CompiledModel {
     NumBlkZcRecs	    1
     BlkZcRec {
       SysCsIdx		      [0, 0]
-      GrSrc		      [8, 4]
+      GrSrc		      [7, 4]
       SigSrc		      [1, -1, 15]
       ZcSignalInfo {
 	Width			1
@@ -5742,8 +5558,8 @@ CompiledModel {
     Alignment		    -1
   }
   ModelParameters {
-    NumParameters	    73
-    NumInrtP		    73
+    NumParameters	    74
+    NumInrtP		    74
     NumConstPrmsWithInit    0
     NumConstPrms	    0
     NumExportedGlobal	    0
@@ -5753,9 +5569,9 @@ CompiledModel {
     NumInMdlRefGlobal	    0
     StructAlignment	    0
     CollapsedTunableParameters ["Kemf", "Km", "R", "Ts", "n"]
-    GlobalParamsList	    Vector(22)
+    GlobalParamsList	    Vector(21)
 ["Dpos", "Dpos_d", "Dsp_d", "Ipos", "Ipos_d", "Isp_d", "Jeq", "Kemf", "Km", "Npos", "Npos_d", "Nsp_d", "Ppos", ...
-"Ppos_d", "Psp_d", "Pulses", "R", "Ts", "dm", "eps_Jeq", "eps_dm", "n"]
+"Ppos_d", "Psp_d", "R", "Ts", "dm", "eps_Jeq", "eps_dm", "n"]
     ParameterDefaults {
       RecordType	      ModelParameter
       MemoryMapIdx	      [-1, -1, -1]
@@ -5788,11 +5604,12 @@ CompiledModel {
       Identifier	      "Dpos"
       LogicalSrc	      P0
       WorkspaceVarName	      "Dpos"
+      Value		      [0.69298710539558894]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 48];]
+[[1, -1, 18, 46];]
       GraphicalRef	      Matrix(1,2)
-[[4, 2];]
+[[3, 6];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
@@ -5800,11 +5617,12 @@ CompiledModel {
       Identifier	      "Ipos"
       LogicalSrc	      P1
       WorkspaceVarName	      "Ipos"
+      Value		      [71.243457676007736]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 69];]
       GraphicalRef	      Matrix(1,2)
-[[4, 4];]
+[[3, 8];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
@@ -5817,7 +5635,7 @@ CompiledModel {
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 13, 0];]
       GraphicalRef	      Matrix(1,2)
-[[2, 3];]
+[[1, 3];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
@@ -5825,11 +5643,12 @@ CompiledModel {
       Identifier	      "Npos"
       LogicalSrc	      P3
       WorkspaceVarName	      "Npos"
+      Value		      [55.955910050527827]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 50];]
+[[1, -1, 18, 49];]
       GraphicalRef	      Matrix(1,2)
-[[4, 3];]
+[[3, 7];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
@@ -5837,124 +5656,213 @@ CompiledModel {
       Identifier	      "Ppos"
       LogicalSrc	      P4
       WorkspaceVarName	      "Ppos"
-      Value		      [1.0]
+      Value		      [11.159131917944556]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 46];]
+[[1, -1, 18, 43];]
       GraphicalRef	      Matrix(1,2)
-[[4, 5];]
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Pulses"
-      LogicalSrc	      P5
-      WorkspaceVarName	      "Pulses"
-      Value		      [0.0062831853071795866]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(2,4)
-[[1, -1, 18, 43]; [1, -1, 18, 53];]
-      GraphicalRef	      Matrix(2,2)
-[[0, 15]; [0, 16];]
+[[3, 9];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "dm"
-      LogicalSrc	      P6
+      LogicalSrc	      P5
       WorkspaceVarName	      "dm"
       Value		      [1.3528e-5]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 62];]
+[[1, -1, 18, 60];]
       GraphicalRef	      Matrix(1,2)
-[[2, 4];]
+[[1, 4];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "eps_Jeq"
-      LogicalSrc	      P7
+      LogicalSrc	      P6
       WorkspaceVarName	      "eps_Jeq"
       Value		      [0.6]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 65];]
+[[1, -1, 18, 63];]
       GraphicalRef	      Matrix(1,2)
-[[2, 9];]
+[[1, 9];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "eps_dm"
-      LogicalSrc	      P8
+      LogicalSrc	      P7
       WorkspaceVarName	      "eps_dm"
       Value		      [3.56]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 61];]
+[[1, -1, 18, 59];]
       GraphicalRef	      Matrix(1,2)
-[[2, 10];]
+[[1, 10];]
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "Integrator1_IC"
-      LogicalSrc	      P9
+      LogicalSrc	      P8
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 0];]
       GraphicalRef	      Matrix(1,2)
-[[2, 11];]
+[[1, 11];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "Gain7_Gain"
-      LogicalSrc	      P10
+      LogicalSrc	      P9
       Value		      [1.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 1];]
       GraphicalRef	      Matrix(1,2)
-[[2, 8];]
+[[1, 8];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "Integrator2_IC"
-      LogicalSrc	      P11
+      LogicalSrc	      P10
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 2];]
       GraphicalRef	      Matrix(1,2)
-[[2, 12];]
+[[1, 12];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "Gain6_Gain"
-      LogicalSrc	      P12
+      LogicalSrc	      P11
       Value		      [1.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 3];]
       GraphicalRef	      Matrix(1,2)
-[[2, 7];]
+[[1, 7];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "CtrlSignalSelector_Value"
-      LogicalSrc	      P13
+      LogicalSrc	      P12
       Value		      [4.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 2, 0];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 9];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlSine_Amplitude"
+      LogicalSrc	      P13
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 5];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 14];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlSine_Frequency"
+      LogicalSrc	      P14
+      Value		      [1.2566370614359172]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 6];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 14];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlSquare_Amplitude"
+      LogicalSrc	      P15
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 7];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 15];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlSquare_Frequency"
+      LogicalSrc	      P16
+      Value		      [0.2]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 8];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 15];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlStep_Time"
+      LogicalSrc	      P17
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 9];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 18];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlStep_Y0"
+      LogicalSrc	      P18
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 10];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 18];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "CtrlStep_YFinal"
+      LogicalSrc	      P19
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 11];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 18];]
+      BHMPrmIdx		      2
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "VelRefSignalSelector_Value"
+      LogicalSrc	      P20
+      Value		      [1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 3, 0];]
       GraphicalRef	      Matrix(1,2)
 [[0, 10];]
       BHMPrmIdx		      0
@@ -5962,519 +5870,126 @@ CompiledModel {
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "CtrlSine_Amplitude"
-      LogicalSrc	      P14
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 5];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 17];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlSine_Frequency"
-      LogicalSrc	      P15
-      Value		      [1.2566370614359172]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 6];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 17];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlSquare_Amplitude"
-      LogicalSrc	      P16
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 7];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 18];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlSquare_Frequency"
-      LogicalSrc	      P17
-      Value		      [0.2]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 8];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 18];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlStep_Time"
-      LogicalSrc	      P18
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 9];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 21];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlStep_Y0"
-      LogicalSrc	      P19
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 10];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 21];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "CtrlStep_YFinal"
-      LogicalSrc	      P20
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 11];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 21];]
-      BHMPrmIdx		      2
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "VelRefSignalSelector_Value"
-      LogicalSrc	      P21
-      Value		      [1.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 3, 0];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 11];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
       Identifier	      "VelRefStep_Time"
-      LogicalSrc	      P22
+      LogicalSrc	      P21
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 13];]
       GraphicalRef	      Matrix(1,2)
-[[0, 23];]
+[[0, 20];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefStep_Y0"
-      LogicalSrc	      P23
+      LogicalSrc	      P22
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 14];]
       GraphicalRef	      Matrix(1,2)
-[[0, 23];]
+[[0, 20];]
       BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefStep_YFinal"
-      LogicalSrc	      P24
+      LogicalSrc	      P23
       Value		      [50.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 15];]
       GraphicalRef	      Matrix(1,2)
-[[0, 23];]
+[[0, 20];]
       BHMPrmIdx		      2
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefSine_Amplitude"
-      LogicalSrc	      P25
+      LogicalSrc	      P24
       Value		      [50.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 16];]
       GraphicalRef	      Matrix(1,2)
-[[0, 19];]
+[[0, 16];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefSine_Frequency"
-      LogicalSrc	      P26
+      LogicalSrc	      P25
       Value		      [1.2566370614359172]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 17];]
       GraphicalRef	      Matrix(1,2)
-[[0, 19];]
+[[0, 16];]
       BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefSquare_Amplitude"
-      LogicalSrc	      P27
+      LogicalSrc	      P26
       Value		      [50.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 18];]
       GraphicalRef	      Matrix(1,2)
-[[0, 20];]
+[[0, 17];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "VelRefSquare_Frequency"
-      LogicalSrc	      P28
+      LogicalSrc	      P27
       Value		      [0.031830988618379068]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 19];]
       GraphicalRef	      Matrix(1,2)
-[[0, 20];]
+[[0, 17];]
       BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "w1_scaling_Gain"
-      LogicalSrc	      P29
-      Value		      [0.62831853071795862]
+      LogicalSrc	      P28
+      Value		      [0.25132741228718347]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 20];]
       GraphicalRef	      Matrix(1,2)
-[[8, 7];]
+[[7, 7];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "ProportionalGain1_Gain"
-      LogicalSrc	      P30
-      Value		      [3.2592535945124195]
+      LogicalSrc	      P29
+      Value		      [1.6642176915080158]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 21];]
       GraphicalRef	      Matrix(1,2)
-[[5, 9];]
+[[4, 9];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "DerivativeGain2_Gain"
-      LogicalSrc	      P31
+      LogicalSrc	      P30
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 22];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 6];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator1_gainval"
-      LogicalSrc	      P32
-      Value		      [0.01]
-      CGTypeIdx		      0
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 23];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 2];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator1_IC"
-      LogicalSrc	      P33
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 24];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 2];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "FilterGain1_Gain"
-      LogicalSrc	      P34
-      Value		      [1.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 25];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 7];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator2_gainval"
-      LogicalSrc	      P35
-      Value		      [0.01]
-      CGTypeIdx		      0
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 26];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 3];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator2_IC"
-      LogicalSrc	      P36
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 27];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 3];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Saturation_UpperSat"
-      LogicalSrc	      P37
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 28];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 10];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Saturation_LowerSat"
-      LogicalSrc	      P38
-      Value		      [-24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 29];]
-      GraphicalRef	      Matrix(1,2)
-[[5, 10];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Pos_Time"
-      LogicalSrc	      P39
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 30];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 22];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Pos_Y0"
-      LogicalSrc	      P40
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 31];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 22];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Pos_YFinal"
-      LogicalSrc	      P41
-      Value		      [1.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 32];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 22];]
-      BHMPrmIdx		      2
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "fi1_scaling_Gain"
-      LogicalSrc	      P42
-      Value		      [0.0062831853071795866]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 33];]
-      GraphicalRef	      Matrix(1,2)
-[[8, 6];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "ProportionalGain1_Gain_c"
-      LogicalSrc	      P43
-      Value		      [27.821441753300917]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 34];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 9];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DerivativeGain2_Gain_l"
-      LogicalSrc	      P44
-      Value		      [1.45647119291339]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 35];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 6];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator1_gainv_h"
-      LogicalSrc	      P45
-      Value		      [0.01]
-      CGTypeIdx		      0
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 36];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 2];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator1_IC_a"
-      LogicalSrc	      P46
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 37];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 2];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "FilterGain1_Gain_o"
-      LogicalSrc	      P47
-      Value		      [105.58648860914488]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 38];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 7];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator2_gainv_d"
-      LogicalSrc	      P48
-      Value		      [0.01]
-      CGTypeIdx		      0
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 39];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 3];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "DiscreteTimeIntegrator2_IC_o"
-      LogicalSrc	      P49
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 40];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 3];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Saturation_UpperSat_b"
-      LogicalSrc	      P50
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 41];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 10];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Saturation_LowerSat_c"
-      LogicalSrc	      P51
-      Value		      [-24.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 42];]
-      GraphicalRef	      Matrix(1,2)
-[[3, 10];]
-      BHMPrmIdx		      1
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "TSamp_WtEt"
-      LogicalSrc	      P52
-      Value		      [100.0]
-      CGTypeIdx		      0
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 44];]
-      GraphicalRef	      Matrix(1,2)
-[[1, 4];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "UD_InitialCondition"
-      LogicalSrc	      P53
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 45];]
-      GraphicalRef	      Matrix(1,2)
-[[1, 5];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Integrator_IC"
-      LogicalSrc	      P54
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 47];]
       GraphicalRef	      Matrix(1,2)
 [[4, 6];]
       BHMPrmIdx		      0
@@ -6482,11 +5997,37 @@ CompiledModel {
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Integrator1_IC_p"
-      LogicalSrc	      P55
+      Identifier	      "DiscreteTimeIntegrator1_gainval"
+      LogicalSrc	      P31
+      Value		      [0.025]
+      CGTypeIdx		      0
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 23];]
+      GraphicalRef	      Matrix(1,2)
+[[4, 2];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "DiscreteTimeIntegrator1_IC"
+      LogicalSrc	      P32
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 49];]
+[[1, -1, 18, 24];]
+      GraphicalRef	      Matrix(1,2)
+[[4, 2];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "FilterGain1_Gain"
+      LogicalSrc	      P33
+      Value		      [1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 25];]
       GraphicalRef	      Matrix(1,2)
 [[4, 7];]
       BHMPrmIdx		      0
@@ -6494,129 +6035,126 @@ CompiledModel {
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Saturation_UpperSat_g"
-      LogicalSrc	      P56
-      Value		      [24.0]
-      ContainerCGTypeIdx      31
+      Identifier	      "DiscreteTimeIntegrator2_gainval"
+      LogicalSrc	      P34
+      Value		      [0.025]
+      CGTypeIdx		      0
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 51];]
+[[1, -1, 18, 26];]
       GraphicalRef	      Matrix(1,2)
-[[4, 8];]
+[[4, 3];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Saturation_LowerSat_m"
-      LogicalSrc	      P57
-      Value		      [-24.0]
+      Identifier	      "DiscreteTimeIntegrator2_IC"
+      LogicalSrc	      P35
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 52];]
+[[1, -1, 18, 27];]
       GraphicalRef	      Matrix(1,2)
-[[4, 8];]
+[[4, 3];]
       BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Gain_Gain"
-      LogicalSrc	      P58
-      Value		      [-1.0]
-      ContainerCGTypeIdx      31
-      ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 54];]
-      GraphicalRef	      Matrix(1,2)
-[[0, 12];]
-      BHMPrmIdx		      0
-      OwnerSysIdx	      [1, -1]
-      WasAccessedAsVariable   1
-    }
-    Parameter {
-      Identifier	      "Saturation_UpperSat_bg"
-      LogicalSrc	      P59
+      Identifier	      "Saturation_UpperSat"
+      LogicalSrc	      P36
       Value		      [24.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 55];]
+[[1, -1, 18, 28];]
       GraphicalRef	      Matrix(1,2)
-[[6, 10];]
+[[4, 10];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Saturation_LowerSat_k"
-      LogicalSrc	      P60
+      Identifier	      "Saturation_LowerSat"
+      LogicalSrc	      P37
       Value		      [-24.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 56];]
+[[1, -1, 18, 29];]
       GraphicalRef	      Matrix(1,2)
-[[6, 10];]
+[[4, 10];]
       BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "pwm_skalning_Gain"
-      LogicalSrc	      P61
-      Value		      [0.020833333333333332]
+      Identifier	      "Pos_Time"
+      LogicalSrc	      P38
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 57];]
+[[1, -1, 18, 30];]
       GraphicalRef	      Matrix(1,2)
-[[6, 6];]
+[[0, 19];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "pwm_offstet_Value"
-      LogicalSrc	      P62
-      Value		      [0.5]
+      Identifier	      "Pos_Y0"
+      LogicalSrc	      P39
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 6, 0];]
+[[1, -1, 18, 31];]
       GraphicalRef	      Matrix(1,2)
-[[6, 4];]
-      BHMPrmIdx		      0
+[[0, 19];]
+      BHMPrmIdx		      1
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Enable1_Off0_On_Value"
-      LogicalSrc	      P63
+      Identifier	      "Pos_YFinal"
+      LogicalSrc	      P40
       Value		      [1.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 11, 0];]
+[[1, -1, 18, 32];]
       GraphicalRef	      Matrix(1,2)
-[[6, 3];]
+[[0, 19];]
+      BHMPrmIdx		      2
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "fi1_scaling_Gain"
+      LogicalSrc	      P41
+      Value		      [0.0062831853071795866]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 33];]
+      GraphicalRef	      Matrix(1,2)
+[[7, 6];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Gain2_Gain"
-      LogicalSrc	      P64
-      Value		      [0.00062232142857142857]
+      Identifier	      "ProportionalGain1_Gain_c"
+      LogicalSrc	      P42
+      Value		      [13.47226362483117]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 60];]
+[[1, -1, 18, 34];]
       GraphicalRef	      Matrix(1,2)
-[[2, 5];]
+[[2, 9];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "Gain4_Gain"
-      LogicalSrc	      P65
-      Value		      [4.3377605058023088e-5]
+      Identifier	      "DerivativeGain2_Gain_l"
+      LogicalSrc	      P43
+      Value		      [0.82164511861841516]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 63];]
+[[1, -1, 18, 35];]
       GraphicalRef	      Matrix(1,2)
 [[2, 6];]
       BHMPrmIdx		      0
@@ -6624,51 +6162,229 @@ CompiledModel {
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "AntiWindup1_Gain"
-      LogicalSrc	      P66
-      Value		      [29.6]
-      ContainerCGTypeIdx      31
+      Identifier	      "DiscreteTimeIntegrator1_gainv_h"
+      LogicalSrc	      P44
+      Value		      [0.025]
+      CGTypeIdx		      0
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 66];]
+[[1, -1, 18, 36];]
       GraphicalRef	      Matrix(1,2)
-[[3, 4];]
+[[2, 2];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "AntiWindup2_Gain"
-      LogicalSrc	      P67
-      Value		      [1.0]
+      Identifier	      "DiscreteTimeIntegrator1_IC_a"
+      LogicalSrc	      P45
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 67];]
+[[1, -1, 18, 37];]
       GraphicalRef	      Matrix(1,2)
-[[3, 5];]
+[[2, 2];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "FilterGain1_Gain_o"
+      LogicalSrc	      P46
+      Value		      [50.673018936390143]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 38];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 7];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "IntegralGain2_Gain"
-      LogicalSrc	      P68
-      Value		      [201.60686999208338]
-      ContainerCGTypeIdx      31
+      Identifier	      "DiscreteTimeIntegrator2_gainv_d"
+      LogicalSrc	      P47
+      Value		      [0.025]
+      CGTypeIdx		      0
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 68];]
+[[1, -1, 18, 39];]
       GraphicalRef	      Matrix(1,2)
-[[3, 8];]
+[[2, 3];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "AntiWindup_Gain"
-      LogicalSrc	      P69
-      Value		      [29.6]
+      Identifier	      "DiscreteTimeIntegrator2_IC_o"
+      LogicalSrc	      P48
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
-[[1, -1, 18, 70];]
+[[1, -1, 18, 40];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 3];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_UpperSat_b"
+      LogicalSrc	      P49
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 41];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 10];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_LowerSat_c"
+      LogicalSrc	      P50
+      Value		      [-24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 42];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 10];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "DiscreteTimeIntegrator1_gainv_c"
+      LogicalSrc	      P51
+      Value		      [0.025]
+      CGTypeIdx		      0
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 44];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 2];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "DiscreteTimeIntegrator1_IC_l"
+      LogicalSrc	      P52
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 45];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 2];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "DiscreteTimeIntegrator2_gainv_k"
+      LogicalSrc	      P53
+      Value		      [0.025]
+      CGTypeIdx		      0
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 47];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 3];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "DiscreteTimeIntegrator2_IC_d"
+      LogicalSrc	      P54
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 48];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 3];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_UpperSat_g"
+      LogicalSrc	      P55
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 50];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 10];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_LowerSat_m"
+      LogicalSrc	      P56
+      Value		      [-24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 51];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 10];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Gain_Gain"
+      LogicalSrc	      P57
+      Value		      [-1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 52];]
+      GraphicalRef	      Matrix(1,2)
+[[0, 11];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_UpperSat_bg"
+      LogicalSrc	      P58
+      Value		      [24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 53];]
+      GraphicalRef	      Matrix(1,2)
+[[5, 10];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Saturation_LowerSat_k"
+      LogicalSrc	      P59
+      Value		      [-24.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 54];]
+      GraphicalRef	      Matrix(1,2)
+[[5, 10];]
+      BHMPrmIdx		      1
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "pwm_skalning_Gain"
+      LogicalSrc	      P60
+      Value		      [0.020833333333333332]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 55];]
+      GraphicalRef	      Matrix(1,2)
+[[5, 6];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "pwm_offstet_Value"
+      LogicalSrc	      P61
+      Value		      [0.5]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 6, 0];]
       GraphicalRef	      Matrix(1,2)
 [[5, 4];]
       BHMPrmIdx		      0
@@ -6676,39 +6392,156 @@ CompiledModel {
       WasAccessedAsVariable   1
     }
     Parameter {
-      Identifier	      "AntiWindup1_Gain_f"
+      Identifier	      "Enable1_Off0_On_Value"
+      LogicalSrc	      P62
+      Value		      [1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 11, 0];]
+      GraphicalRef	      Matrix(1,2)
+[[5, 3];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Gain2_Gain"
+      LogicalSrc	      P63
+      Value		      [0.00062232142857142857]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 58];]
+      GraphicalRef	      Matrix(1,2)
+[[1, 5];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "Gain4_Gain"
+      LogicalSrc	      P64
+      Value		      [4.3377605058023088e-5]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 61];]
+      GraphicalRef	      Matrix(1,2)
+[[1, 6];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup1_Gain"
+      LogicalSrc	      P65
+      Value		      [29.6]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 64];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 4];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup2_Gain"
+      LogicalSrc	      P66
+      Value		      [1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 65];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 5];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "IntegralGain2_Gain"
+      LogicalSrc	      P67
+      Value		      [75.26891776856948]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 66];]
+      GraphicalRef	      Matrix(1,2)
+[[2, 8];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup_Gain"
+      LogicalSrc	      P68
+      Value		      [29.6]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 67];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 4];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup1_Gain_j"
+      LogicalSrc	      P69
+      Value		      [1.0]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 68];]
+      GraphicalRef	      Matrix(1,2)
+[[3, 5];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup_Gain_o"
       LogicalSrc	      P70
+      Value		      [29.6]
+      ContainerCGTypeIdx      31
+      ReferencedBy	      Matrix(1,4)
+[[1, -1, 18, 70];]
+      GraphicalRef	      Matrix(1,2)
+[[4, 4];]
+      BHMPrmIdx		      0
+      OwnerSysIdx	      [1, -1]
+      WasAccessedAsVariable   1
+    }
+    Parameter {
+      Identifier	      "AntiWindup1_Gain_f"
+      LogicalSrc	      P71
       Value		      [1.0]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 71];]
       GraphicalRef	      Matrix(1,2)
-[[5, 5];]
+[[4, 5];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "IntegralGain2_Gain_h"
-      LogicalSrc	      P71
-      Value		      [66.876626230813073]
+      LogicalSrc	      P72
+      Value		      [20.022631724515755]
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 18, 72];]
       GraphicalRef	      Matrix(1,2)
-[[5, 8];]
+[[4, 8];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
     }
     Parameter {
       Identifier	      "Resetenc_Value"
-      LogicalSrc	      P72
+      LogicalSrc	      P73
       ContainerCGTypeIdx      31
       ReferencedBy	      Matrix(1,4)
 [[1, -1, 14, 0];]
       GraphicalRef	      Matrix(1,2)
-[[8, 5];]
+[[7, 5];]
       BHMPrmIdx		      0
       OwnerSysIdx	      [1, -1]
       WasAccessedAsVariable   1
@@ -6759,10 +6592,7 @@ CompiledModel {
     UsageCheckError {
     }
   }
-  NumSubsystems		  16
-  Subsystem {
-    Name		    "<Root>/Discrete Derivative"
-  }
+  NumSubsystems		  15
   Subsystem {
     Name		    "<Root>/Motor Model"
   }
@@ -6787,28 +6617,28 @@ CompiledModel {
     Name		    "<Root>/enc I//F"
   }
   Subsystem {
-    Name		    "<S6>/DS1104BIT_OUT_C0"
+    Name		    "<S5>/DS1104BIT_OUT_C0"
   }
   Subsystem {
-    Name		    "<S6>/DS1104SL_DSP_PWM"
+    Name		    "<S5>/DS1104SL_DSP_PWM"
   }
   Subsystem {
-    Name		    "<S7>/RTI Data Store"
+    Name		    "<S6>/RTI Data Store"
+  }
+  Subsystem {
+    Name		    "<S10>/RTI Data Store"
   }
   Subsystem {
     Name		    "<S11>/RTI Data Store"
   }
   Subsystem {
-    Name		    "<S12>/RTI Data Store"
+    Name		    "<S7>/DS1104ENC_POS_C1"
   }
   Subsystem {
-    Name		    "<S8>/DS1104ENC_POS_C1"
+    Name		    "<S7>/DS1104ENC_SETUP"
   }
   Subsystem {
-    Name		    "<S8>/DS1104ENC_SETUP"
-  }
-  Subsystem {
-    Name		    "<S8>/DS1104ENC_SET_POS_C1"
+    Name		    "<S7>/DS1104ENC_SET_POS_C1"
   }
   ModelSupportsMultipleExecInstances 1
   ModelHasStateInsideForEachSS 0
@@ -7200,8 +7030,8 @@ CompiledModel {
   NumSystems		  2
   System {
     Type		    "trigger"
-    Name		    "<S8>/DS1104ENC_SET_POS_C1"
-    SysName		    "S16"
+    Name		    "<S7>/DS1104ENC_SET_POS_C1"
+    SysName		    "S15"
     Identifier		    "none"
     OutputMethodHasUserData 1
     UpdateMethodHasUserData 1
@@ -7226,7 +7056,7 @@ CompiledModel {
     CallSites		    Matrix(1,4)
 [[1, -1, 1, 15];]
     GraphCallSites	    Matrix(1,2)
-[[8, 4];]
+[[7, 4];]
     DescInCallSite	    0
     NumChildSystems	    0
     Interface {
@@ -7297,12 +7127,12 @@ CompiledModel {
       UseTLC		      1
       BlockIdx		      [0, 0, 0]
       SL_BlockIdx	      0
-      GrSrc		      [14, 0]
+      GrSrc		      [13, 0]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S16>/S-Function1"
+      Name		      "<S15>/S-Function1"
       Identifier	      "SFunction1_l"
       TID		      triggered
       TriggerTID	      1
@@ -7389,24 +7219,24 @@ CompiledModel {
     Interface {
       NumCanonicalInputArgDefs 0
       BlockIOArgDef {
-	NumFlatFields		79
+	NumFlatFields		77
       }
       ConstBlockIOArgDef {
       }
       NumCanonicalOutputArgDefs	0
       ParameterArgDef {
 	FirstLocation		0
-	NumFlatFields		73
+	NumFlatFields		74
 	PassthroughSystemIdx	-1
       }
       DWorkArgDef {
-	NumFlatFields		9
+	NumFlatFields		10
       }
       LocalSDWorkArgDef {
-	FirstLocation		9
+	FirstLocation		10
       }
       ContStatesArgDef {
-	NumFlatFields		4
+	NumFlatFields		2
       }
       ContStatesDerivativeArgDef {
       }
@@ -7501,7 +7331,7 @@ CompiledModel {
       Type		      Constant
       BlockIdx		      [1, 1, 2]
       SL_BlockIdx	      6
-      GrSrc		      [0, 10]
+      GrSrc		      [0, 9]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
@@ -7522,7 +7352,7 @@ CompiledModel {
 	ASTNode {
 	  IsNonTerminal		  0
 	  Op			  SL_NOT_INLINED
-	  ModelParameterIdx	  13
+	  ModelParameterIdx	  12
 	}
 	Value			[4.0]
 	ContainerCGTypeIdx	31
@@ -7535,7 +7365,7 @@ CompiledModel {
       Type		      Constant
       BlockIdx		      [1, 1, 3]
       SL_BlockIdx	      10
-      GrSrc		      [0, 11]
+      GrSrc		      [0, 10]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
@@ -7556,7 +7386,7 @@ CompiledModel {
 	ASTNode {
 	  IsNonTerminal		  0
 	  Op			  SL_NOT_INLINED
-	  ModelParameterIdx	  21
+	  ModelParameterIdx	  20
 	}
 	Value			[1.0]
 	ContainerCGTypeIdx	31
@@ -7571,12 +7401,12 @@ CompiledModel {
       UseTLC		      1
       BlockIdx		      [1, 1, 4]
       SL_BlockIdx	      16
-      GrSrc		      [12, 3]
+      GrSrc		      [11, 3]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S14>/S-Function2"
+      Name		      "<S13>/S-Function2"
       Identifier	      "SFunction2"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -7637,12 +7467,12 @@ CompiledModel {
       UseTLC		      1
       BlockIdx		      [1, 1, 5]
       SL_BlockIdx	      30
-      GrSrc		      [12, 2]
+      GrSrc		      [11, 2]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S14>/S-Function1"
+      Name		      "<S13>/S-Function1"
       Identifier	      "SFunction1"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -7700,13 +7530,13 @@ CompiledModel {
     Block {
       Type		      Constant
       BlockIdx		      [1, 1, 6]
-      SL_BlockIdx	      62
-      GrSrc		      [6, 4]
+      SL_BlockIdx	      56
+      GrSrc		      [5, 4]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S6>/pwm_offstet"
+      Name		      "<S5>/pwm_offstet"
       Identifier	      "pwm_offstet"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -7722,7 +7552,7 @@ CompiledModel {
 	ASTNode {
 	  IsNonTerminal		  0
 	  Op			  SL_NOT_INLINED
-	  ModelParameterIdx	  62
+	  ModelParameterIdx	  61
 	}
 	Value			[0.5]
 	ContainerCGTypeIdx	31
@@ -7736,26 +7566,26 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 7]
-      SL_BlockIdx	      64
-      GrSrc		      [10, 4]
+      SL_BlockIdx	      58
+      GrSrc		      [9, 4]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S10>/S-Function1"
+      Name		      "<S9>/S-Function1"
       Identifier	      "SFunction1_i"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
-      IWork		      [4, 5]
+      IWork		      [4, 6]
       NumDWork		      1
       DWork {
 	Name			"IWORK"
-	FirstRootIdx		5
+	FirstRootIdx		6
       }
       RollRegions	      [0]
       NumDataInputPorts	      1
       DataInputPort {
-	SignalSrc		[b58]
+	SignalSrc		[b52]
 	SignalRegion		[0@1]
 	RollRegions		[0]
       }
@@ -7821,21 +7651,21 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 8]
-      SL_BlockIdx	      65
-      GrSrc		      [10, 5]
+      SL_BlockIdx	      59
+      GrSrc		      [9, 5]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S10>/S-Function2"
+      Name		      "<S9>/S-Function2"
       Identifier	      "SFunction2_f"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
-      IWork		      [4, 6]
+      IWork		      [4, 7]
       NumDWork		      1
       DWork {
 	Name			"IWORK"
-	FirstRootIdx		6
+	FirstRootIdx		7
       }
       RollRegions	      [0]
       NumDataInputPorts	      1
@@ -7907,21 +7737,21 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 9]
-      SL_BlockIdx	      66
-      GrSrc		      [10, 6]
+      SL_BlockIdx	      60
+      GrSrc		      [9, 6]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S10>/S-Function3"
+      Name		      "<S9>/S-Function3"
       Identifier	      "SFunction3"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
-      IWork		      [4, 7]
+      IWork		      [4, 8]
       NumDWork		      1
       DWork {
 	Name			"IWORK"
-	FirstRootIdx		7
+	FirstRootIdx		8
       }
       RollRegions	      [0]
       NumDataInputPorts	      1
@@ -7993,21 +7823,21 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 10]
-      SL_BlockIdx	      67
-      GrSrc		      [10, 7]
+      SL_BlockIdx	      61
+      GrSrc		      [9, 7]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S10>/S-Function4"
+      Name		      "<S9>/S-Function4"
       Identifier	      "SFunction4"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
-      IWork		      [4, 8]
+      IWork		      [4, 9]
       NumDWork		      1
       DWork {
 	Name			"IWORK"
-	FirstRootIdx		8
+	FirstRootIdx		9
       }
       RollRegions	      [0]
       NumDataInputPorts	      1
@@ -8077,13 +7907,13 @@ CompiledModel {
     Block {
       Type		      Constant
       BlockIdx		      [1, 1, 11]
-      SL_BlockIdx	      68
-      GrSrc		      [6, 3]
+      SL_BlockIdx	      62
+      GrSrc		      [5, 3]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S6>/Enable[1_Off, 0_On]"
+      Name		      "<S5>/Enable[1_Off, 0_On]"
       Identifier	      "Enable1_Off0_On"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -8099,7 +7929,7 @@ CompiledModel {
 	ASTNode {
 	  IsNonTerminal		  0
 	  Op			  SL_NOT_INLINED
-	  ModelParameterIdx	  63
+	  ModelParameterIdx	  62
 	}
 	Value			[1.0]
 	ContainerCGTypeIdx	31
@@ -8113,20 +7943,20 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 12]
-      SL_BlockIdx	      70
-      GrSrc		      [9, 1]
+      SL_BlockIdx	      64
+      GrSrc		      [8, 1]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S9>/S-Function1"
+      Name		      "<S8>/S-Function1"
       Identifier	      "SFunction1_d"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
       RollRegions	      [0]
       NumDataInputPorts	      1
       DataInputPort {
-	SignalSrc		[b78]
+	SignalSrc		[b76]
 	SignalRegion		[0@1]
 	CGTypeIdx		8
 	RollRegions		[0]
@@ -8176,13 +8006,13 @@ CompiledModel {
     Block {
       Type		      Constant
       BlockIdx		      [1, 1, 13]
-      SL_BlockIdx	      78
-      GrSrc		      [2, 3]
+      SL_BlockIdx	      71
+      GrSrc		      [1, 3]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S2>/Jeq"
+      Name		      "<S1>/Jeq"
       Identifier	      "Jeq"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -8211,13 +8041,13 @@ CompiledModel {
     Block {
       Type		      Constant
       BlockIdx		      [1, 1, 14]
-      SL_BlockIdx	      92
-      GrSrc		      [8, 5]
+      SL_BlockIdx	      89
+      GrSrc		      [7, 5]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S8>/Reset enc"
+      Name		      "<S7>/Reset enc"
       Identifier	      "Resetenc"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -8233,7 +8063,7 @@ CompiledModel {
 	ASTNode {
 	  IsNonTerminal		  0
 	  Op			  SL_NOT_INLINED
-	  ModelParameterIdx	  72
+	  ModelParameterIdx	  73
 	}
 	ContainerCGTypeIdx	31
 	String			"0"
@@ -8246,13 +8076,13 @@ CompiledModel {
       InMask		      yes
       MaskType		      "RTI"
       BlockIdx		      [1, 0, 15]
-      SL_BlockIdx	      93
-      GrSrc		      [8, 4]
+      SL_BlockIdx	      90
+      GrSrc		      [7, 4]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S8>/DS1104ENC_SET_POS_C1"
+      Name		      "<S7>/DS1104ENC_SET_POS_C1"
       Identifier	      "DS1104ENC_SET_POS_C1"
       TID		      Subsystem
       SubsystemTID	      1
@@ -8297,13 +8127,13 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 16]
-      SL_BlockIdx	      94
-      GrSrc		      [13, 0]
+      SL_BlockIdx	      91
+      GrSrc		      [12, 0]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S15>/S-Function1"
+      Name		      "<S14>/S-Function1"
       Identifier	      "SFunction1_n"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -8352,13 +8182,13 @@ CompiledModel {
       InMask		      yes
       UseTLC		      1
       BlockIdx		      [1, 1, 17]
-      SL_BlockIdx	      95
-      GrSrc		      [13, 1]
+      SL_BlockIdx	      92
+      GrSrc		      [12, 1]
       ExprCommentInfo {
       }
       ExprCommentSrcIdx {
       }
-      Name		      "<S15>/S-Function2"
+      Name		      "<S14>/S-Function2"
       Identifier	      "SFunction2_p"
       TID		      1
       firstEntryOfTsMapIsGCD  yes
@@ -8427,7 +8257,7 @@ CompiledModel {
 	Width			1
       }
       NumDataOutputPorts      0
-      TLCFileName	      "s1_b0_wk4sd"
+      TLCFileName	      "s1_b0_hqmfe"
       OpaqueBlockMethode {
 	HasStart		1
 	HasInitializeConditions	1
@@ -8441,14 +8271,14 @@ CompiledModel {
       Parameters	      [74, 74]
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		9
+	MdlPrmIdx		8
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		10
+	MdlPrmIdx		9
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1/n"
@@ -8457,14 +8287,14 @@ CompiledModel {
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		11
+	MdlPrmIdx		10
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		12
+	MdlPrmIdx		11
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1/n"
@@ -8473,7 +8303,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Value"
-	MdlPrmIdx		13
+	MdlPrmIdx		12
 	Value			[4.0]
 	ContainerCGTypeIdx	31
 	String			"4"
@@ -8481,7 +8311,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Amplitude"
-	MdlPrmIdx		14
+	MdlPrmIdx		13
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8489,7 +8319,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Frequency"
-	MdlPrmIdx		15
+	MdlPrmIdx		14
 	Value			[1.2566370614359172]
 	ContainerCGTypeIdx	31
 	String			"2*pi*2/10"
@@ -8497,7 +8327,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Amplitude"
-	MdlPrmIdx		16
+	MdlPrmIdx		15
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8505,7 +8335,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Frequency"
-	MdlPrmIdx		17
+	MdlPrmIdx		16
 	Value			[0.2]
 	ContainerCGTypeIdx	31
 	String			""
@@ -8514,21 +8344,21 @@ CompiledModel {
       }
       Parameter {
 	Name			"Time"
-	MdlPrmIdx		18
+	MdlPrmIdx		17
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Before"
-	MdlPrmIdx		19
+	MdlPrmIdx		18
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"After"
-	MdlPrmIdx		20
+	MdlPrmIdx		19
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8536,7 +8366,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Value"
-	MdlPrmIdx		21
+	MdlPrmIdx		20
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1"
@@ -8544,20 +8374,28 @@ CompiledModel {
       }
       Parameter {
 	Name			"Time"
-	MdlPrmIdx		22
+	MdlPrmIdx		21
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Before"
-	MdlPrmIdx		23
+	MdlPrmIdx		22
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"After"
+	MdlPrmIdx		23
+	Value			[50.0]
+	ContainerCGTypeIdx	31
+	String			"50"
+	StringType		"Expression"
+      }
+      Parameter {
+	Name			"Amplitude"
 	MdlPrmIdx		24
 	Value			[50.0]
 	ContainerCGTypeIdx	31
@@ -8565,16 +8403,8 @@ CompiledModel {
 	StringType		"Expression"
       }
       Parameter {
-	Name			"Amplitude"
-	MdlPrmIdx		25
-	Value			[50.0]
-	ContainerCGTypeIdx	31
-	String			"50"
-	StringType		"Expression"
-      }
-      Parameter {
 	Name			"Frequency"
-	MdlPrmIdx		26
+	MdlPrmIdx		25
 	Value			[1.2566370614359172]
 	ContainerCGTypeIdx	31
 	String			"2*pi*2/10"
@@ -8582,7 +8412,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Amplitude"
-	MdlPrmIdx		27
+	MdlPrmIdx		26
 	Value			[50.0]
 	ContainerCGTypeIdx	31
 	String			"50"
@@ -8590,7 +8420,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Frequency"
-	MdlPrmIdx		28
+	MdlPrmIdx		27
 	Value			[0.031830988618379068]
 	ContainerCGTypeIdx	31
 	String			""
@@ -8599,8 +8429,8 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		29
-	Value			[0.62831853071795862]
+	MdlPrmIdx		28
+	Value			[0.25132741228718347]
 	ContainerCGTypeIdx	31
 	String			"2*pi/(1000)/Ts"
 	StringType		"Expression"
@@ -8608,8 +8438,8 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		30
-	Value			[3.2592535945124195]
+	MdlPrmIdx		29
+	Value			[1.6642176915080158]
 	ContainerCGTypeIdx	31
 	String			"double(Psp_d)"
 	StringType		"Expression"
@@ -8617,7 +8447,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		31
+	MdlPrmIdx		30
 	ContainerCGTypeIdx	31
 	String			"double(Dsp_d)"
 	StringType		"Expression"
@@ -8625,22 +8455,22 @@ CompiledModel {
       }
       Parameter {
 	Name			"gainval"
-	MdlPrmIdx		32
-	Value			[0.01]
+	MdlPrmIdx		31
+	Value			[0.025]
 	CGTypeIdx		0
 	String			""
 	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		33
+	MdlPrmIdx		32
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		34
+	MdlPrmIdx		33
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"double(Nsp_d)"
@@ -8649,22 +8479,22 @@ CompiledModel {
       }
       Parameter {
 	Name			"gainval"
-	MdlPrmIdx		35
-	Value			[0.01]
+	MdlPrmIdx		34
+	Value			[0.025]
 	CGTypeIdx		0
 	String			""
 	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		36
+	MdlPrmIdx		35
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"UpperLimit"
-	MdlPrmIdx		37
+	MdlPrmIdx		36
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8672,7 +8502,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"LowerLimit"
-	MdlPrmIdx		38
+	MdlPrmIdx		37
 	Value			[-24.0]
 	ContainerCGTypeIdx	31
 	String			"-24"
@@ -8681,21 +8511,21 @@ CompiledModel {
       }
       Parameter {
 	Name			"Time"
-	MdlPrmIdx		39
+	MdlPrmIdx		38
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Before"
-	MdlPrmIdx		40
+	MdlPrmIdx		39
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"After"
-	MdlPrmIdx		41
+	MdlPrmIdx		40
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1"
@@ -8703,7 +8533,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		42
+	MdlPrmIdx		41
 	Value			[0.0062831853071795866]
 	ContainerCGTypeIdx	31
 	String			"2*pi/(1000)"
@@ -8711,8 +8541,8 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		43
-	Value			[27.821441753300917]
+	MdlPrmIdx		42
+	Value			[13.47226362483117]
 	ContainerCGTypeIdx	31
 	String			"double(Ppos_d)"
 	StringType		"Expression"
@@ -8720,8 +8550,8 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		44
-	Value			[1.45647119291339]
+	MdlPrmIdx		43
+	Value			[0.82164511861841516]
 	ContainerCGTypeIdx	31
 	String			"double(Dpos_d)"
 	StringType		"Expression"
@@ -8729,23 +8559,23 @@ CompiledModel {
       }
       Parameter {
 	Name			"gainval"
-	MdlPrmIdx		45
-	Value			[0.01]
+	MdlPrmIdx		44
+	Value			[0.025]
 	CGTypeIdx		0
 	String			""
 	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		46
+	MdlPrmIdx		45
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		47
-	Value			[105.58648860914488]
+	MdlPrmIdx		46
+	Value			[50.673018936390143]
 	ContainerCGTypeIdx	31
 	String			"double(Npos_d)"
 	StringType		"Expression"
@@ -8753,22 +8583,22 @@ CompiledModel {
       }
       Parameter {
 	Name			"gainval"
-	MdlPrmIdx		48
-	Value			[0.01]
+	MdlPrmIdx		47
+	Value			[0.025]
 	CGTypeIdx		0
 	String			""
 	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		49
+	MdlPrmIdx		48
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"UpperLimit"
-	MdlPrmIdx		50
+	MdlPrmIdx		49
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8776,7 +8606,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"LowerLimit"
-	MdlPrmIdx		51
+	MdlPrmIdx		50
 	Value			[-24.0]
 	ContainerCGTypeIdx	31
 	String			"-24"
@@ -8784,35 +8614,43 @@ CompiledModel {
 	NeedParenthesis		1
       }
       Parameter {
-	Name			"QuantizationInterval"
-	MdlPrmIdx		5
-	Value			[0.0062831853071795866]
+	Name			"Gain"
+	MdlPrmIdx		4
+	Value			[11.159131917944556]
 	ContainerCGTypeIdx	31
-	String			"Pulses"
+	String			"Ppos"
 	StringType		"Expression"
       }
       Parameter {
-	Name			"WtEt"
-	MdlPrmIdx		52
-	Value			[100.0]
+	Name			"gainval"
+	MdlPrmIdx		51
+	Value			[0.025]
 	CGTypeIdx		0
 	String			""
 	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
-	MdlPrmIdx		53
+	MdlPrmIdx		52
 	ContainerCGTypeIdx	31
-	String			"ICPrevScaledInput"
+	String			"0"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		4
-	Value			[1.0]
+	MdlPrmIdx		0
+	Value			[0.69298710539558894]
 	ContainerCGTypeIdx	31
-	String			"Ppos"
+	String			"Dpos"
 	StringType		"Expression"
+      }
+      Parameter {
+	Name			"gainval"
+	MdlPrmIdx		53
+	Value			[0.025]
+	CGTypeIdx		0
+	String			""
+	StringType		"Computed"
       }
       Parameter {
 	Name			"InitialCondition"
@@ -8823,28 +8661,15 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		0
-	ContainerCGTypeIdx	31
-	String			"Dpos"
-	StringType		"Expression"
-      }
-      Parameter {
-	Name			"InitialCondition"
-	MdlPrmIdx		55
-	ContainerCGTypeIdx	31
-	String			"0"
-	StringType		"Expression"
-      }
-      Parameter {
-	Name			"Gain"
 	MdlPrmIdx		3
+	Value			[55.955910050527827]
 	ContainerCGTypeIdx	31
 	String			"Npos"
 	StringType		"Expression"
       }
       Parameter {
 	Name			"UpperLimit"
-	MdlPrmIdx		56
+	MdlPrmIdx		55
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8852,7 +8677,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"LowerLimit"
-	MdlPrmIdx		57
+	MdlPrmIdx		56
 	Value			[-24.0]
 	ContainerCGTypeIdx	31
 	String			"-24"
@@ -8860,16 +8685,8 @@ CompiledModel {
 	NeedParenthesis		1
       }
       Parameter {
-	Name			"QuantizationInterval"
-	MdlPrmIdx		5
-	Value			[0.0062831853071795866]
-	ContainerCGTypeIdx	31
-	String			"Pulses"
-	StringType		"Expression"
-      }
-      Parameter {
 	Name			"Gain"
-	MdlPrmIdx		58
+	MdlPrmIdx		57
 	Value			[-1.0]
 	ContainerCGTypeIdx	31
 	String			"-1"
@@ -8878,7 +8695,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"UpperLimit"
-	MdlPrmIdx		59
+	MdlPrmIdx		58
 	Value			[24.0]
 	ContainerCGTypeIdx	31
 	String			"24"
@@ -8886,7 +8703,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"LowerLimit"
-	MdlPrmIdx		60
+	MdlPrmIdx		59
 	Value			[-24.0]
 	ContainerCGTypeIdx	31
 	String			"-24"
@@ -8895,7 +8712,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		61
+	MdlPrmIdx		60
 	Value			[0.020833333333333332]
 	ContainerCGTypeIdx	31
 	String			"1/48"
@@ -8904,7 +8721,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Value"
-	MdlPrmIdx		62
+	MdlPrmIdx		61
 	Value			[0.5]
 	ContainerCGTypeIdx	31
 	String			"0.5"
@@ -8912,7 +8729,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Value"
-	MdlPrmIdx		63
+	MdlPrmIdx		62
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1"
@@ -8920,7 +8737,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		64
+	MdlPrmIdx		63
 	Value			[0.00062232142857142857]
 	ContainerCGTypeIdx	31
 	String			"Km/R"
@@ -8929,7 +8746,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		8
+	MdlPrmIdx		7
 	Value			[3.56]
 	ContainerCGTypeIdx	31
 	String			"eps_dm"
@@ -8937,7 +8754,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		6
+	MdlPrmIdx		5
 	Value			[1.3528e-5]
 	ContainerCGTypeIdx	31
 	String			"dm"
@@ -8945,7 +8762,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		65
+	MdlPrmIdx		64
 	Value			[4.3377605058023088e-5]
 	ContainerCGTypeIdx	31
 	String			"Km*Kemf/(R)"
@@ -8962,7 +8779,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		7
+	MdlPrmIdx		6
 	Value			[0.6]
 	ContainerCGTypeIdx	31
 	String			"eps_Jeq"
@@ -8970,7 +8787,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		66
+	MdlPrmIdx		65
 	Value			[29.6]
 	ContainerCGTypeIdx	31
 	String			"29.6"
@@ -8978,7 +8795,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		67
+	MdlPrmIdx		66
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1"
@@ -8986,8 +8803,8 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		68
-	Value			[201.60686999208338]
+	MdlPrmIdx		67
+	Value			[75.26891776856948]
 	ContainerCGTypeIdx	31
 	String			"double(Ipos_d)"
 	StringType		"Expression"
@@ -8995,14 +8812,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		1
-	ContainerCGTypeIdx	31
-	String			"Ipos"
-	StringType		"Expression"
-      }
-      Parameter {
-	Name			"Gain"
-	MdlPrmIdx		69
+	MdlPrmIdx		68
 	Value			[29.6]
 	ContainerCGTypeIdx	31
 	String			"29.6"
@@ -9010,7 +8820,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
-	MdlPrmIdx		70
+	MdlPrmIdx		69
 	Value			[1.0]
 	ContainerCGTypeIdx	31
 	String			"1"
@@ -9018,8 +8828,32 @@ CompiledModel {
       }
       Parameter {
 	Name			"Gain"
+	MdlPrmIdx		1
+	Value			[71.243457676007736]
+	ContainerCGTypeIdx	31
+	String			"Ipos"
+	StringType		"Expression"
+      }
+      Parameter {
+	Name			"Gain"
+	MdlPrmIdx		70
+	Value			[29.6]
+	ContainerCGTypeIdx	31
+	String			"29.6"
+	StringType		"Expression"
+      }
+      Parameter {
+	Name			"Gain"
 	MdlPrmIdx		71
-	Value			[66.876626230813073]
+	Value			[1.0]
+	ContainerCGTypeIdx	31
+	String			"1"
+	StringType		"Expression"
+      }
+      Parameter {
+	Name			"Gain"
+	MdlPrmIdx		72
+	Value			[20.022631724515755]
 	ContainerCGTypeIdx	31
 	String			"double(Isp_d)"
 	StringType		"Expression"
@@ -9027,7 +8861,7 @@ CompiledModel {
       }
       Parameter {
 	Name			"Value"
-	MdlPrmIdx		72
+	MdlPrmIdx		73
 	ContainerCGTypeIdx	31
 	String			"0"
 	StringType		"Expression"
@@ -9047,8 +8881,8 @@ CompiledModel {
   }
   StateflowAutoEnumInfoList {
   }
-  BlockParamChecksum	  ["338159803U", "3988862219U", "1087496583U", "79525689U"]
-  ModelChecksum		  ["2463676512U", "1324176393U", "808042449U", "3729247056U"]
+  BlockParamChecksum	  ["3722354814U", "303182903U", "2291956384U", "2888948853U"]
+  ModelChecksum		  ["610791137U", "2983705896U", "1707553003U", "3751260471U"]
   IncludeCodeGenSettings  1
   CGTypes {
     CGTypeDefaults {
@@ -9204,7 +9038,7 @@ CompiledModel {
       Name		      "B_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		79
+	NumMembers		77
 	Member {
 	  Name			  "Integrator1"
 	}
@@ -9323,34 +9157,19 @@ CompiledModel {
 	  Name			  "ZOH2"
 	}
 	Member {
-	  Name			  "Quantizer"
-	}
-	Member {
-	  Name			  "ZOH"
-	}
-	Member {
-	  Name			  "TSamp"
-	}
-	Member {
-	  Name			  "Uk1"
-	}
-	Member {
-	  Name			  "Diff"
-	}
-	Member {
 	  Name			  "Sum3_o"
 	}
 	Member {
 	  Name			  "ProportionalGain"
 	}
 	Member {
-	  Name			  "Integrator"
+	  Name			  "DiscreteTimeIntegrator1_pk"
 	}
 	Member {
 	  Name			  "DerivativeGain"
 	}
 	Member {
-	  Name			  "Integrator1_l"
+	  Name			  "DiscreteTimeIntegrator2_f"
 	}
 	Member {
 	  Name			  "Sum"
@@ -9363,9 +9182,6 @@ CompiledModel {
 	}
 	Member {
 	  Name			  "Saturation_a"
-	}
-	Member {
-	  Name			  "Quantizer2"
 	}
 	Member {
 	  Name			  "MultiportSwitch"
@@ -9422,13 +9238,25 @@ CompiledModel {
 	  Name			  "Sum5"
 	}
 	Member {
+	  Name			  "Sum3_b"
+	}
+	Member {
+	  Name			  "AntiWindup"
+	}
+	Member {
+	  Name			  "AntiWindup1_n"
+	}
+	Member {
 	  Name			  "IntegralGain"
+	}
+	Member {
+	  Name			  "Sum4"
 	}
 	Member {
 	  Name			  "Sum2_o"
 	}
 	Member {
-	  Name			  "AntiWindup"
+	  Name			  "AntiWindup_e"
 	}
 	Member {
 	  Name			  "AntiWindup1_k"
@@ -9437,7 +9265,7 @@ CompiledModel {
 	  Name			  "IntegralGain2_g"
 	}
 	Member {
-	  Name			  "Sum4"
+	  Name			  "Sum4_f"
 	}
 	Member {
 	  Name			  "DataTypeConversion"
@@ -9449,7 +9277,7 @@ CompiledModel {
       Name		      "DW_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		9
+	NumMembers		10
 	Member {
 	  Name			  "DiscreteTimeIntegrator1_DSTATE"
 	}
@@ -9463,7 +9291,10 @@ CompiledModel {
 	  Name			  "DiscreteTimeIntegrator2_DSTAT_k"
 	}
 	Member {
-	  Name			  "UD_DSTATE"
+	  Name			  "DiscreteTimeIntegrator1_DSTAT_i"
+	}
+	Member {
+	  Name			  "DiscreteTimeIntegrator2_DSTAT_p"
 	}
 	Member {
 	  Name			  "SFunction1_IWORK"
@@ -9487,7 +9318,7 @@ CompiledModel {
       Name		      "P_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		73
+	NumMembers		74
 	Member {
 	  Name			  "Dpos"
 	}
@@ -9502,9 +9333,6 @@ CompiledModel {
 	}
 	Member {
 	  Name			  "Ppos"
-	}
-	Member {
-	  Name			  "Pulses"
 	}
 	Member {
 	  Name			  "dm"
@@ -9645,16 +9473,16 @@ CompiledModel {
 	  Name			  "Saturation_LowerSat_c"
 	}
 	Member {
-	  Name			  "TSamp_WtEt"
+	  Name			  "DiscreteTimeIntegrator1_gainv_c"
 	}
 	Member {
-	  Name			  "UD_InitialCondition"
+	  Name			  "DiscreteTimeIntegrator1_IC_l"
 	}
 	Member {
-	  Name			  "Integrator_IC"
+	  Name			  "DiscreteTimeIntegrator2_gainv_k"
 	}
 	Member {
-	  Name			  "Integrator1_IC_p"
+	  Name			  "DiscreteTimeIntegrator2_IC_d"
 	}
 	Member {
 	  Name			  "Saturation_UpperSat_g"
@@ -9699,6 +9527,12 @@ CompiledModel {
 	  Name			  "AntiWindup_Gain"
 	}
 	Member {
+	  Name			  "AntiWindup1_Gain_j"
+	}
+	Member {
+	  Name			  "AntiWindup_Gain_o"
+	}
+	Member {
 	  Name			  "AntiWindup1_Gain_f"
 	}
 	Member {
@@ -9713,18 +9547,12 @@ CompiledModel {
       Name		      "X_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		4
+	NumMembers		2
 	Member {
 	  Name			  "Integrator1_CSTATE"
 	}
 	Member {
 	  Name			  "Integrator2_CSTATE"
-	}
-	Member {
-	  Name			  "Integrator_CSTATE"
-	}
-	Member {
-	  Name			  "Integrator1_CSTATE_n"
 	}
       }
     }
@@ -9732,21 +9560,13 @@ CompiledModel {
       Name		      "XDis_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		4
+	NumMembers		2
 	Member {
 	  Name			  "Integrator1_CSTATE"
 	  CGTypeIdx		  8
 	}
 	Member {
 	  Name			  "Integrator2_CSTATE"
-	  CGTypeIdx		  8
-	}
-	Member {
-	  Name			  "Integrator_CSTATE"
-	  CGTypeIdx		  8
-	}
-	Member {
-	  Name			  "Integrator1_CSTATE_n"
 	  CGTypeIdx		  8
 	}
       }
@@ -9755,18 +9575,12 @@ CompiledModel {
       Name		      "XDot_mIO_T"
       Constructor	      "struct"
       Members {
-	NumMembers		4
+	NumMembers		2
 	Member {
 	  Name			  "Integrator1_CSTATE"
 	}
 	Member {
 	  Name			  "Integrator2_CSTATE"
-	}
-	Member {
-	  Name			  "Integrator_CSTATE"
-	}
-	Member {
-	  Name			  "Integrator1_CSTATE_n"
 	}
       }
     }
@@ -9843,94 +9657,82 @@ CompiledModel {
     TestInterfaceFcnIdx	    -1
     RTWCGModule {
       RateGrouping	      0
-      TLCFileName	      "s1_b0_wk4sd"
+      TLCFileName	      "s1_b0_hqmfe"
       RTWFcnConst {
 	HasInstanceSetup	"no"
 	Start_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_Start"
+	  TLCFileName		  "s1_b0_hqmfe_Start"
 	  StackSize		  0
 	}
 	InitializeConditions_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_InitializeConditions"
+	  TLCFileName		  "s1_b0_hqmfe_InitializeConditions"
 	  StackSize		  0
 	}
 	Outputs_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_Outputs"
+	  TLCFileName		  "s1_b0_hqmfe_Outputs"
 	  StackSize		  28
 	}
 	Update_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_Update"
+	  TLCFileName		  "s1_b0_hqmfe_Update"
 	  StackSize		  0
 	}
 	Derivatives_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_Derivatives"
+	  TLCFileName		  "s1_b0_hqmfe_Derivatives"
 	  StackSize		  0
 	}
 	ForcingFunction_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_ForcingFunction"
+	  TLCFileName		  "s1_b0_hqmfe_ForcingFunction"
 	  StackSize		  0
 	}
 	Terminate_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_Terminate"
+	  TLCFileName		  "s1_b0_hqmfe_Terminate"
 	  StackSize		  0
 	}
 	ModelPrevZCStateInit_Function {
 	  HasTidArg		  0
 	  HasCpiArg		  0
-	  TLCFileName		  "s1_b0_wk4sd_ModelPrevZCStateInit"
+	  TLCFileName		  "s1_b0_hqmfe_ModelPrevZCStateInit"
 	  StackSize		  0
 	}
       }
       CGSystemIdx	      1
       FileNameOwnerModuleIdx  0
       FcnHeaders	      [0]
-      NumFunctions	      9
-      NumSubFunctions	      1
+      NumFunctions	      8
+      NumSubFunctions	      0
       SystemFunctions {
-	rt_roundd_snf		0
-	Start			1
-	InitializeConditions	2
-	Outputs			3
-	Update			4
-	Derivatives		5
-	ForcingFunction		6
-	Terminate		7
-	ModelPrevZCStateInit	8
+	Start			0
+	InitializeConditions	1
+	Outputs			2
+	Update			3
+	Derivatives		4
+	ForcingFunction		5
+	Terminate		6
+	ModelPrevZCStateInit	7
       }
       SystemFunctionTypes {
-	Start			1
-	InitializeConditions	2
-	Outputs			3
-	Update			4
-	Derivatives		5
-	ForcingFunction		6
-	Terminate		7
-	ModelPrevZCStateInit	8
-      }
-      Function {
-	Name			"rt_roundd_snf"
-	IsExported		1
-	IsShared		1
-	FcnHeaders		[0]
-	NumArgs			1
-	ArgAccessed		[1]
-	ArgNames		["u"]
-	ArgTypes		[0]
-	ArgSource		[X0]
+	Start			0
+	InitializeConditions	1
+	Outputs			2
+	Update			3
+	Derivatives		4
+	ForcingFunction		5
+	Terminate		6
+	ModelPrevZCStateInit	7
       }
       Function {
 	Name			"Start"
@@ -9946,13 +9748,6 @@ CompiledModel {
 	FunctionType		"Output"
 	FcnHeaders		[0]
 	NumTLCInterfaceFcns	11
-	NumFcnCalls		2
-	FunctionCall {
-	  CalleeIdx		  [0, 0, 0]
-	}
-	FunctionCall {
-	  CalleeIdx		  [0, 0, 0]
-	}
       }
       Function {
 	Name			"Update"
@@ -10009,12 +9804,12 @@ CompiledModel {
       InstanceIdx	      -1
       CGTypeIdx		      22
       GlobalOffset	      0
-      NumVarGroupElements     79
-      VarGroupElements	      Vector(79)
+      NumVarGroupElements     77
+      VarGroupElements	      Vector(77)
 [B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24, ...
 B25, B26, B27, B28, B29, B30, B31, B32, B33, B34, B35, B36, B37, B38, B39, B40, B41, B42, B43, B44, B45, B46, B47, ...
 B48, B49, B50, B51, B52, B53, B54, B55, B56, B57, B58, B59, B60, B61, B62, B63, B64, B65, B66, B67, B68, B69, B70, ...
-B71, B72, B73, B74, B75, B76, B77, B78]
+B71, B72, B73, B74, B75, B76]
     }
     VarGroup {
       Name		      "mIO_DW"
@@ -10024,8 +9819,8 @@ B71, B72, B73, B74, B75, B76, B77, B78]
       InstanceIdx	      -1
       CGTypeIdx		      23
       GlobalOffset	      0
-      NumVarGroupElements     9
-      VarGroupElements	      [W0, W1, W2, W3, W4, W5, W6, W7, W8]
+      NumVarGroupElements     10
+      VarGroupElements	      [W0, W1, W2, W3, W4, W5, W6, W7, W8, W9]
     }
     VarGroup {
       Name		      "mIO_P"
@@ -10035,12 +9830,12 @@ B71, B72, B73, B74, B75, B76, B77, B78]
       InstanceIdx	      -1
       CGTypeIdx		      24
       GlobalOffset	      0
-      NumVarGroupElements     73
-      VarGroupElements	      Vector(73)
+      NumVarGroupElements     74
+      VarGroupElements	      Vector(74)
 [P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16, P17, P18, P19, P20, P21, P22, P23, P24, ...
 P25, P26, P27, P28, P29, P30, P31, P32, P33, P34, P35, P36, P37, P38, P39, P40, P41, P42, P43, P44, P45, P46, P47, ...
 P48, P49, P50, P51, P52, P53, P54, P55, P56, P57, P58, P59, P60, P61, P62, P63, P64, P65, P66, P67, P68, P69, P70, ...
-P71, P72]
+P71, P72, P73]
     }
     VarGroup {
       Name		      "mIO_X"
@@ -10049,8 +9844,8 @@ P71, P72]
       SysIdx		      1
       InstanceIdx	      -1
       CGTypeIdx		      25
-      NumVarGroupElements     4
-      VarGroupElements	      [E0, X0, X1, X2]
+      NumVarGroupElements     2
+      VarGroupElements	      [E0, X0]
     }
     VarGroup {
       Name		      "mIO_XDis"
@@ -10059,8 +9854,8 @@ P71, P72]
       SysIdx		      1
       InstanceIdx	      -1
       CGTypeIdx		      26
-      NumVarGroupElements     4
-      VarGroupElements	      [E0, XDI0, XDI1, XDI2]
+      NumVarGroupElements     2
+      VarGroupElements	      [E0, XDI0]
     }
     VarGroup {
       Name		      "mIO_XDot"
@@ -10069,8 +9864,8 @@ P71, P72]
       SysIdx		      1
       InstanceIdx	      -1
       CGTypeIdx		      27
-      NumVarGroupElements     4
-      VarGroupElements	      [E0, DX0, DX1, DX2]
+      NumVarGroupElements     2
+      VarGroupElements	      [E0, DX0]
     }
     VarGroup {
       Name		      "mIO_PrevZCX"

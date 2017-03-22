@@ -11,7 +11,7 @@ J2 = 1.8E-5;
 n = 1;
 Jeq = Jm + (J1+J2)/(n^2);
 
-Ts = 1e-3; %See step response (2-1.6
+Ts = 0.25e-1; %See step response (2-1.6
 Pulses = (2*pi)/1000; % Pulses per rad
 
 
@@ -203,8 +203,27 @@ ess = 0.000;
 [FF_P_pos_cont,FB_P_pos_cont, PD, P, D, I, N] = PID_calc(Mp_pos_cont,tr_pos_cont*relative_tr,-1,ess,Gpos_cont,Ain_pos_cont,Bin_pos_cont,B0_pos_cont,sysOrd);
 
 %Set the parameters that will be used in simulink
-Psp = double(P);
-Dsp = double(D);
-Isp = double(I);
-Nsp = double(N);
+Ppos = double(P);
+Dpos = double(D);
+Ipos = double(I);
+Npos = double(N);
 
+FB_disc = c2d(FB_P_pos_cont, Ts, 'Tunstin');
+FF_disc = c2d(FF_P_pos_cont, Ts, 'Tunstin');
+
+[FB_cont_disc_num, FB_cont_disc_den] = tfdata(FB_disc);
+[FF_cont_disc_num, FF_cont_disc_den] = tfdata(FF_disc);
+
+% S = (z-1)*(z-1)*D*N + (z-1)*(z-1)*P + (z-1)*(I*Ts + N*P*Ts) + N*Ts*I*Ts;
+%             R = (z-1)*(z-1) + (z-1)*Ts*N;
+%             Acl =  A*R + B*S;
+%             if order == 2
+%                     Ad  = (z^2 + P1*z + P0)*(z - P_f)*(z - P_f);
+%                     Am0 = 1 + P1 + P0;
+%                     A0 = (z - P_f)*(z - P_f);
+%             elseif order == 1
+%                     Ad  = (z - abs(pdVec(1)))*(z - P_f)*(z - P_f);
+%                     Am0 = (1 - abs(pdVec(1)));
+%                     A0 = (z - P_f)*(z - P_f);
+%             end
+%             [Dn,In,Nn,Pn] = solve(coeffs(Acl,z) == coeffs(Ad,z));

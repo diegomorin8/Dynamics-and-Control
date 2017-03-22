@@ -101,12 +101,12 @@ S_FUNCTIONS_LIB                =
 SOLVER                         = 
 NUMST                          = 2
 TID01EQ                        = 1
-NCSTATES                       = 4
+NCSTATES                       = 2
 EXT_MODE                       = 0
 MULTITASKING                   = 0
 # Support for parallel computing
 MASTER_ANCHOR_DIR              = 
-START_DIR                      = C:\Users\es2lab2\DOCUME~1\MATLAB\DYNAMI~1\WORKSH~1\WORKSH~1\dSpace
+START_DIR                      = C:\Users\es2lab2\DOCUME~1\DIEGOA~1\DYNAMI~1\WORKSH~1\WORKSH~1\dSpace
 # Shared library for utility code
 RTW_SHARED_LIB_SRCS_WILD       = 
 RTW_SHARED_LIB_SRCS_DIR        = 
