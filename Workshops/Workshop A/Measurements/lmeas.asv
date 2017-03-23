@@ -1,0 +1,42 @@
+%%      Info and Help Section
+%
+%       Loading Measurements
+%
+%       To Plot call
+%               
+%                   [X,Y] = lmeas('sdd_001',1); 
+%
+%
+%       To get measurement data call      
+%
+%                   [X,Y] = lmeas('sdd_001',0);
+
+function   [X,Y] = lmeas(name,pl)
+
+    data = load(name);                      % Load Structure
+    name2=fieldnames(data);                 % Get Fieldnames
+    name2=name2{1,1};                       % CELL ARRAY TO STRING Transformation
+    data=data.(name2);                        % Go down to data hierarchy
+    
+    
+    
+    
+    
+    
+    X = data.X.Data;
+    Y = data.Y;
+    SiZ=length(size(Y));
+    display(SiZ);
+    z=1;
+    if pl==1
+        figure();
+        hold;
+        for z=1:SiZ
+                plot(X,Y(z).Data);
+        end
+
+    else
+        ;
+    end
+    legend(Y(
+end

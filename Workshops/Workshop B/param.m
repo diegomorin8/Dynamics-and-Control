@@ -1,5 +1,4 @@
 clear all;
-
 syms s;
 
 R = 112;
@@ -13,12 +12,12 @@ J2 = 1.8E-5;
 n = 1;
 Jeq = Jm + (J1+J2)/(n^2);
 
-Ts = 0.25e-1; %See step response (2-1.6
-Pulses = (2*pi)/1000; % Pulses per rad
+Ts = 0.25e-1;                                       % See step response (2-1.6
+Pulses = (2*pi)/1000;                               % Pulses per rad
 
 
-eps_Jeq = 0.6; % Scaling factor for inertia
-eps_dm = 3.56; % scaling blabals
+eps_Jeq = 0.6;                                      % Scaling factor for inertia
+eps_dm = 3.56;                                      % scaling blabals
 
 Jeq = eps_Jeq*Jeq;
 dm = dm*eps_dm;
@@ -26,20 +25,19 @@ dm = dm*eps_dm;
 Fc = 0.0013;
 dv = 1e-2;
 
-%%%%%%%%% Voltage input
+%%%%%%%%% Voltage input Model
 A = [0 1; 0 -(dm/Jeq + Km*Kemf/(R*Jeq))];
 B = [0; Km/(R*Jeq)];
 C = [1/n 0; 0 1/n];
 D = [0; 0];
 
-% State space model
-Sys = ss(A,B,C,D);
+
+Sys = ss(A,B,C,D);                              % State space model
 G = tf(Sys);
 
-%Velocity tf
-Gspeed = G(2);
-%Position tf
-Gpos = G(1);
+
+Gspeed = G(2);                                  % Velocity tf
+Gpos = G(1);                                    % Position tf
 
 %Get denominators and numerator os the transfer functions
 %so that we get the equations of A and B that will be used for pole
@@ -84,8 +82,8 @@ ts_pos = S1.SettlingTime;
 %really high value
 ess = 0;
 subplot(2,3,1)
-rlocus(Gpos)
-title('Root locus before the controller')
+% rlocus(Gpos); title('Root locus before the controller');
+
 
 %Calculate the controler
 [FF_PID_pos,FB_PID_pos, PD, P, D, I, N] = PID_calc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd);
@@ -106,6 +104,7 @@ trising = Max_Speed/Max_Accel;
 
 time_in = [0,trising,trising,trising*2,trising*2];
 values = [Max_Accel,Max_Accel,-Max_Accel,-Max_Accel, 0];
-%%Simulink
-sim('WorkshopB_1');
+
+
+% sim('WorkshopB_1');
 
