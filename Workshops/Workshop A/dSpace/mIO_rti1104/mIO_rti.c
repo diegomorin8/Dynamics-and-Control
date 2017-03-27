@@ -6,7 +6,7 @@
    the hardware and software interrupts used.
 
    RTI1104 7.3 (02-Nov-2014)
-   Wed Mar 22 15:31:21 2017
+   Mon Mar 27 14:18:35 2017
 
    (c) Copyright 2006, dSPACE GmbH. All rights reserved.
 
@@ -90,6 +90,12 @@ static void rti_mdl_initialize_io_boards(void)
                           VCM_VERSION_RELEASE, 0, 0, 0, VCM_CTRL_NO_ST);
       vcm_module_register(VCM_MID_RTW, msg_mod_ptr,
                           VCM_TXT_RTW, 8, 7, 0,
+                          VCM_VERSION_RELEASE, 0, 0, 0, VCM_CTRL_NO_ST);
+      vcm_module_register(VCM_MID_STATEFLOW, msg_mod_ptr,
+                          VCM_TXT_STATEFLOW, 8, 4, 0,
+                          VCM_VERSION_RELEASE, 0, 0, 0, VCM_CTRL_NO_ST);
+      vcm_module_register(VCM_MID_STATEFLOW_CODER, msg_mod_ptr,
+                          VCM_TXT_STATEFLOW_CODER, 8, 7, 0,
                           VCM_VERSION_RELEASE, 0, 0, 0, VCM_CTRL_NO_ST);
     }
   }

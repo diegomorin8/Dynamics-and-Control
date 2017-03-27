@@ -82,8 +82,8 @@ LOAD rti_init_c.o03
 LOAD rt_sim.o03
 LOAD rti_assert.o03
 LOAD rti_slv1104.o03
-LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\DS1104\RTKernel\rtk1104.lib"
-LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\DS1104\RTLib\ds1104.lib"
-LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\Compiler\PPCTools\LIB\mppc_b.lib"
-LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\Compiler\PPCTools\LIB\mppchb.lib"
+LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B\DS1104\RTKernel\rtk1104.lib"
+LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B\DS1104\RTLib\ds1104.lib"
+LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B\Compiler\PPCTools\LIB\mppc_b.lib"
+LOAD "C:\Program Files (x86)\dSPACE RCPHIL 2014-B\Compiler\PPCTools\LIB\mppchb.lib"
  

@@ -1,4 +1,4 @@
-%implements s1_b0_hqmfe_ForcingFunction "C"
+%implements s2_b0_7osoe_ForcingFunction "C"
 
 %function ForcingFunction(block, system) Output
 %assign cfgTxt = ""
@@ -8,9 +8,13 @@
 XDot_mIO_T *_rtXdot;
 %closefile localVarDecl
 _rtXdot = %<(SLibCG_SE(SLibGetContStatesDerivativeStructPtr()))>;
-/* ForcingFunction for Integrator: '<S1>/Integrator1' */
+/* ForcingFunction for Integrator: '<S1>/Integrator3' */
+_rtXdot->Integrator3_CSTATE = mIO_B.Gain5;
+/* ForcingFunction for Integrator: '<S2>/Integrator1' */
 _rtXdot->Integrator1_CSTATE = mIO_B.Divide;
-/* ForcingFunction for Integrator: '<S1>/Integrator2' */
+/* ForcingFunction for Integrator: '<S1>/Integrator4' */
+_rtXdot->Integrator4_CSTATE = mIO_B.Integrator3;
+/* ForcingFunction for Integrator: '<S2>/Integrator2' */
 _rtXdot->Integrator2_CSTATE = mIO_B.Integrator1;
 %closefile cfgTxt
 %<cfgTxt>

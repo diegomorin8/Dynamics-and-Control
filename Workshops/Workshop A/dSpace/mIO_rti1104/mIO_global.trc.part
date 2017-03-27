@@ -38,16 +38,28 @@ group "Tunable Parameters"
 	p_1_mIO_real_T_0[5]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "dm"
+	 alias:   "Tc"
 	 flags:   PARAM
 	}
 	p_1_mIO_real_T_0[6]
 	{
 	 type:    flt(64,IEEE)*
-	 alias:   "eps_Jeq"
+	 alias:   "dm"
 	 flags:   PARAM
 	}
 	p_1_mIO_real_T_0[7]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "dv"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[8]
+	{
+	 type:    flt(64,IEEE)*
+	 alias:   "eps_Jeq"
+	 flags:   PARAM
+	}
+	p_1_mIO_real_T_0[9]
 	{
 	 type:    flt(64,IEEE)*
 	 alias:   "eps_dm"
@@ -59,7 +71,13 @@ endgroup
 
 -- ******** State Machine Data ************************************************
 
--- No Stateflow chart within the model.
+group "State Machine Data"
+{
+ flags: COLLAPSED
+}
+
+
+endgroup
 
 
 -- ******** Data Store Memories ***********************************************

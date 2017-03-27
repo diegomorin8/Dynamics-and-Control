@@ -5,7 +5,7 @@
    Declaration of function that initializes the global TRC pointers
 
    RTI1104 7.3 (02-Nov-2014)
-   Wed Mar 22 15:31:21 2017
+   Mon Mar 27 14:18:35 2017
 
    (c) Copyright 2008, dSPACE GmbH. All rights reserved.
 
@@ -38,12 +38,12 @@
               EXTERN_C volatile  real_T *p_5_mIO_real_T_0;
 
    #define RTI_INIT_TRC_POINTERS() \
-              p_0_mIO_real_T_0 = &mIO_B.Integrator1;\
+              p_0_mIO_real_T_0 = &mIO_B.Integrator3;\
               p_0_mIO_boolean_T_1 = &mIO_B.DataTypeConversion;\
               p_1_mIO_real_T_0 = &mIO_P.Dpos;\
               p_2_mIO_real_T_0 = &mIO_DW.DiscreteTimeIntegrator1_DSTATE;\
               p_2_mIO_int_T_1 = &mIO_DW.SFunction1_IWORK[0];\
-              p_3_mIO_real_T_0 = &mIO_X.Integrator1_CSTATE;\
+              p_3_mIO_real_T_0 = &mIO_X.Integrator3_CSTATE;\
               p_5_mIO_real_T_0 = &mIO_Y.dph_sim;\
 
    #endif                       /* RTI_HEADER_mIO_trc_ptr_h_ */

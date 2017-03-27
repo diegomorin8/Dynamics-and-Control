@@ -3,9 +3,9 @@
  *
  * Code generation for model "mIO".
  *
- * Model version              : 1.59
+ * Model version              : 1.65
  * Simulink Coder version : 8.7 (R2014b) 08-Sep-2014
- * C source code generated on : Wed Mar 22 15:31:21 2017
+ * C source code generated on : Mon Mar 27 14:18:35 2017
  *
  * Target selection: rti1104.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -48,7 +48,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   ODE1_IntgData *id = (ODE1_IntgData *)rtsiGetSolverData(si);
   real_T *f0 = id->f[0];
   int_T i;
-  int_T nXc = 2;
+  int_T nXc = 4;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
   rtsiSetdX(si, f0);
   mIO_derivatives();
@@ -85,23 +85,57 @@ void mIO_output(void)
     mIO_M->Timing.t[0] = rtsiGetT(&mIO_M->solverInfo);
   }
 
-  /* Integrator: '<S1>/Integrator1' */
+  /* Integrator: '<S1>/Integrator3' */
+  mIO_B.Integrator3 = mIO_X.Integrator3_CSTATE;
+
+  /* Gain: '<S1>/Gain10' */
+  mIO_B.Gain10 = mIO_P.Gain10_Gain * mIO_B.Integrator3;
+
+  /* Integrator: '<S2>/Integrator1' */
   mIO_B.Integrator1 = mIO_X.Integrator1_CSTATE;
 
-  /* Gain: '<S1>/Gain7' */
+  /* Gain: '<S2>/Gain7' */
   mIO_B.Gain7 = mIO_P.Gain7_Gain * mIO_B.Integrator1;
 
-  /* Outport: '<Root>/dph_sim' */
-  mIO_Y.dph_sim = mIO_B.Gain7;
+  /* MultiPortSwitch: '<Root>/Multiport Switch3' incorporates:
+   *  Constant: '<Root>/Model selector'
+   */
+  if ((int32_T)mIO_P.Modelselector_Value == 1) {
+    mIO_B.MultiportSwitch3 = mIO_B.Gain10;
+  } else {
+    mIO_B.MultiportSwitch3 = mIO_B.Gain7;
+  }
 
-  /* Integrator: '<S1>/Integrator2' */
+  /* End of MultiPortSwitch: '<Root>/Multiport Switch3' */
+
+  /* Outport: '<Root>/dph_sim' */
+  mIO_Y.dph_sim = mIO_B.MultiportSwitch3;
+
+  /* Integrator: '<S1>/Integrator4' */
+  mIO_B.Integrator4 = mIO_X.Integrator4_CSTATE;
+
+  /* Gain: '<S1>/Gain9' */
+  mIO_B.Gain9 = mIO_P.Gain9_Gain * mIO_B.Integrator4;
+
+  /* Integrator: '<S2>/Integrator2' */
   mIO_B.Integrator2 = mIO_X.Integrator2_CSTATE;
 
-  /* Gain: '<S1>/Gain6' */
+  /* Gain: '<S2>/Gain6' */
   mIO_B.Gain6 = mIO_P.Gain6_Gain * mIO_B.Integrator2;
 
+  /* MultiPortSwitch: '<Root>/Multiport Switch2' incorporates:
+   *  Constant: '<Root>/Model selector'
+   */
+  if ((int32_T)mIO_P.Modelselector_Value == 1) {
+    mIO_B.MultiportSwitch2 = mIO_B.Gain9;
+  } else {
+    mIO_B.MultiportSwitch2 = mIO_B.Gain6;
+  }
+
+  /* End of MultiPortSwitch: '<Root>/Multiport Switch2' */
+
   /* Outport: '<Root>/phi_sim' */
-  mIO_Y.phi_sim = mIO_B.Gain6;
+  mIO_Y.phi_sim = mIO_B.MultiportSwitch2;
 
   /* SignalGenerator: '<Root>/Ctrl. Sine' */
   mIO_B.CtrlSine = sin(mIO_P.CtrlSine_Frequency * mIO_M->Timing.t[0]) *
@@ -173,40 +207,40 @@ void mIO_output(void)
     /* ZeroOrderHold: '<Root>/ZOH3' */
     mIO_B.ZOH3 = mIO_B.MultiportSwitch1;
 
-    /* S-Function (rti_commonblock): '<S13>/S-Function2' */
+    /* S-Function (rti_commonblock): '<S15>/S-Function2' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S7>/w1_scaling' */
+    /* Gain: '<S8>/w1_scaling' */
     mIO_B.w1_scaling = mIO_P.w1_scaling_Gain * mIO_B.SFunction2;
 
     /* Sum: '<Root>/Sum2' */
     mIO_B.Sum2 = mIO_B.ZOH3 - mIO_B.w1_scaling;
 
-    /* Gain: '<S4>/Proportional Gain1' */
+    /* Gain: '<S5>/Proportional Gain1' */
     mIO_B.ProportionalGain1 = mIO_P.ProportionalGain1_Gain * mIO_B.Sum2;
 
-    /* Gain: '<S4>/Derivative Gain2' */
+    /* Gain: '<S5>/Derivative Gain2' */
     mIO_B.DerivativeGain2 = mIO_P.DerivativeGain2_Gain * mIO_B.Sum2;
 
-    /* DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
+    /* DiscreteIntegrator: '<S5>/Discrete-Time Integrator1' */
     mIO_B.DiscreteTimeIntegrator1 = mIO_DW.DiscreteTimeIntegrator1_DSTATE;
 
-    /* Sum: '<S4>/Sum1' */
+    /* Sum: '<S5>/Sum1' */
     mIO_B.Sum1 = mIO_B.DerivativeGain2 - mIO_B.DiscreteTimeIntegrator1;
 
-    /* Gain: '<S4>/Filter Gain1' */
+    /* Gain: '<S5>/Filter Gain1' */
     mIO_B.FilterGain1 = mIO_P.FilterGain1_Gain * mIO_B.Sum1;
 
-    /* Sum: '<S4>/Add2' */
+    /* Sum: '<S5>/Add2' */
     mIO_B.Add2 = mIO_B.ProportionalGain1 + mIO_B.FilterGain1;
 
-    /* DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
+    /* DiscreteIntegrator: '<S5>/Discrete-Time Integrator2' */
     mIO_B.DiscreteTimeIntegrator2 = mIO_DW.DiscreteTimeIntegrator2_DSTATE;
 
-    /* Sum: '<S4>/Sum3' */
+    /* Sum: '<S5>/Sum3' */
     mIO_B.Sum3 = mIO_B.Add2 + mIO_B.DiscreteTimeIntegrator2;
 
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S5>/Saturation' */
     temp = mIO_B.Sum3;
     u1 = mIO_P.Saturation_LowerSat;
     u2 = mIO_P.Saturation_UpperSat;
@@ -218,7 +252,7 @@ void mIO_output(void)
       mIO_B.Saturation = temp;
     }
 
-    /* End of Saturate: '<S4>/Saturation' */
+    /* End of Saturate: '<S5>/Saturation' */
   }
 
   /* Step: '<Root>/Pos' */
@@ -234,40 +268,40 @@ void mIO_output(void)
     /* ZeroOrderHold: '<Root>/ZOH1' */
     mIO_B.ZOH1 = mIO_B.Pos;
 
-    /* S-Function (rti_commonblock): '<S13>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S15>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* Gain: '<S7>/fi1_scaling' */
+    /* Gain: '<S8>/fi1_scaling' */
     mIO_B.fi1_scaling = mIO_P.fi1_scaling_Gain * mIO_B.SFunction1;
 
     /* Sum: '<Root>/Sum1' */
     mIO_B.Sum1_o = mIO_B.ZOH1 - mIO_B.fi1_scaling;
 
-    /* Gain: '<S2>/Proportional Gain1' */
+    /* Gain: '<S3>/Proportional Gain1' */
     mIO_B.ProportionalGain1_c = mIO_P.ProportionalGain1_Gain_c * mIO_B.Sum1_o;
 
-    /* Gain: '<S2>/Derivative Gain2' */
+    /* Gain: '<S3>/Derivative Gain2' */
     mIO_B.DerivativeGain2_p = mIO_P.DerivativeGain2_Gain_l * mIO_B.Sum1_o;
 
-    /* DiscreteIntegrator: '<S2>/Discrete-Time Integrator1' */
+    /* DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
     mIO_B.DiscreteTimeIntegrator1_p = mIO_DW.DiscreteTimeIntegrator1_DSTAT_l;
 
-    /* Sum: '<S2>/Sum1' */
+    /* Sum: '<S3>/Sum1' */
     mIO_B.Sum1_e = mIO_B.DerivativeGain2_p - mIO_B.DiscreteTimeIntegrator1_p;
 
-    /* Gain: '<S2>/Filter Gain1' */
+    /* Gain: '<S3>/Filter Gain1' */
     mIO_B.FilterGain1_i = mIO_P.FilterGain1_Gain_o * mIO_B.Sum1_e;
 
-    /* Sum: '<S2>/Add2' */
+    /* Sum: '<S3>/Add2' */
     mIO_B.Add2_a = mIO_B.ProportionalGain1_c + mIO_B.FilterGain1_i;
 
-    /* DiscreteIntegrator: '<S2>/Discrete-Time Integrator2' */
+    /* DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
     mIO_B.DiscreteTimeIntegrator2_h = mIO_DW.DiscreteTimeIntegrator2_DSTAT_k;
 
-    /* Sum: '<S2>/Sum3' */
+    /* Sum: '<S3>/Sum3' */
     mIO_B.Sum3_a = mIO_B.Add2_a + mIO_B.DiscreteTimeIntegrator2_h;
 
-    /* Saturate: '<S2>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     temp = mIO_B.Sum3_a;
     u1 = mIO_P.Saturation_LowerSat_c;
     u2 = mIO_P.Saturation_UpperSat_b;
@@ -279,7 +313,7 @@ void mIO_output(void)
       mIO_B.Saturation_k = temp;
     }
 
-    /* End of Saturate: '<S2>/Saturation' */
+    /* End of Saturate: '<S3>/Saturation' */
 
     /* ZeroOrderHold: '<Root>/ZOH2' */
     mIO_B.ZOH2 = mIO_B.Pos;
@@ -287,29 +321,29 @@ void mIO_output(void)
     /* Sum: '<Root>/Sum3' */
     mIO_B.Sum3_o = mIO_B.ZOH2 - mIO_B.fi1_scaling;
 
-    /* Gain: '<S3>/Proportional Gain' */
+    /* Gain: '<S4>/Proportional Gain' */
     mIO_B.ProportionalGain = mIO_P.Ppos * mIO_B.Sum3_o;
 
-    /* DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
+    /* DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
     mIO_B.DiscreteTimeIntegrator1_pk = mIO_DW.DiscreteTimeIntegrator1_DSTAT_i;
 
-    /* Gain: '<S3>/Derivative Gain' */
+    /* Gain: '<S4>/Derivative Gain' */
     mIO_B.DerivativeGain = mIO_P.Dpos * mIO_B.Sum3_o;
 
-    /* DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
+    /* DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
     mIO_B.DiscreteTimeIntegrator2_f = mIO_DW.DiscreteTimeIntegrator2_DSTAT_p;
 
-    /* Sum: '<S3>/Sum' */
+    /* Sum: '<S4>/Sum' */
     mIO_B.Sum = mIO_B.DerivativeGain - mIO_B.DiscreteTimeIntegrator2_f;
 
-    /* Gain: '<S3>/Filter Gain' */
+    /* Gain: '<S4>/Filter Gain' */
     mIO_B.FilterGain = mIO_P.Npos * mIO_B.Sum;
 
-    /* Sum: '<S3>/Sum1' */
+    /* Sum: '<S4>/Sum1' */
     mIO_B.Sum1_ec = (mIO_B.ProportionalGain + mIO_B.DiscreteTimeIntegrator1_pk)
       + mIO_B.FilterGain;
 
-    /* Saturate: '<S3>/Saturation' */
+    /* Saturate: '<S4>/Saturation' */
     temp = mIO_B.Sum1_ec;
     u1 = mIO_P.Saturation_LowerSat_m;
     u2 = mIO_P.Saturation_UpperSat_g;
@@ -321,7 +355,7 @@ void mIO_output(void)
       mIO_B.Saturation_a = temp;
     }
 
-    /* End of Saturate: '<S3>/Saturation' */
+    /* End of Saturate: '<S4>/Saturation' */
   }
 
   /* MultiPortSwitch: '<Root>/Multiport Switch' incorporates:
@@ -358,7 +392,7 @@ void mIO_output(void)
   /* Gain: '<Root>/Gain' */
   mIO_B.Gain = mIO_P.Gain_Gain * mIO_B.MultiportSwitch;
 
-  /* Saturate: '<S5>/Saturation' */
+  /* Saturate: '<S6>/Saturation' */
   temp = mIO_B.Gain;
   u1 = mIO_P.Saturation_LowerSat_k;
   u2 = mIO_P.Saturation_UpperSat_bg;
@@ -370,37 +404,37 @@ void mIO_output(void)
     mIO_B.Saturation_n = temp;
   }
 
-  /* End of Saturate: '<S5>/Saturation' */
+  /* End of Saturate: '<S6>/Saturation' */
 
-  /* Gain: '<S5>/pwm_skalning' */
+  /* Gain: '<S6>/pwm_skalning' */
   mIO_B.pwm_skalning = mIO_P.pwm_skalning_Gain * mIO_B.Saturation_n;
 
-  /* Sum: '<S5>/Sum' incorporates:
-   *  Constant: '<S5>/pwm_offstet'
+  /* Sum: '<S6>/Sum' incorporates:
+   *  Constant: '<S6>/pwm_offstet'
    */
   mIO_B.Sum_k = mIO_B.pwm_skalning + mIO_P.pwm_offstet_Value;
   if (rtmIsMajorTimeStep(mIO_M)) {
-    /* S-Function (rti_commonblock): '<S9>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S11>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* dSPACE I/O Board DS1104 #1 Unit:PWM Group:PWM */
     ds1104_slave_dsp_pwm_duty_write(0, rti_slv1104_fcn_index[6], mIO_B.Sum_k);
 
-    /* S-Function (rti_commonblock): '<S9>/S-Function2' */
+    /* S-Function (rti_commonblock): '<S11>/S-Function2' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S9>/S-Function3' */
+    /* S-Function (rti_commonblock): '<S11>/S-Function3' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S9>/S-Function4' */
+    /* S-Function (rti_commonblock): '<S11>/S-Function4' */
     /* This comment workarounds a code generation problem */
 
-    /* DataTypeConversion: '<S5>/Data Type Conversion' incorporates:
-     *  Constant: '<S5>/Enable[1_Off, 0_On]'
+    /* DataTypeConversion: '<S6>/Data Type Conversion' incorporates:
+     *  Constant: '<S6>/Enable[1_Off, 0_On]'
      */
     mIO_B.DataTypeConversion = (mIO_P.Enable1_Off0_On_Value != 0.0);
 
-    /* S-Function (rti_commonblock): '<S8>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S10>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
     /* dSPACE I/O Board DS1104 #1 Unit:BIT_IO Group:BIT_OUT */
@@ -411,88 +445,147 @@ void mIO_output(void)
     }
   }
 
+  /* Gain: '<S1>/Gain3' */
+  mIO_B.Gain3 = mIO_P.Gain3_Gain * mIO_B.Integrator3;
+
   /* Gain: '<S1>/Gain2' */
   mIO_B.Gain2 = mIO_P.Gain2_Gain * mIO_B.MultiportSwitch;
 
-  /* Gain: '<S1>/eps_dm' */
+  /* Sum: '<S1>/Add2' */
+  mIO_B.Add2_e = mIO_B.Gain2 - mIO_B.Gain3;
+
+  /* MATLAB Function: '<S1>/MATLAB Function' incorporates:
+   *  Constant: '<S1>/Constant'
+   *  Constant: '<S1>/Constant1'
+   */
+  /* MATLAB Function 'Model friction /MATLAB Function': '<S9>:1' */
+  if (fabs(mIO_B.Gain10) < mIO_P.dv) {
+    /* '<S9>:1:3' */
+    if (fabs(mIO_B.Gain2) > mIO_P.Tc) {
+      /* '<S9>:1:4' */
+      /* '<S9>:1:5' */
+      temp = mIO_B.Gain2;
+      if (temp < 0.0) {
+        temp = -1.0;
+      } else if (temp > 0.0) {
+        temp = 1.0;
+      } else {
+        if (temp == 0.0) {
+          temp = 0.0;
+        }
+      }
+
+      mIO_B.Tf = mIO_P.Tc * temp;
+    } else {
+      /* '<S9>:1:7' */
+      mIO_B.Tf = mIO_B.Gain2;
+    }
+  } else {
+    /* '<S9>:1:10' */
+    temp = mIO_B.Gain10;
+    if (temp < 0.0) {
+      temp = -1.0;
+    } else if (temp > 0.0) {
+      temp = 1.0;
+    } else {
+      if (temp == 0.0) {
+        temp = 0.0;
+      }
+    }
+
+    mIO_B.Tf = mIO_P.Tc * temp;
+  }
+
+  /* End of MATLAB Function: '<S1>/MATLAB Function' */
+
+  /* Sum: '<S1>/Add3' */
+  mIO_B.Add3 = mIO_B.Add2_e - mIO_B.Tf;
+
+  /* Gain: '<S1>/Gain5' */
+  mIO_B.Gain5 = mIO_P.Gain5_Gain * mIO_B.Add3;
+
+  /* Gain: '<S2>/Gain2' */
+  mIO_B.Gain2_i = mIO_P.Gain2_Gain_g * mIO_B.MultiportSwitch;
+
+  /* Gain: '<S2>/eps_dm' */
   mIO_B.eps_dm = mIO_P.eps_dm * mIO_B.Integrator1;
 
-  /* Gain: '<S1>/Friction' */
+  /* Gain: '<S2>/Friction' */
   mIO_B.Friction = mIO_P.dm * mIO_B.eps_dm;
 
-  /* Gain: '<S1>/Gain4' */
+  /* Gain: '<S2>/Gain4' */
   mIO_B.Gain4 = mIO_P.Gain4_Gain * mIO_B.Integrator1;
 
-  /* Sum: '<S1>/Sum2' */
+  /* Sum: '<S2>/Sum2' */
   mIO_B.Sum2_g = mIO_B.Friction + mIO_B.Gain4;
 
-  /* Sum: '<S1>/Sum1' */
-  mIO_B.Sum1_a = mIO_B.Gain2 - mIO_B.Sum2_g;
+  /* Sum: '<S2>/Sum1' */
+  mIO_B.Sum1_a = mIO_B.Gain2_i - mIO_B.Sum2_g;
   if (rtmIsMajorTimeStep(mIO_M)) {
-    /* Gain: '<S1>/eps_Jeq' incorporates:
-     *  Constant: '<S1>/Jeq'
+    /* Gain: '<S2>/eps_Jeq' incorporates:
+     *  Constant: '<S2>/Jeq'
      */
     mIO_B.eps_Jeq = mIO_P.eps_Jeq * mIO_P.Jeq;
   }
 
-  /* Product: '<S1>/Divide' */
+  /* Product: '<S2>/Divide' */
   mIO_B.Divide = mIO_B.Sum1_a / mIO_B.eps_Jeq;
   if (rtmIsMajorTimeStep(mIO_M)) {
-    /* Sum: '<S2>/Sum2' */
+    /* Sum: '<S3>/Sum2' */
     mIO_B.Sum2_b = mIO_B.Sum3_a - mIO_B.Saturation_k;
 
-    /* Gain: '<S2>/Anti-Windup1' */
+    /* Gain: '<S3>/Anti-Windup1' */
     mIO_B.AntiWindup1 = mIO_P.AntiWindup1_Gain * mIO_B.Sum2_b;
 
-    /* Gain: '<S2>/Anti-Windup2' */
+    /* Gain: '<S3>/Anti-Windup2' */
     mIO_B.AntiWindup2 = mIO_P.AntiWindup2_Gain * mIO_B.AntiWindup1;
 
-    /* Gain: '<S2>/Integral Gain2' */
+    /* Gain: '<S3>/Integral Gain2' */
     mIO_B.IntegralGain2 = mIO_P.IntegralGain2_Gain * mIO_B.Sum1_o;
 
-    /* Sum: '<S2>/Sum5' */
+    /* Sum: '<S3>/Sum5' */
     mIO_B.Sum5 = mIO_B.IntegralGain2 - mIO_B.AntiWindup2;
 
-    /* Sum: '<S3>/Sum3' */
+    /* Sum: '<S4>/Sum3' */
     mIO_B.Sum3_b = mIO_B.Sum1_ec - mIO_B.Saturation_a;
 
-    /* Gain: '<S3>/Anti-Windup' */
+    /* Gain: '<S4>/Anti-Windup' */
     mIO_B.AntiWindup = mIO_P.AntiWindup_Gain * mIO_B.Sum3_b;
 
-    /* Gain: '<S3>/Anti-Windup1' */
+    /* Gain: '<S4>/Anti-Windup1' */
     mIO_B.AntiWindup1_n = mIO_P.AntiWindup1_Gain_j * mIO_B.AntiWindup;
 
-    /* Gain: '<S3>/Integral Gain' */
+    /* Gain: '<S4>/Integral Gain' */
     mIO_B.IntegralGain = mIO_P.Ipos * mIO_B.Sum3_o;
 
-    /* Sum: '<S3>/Sum4' */
+    /* Sum: '<S4>/Sum4' */
     mIO_B.Sum4 = mIO_B.IntegralGain - mIO_B.AntiWindup1_n;
 
-    /* Sum: '<S4>/Sum2' */
+    /* Sum: '<S5>/Sum2' */
     mIO_B.Sum2_o = mIO_B.Sum3 - mIO_B.Saturation;
 
-    /* Gain: '<S4>/Anti-Windup' */
+    /* Gain: '<S5>/Anti-Windup' */
     mIO_B.AntiWindup_e = mIO_P.AntiWindup_Gain_o * mIO_B.Sum2_o;
 
-    /* Gain: '<S4>/Anti-Windup1' */
+    /* Gain: '<S5>/Anti-Windup1' */
     mIO_B.AntiWindup1_k = mIO_P.AntiWindup1_Gain_f * mIO_B.AntiWindup_e;
 
-    /* Gain: '<S4>/Integral Gain2' */
+    /* Gain: '<S5>/Integral Gain2' */
     mIO_B.IntegralGain2_g = mIO_P.IntegralGain2_Gain_h * mIO_B.Sum2;
 
-    /* Sum: '<S4>/Sum4' */
+    /* Sum: '<S5>/Sum4' */
     mIO_B.Sum4_f = mIO_B.IntegralGain2_g - mIO_B.AntiWindup1_k;
 
-    /* Outputs for Triggered SubSystem: '<S7>/DS1104ENC_SET_POS_C1' incorporates:
-     *  TriggerPort: '<S15>/Trigger'
+    /* Outputs for Triggered SubSystem: '<S8>/DS1104ENC_SET_POS_C1' incorporates:
+     *  TriggerPort: '<S17>/Trigger'
      */
     if (rtmIsMajorTimeStep(mIO_M)) {
-      /* Constant: '<S7>/Reset enc' */
+      /* Constant: '<S8>/Reset enc' */
       zcEvent = rt_ZCFcn(RISING_ZERO_CROSSING,
                          &mIO_PrevZCX.DS1104ENC_SET_POS_C1_Trig_ZCE,
                          (mIO_P.Resetenc_Value));
       if (zcEvent != NO_ZCEVENT) {
-        /* S-Function (rti_commonblock): '<S15>/S-Function1' */
+        /* S-Function (rti_commonblock): '<S17>/S-Function1' */
         /* This comment workarounds a code generation problem */
 
         /* dSPACE I/O Board DS1104 Unit:ENC_SET */
@@ -500,12 +593,12 @@ void mIO_output(void)
       }
     }
 
-    /* End of Outputs for SubSystem: '<S7>/DS1104ENC_SET_POS_C1' */
+    /* End of Outputs for SubSystem: '<S8>/DS1104ENC_SET_POS_C1' */
 
-    /* S-Function (rti_commonblock): '<S14>/S-Function1' */
+    /* S-Function (rti_commonblock): '<S16>/S-Function1' */
     /* This comment workarounds a code generation problem */
 
-    /* S-Function (rti_commonblock): '<S14>/S-Function2' */
+    /* S-Function (rti_commonblock): '<S16>/S-Function2' */
     /* This comment workarounds a code generation problem */
   }
 }
@@ -514,27 +607,27 @@ void mIO_output(void)
 void mIO_update(void)
 {
   if (rtmIsMajorTimeStep(mIO_M)) {
-    /* Update for DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
+    /* Update for DiscreteIntegrator: '<S5>/Discrete-Time Integrator1' */
     mIO_DW.DiscreteTimeIntegrator1_DSTATE +=
       mIO_P.DiscreteTimeIntegrator1_gainval * mIO_B.FilterGain1;
 
-    /* Update for DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
+    /* Update for DiscreteIntegrator: '<S5>/Discrete-Time Integrator2' */
     mIO_DW.DiscreteTimeIntegrator2_DSTATE +=
       mIO_P.DiscreteTimeIntegrator2_gainval * mIO_B.Sum4_f;
 
-    /* Update for DiscreteIntegrator: '<S2>/Discrete-Time Integrator1' */
+    /* Update for DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
     mIO_DW.DiscreteTimeIntegrator1_DSTAT_l +=
       mIO_P.DiscreteTimeIntegrator1_gainv_h * mIO_B.FilterGain1_i;
 
-    /* Update for DiscreteIntegrator: '<S2>/Discrete-Time Integrator2' */
+    /* Update for DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
     mIO_DW.DiscreteTimeIntegrator2_DSTAT_k +=
       mIO_P.DiscreteTimeIntegrator2_gainv_d * mIO_B.Sum5;
 
-    /* Update for DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
+    /* Update for DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
     mIO_DW.DiscreteTimeIntegrator1_DSTAT_i +=
       mIO_P.DiscreteTimeIntegrator1_gainv_c * mIO_B.Sum4;
 
-    /* Update for DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
+    /* Update for DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
     mIO_DW.DiscreteTimeIntegrator2_DSTAT_p +=
       mIO_P.DiscreteTimeIntegrator2_gainv_k * mIO_B.FilterGain;
   }
@@ -583,44 +676,56 @@ void mIO_derivatives(void)
   XDot_mIO_T *_rtXdot;
   _rtXdot = ((XDot_mIO_T *) mIO_M->ModelData.derivs);
 
-  /* Derivatives for Integrator: '<S1>/Integrator1' */
+  /* Derivatives for Integrator: '<S1>/Integrator3' */
+  _rtXdot->Integrator3_CSTATE = mIO_B.Gain5;
+
+  /* Derivatives for Integrator: '<S2>/Integrator1' */
   _rtXdot->Integrator1_CSTATE = mIO_B.Divide;
 
-  /* Derivatives for Integrator: '<S1>/Integrator2' */
+  /* Derivatives for Integrator: '<S1>/Integrator4' */
+  _rtXdot->Integrator4_CSTATE = mIO_B.Integrator3;
+
+  /* Derivatives for Integrator: '<S2>/Integrator2' */
   _rtXdot->Integrator2_CSTATE = mIO_B.Integrator1;
 }
 
 /* Model initialize function */
 void mIO_initialize(void)
 {
-  /* Start for S-Function (rti_commonblock): '<S9>/S-Function1' */
+  /* Start for S-Function (rti_commonblock): '<S11>/S-Function1' */
 
   /* dSPACE I/O Board DS1104 #1 Unit:PWM Group:PWM */
   mIO_DW.SFunction1_IWORK[0] = 0;
   mIO_PrevZCX.DS1104ENC_SET_POS_C1_Trig_ZCE = UNINITIALIZED_ZCSIG;
 
-  /* InitializeConditions for Integrator: '<S1>/Integrator1' */
+  /* InitializeConditions for Integrator: '<S1>/Integrator3' */
+  mIO_X.Integrator3_CSTATE = mIO_P.Integrator3_IC;
+
+  /* InitializeConditions for Integrator: '<S2>/Integrator1' */
   mIO_X.Integrator1_CSTATE = mIO_P.Integrator1_IC;
 
-  /* InitializeConditions for Integrator: '<S1>/Integrator2' */
+  /* InitializeConditions for Integrator: '<S1>/Integrator4' */
+  mIO_X.Integrator4_CSTATE = mIO_P.Integrator4_IC;
+
+  /* InitializeConditions for Integrator: '<S2>/Integrator2' */
   mIO_X.Integrator2_CSTATE = mIO_P.Integrator2_IC;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
+  /* InitializeConditions for DiscreteIntegrator: '<S5>/Discrete-Time Integrator1' */
   mIO_DW.DiscreteTimeIntegrator1_DSTATE = mIO_P.DiscreteTimeIntegrator1_IC;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
+  /* InitializeConditions for DiscreteIntegrator: '<S5>/Discrete-Time Integrator2' */
   mIO_DW.DiscreteTimeIntegrator2_DSTATE = mIO_P.DiscreteTimeIntegrator2_IC;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S2>/Discrete-Time Integrator1' */
+  /* InitializeConditions for DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
   mIO_DW.DiscreteTimeIntegrator1_DSTAT_l = mIO_P.DiscreteTimeIntegrator1_IC_a;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S2>/Discrete-Time Integrator2' */
+  /* InitializeConditions for DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
   mIO_DW.DiscreteTimeIntegrator2_DSTAT_k = mIO_P.DiscreteTimeIntegrator2_IC_o;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S3>/Discrete-Time Integrator1' */
+  /* InitializeConditions for DiscreteIntegrator: '<S4>/Discrete-Time Integrator1' */
   mIO_DW.DiscreteTimeIntegrator1_DSTAT_i = mIO_P.DiscreteTimeIntegrator1_IC_l;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S3>/Discrete-Time Integrator2' */
+  /* InitializeConditions for DiscreteIntegrator: '<S4>/Discrete-Time Integrator2' */
   mIO_DW.DiscreteTimeIntegrator2_DSTAT_p = mIO_P.DiscreteTimeIntegrator2_IC_d;
 }
 
@@ -763,10 +868,16 @@ RT_MODEL_mIO_T *mIO(void)
                 sizeof(B_mIO_T));
 
   {
+    mIO_B.Integrator3 = 0.0;
+    mIO_B.Gain10 = 0.0;
     mIO_B.Integrator1 = 0.0;
     mIO_B.Gain7 = 0.0;
+    mIO_B.MultiportSwitch3 = 0.0;
+    mIO_B.Integrator4 = 0.0;
+    mIO_B.Gain9 = 0.0;
     mIO_B.Integrator2 = 0.0;
     mIO_B.Gain6 = 0.0;
+    mIO_B.MultiportSwitch2 = 0.0;
     mIO_B.CtrlSine = 0.0;
     mIO_B.CtrlSquare = 0.0;
     mIO_B.CtrlStep = 0.0;
@@ -816,7 +927,12 @@ RT_MODEL_mIO_T *mIO(void)
     mIO_B.Saturation_n = 0.0;
     mIO_B.pwm_skalning = 0.0;
     mIO_B.Sum_k = 0.0;
+    mIO_B.Gain3 = 0.0;
     mIO_B.Gain2 = 0.0;
+    mIO_B.Add2_e = 0.0;
+    mIO_B.Add3 = 0.0;
+    mIO_B.Gain5 = 0.0;
+    mIO_B.Gain2_i = 0.0;
     mIO_B.eps_dm = 0.0;
     mIO_B.Friction = 0.0;
     mIO_B.Gain4 = 0.0;
@@ -839,6 +955,7 @@ RT_MODEL_mIO_T *mIO(void)
     mIO_B.AntiWindup1_k = 0.0;
     mIO_B.IntegralGain2_g = 0.0;
     mIO_B.Sum4_f = 0.0;
+    mIO_B.Tf = 0.0;
   }
 
   /* parameters */
@@ -876,14 +993,14 @@ RT_MODEL_mIO_T *mIO(void)
   }
 
   /* Initialize Sizes */
-  mIO_M->Sizes.numContStates = (2);    /* Number of continuous states */
+  mIO_M->Sizes.numContStates = (4);    /* Number of continuous states */
   mIO_M->Sizes.numY = (2);             /* Number of model outputs */
   mIO_M->Sizes.numU = (0);             /* Number of model inputs */
   mIO_M->Sizes.sysDirFeedThru = (0);   /* The model is not direct feedthrough */
   mIO_M->Sizes.numSampTimes = (2);     /* Number of sample times */
-  mIO_M->Sizes.numBlocks = (94);       /* Number of blocks */
-  mIO_M->Sizes.numBlockIO = (77);      /* Number of block outputs */
-  mIO_M->Sizes.numBlockPrms = (74);    /* Sum of parameter "widths" */
+  mIO_M->Sizes.numBlocks = (110);      /* Number of blocks */
+  mIO_M->Sizes.numBlockIO = (89);      /* Number of block outputs */
+  mIO_M->Sizes.numBlockPrms = (84);    /* Sum of parameter "widths" */
   return mIO_M;
 }
 

@@ -5,12 +5,12 @@ function runtlccmd
 % 
 % 	tlc
 % 	-r
-% 	C:\Users\es2lab2\Documents\DiegoAndSof\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104\mIO.rtw
-% 	C:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\MATLAB\RTI\RTI1104\TLC\rti1104.tlc
-% 	-OC:\Users\es2lab2\Documents\DiegoAndSof\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104
-% 	-IC:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\MATLAB\RTI\RTI1104\TLC
-% 	-IC:\Program Files (x86)\dSPACE RCPHIL 2014-B restore\MATLAB\RTI\RTI\TLC
-% 	-IC:\Users\es2lab2\Documents\DiegoAndSof\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104\tlc
+% 	C:\Users\es2lab2\Documents\MATLAB\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104\mIO.rtw
+% 	C:\Program Files (x86)\dSPACE RCPHIL 2014-B\MATLAB\RTI\RTI1104\TLC\rti1104.tlc
+% 	-OC:\Users\es2lab2\Documents\MATLAB\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104
+% 	-IC:\Program Files (x86)\dSPACE RCPHIL 2014-B\MATLAB\RTI\RTI1104\TLC
+% 	-IC:\Program Files (x86)\dSPACE RCPHIL 2014-B\MATLAB\RTI\RTI\TLC
+% 	-IC:\Users\es2lab2\Documents\MATLAB\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104\tlc
 % 	-IC:\Program Files (x86)\MATLAB\R2014b\rtw\c\tlc\mw
 % 	-IC:\Program Files (x86)\MATLAB\R2014b\rtw\c\tlc\lib
 % 	-IC:\Program Files (x86)\MATLAB\R2014b\rtw\c\tlc\blocks
@@ -92,7 +92,7 @@ function runtlccmd
 
    else
 
-      rtwprivate('rtwattic', 'setBuildDir', 'C:\Users\es2lab2\Documents\DiegoAndSof\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104');
+      rtwprivate('rtwattic', 'setBuildDir', 'C:\Users\es2lab2\Documents\MATLAB\Dynamics-and-Control\Workshops\Workshop A\dSpace\mIO_rti1104');
       rtwprivate('ec_set_replacement_flag', 'mIO');
       set_param('mIO', 'RTWGenSharedUtilitiesWithoutAssert', 0);
       load tlccmd.mat;

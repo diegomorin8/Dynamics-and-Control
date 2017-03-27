@@ -18,8 +18,8 @@ Pulses = (2*pi)/1000; % Pulses per rad
 eps_Jeq = 0.6; % Scaling factor for inertia
 eps_dm = 3.56; % scaling blabals
 
-Jeq = eps_Jeq*Jeq;
-dm = dm*eps_dm;
+Jeq_final = eps_Jeq*Jeq;
+dm_final = dm*eps_dm;
 
 Tc = 0.0013;
 dv = 1e-2;
