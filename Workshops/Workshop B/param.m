@@ -13,7 +13,7 @@ J2 = 1.8E-5;
 n = 1;
 Jeq = Jm + (J1+J2)/(n^2);
 
-Ts = 0.1e-1; %See step response (2-1.6
+Ts = 5e-3; %See step response (2-1.6
 Pulses = (2*pi)/1000; % Pulses per rad
 
 
@@ -68,7 +68,7 @@ sysOrd = size(Poles{1,1},1);
 pos_ref_step = 4; %rad/s
 
 %For the first exercise, choose how much should the pos be decreased
-relative_ts = 5;
+relative_ts = 1;
 
 %Feedback the model without controller
 G_NR_pos = feedback(Gpos,1);
@@ -76,7 +76,7 @@ G_NR_pos = feedback(Gpos,1);
 %Get main parameters of step response of the system without controller
 S1 = stepinfo(G_NR_pos);
 tr_pos = S1.RiseTime;
-Mp_pos = 0.00000001;
+Mp_pos = 0.1;
 ts_pos = S1.SettlingTime;
 
 %steady state error allowed. We want a proportional controller so we set a
@@ -95,15 +95,15 @@ Dpos = double(D);
 Ipos = double(I);
 Npos = double(N);
 
-MaxCurrent = 1/2*0.182*0.8;
+MaxCurrent = 0.182*0.8;
 MaxVoltage = 24*0.8;
 %Parmas max
-Max_Speed = (MaxVoltage - R*MaxCurrent)/(Kemf);
-Max_Accel = (Kemf*MaxCurrent - dm*Max_Speed)/(Jeq);
-trising = Max_Speed/Max_Accel;
+Max_Speed = MaxVoltage/Kemf
+Max_Accel = Km*MaxCurrent/Jeq
+%trising = Max_Speed/Max_Accel;
 
 time_in = [0,trising,trising,trising*2,trising*2];
 values = [Max_Accel,Max_Accel,-Max_Accel,-Max_Accel, 0];
 %%Simulink
-sim('WorkshopB_1');
-
+%sim('WorkshopB_1');
+sim('Copy_of_WorkshopB_1');
