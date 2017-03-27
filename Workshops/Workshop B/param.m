@@ -68,7 +68,7 @@ sysOrd = size(Poles{1,1},1);
 pos_ref_step = 4; %rad/s
 
 %For the first exercise, choose how much should the pos be decreased
-relative_ts = 1;
+relative_ts = 2;
 
 %Feedback the model without controller
 G_NR_pos = feedback(Gpos,1);
@@ -76,15 +76,12 @@ G_NR_pos = feedback(Gpos,1);
 %Get main parameters of step response of the system without controller
 S1 = stepinfo(G_NR_pos);
 tr_pos = S1.RiseTime;
-Mp_pos = 0.1;
+Mp_pos = 0.001;
 ts_pos = S1.SettlingTime;
 
 %steady state error allowed. We want a proportional controller so we set a
 %really high value
 ess = 0;
-subplot(2,3,1)
-rlocus(Gpos)
-title('Root locus before the controller')
 
 %Calculate the controler
 [FF_PID_pos,FB_PID_pos, PD, P, D, I, N] = PID_calc_disc(Mp_pos,-1,ts_pos*relative_ts,ess,Gpos,Ain_pos,Bin_pos,B0_pos,sysOrd, Ts);
@@ -98,12 +95,67 @@ Npos = double(N);
 MaxCurrent = 0.182*0.8;
 MaxVoltage = 24*0.8;
 %Parmas max
-Max_Speed = MaxVoltage/Kemf
-Max_Accel = Km*MaxCurrent/Jeq
-%trising = Max_Speed/Max_Accel;
+Max_Speed = MaxVoltage/Kemf;
+Max_Accel = Km*MaxCurrent/Jeq;
+trising = Max_Speed/Max_Accel;
 
-time_in = [0,trising,trising,trising*2,trising*2];
-values = [Max_Accel,Max_Accel,-Max_Accel,-Max_Accel, 0];
+%%Signal builder
+%%For 10 rad - 0.35 secs
+trising = 0.35;
+Max_Speed_ = 10/(trising);
+if Max_Speed_ >= Max_Speed
+    Max_Speed_ = Pos/(2*trising);
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_1035 = [0,trising,trising,trising*2,trising*2,trising*3,trising*3];
+    values_1035 = [Max_Accel_,Max_Accel_,0,0,-Max_Accel_,-Max_Accel_, 0];
+else
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_1035 = [0,trising,trising,trising*2,trising*2];
+    values_1035 = [Max_Accel_,Max_Accel_,-Max_Accel_,-Max_Accel_, 0];
+end
+
+%%For 10 rad - max Speed
+trising = sqrt(10/Max_Accel);
+Max_Speed_ = 10/(trising);
+if Max_Speed_ >= Max_Speed
+    Max_Speed_ = Pos/(2*trising);
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_10 = [0,trising,trising,trising*2,trising*2,trising*3,trising*3];
+    values_10 = [Max_Accel_,Max_Accel_,0,0,-Max_Accel_,-Max_Accel_, 0];
+else
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_10 = [0,trising,trising,trising*2,trising*2];
+    values_10 = [Max_Accel_,Max_Accel_,-Max_Accel_,-Max_Accel_, 0];
+end
+
+%%For 100 rad - 35 secs
+trising = 0.35;
+Max_Speed_ = 100/(trising);
+if Max_Speed_ >= Max_Speed
+    Max_Speed_ = 100/(2*trising);
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_10035 = [0,trising,trising,trising*2,trising*2,trising*3,trising*3];
+    values_10035 = [Max_Accel_,Max_Accel_,0,0,-Max_Accel_,-Max_Accel_, 0];
+else
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_10035 = [0,trising,trising,trising*2,trising*2];
+    values_10035 = [Max_Accel_,Max_Accel_,-Max_Accel_,-Max_Accel_, 0];
+end
+
+%%For 100 rad - max Speed
+trising = sqrt(100/Max_Accel);
+Max_Speed_ = 100/(trising);
+if Max_Speed_ >= Max_Speed
+    Max_Speed_ = 100/(2*trising);
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_100 = [0,trising,trising,trising*2,trising*2,trising*3,trising*3];
+    values_100 = [Max_Accel_,Max_Accel_,0,0,-Max_Accel_,-Max_Accel_, 0];
+else
+    Max_Accel_ = Max_Speed_/trising;
+    time_in_100 = [0,trising,trising,trising*2,trising*2];
+    values_100 = [Max_Accel_,Max_Accel_,-Max_Accel_,-Max_Accel_, 0];
+end
+
 %%Simulink
 %sim('WorkshopB_1');
 sim('Copy_of_WorkshopB_1');
