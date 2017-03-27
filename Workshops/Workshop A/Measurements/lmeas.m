@@ -49,12 +49,20 @@ function   [X,Y] = lmeas(name,pl,z)
     else
         ;
     end
-%     legend(lbl,'Location','northeast');
+    
+    
+    %     legend(lbl,'Location','northeast');
+
 legend('w_{SIM}(rad/s)','w_{REAL}(rad/s)','Location','northeast')
 ylabel('Angular Velocity (rad/s)');
+legend('Signal Input (V)','w_{SIM}(rad/s)','w_{REAL}(rad/s)','Location','northwest')
+% ylabel('Angular Velocity (rad/s) / Voltage (V)');
+% legend('w_{SIM}(rad/s)','w_{REAL}(rad/s)','Location','northeast')
+% ylabel('Angular Velocity (rad/s)');
 % legend('Signal Input (V)','w_{SIM}(rad/s)','w_{REAL}(rad/s)','Location','northwest')
 %     ylabel('Angular Velocity (rad/s) / Voltage (V)');
-    xlabel('Time (seconds)');
-    title(name);
+
+xlabel('Time (seconds)');
+title(name);
     
 end
