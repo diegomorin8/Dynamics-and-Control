@@ -55,5 +55,6 @@ ylabel('Angular Velocity (rad/s)');
 % legend('Signal Input (V)','w_{SIM}(rad/s)','w_{REAL}(rad/s)','Location','northwest')
 %     ylabel('Angular Velocity (rad/s) / Voltage (V)');
     xlabel('Time (seconds)');
+    title(name);
     
 end
