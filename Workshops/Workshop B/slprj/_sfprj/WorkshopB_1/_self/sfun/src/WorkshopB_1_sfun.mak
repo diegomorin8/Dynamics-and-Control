@@ -33,7 +33,7 @@ MLSLSF_INCLUDES = \
     /I "C:\Program Files (x86)\MATLAB\R2014b\simulink\include" \
     /I "C:\Program Files (x86)\MATLAB\R2014b\stateflow\c\mex\include" \
     /I "C:\Program Files (x86)\MATLAB\R2014b\rtw\c\src" \
-    /I "C:\Users\es2lab2\Documents\DiegoAndSof\Dynamics-and-Control\Workshops\Workshop B\slprj\_sfprj\WorkshopB_1\_self\sfun\src" 
+    /I "C:\Users\es2lab2\Documents\MATLAB\Dynamics-and-Control\Workshops\Workshop B\slprj\_sfprj\WorkshopB_1\_self\sfun\src" 
 
 COMPILER_INCLUDES = /I "$(MSVC_ROOT)\include"
 

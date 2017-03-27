@@ -128,10 +128,10 @@ unsigned int sf_WorkshopB_1_process_check_sum_call( int nlhs, mxArray * plhs[],
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(112572380U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2627341181U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1204807795U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1167944147U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3227338564U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2322201596U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1882329434U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2375528716U);
   }
 
   return 1;
@@ -169,7 +169,7 @@ unsigned int sf_WorkshopB_1_autoinheritance_info( int nlhs, mxArray * plhs[],
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(aiChksum, "JLiXbskIJ9S1bki9uIU55B") == 0) {
+        if (strcmp(aiChksum, "B34ZFxhHkcDSXZZL2PBmGB") == 0) {
           extern mxArray *sf_c1_WorkshopB_1_get_autoinheritance_info(void);
           plhs[0] = sf_c1_WorkshopB_1_get_autoinheritance_info();
           break;
@@ -308,7 +308,7 @@ unsigned int sf_WorkshopB_1_third_party_uses_info( int nlhs, mxArray * plhs[],
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(tpChksum, "pH2tjGI9ekSctASOM4shVB") == 0) {
+        if (strcmp(tpChksum, "sCjPZSrUzVpzp7kK49HGmD") == 0) {
           extern mxArray *sf_c1_WorkshopB_1_third_party_uses_info(void);
           plhs[0] = sf_c1_WorkshopB_1_third_party_uses_info();
           break;
@@ -363,7 +363,7 @@ unsigned int sf_WorkshopB_1_jit_fallback_info( int nlhs, mxArray * plhs[], int
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(tpChksum, "pH2tjGI9ekSctASOM4shVB") == 0) {
+        if (strcmp(tpChksum, "sCjPZSrUzVpzp7kK49HGmD") == 0) {
           extern mxArray *sf_c1_WorkshopB_1_jit_fallback_info(void);
           plhs[0] = sf_c1_WorkshopB_1_jit_fallback_info();
           break;
@@ -418,7 +418,7 @@ unsigned int sf_WorkshopB_1_updateBuildInfo_args_info( int nlhs, mxArray * plhs[
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(tpChksum, "pH2tjGI9ekSctASOM4shVB") == 0) {
+        if (strcmp(tpChksum, "sCjPZSrUzVpzp7kK49HGmD") == 0) {
           extern mxArray *sf_c1_WorkshopB_1_updateBuildInfo_args_info(void);
           plhs[0] = sf_c1_WorkshopB_1_updateBuildInfo_args_info();
           break;
@@ -461,7 +461,7 @@ void sf_WorkshopB_1_get_post_codegen_info( int nlhs, mxArray * plhs[], int nrhs,
   switch (chartFileNumber) {
    case 1:
     {
-      if (strcmp(tpChksum, "pH2tjGI9ekSctASOM4shVB") == 0) {
+      if (strcmp(tpChksum, "sCjPZSrUzVpzp7kK49HGmD") == 0) {
         extern mxArray *sf_c1_WorkshopB_1_get_post_codegen_info(void);
         plhs[0] = sf_c1_WorkshopB_1_get_post_codegen_info();
         return;
