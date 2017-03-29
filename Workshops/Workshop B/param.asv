@@ -133,12 +133,8 @@ sim('WorkshopB_1_Code');
 Data_sim = Simu.Data;
 Data_code = Code.Data;
 Time = Simu.Time; 
-Data_codedef = Data_sim(2:size(Data_code));
+Data_codedef = Data_code(2:size(Data_code));
 
-
-plot(Time(1:(size(Data_code)-1)),Data_code(1:(size(Data_code)-1)))
-hold on
-plot(Time(1:(size(Data_code)-1)), Data_codedef)
-hold off
+plot(Data_sim, 
 
 
